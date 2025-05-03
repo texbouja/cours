@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Exercice</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">8<span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span></span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Solutions périodiques d’un système différentiel périodique.</span>
+</h3>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soient des applications continues <span class="process-math">\(A:\R\longrightarrow\mathcal M_d(\C)\)</span> et <span class="process-math">\(B:\R\longrightarrow
+\mathcal M_{d,1}(\C)\text{.}\)</span> On suppose que <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> sont <span class="process-math">\(T\)</span>-périodiques. On considère le système différentiel</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+X'=A(t)X +B(t) \qquad (E)
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">et note <span class="process-math">\((H)\)</span> son système homogène.</div> <ol class="lower-alpha lower-alpha-level-1" id="sysdiff-solutions-periodiques-2-4">
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soit <span class="process-math">\(\alpha\)</span> une fonction réelle continue <span class="process-math">\(T\)</span>-périodique. Donner une cns pour que l’edls <span class="process-math">\(x'=\alpha(t)x\)</span> admette des solutions <span class="process-math">\(T\)</span>-périodiques non nulle.</div></li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soit <span class="process-math">\(G\)</span> une solution du système <span class="process-math">\((E)\text{.}\)</span> Montrer que <span class="process-math">\(G\)</span> est <span class="process-math">\(T\)</span>-périodique si et seulement si <span class="process-math">\(G(T)=G(0)\text{.}\)</span>
+</div></li>
+<li>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">On suppose que l’application <span class="process-math">\(A\)</span> est constante.</div>
+<ol class="lower-roman" id="sysdiff-solutions-periodiques-2-4-3-2">
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que <span class="process-math">\(H\)</span> admet une solution <span class="process-math">\(T\)</span>-périodique si et seulement si <span class="process-math">\(A\)</span> admet au moins une <abbr class="acronym">VAP</abbr> <span class="process-math">\(\lambda\in\mathbf
+i\frac{2\pi}T\Z\text{.}\)</span>
+</div></li>
+<li>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">On suppose que <span class="process-math">\(B\)</span> est <span class="process-math">\(T\)</span>-périodique. Soit <span class="process-math">\(G\)</span> une solution de <span class="process-math">\((E)\text{.}\)</span> Montrer que <span class="process-math">\(G\)</span> est <span class="process-math">\(T\)</span>-périodique si et seulement si</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+(I_d-\e^{-TA})G(0)=\int_0^T\e^{-sA}B(s)\dt s
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que si <span class="process-math">\((H)\)</span> n’admet aucune solution périodique alors <span class="process-math">\((E)\)</span> admet une unique solution <span class="process-math">\(T\)</span>-périodique.</div>
+</li>
+</ol>
+</li>
+<li>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">On note <span class="process-math">\(R\)</span> l’application résolvante de <span class="process-math">\((H)\text{.}\)</span> Montrer que</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+\forall (t,s)\in \R^2,\; R(t+T,s+T)=R(t,s)
+\end{equation*}
+</div>
+</li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que <span class="process-math">\((H)\)</span> admet une solution <span class="process-math">\(T\)</span>-périodique non nulle si et seulement si <span class="process-math">\(1\)</span> est une <abbr class="acronym">VAP</abbr> de la matrice <span class="process-math">\(R(T,0)\)</span> .</div></li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soit <span class="process-math">\(p\in\N^*\text{.}\)</span> Montrer que <span class="process-math">\((H)\)</span> admet une solution <span class="process-math">\(pT\)</span>-périodique non nulle si et seulement si <span class="process-math">\(R(T,0)\)</span> admet une <abbr class="acronym">VAP</abbr> <span class="process-math">\(\lambda\)</span> telle que <span class="process-math">\(\lambda^p=1\text{.}\)</span>
+</div></li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que si <span class="process-math">\(R(T,0)\)</span> admet au moins une <abbr class="acronym">VAP</abbr> <span class="process-math">\(\lambda\)</span> telle que <span class="process-math">\(\lambda^p=1\)</span> et <span class="process-math">\(\lambda\ne 1\)</span> alors <span class="process-math">\((H)\)</span> admet au moins une solution <span class="process-math">\(pT\)</span>-périodique non constante.</div></li>
+<li>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">On suppose que <span class="process-math">\(A\)</span> est l’application <span class="process-math">\(2\pi\)</span>-périodique :</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+A:t\longmapsto \begin{pmatrix} 0\amp 1/2\amp 0 \\ -1/2\amp 0\amp 0 \\ 0\amp 0\amp  1+\sin
+t\end{pmatrix}
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+R(t,0)=\begin{pmatrix} \cos(t/2)\amp -\sin(t/2)\amp 0 \\ \sin(t/2)\amp \cos(t/2)\amp 0 \\
+0\amp 0\amp  \e^{1-\cos t+t} \end{pmatrix}
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">En déduire que <span class="process-math">\((H)\)</span> admet des solutions <span class="process-math">\(\pi\)</span>-périodiques non constantes.</div>
+</li>
+</ol>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><ol class="lower-alpha lower-alpha-level-1" id="sysdiff-solutions-periodiques-3-1">
+<li>
+<div class="para">Les solutions de l’équation différentielle <span class="process-math">\(x'=\alpha(t)x\)</span> sont les fonctions <span class="process-math">\(f:t\longmapsto \lambda \e^{A(t)}\)</span> où <span class="process-math">\(A\)</span> est une primitive de <span class="process-math">\(\alpha\text{.}\)</span> Si <span class="process-math">\(\lambda\ne0\)</span> alors <span class="process-math">\(f\)</span> est <span class="process-math">\(T\)</span>-périodique si et seulement si pour tout <span class="process-math">\(t\in\R\text{,}\)</span> <span class="process-math">\(\e^{A(t+T)-A(t)}=1\text{,}\)</span> ce qui équivaut à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall t\in\R,\int_t^{t+T}\alpha(s)\mathrm{d}s\in2\mathbf i\pi\Z
+\end{equation*}
+</div>
+<div class="para logical">
+<div class="para">Puisque <span class="process-math">\(\alpha\)</span> est <span class="process-math">\(T\)</span>-périodique, ceci équivaut à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_0^T\alpha(s)\mathrm{d}s\in 2\mathbf i\pi\Z
+\end{equation*}
+</div>
+</div>
+<aside class="aside aside-like"><div class="para">Avec <span class="process-math">\(\alpha(t)=\cos^2t\text{,}\)</span> l’équation <span class="process-math">\(x'=\alpha(t)x\)</span> n’aurait par exemple aucune solution <span class="process-math">\(\pi\)</span>-périodique non nulle bien que <span class="process-math">\(\alpha\)</span> est <span class="process-math">\(\pi\)</span>-périodique.</div></aside>
+</li>
+<li>
+<div class="para">Si <span class="process-math">\(G\)</span> est <span class="process-math">\(T\)</span>-périodique alors <span class="process-math">\(G(T)=G(0)\text{.}\)</span>
+</div>
+<div class="para">Réciproquement supposons que <span class="process-math">\(G(T)=G(0)\)</span> et considérons <span class="process-math">\(H:t\longmapsto
+G(t+T)\text{.}\)</span> Pour tout <span class="process-math">\(t\in\R\)</span> on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H'(t)=G'(t+T)=A(t+T)G(t+T)+B(t+T)=A(t)H(t)+B(t)
+\end{equation*}
+</div>
+<div class="para">donc <span class="process-math">\(H\)</span> est une solution de <span class="process-math">\((E)\text{.}\)</span> En outre on a <span class="process-math">\(H(0)=G(T)=G(0)\)</span> donc selon le théorème de Cauchy-Lipschitz, <span class="process-math">\(F=G\text{.}\)</span> Ce qui signifie que <span class="process-math">\(G\)</span> est <span class="process-math">\(T\)</span>-périodique.</div>
+</li>
+<li><div class="para"><ol class="lower-roman" id="sysdiff-solutions-periodiques-3-1-3-1">
+<li>
+<div class="para">Soit <span class="process-math">\(F\)</span> une solution non nulle de <span class="process-math">\((H)\text{.}\)</span> On a alors <span class="process-math">\(F(t)=\e^{tA}F(0)\)</span> pour tout <span class="process-math">\(t\in\R\text{.}\)</span> La fonction constante <span class="process-math">\(A\)</span> est <span class="process-math">\(T\)</span>-périodique donc selon la question précédente <span class="process-math">\(F\)</span> est <span class="process-math">\(T\)</span>-périodique si et seulement si <span class="process-math">\(F(T)=F(0)\text{.}\)</span> Ce qui équivaut à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\e^{TA}F(0)=F(0)
+\end{equation*}
+</div>
+<div class="para">Comme <span class="process-math">\(F\)</span> est non nulle alors <span class="process-math">\(F(0)\ne0\)</span> et donc <span class="process-math">\(F\)</span> est <span class="process-math">\(T\)</span>-périodique si et seulement si <span class="process-math">\(1\)</span> est une <abbr class="acronym">VAP</abbr> de <span class="process-math">\(\e^{TA}\)</span> et <span class="process-math">\(F(0)\in E_{1}(\e^{TA})\text{.}\)</span>
+</div>
+<div class="para">D’après l’exercice  , les <abbr class="acronym">VAP</abbr> de <span class="process-math">\(\e^{TA}\)</span> sont les nombres de la forme <span class="process-math">\(\e^{T\lambda}\)</span> où <span class="process-math">\(\lambda\)</span> est une <abbr class="acronym">VAP</abbr> de <span class="process-math">\(A\)</span> donc <span class="process-math">\(1\)</span> est une <abbr class="acronym">VAP</abbr> de <span class="process-math">\(\e^{TA}\)</span> si et seulement s’il existe <span class="process-math">\(\lambda\in\OPN{Sp}(A)\)</span> tel que <span class="process-math">\(\e^{\lambda T}=1\text{.}\)</span> Ce qui équivaut à <span class="process-math">\(\lambda\in\mathbf i\frac{2\pi}{T}\Z\text{.}\)</span>
+</div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(G\)</span> est une solution de l’équation complète. Son expression intégrale est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G(t)=\e^{tA}G(0)+\int_0^t\e^{(t-s)A}B(s)\mathrm{d}s=
+\e^{tA}\bigg(G(0)+\int_0^t\e^{-sA}B(s)\mathrm{d}s\bigg)
+\end{equation*}
+</div>
+<div class="para">Elle est <span class="process-math">\(T\)</span>-périodique si et seulement si <span class="process-math">\(G(T)=G(0)\text{,}\)</span> ce qui équivaut à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(I_d-\e^{-TA})G(0)=\int_0^T\e^{-sA}B(s)\mathrm{d}s
+\end{equation*}
+</div>
+<div class="para">Supposons que <span class="process-math">\((H)\)</span> n’a aucune solution périodique. Selon la question précédente <span class="process-math">\(1\)</span> n’est pas une <abbr class="acronym">VAP</abbr> de <span class="process-math">\(\e^{TA}\)</span> et donc de son inverse <span class="process-math">\(\e^{-TA}\text{.}\)</span> La matrice <span class="process-math">\(I_d-\e^{-TA}\)</span> est alors inversible et il existe donc un vecteur <span class="process-math">\(V\in\mathcal
+M_{d,1}(\C)\)</span> unique tel que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(I_d-\e^{-TA})V=\int_0^T\e^{-sA}B(s)\mathrm{d}s
+\end{equation*}
+</div>
+<div class="para">L’unique solution <span class="process-math">\(G\)</span> de <span class="process-math">\((E)\)</span> qui est alors <span class="process-math">\(T\)</span>-périodique est celle qui vérifie la condition initiale <span class="process-math">\(G(0)=V\text{.}\)</span>
+</div>
+<div class="para">Si <span class="process-math">\((H)\)</span> admet des solutions <span class="process-math">\(T\)</span>-périodiques alors <span class="process-math">\(1\)</span> est une <abbr class="acronym">VAP</abbr> de <span class="process-math">\(\e^{-tA}\text{.}\)</span> L’existence de vecteurs <span class="process-math">\(V\)</span> qui vérifient <span class="process-math">\((I_d-\e^{-TA})V=\int_0^T\e^{-sA}B(s)\mathrm{d}s\)</span> dépend alors de la condition</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_0^T\e^{-sA}B(s)\d
+s\in\im\big(I_d-\e^{-TA}\big)
+\end{equation*}
+</div>
+<div class="para">Si cette condition se réalise alors une solution <span class="process-math">\(G\)</span> de <span class="process-math">\((E)\)</span> sera <span class="process-math">\(T\)</span>-périodique si et seulement si</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G(0)\in
+V_0+\ker\big(I_d-\e^{-TA}\big)=V_0+\ker\big(I_d-\e^{TA}\big)
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(V_0\)</span> est une solution quelconque de l’équation <span class="process-math">\((I_d-\e^{-TA})V=\int_0^T\e^{-sA}B(s)\d
+s\text{.}\)</span>
+</div>
+</li>
+</ol></div></li>
+<li>
+<div class="para">Considérons l’équation résolvante de <span class="process-math">\((H)\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+U'=A(t)\circ U \qquad (RH)
+\end{equation*}
+</div>
+<div class="para">et rappelons que pour un <span class="process-math">\(s\)</span> fixé la fonction <span class="process-math">\(U : t\longmapsto R(t,s)\)</span> est l’unique solution de <span class="process-math">\((RH)\)</span> qui vérifie <span class="process-math">\(U(s)=I_d\text{.}\)</span>
+</div>
+<div class="para">Fixons maintenant <span class="process-math">\(s\in \R\)</span> et considérons la fonction <span class="process-math">\(r:t\longmapsto
+R(t+T,s+T)\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r'(t)=\frac{\partial R}{\partial t}(r+T,s+T)=A(t+T)R(t+T,s+T)= A(t)r(t)
+\end{equation*}
+</div>
+<div class="para">Donc <span class="process-math">\(r\)</span> est une solution de <span class="process-math">\((RH)\)</span> et elle vérifie <span class="process-math">\(r(s)=R(s+T,s+T)=I_d\text{.}\)</span> Alors par définition de <span class="process-math">\(R\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall t\in\R,\;R(t+T,s+T)=R(t,s)
+\end{equation*}
+</div>
+<div class="para">ceci pour tout <span class="process-math">\(s\in \R\text{.}\)</span>
+</div>
+<div class="para">Ensuite pour tout <span class="process-math">\(t\in\R\text{,}\)</span> on a selon les résultats de l’exercice  et la relation précédente</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R(t+T,t) = R(t+T,T)R(T,0)R(0,t) = R(t,0)R(T,0)R(t,0)^{-1}
+\end{equation*}
+</div>
+<div class="para">
+<span class="process-math">\(R(t+T,t)\)</span> est donc semblable à <span class="process-math">\(R(T,0)\text{.}\)</span>
+</div>
+</li>
+<li>
+<div class="para">Considérons une solution non nulle <span class="process-math">\(F\)</span> de <span class="process-math">\((H)\text{.}\)</span> Alors pour tout <span class="process-math">\(t\in\R\)</span> on a <span class="process-math">\(F(t)=R(t,0)F(0)\text{.}\)</span> <span class="process-math">\(F\)</span> est <span class="process-math">\(T\)</span>-périodique si et seulement si <span class="process-math">\(F(T)=F(0)\)</span> ou encore</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R(T,0)F(0)=F(0)
+\end{equation*}
+</div>
+<div class="para">Sachant que <span class="process-math">\(F(0)\ne0\text{,}\)</span> ceci équivaut à ce que <span class="process-math">\(1\)</span> soit une <abbr class="acronym">VAP</abbr> de <span class="process-math">\(R(T,0)\)</span> et que <span class="process-math">\(F(0)\in E_1\big(R(T,0)\big)\text{.}\)</span> Ainsi <span class="process-math">\((H)\)</span> admet des solutions non nulles <span class="process-math">\(T\)</span>-périodiques si et seulement si <span class="process-math">\(1\)</span> est une <abbr class="acronym">VAP</abbr> de <span class="process-math">\(R(T,0)\)</span> et dans ce cas ces solutions sont les fonctions <span class="process-math">\(t\longmapsto R(t,0)V\)</span> où <span class="process-math">\(V\in E_1(R(T,0))\setminus\{0\}\)</span> .</div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(A\)</span> est <span class="process-math">\(T\)</span>-périodique donc elle est <span class="process-math">\(pT\)</span>-périodique. La question précédente implique que <span class="process-math">\((H)\)</span> admet une solution <span class="process-math">\(pT\)</span>-périodique non nulle si et seulement si <span class="process-math">\(1\)</span> est une <abbr class="acronym">VAP</abbr> de <span class="process-math">\(R(pT,0)\text{.}\)</span> En s’appuyant sur les propriétés de <span class="process-math">\(R\)</span> on s’aperçoit par ailleurs que pour tout <span class="process-math">\(n\in\N\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R\big((n+1)T,0\big)=R\big((n+1)T,T)R(T,0)=R(nT,0)R(T,0)
+\end{equation*}
+</div>
+<div class="para">Et donc <span class="process-math">\(R(nT,0)=R(T,0)^n\)</span> pour tout <span class="process-math">\(n\in\N\text{.}\)</span> D’après l’exercice  <span class="process-math">\(1\)</span> est donc une <abbr class="acronym">VAP</abbr> de <span class="process-math">\(R(pT,0)\)</span> si et seulement s’il existe une <abbr class="acronym">VAP</abbr> <span class="process-math">\(\lambda\)</span> de <span class="process-math">\(R(T,0)\)</span> telle que <span class="process-math">\(\lambda^p=1\text{.}\)</span> Dans ce cas ces solutions sont les fonctions <span class="process-math">\(t\longmapsto
+R(t,0)V\)</span> où <span class="process-math">\(V\)</span> est un vecteur non nul quelconque de <span class="process-math">\(E_1(R(T,0)^p)\text{.}\)</span>
+</div>
+</li>
+<li><div class="para">Soit <span class="process-math">\(V\in E_\lambda(R(T,0))\setminus\{0\}\text{.}\)</span> Puisque <span class="process-math">\(\lambda^p=1\)</span> alors la fonction <span class="process-math">\(F:t\longmapsto R(t,0)V\)</span> est une solution <span class="process-math">\(pT\)</span>-périodique non nulle de <span class="process-math">\((H)\text{.}\)</span> Supposons qu’elle est constante. On aura alors <span class="process-math">\(R(T,0)V=R(0,0)V=V\text{.}\)</span> Le vecteur <span class="process-math">\(V\)</span> serait donc associé à <span class="process-math">\(1\text{,}\)</span> ce qui est contradictoire puisqu’on a supposé que <span class="process-math">\(\lambda\ne1\text{.}\)</span>
+</div></li>
+<li>
+<div class="para">On suppose que <span class="process-math">\(A\)</span> est l’application <span class="process-math">\(2\pi\)</span>-périodique :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A:t\longmapsto \begin{pmatrix} 0\amp 1/2\amp 0 \\ -1/2\amp 0\amp 0 \\ 0\amp 0\amp  1+\sin
+t\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">Montrer que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R(t,0)=\begin{pmatrix} \cos(t/2)\amp -\sin(t/2)\amp 0 \\ \sin(t/2)\amp \cos(t/2)\amp 0 \\
+0\amp 0\amp  \e^{1-\cos t+t} \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">En déduire que <span class="process-math">\((H)\)</span> admet des solutions <span class="process-math">\(\pi\)</span>-périodiques non constantes.</div>
+</li>
+</ol></div></details></div></article><span class="incontext"><a class="internal" href="sec-eqdiff-exercices-approfondissement.html#sysdiff-solutions-periodiques">Contexte</a></span>
+</body>
+</html>

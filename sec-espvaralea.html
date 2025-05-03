@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-FR" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Espérance et moments d’une variable aléatoire discrète</title>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Cours de mathématiques">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Sadik Boujaida">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.6.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.c7804631fa963734.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script>
+</head>
+<body id="coursmp" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="cours-mp.html"><span class="title">Cours de mathématiques</span><br> <span class="subtitle">pour les classes MP/MP*</span></a></h1>
+<p class="byline">Sadik Boujaida</p>
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Table des matières"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Table des matières</span></button><span class="treebuttons"><a class="up-button button" href="ch-probabiltes-discretes.html" title=""><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span></a><a class="previous-button button" href="sec-varalea.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span></a><a class="next-button button" href="sec-fctgen.html" title="Suivant"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Résultats de la recherche: </h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{mathtools}\require{empheq}\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\K}{\mathbb K}
+\newcommand\card{\operatorname{Card}}
+\newcommand\giv[1][\middle]{\nonscript\:#1\vert\nonscript\:\mathopen{}}
+\newcommand\qtext[1]{\quad\text{#1}\quad}
+\newcommand\llbracket{[\![}
+\newcommand\rrbracket{]\!]}
+\newcommand\iic[1]{\llbracket #1 \rrbracket}
+\newcommand\id{\mathrm{id}}
+\newcommand\e{\mathbf{e}}
+\newcommand\dt{\mathrm{d}}
+\newcommand\dd[2]{\frac{\partial #1}{\partial #2}}
+\newcommand\ddeux[3]{\frac{\partial #1^2}{\partial #1\ifx#1#2^#2\else\partial #2\fi}}
+\newcommand\func[5]{#1\:\;\begin{array}[t]{rcl}#2 \amp \longrightarrow \amp #3 \\ #4 \amp \longmapsto \amp #5\end{array}}
+\newcommand\fct[2]{#1\longrightarrow#2}
+\newcommand\nm[1]{\left\Vert#1\right\vert}
+\newcommand\nmm[1]{\left\Vert#1\right\Vert}
+\newcommand\tr{\operatorname{Tr}}
+\newcommand\re{\operatorname{Re}}
+\newcommand\im{\operatorname{Im}}
+\newcommand\rg{\operatorname{rg}}
+\newcommand\OPN[1]{\operatorname{#1}}
+\newcommand\PP{\mathbb P}
+\newcommand\EE{\mathbb E}
+\newcommand\VV{\mathbb V}
+\newcommand\Pr[1]{\mathbb P\left(#1\right)}
+\newcommand\Es[1]{\mathbb E\left(#1\right)}
+\newcommand\Va[1]{\mathbb V\left(#1\right)}
+\let\geq\geqslant
+\let\leq\leqslant
+\let\ds\displaystyle
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="1" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Pages Liminaires</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eqdiff-cours.html" class="internal"><span class="codenumber">1</span> <span class="title">Équations différentielles linéaires</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Équations différentielles linéaires d’ordre <span class="process-math">\(1\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-eqdiff-equations-differentielles-lineaires-ord-1-4" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Solutions d’une équation différentielle linéaire du premier ordre</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-eqdiff-equations-differentielles-lineaires-ord-1-5" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Système fondamental de solutions de l’équation homogène</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-varconst" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Méthode de la variation des constantes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-eqdiff-equations-differentielles-lineaires-ord-1-8" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Équation différentielle linéaire du premier ordre à coefficients constants</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Équations différentielles linéaires scalaires, étude générale</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html#sec-eqdiff-equations-differentielles-lineaires-scalaires-2" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Le cadre général</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html#sec-eqdiff-equations-differentielles-lineaires-scalaires-3" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Le cas d’une équation à coefficients constants</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Équations linéaires scalaires du deuxième ordre</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqdiff-exercices-approfondissement.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercices d’approfondissement</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqdiff-exercices-entrainement.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercices d’entraînement</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Thèmes classiques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Équation et applications résolvantes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-4" class="internal"><span class="title">Équation résolvante de <span class="process-math">\((H)\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-5" class="internal"><span class="title">Application résolvante de <span class="process-math">\((H)\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-6" class="internal"><span class="title">Résolvante et équation complète</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-7" class="internal"><span class="title">Résolvantes d’une équation à coefficients constants</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-8" class="internal"><span class="title">Solutions périodiques d’une EDL périodique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Thèmes sur les équations scalaires du deuxième ordre</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-3" class="internal"><span class="title">Solutions développables en séries entières</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-4" class="internal"><span class="title">Transformation de l’équation homogène <span class="process-math">\((H)\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-5" class="internal"><span class="title">Problèmes aux limites</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-zeros-des-solutions" class="internal"><span class="title">Zéros des solutions d’une EDLS homogène du second ordre</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-7" class="internal"><span class="title">Solutions périodique d’une EDLS du second ordre périodique</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-probabiltes-discretes.html" class="internal"><span class="codenumber">2</span> <span class="title">Probabilité discrètes</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-generalites.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Espaces de probabilité</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-tribu" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Tribus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-probabilite" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Probabilités</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-independance" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Indépendance des événements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-modelisation" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Modélisation de phénomènes aléatoires</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-generalites.html#exercises-approfondissement" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-varalea.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Variables aléatoires</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-varalea" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Variables aléatoires</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-indvar" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Indépendance des variables aléatoires discrètes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-loivaralea" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Loi d’une variable aléatoire discrète</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-loiusuelles" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Lois discrètes usuelles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-fonction-repartition" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Loi d’une variable aléatoire réelle : fonction de répartition </span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-loi-activite" class="internal"><span class="codenumber">2.2.6</span> <span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-espvaralea.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Espérance et moments d’une variable aléatoire discrète</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-espvaralea.html#subsec-esperance" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Espérance d’une variable aléatoire discrète</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-defprop" class="internal"><span class="title">Définition et propriétés</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-exemple-esperance" class="internal"><span class="title">Exemples usuels</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-activites" class="internal"><span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-espvaralea.html#subsec-varcovar" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Variance et covariance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-varcovar" class="internal"><span class="title">Définition et propriétés</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-exemples-varcovar" class="internal"><span class="title">Exemples usuels</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-activites-varcovar" class="internal"><span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsec-moment" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Moments d’ordre supérieurs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-fctgen.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Fonctions génératrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-defprop" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Définition et propriétés</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-generatrices-usuelles" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Fonctions génératrices des lois usuelles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-generatrice" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Concept de fonction génératrice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-defprop-activite" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-probas--actinum.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Activités numériques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-probas--actinum.html#sec-expgraph" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Exploration graphique</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-graphbinomiale" class="internal"><span class="title">Représentation graphique de lois usuelles</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-histogramme-lois-usuelles" class="internal"><span class="title">Échantillonage d’une loi discrète</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-lo-faible" class="internal"><span class="title">Loi Faible des grands nombres avec une loi géométrique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-probas--actinum.html#sec-principeinversion" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Principe d’inversion et simulation de variables aléatoires discrètes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-basetheo" class="internal"><span class="title">Base théorique</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-simulation-principe-inverse" class="internal"><span class="title">Simulation numérique</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-exercises">
+<div class="toc-title-box"><a href="sec-probas-exercices.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-approfondissement" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Exercices d’approfondissement</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-application" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Exercices d’application</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-thematique" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Exerices thématiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-recherche" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Exercices de recherche</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="section" id="sec-espvaralea"><h2 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">2.3</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Espérance et moments d’une variable aléatoire discrète</span>
+</h2>
+<section class="introduction" id="sec-espvaralea-2"><div class="para" id="sec-espvaralea-2-1">On se donne une espace probabilisé <span class="process-math">\((\Omega,\mathscr T,\PP\text{.}\)</span>
+</div></section><section class="subsection" id="subsec-esperance"><h3 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">2.3.1</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Espérance d’une variable aléatoire discrète</span>
+</h3>
+<section class="subsubsection" id="subsubsec-defprop"><h4 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber"></span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Définition et propriétés</span>
+</h4>
+<article class="definition definition-like" id="def-esperance"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.77</span><span class="period">.</span><span class="space"> </span><span class="type">Définition</span>
+</h5>
+<div class="para" id="def-esperance-2-1">Soit <span class="process-math">\(X\)</span> une variable aléatoire discrète réelle définie sur <span class="process-math">\((\Omega,\mathscr T)\text{.}\)</span>
+</div> <div class="para logical" id="def-esperance-2-2">
+<div class="para">On dit que <span class="process-math">\(X\)</span> est sommable, ou que <span class="process-math">\(X\)</span> admet une espérance, si la famille <span class="process-math">\(\bigl(x\Pr{X=x}\bigr)_{x\in X(\Omega)}\)</span> est sommable. On appelle alors espérance de <span class="process-math">\(X\)</span> le réel</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X):=\sum_{x\in X(\Omega)}x\Pr{X=x}
+\end{equation*}
+</div>
+<div class="para">On notera <span class="process-math">\(L^1(\Omega)\)</span> l’ensemble des <abbr class="acronym">VADR</abbr> sommables définies sur <span class="process-math">\((\Omega,\mathscr T,\PP\)</span>
+</div>
+</div></article><article class="remark remark-like" id="subsubsec-defprop-3"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.78</span><span class="period">.</span><span class="space"> </span><span class="type">Remarque</span>
+</h5>
+<div class="para logical" id="subsubsec-defprop-3-1"><ol class="decimal" id="subsubsec-defprop-3-1-1">
+<li id="subsubsec-defprop-3-1-1-1"><div class="para" id="subsubsec-defprop-3-1-1-1-1">Quand elle définie, <span class="process-math">\(\EE(X)\)</span> est le barycentre de la famille de points pondérés <span class="process-math">\(\bigl(x,\Pr{X=x}\bigr)_{x\in X(\Omega)}\text{.}\)</span> Pour cette raison on l’appelle aussi valeur moyenne de <span class="process-math">\(X\text{.}\)</span>
+</div></li>
+<li id="subsubsec-defprop-3-1-1-2"><div class="para logical" id="subsubsec-defprop-3-1-1-2-1">
+<div class="para">Dans le cas d’une <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> à valeurs positives ou nulles, si <span class="process-math">\(X\)</span> n’est pas sommable alors on pose par convention</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X)=\sum_{x\in X(\Omega)}x\Pr{X=x}=+\infty
+\end{equation*}
+</div>
+<div class="para">
+<span class="process-math">\(X\)</span> est alors sommable si et seulement si <span class="process-math">\(\EE(X)\lt+\infty\text{.}\)</span>
+</div>
+</div></li>
+<li id="subsubsec-defprop-3-1-1-3"><div class="para logical" id="subsubsec-defprop-3-1-1-3-1">
+<div class="para">En conséquence, pour une <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> quelconque</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X \text{ est sommable } \Longleftrightarrow \EE(|X|)\lt +\infty
+\end{equation*}
+</div>
+</div></li>
+<li id="subsubsec-defprop-3-1-1-4">
+<div class="para" id="subsubsec-defprop-3-1-1-4-1">La définition a un inconvénient : la somme utilisée est indexée par un ensemble qui dépend de <span class="process-math">\(X\text{.}\)</span> Ce qui pose un problème lorsqu’on combine entre plusieurs variables aléatoire. Comme lorsque on s’intéresse à <span class="process-math">\(E(X+Y)\)</span> par exemple.</div>
+<div class="para" id="subsubsec-defprop-3-1-1-4-2">La formule de transfert énoncée ci-après résout ce problème.</div>
+</li>
+<li id="subsubsec-defprop-3-1-1-5"><div class="para" id="subsubsec-defprop-3-1-1-5-1">La définition de <span class="process-math">\(\EE(X)\)</span> dépend seulement de la loi de <span class="process-math">\(X\text{.}\)</span> Dans ce sens deux variables qui ont la même loi ont la même espérance. Nous parlerons souvent de l’espérance d’une loi de probabilité pour désigner l’espérance des variables qui suivent cette loi.</div></li>
+<li id="subsubsec-defprop-3-1-1-6"><div class="para" id="subsubsec-defprop-3-1-1-6-1">La définition se limite aux variables aléatoires discrète <dfn class="terminology">réelles</dfn>, mais elle est tout à fait valable sans aucune modification pour les variables aléatoires discrètes à valeurs <em class="emphasis">complexes</em>. La notion de base utilisée étant celle de familles sommables et celle-ci a été étudiée dans le cadre des familles de nombres réels ou complexes.</div></li>
+</ol></div></article><article class="exploration project-like" id="subsubsec-defprop-4"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Exploration</span><span class="codenumber"> 2.10 - </span>
+</h6>
+<div class="para logical" id="subsubsec-defprop-4-1"><ol class="decimal" id="subsubsec-defprop-4-1-1">
+<li id="item-vecteur"><div class="para logical" id="item-vecteur-1">
+<div class="para">On peut généraliser la notion d’espérance à des vecteurs aléatoires discrets en utilisant les «variables composantes» : si <span class="process-math">\(X\)</span> est un vecteur aléatoire discret à valeurs dans un <span class="process-math">\(\K\)</span>-ev de dimension finie <span class="process-math">\(E\)</span> qui s’écrit sous la forme</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/item-espvect.html">
+\begin{equation*}
+\forall \omega\in\Omega,\; X(\omega)=\sum_{k=1}^dX_k(\omega)e_k
+\end{equation*}
+</div>
+<div class="para">où  <span class="process-math">\((e_1,e_2,\ldots,e_d)\)</span> est une base fixée de <span class="process-math">\(E\text{,}\)</span> alors, par définition, <span class="process-math">\(X\)</span> est sommable si et seulement si les variables <span class="process-math">\(X_1,X_2,\ldots,X_d\)</span> sont sommables et dans ce cas</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/item-espvect.html">
+\begin{equation*}
+\EE(X):=\sum_{k=1}^d\EE(X_k)e_k
+\end{equation*}
+</div>
+<div class="para">Cela pose toutefois le problème de la dépendance de cette définition par rapport à la base <span class="process-math">\((e_1,e_2,\ldots,e_d)\)</span> utilisée. (Voir remarque <a href="sec-espvaralea.html#item-espvect" class="xref" data-knowl="./knowl/xref/item-espvect.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Point 1">Point 1</a>)</div>
+</div></li>
+<li id="subsubsec-defprop-4-1-1-2"><div class="para logical" id="subsubsec-defprop-4-1-1-2-1">
+<div class="para">Dans le cas d’une matrice aléatoire <span class="process-math">\(X=(X_{i,j})_{\substack{1\leqslant i\leqslant p\\1\leqslant j\leqslant q}}\)</span> par exemple, <span class="process-math">\(X\)</span> est sommable si et seulement si <span class="process-math">\(X_{i,j}\)</span> est sommable pout <span class="process-math">\((i,j)\)</span> et dans ce cas, par définition</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X):=\bigl(\EE(X_{i,j})\bigr)_{\substack{1\leqslant i\leqslant p\\1\leqslant j\leqslant q}}
+\end{equation*}
+</div>
+</div></li>
+<li id="subsubsec-defprop-4-1-1-3"><div class="para logical" id="subsubsec-defprop-4-1-1-3-1">
+<div class="para">Attention toutefois : les familles sommables de vecteurs ne sont pas au programme. Donc l’écriture</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X)=\sum_{x\in X(\Omega)}x\Pr{X=x}
+\end{equation*}
+</div>
+<div class="para">déborde du cadre limité par celui-ci.</div>
+</div></li>
+</ol></div></article><article class="proposition theorem-like" id="prop-casdenom"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.79</span><span class="period">.</span><span class="space"> </span><span class="type">Proposition</span>
+</h5>
+<div class="para logical" id="prop-casdenom-1-1">
+<div class="para">On suppose que <span class="process-math">\(\Omega\)</span> est au plus dénombrable. Une <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> définie sur <span class="process-math">\((\Omega,\mathscr T)\)</span> est sommable si et seulement si la famille <span class="process-math">\(\bigl(X(\omega)\Pr{\{\omega\}}\bigr)_{\omega\in\Omega}\)</span> est sommable et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X)=\sum_{\omega\in \Omega}X(\omega)\Pr{\{\omega\}}
+\end{equation*}
+</div>
+</div></article><details id="prop-casdenom-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h5></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop-casdenom-2-1">
+<div class="para">La famille d’événemnts <span class="process-math">\(\bigl((X=x)\bigr)_{x\in X(\Omega)}\)</span> est une partition de <span class="process-math">\(\Omega\)</span> et pour tout <span class="process-math">\(x\in X(\Omega)\)</span> on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{\omega\in(X=x)}|X(\omega)|\Pr{\{\omega\}}= |x|\sum_{\omega\in(X=x)}\Pr{\{\omega\}}= |x|\Pr{X=x}\lt+\infty
+\end{equation*}
+</div>
+<div class="para">Donc selon le théorème de sommation par paquets</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\bigl(X(\omega)\Pr{\{\omega\}}\bigr)_{\omega\in\Omega} \text{ est sommable} \Longleftrightarrow \bigl(x\Pr{X=x})_{x\in X(\Omega)} \text{ est sommable}
+\end{equation*}
+</div>
+<div class="para">et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{\omega\in \Omega}X(\omega)\Pr{\{\omega\}}=\sum_{x\in X(\Omega)}x\Pr{X=x}=\EE(X)
+\end{equation*}
+</div>
+</div></article></details><article class="remark remark-like" id="subsubsec-defprop-6"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.80</span><span class="period">.</span><span class="space"> </span><span class="type">Remarque</span>
+</h5>
+<div class="para" id="subsubsec-defprop-6-1">Apparement ce dernier résultat résout le problème de l’ecriture de <span class="process-math">\(\EE(X)\)</span> en fonction de l’ensemble <span class="process-math">\(X(\Omega)\)</span> (qui dépend de <span class="process-math">\(X\)</span>). L’intérêt est toutefois relatif car dans la pratique on ne contrôle pas l’univers <span class="process-math">\(\Omega\)</span> lui même et il n’est pas nécessairement au plus dénombrable.</div></article><article class="theorem theorem-like" id="thm-transfert"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.81</span><span class="period">.</span><span class="space"> </span><span class="type">Théorème</span><span class="space"> </span><span class="title">formule de transfert.</span>
+</h5>
+<div class="para" id="thm-transfert-2-1">Soit <span class="process-math">\(X\)</span> une VAD définie sur <span class="process-math">\((\Omega,\mathscr T)\)</span> (possiblement à valeurs vectorielles). Soit <span class="process-math">\(f\)</span> une application définie sur <span class="process-math">\(X(\Omega)\text{.}\)</span>
+</div> <div class="para logical" id="thm-transfert-2-2">
+<div class="para">La variable <span class="process-math">\(f(X)\)</span> est sommable si et seulement si la famille <span class="process-math">\(\bigl(f(x)\Pr{X=x}\bigr)_{x\in X(\Omega)}\)</span> est sommable et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE\bigl(f(X)\bigr)=\sum_{x\in X(\Omega)}f(x)\Pr{X=x}
+\end{equation*}
+</div>
+</div></article><details id="thm-transfert-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h5></summary><article class="hiddenproof knowl__content"><div class="para logical" id="thm-transfert-3-1">
+<div class="para">On pose <span class="process-math">\(Z=f(X)\)</span> et on imite la démonstration de la proposition précédente en observant cette fois que <span class="process-math">\(\bigl(f^{-1}(\{z\})\bigr)_{z\in Z(\Omega)}\)</span> est une partition de <span class="process-math">\(X(\Omega)\text{.}\)</span> Selon le théorème de sommation par paquets, <span class="process-math">\(\bigl(f(x)\Pr{X=x}\bigr)_{x\in X(\Omega)}\)</span> est sommable si et seulement si</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{cases} \displaystyle\forall z\in Z(\Omega),\; \Bigl(|f(x)|\Pr{X=x}\Bigr)_{x\in f^{-1}(\{z\}) }\text{ est sommable ;} \\ \displaystyle\biggl(\sum_{x\in f^{-1}(\{z\})}|f(x)|\Pr{X=x}\biggr)_{z\in Z(\Omega)} \text{ est sommable.} \end{cases}
+\end{equation*}
+</div>
+<div class="para">Or pour tout <span class="process-math">\(z\in Z(\Omega)\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{x\in f^{-1}(\{z\})}|f(x)|\Pr{X=x}= |z|\Pr{X\in f^{-1}(\{z\})}= |z|\Pr{f(X)=z}\lt +\infty
+\end{equation*}
+</div>
+<div class="para">Ce qui ramène l’équivalence à juste la deuxième condition, elle même équivalente à la sommabilité de la variable <span class="process-math">\(Z=f(X)\text{.}\)</span> D’où l’équivalence énoncée dans le théorème et la validité de la formule :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(f(X))=\sum_{x\in X(\Omega)}f(x)\Pr{X=x}
+\end{equation*}
+</div>
+<div class="para">par sommation par paquets.</div>
+</div></article></details><article class="corollary theorem-like" id="cor-transfert"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.82</span><span class="period">.</span><span class="space"> </span><span class="type">Corollaire</span>
+</h5>
+<div class="para logical" id="cor-transfert-1-1">
+<div class="para">Soient <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> deux <abbr class="acronym">VADR</abbr>. Soit <span class="process-math">\(g\)</span> une application définie sur <span class="process-math">\(X(\Omega)\times Y(\Omega)\text{.}\)</span> La variable <span class="process-math">\(g(X,Y)\)</span> est sommable si et seulement si la famille <span class="process-math">\(\bigl(g(x,y)\Pr{X=x,Y=y}\bigr)_{(x,y)\in X(\Omega)\times Y(\Omega)}\)</span> est sommable est dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE\bigl(g(X,Y)\bigr)= \sum_{(x,y)\in X(\Omega)\times Y(\Omega)}g(x,y)\Pr{X=x,Y=y}
+\end{equation*}
+</div>
+</div></article><details id="cor-transfert-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h5></summary><article class="hiddenproof knowl__content"><div class="para" id="cor-transfert-2-1">Il suffit d’appliquer la formule de transfert au couple <span class="process-math">\(C=(X,Y)\text{.}\)</span>
+</div></article></details><article class="remark remark-like" id="subsubsec-defprop-9"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.83</span><span class="period">.</span><span class="space"> </span><span class="type">Remarque</span>
+</h5>
+<div class="para logical" id="subsubsec-defprop-9-1"><ol class="decimal" id="subsubsec-defprop-9-1-1"><li id="subsubsec-defprop-9-1-1-1">
+<div class="para" id="subsubsec-defprop-9-1-1-1-1">La formule de transfert permet donc de combiner les résultats de deux variables <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> en utilisant la loi conjointe du couple <span class="process-math">\((X,Y)\text{.}\)</span> Ce qui résout le problème de la dépendance de l’expression de <span class="process-math">\(\EE(X)\)</span> de l’ensemble <span class="process-math">\(X(\Omega)\text{.}\)</span>
+</div>
+<div class="para logical" id="subsubsec-defprop-9-1-1-1-2">
+<div class="para">Par exemple la variable <span class="process-math">\(X+Y\)</span> est sommable si et seulement si la famille <span class="process-math">\(\bigl((x+y)\Pr{X=x,Y=y}\bigr)_{(x,y)\in X(\Omega)\times Y(\Omega)} \)</span> est sommable et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E(X+Y)=\sum_{(x,y)\in X(\Omega)\times Y(\Omega)}(x+y)\Pr{X=x,Y=y}
+\end{equation*}
+</div>
+<div class="para">Noter qu’en considérant les application <span class="process-math">\(f_1:(x,y)\mapsto x\)</span> et <span class="process-math">\(f_2:(x,y)\mapsto y\text{,}\)</span> alors selon ce même résultat, les variables <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont respectivement sommables si et seulement si les familles <span class="process-math">\(\bigl(x\Pr{X=x,Y=y}\bigr)_{(x,y)\in X(\Omega)\times Y(\Omega)} \)</span> et <span class="process-math">\(\bigl(y\Pr{X=x,Y=y}\bigr)_{(x,y)\in X(\Omega)\times Y(\Omega)} \)</span> sont sommables et dans ce cas</div>
+<div class="displaymath process-math" id="subsubsec-defprop-9-1-1-1-2-10">
+\begin{align*}
+\EE(X) \amp= \sum_{(x,y)\in X(\Omega)\times Y(\Omega)}x\Pr{X=x,Y=y} \\
+\EE(Y) \amp= \sum_{(x,y)\in X(\Omega)\times Y(\Omega)}y\Pr{X=x,Y=y} 
+\end{align*}
+</div>
+<div class="para">Expressions qui utilisent notablement le même ensemble des indices pour les deux sommes.</div>
+</div>
+</li></ol></div></article><article class="proposition theorem-like" id="prop-proprietes"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.84</span><span class="period">.</span><span class="space"> </span><span class="type">Proposition</span>
+</h5>
+<div class="para" id="prop-proprietes-1-1">Toutes les variables aléatoires introduites dans la suite sont supposées définies sur l’espace <span class="process-math">\((\Omega,\mathscr T)\text{.}\)</span>
+</div> <ol class="decimal" id="prop-proprietes-1-2">
+<li id="prop-proprietes-1-2-1">
+<span class="heading"><span class="title">Espérance d’une variable presque partout constante.</span></span><div class="para" id="prop-proprietes-1-2-1-2">Une <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> presque partout constante de valeur <span class="process-math">\(c\)</span> est sommable et <span class="process-math">\(\EE(X)=c\text{.}\)</span>
+</div>
+</li>
+<li id="prop-proprietes-1-2-2">
+<span class="heading"><span class="title">Linéarité de l’espérance.</span></span><div class="para logical" id="prop-proprietes-1-2-2-2">
+<div class="para">Si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont deux <abbr class="acronym">VADR</abbr> sommables de <span class="process-math">\((\Omega,\mathscr T)\)</span> alors pour tout <span class="process-math">\(\lambda\in \R\text{,}\)</span> <span class="process-math">\(X+\lambda Y\)</span> est sommable et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X+\lambda Y)=\EE(X)+\lambda \EE(Y)
+\end{equation*}
+</div>
+<div class="para">Ce qui signifie que <span class="process-math">\(L^1(\Omega)\)</span> est un <span class="process-math">\(\R\)</span>-ev et que <span class="process-math">\(\EE\)</span> est une forme linéaire de <span class="process-math">\(L^1(\Omega)\text{.}\)</span>
+</div>
+</div>
+</li>
+<li id="prop-proprietes-1-2-3">
+<span class="heading"><span class="title">Positivité de l’espérance.</span></span><div class="para" id="prop-proprietes-1-2-3-2">Si <span class="process-math">\(X\)</span> est une <abbr class="acronym">VADR</abbr> positive alors <span class="process-math">\(\EE(X)\geqslant 0\text{.}\)</span> De plus <span class="process-math">\(E(X)=0\)</span> si et seulement si <span class="process-math">\(X\)</span> est presque partout nulle sur <span class="process-math">\(\Omega\text{.}\)</span>
+</div>
+</li>
+<li id="prop-proprietes-1-2-4">
+<span class="heading"><span class="title">Croissance et domination.</span></span><div class="para logical" id="prop-proprietes-1-2-4-2">
+<div class="para">Soient <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> deux <abbr class="acronym">VADR</abbr>.</div>
+<ul class="disc" id="prop-proprietes-1-2-4-2-4">
+<li id="prop-proprietes-1-2-4-2-4-1"><div class="para" id="prop-proprietes-1-2-4-2-4-1-1">Si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont sommables et <span class="process-math">\(X\leqslant Y\)</span> alors <span class="process-math">\(\EE(X)\leqslant \EE(Y)\text{.}\)</span>
+</div></li>
+<li id="prop-proprietes-1-2-4-2-4-2"><div class="para" id="prop-proprietes-1-2-4-2-4-2-1">Si <span class="process-math">\(|X|\leqslant Y\)</span> et <span class="process-math">\(Y\)</span> est sommable alors <span class="process-math">\(X\)</span> est sommable et <span class="process-math">\(\bigl|\EE(X)\bigr|\leqslant \EE(Y)\)</span>
+</div></li>
+</ul>
+</div>
+</li>
+<li id="prop-proprietes-1-2-5">
+<span class="heading"><span class="title">Effet de l’indépendance.</span></span><div class="para" id="prop-proprietes-1-2-5-2">Si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont deux <abbr class="acronym">VADR</abbr> indépendantes sommables alors <span class="process-math">\(XY\)</span> est sommable et <span class="process-math">\(\EE(XY)=\EE(X)\EE(Y)\text{.}\)</span>
+</div>
+</li>
+<li id="prop-proprietes-1-2-6">
+<span class="heading"><span class="title">Inégalité de Cauchy-Schwarz.</span></span><div class="para logical" id="prop-proprietes-1-2-6-2">
+<div class="para">Soient <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> deux <abbr class="acronym">VADR</abbr>. Si <span class="process-math">\(X^2\)</span> et <span class="process-math">\(Y^2\)</span> sont sommables alors <span class="process-math">\(XY\)</span> est sommable et on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\bigl|\EE(XY)\bigr|\leqslant \EE(X^2)^{1/2}\EE(Y^2)^{1/2}
+\end{equation*}
+</div>
+<div class="para">avec égalité si et seulement si <span class="process-math">\(Y\)</span> est presque partout nulle ou s’il existe une constante <span class="process-math">\(\lambda\)</span> telle que <span class="process-math">\(X=\lambda Y\)</span>  presque partout sur <span class="process-math">\(\Omega\)</span> (ie <span class="process-math">\(\Pr{X=\lambda Y}=1\)</span>)</div>
+</div>
+</li>
+</ol></article><article class="remark remark-like" id="subsubsec-defprop-11"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.85</span><span class="period">.</span><span class="space"> </span><span class="type">Remarque</span>
+</h5>
+<div class="para logical" id="subsubsec-defprop-11-1"><ol class="decimal" id="subsubsec-defprop-11-1-1">
+<li id="subsubsec-defprop-11-1-1-1"><div class="para logical" id="subsubsec-defprop-11-1-1-1-1">
+<div class="para">toute <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> bornée est sommable. De plus</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall m\in\R_+,\; |X|\leqslant m\Longrightarrow \bigl|\EE(X)\bigr|\leqslant m
+\end{equation*}
+</div>
+</div></li>
+<li id="subsubsec-defprop-11-1-1-2">
+<div class="para" id="subsubsec-defprop-11-1-1-2-1">Si <span class="process-math">\(X,Y\)</span> sont des <abbr class="acronym">VADR</abbr> sommables alors <span class="process-math">\(\max(X,Y)\)</span> et <span class="process-math">\(\min(X,Y)\)</span> sont sommables.</div>
+<details id="subsubsec-defprop-11-1-1-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Explication<span class="period">.</span></span></h6></summary><article class="hiddenproof knowl__content"><div class="para logical" id="subsubsec-defprop-11-1-1-2-2-1">
+<div class="para">La sommabilité de <span class="process-math">\(\max(X,Y)\)</span> et <span class="process-math">\(\min(X,Y)\)</span> découle de la linéarité de l’espérance et des relation</div>
+<div class="displaymath process-math" id="subsubsec-defprop-11-1-1-2-2-1-3">
+\begin{align*}
+\max(X,Y) \amp=\frac12\bigl(X+Y+|X-Y|\bigr) \\
+\min(X,Y) \amp=\frac12\bigl(X+Y-|X-Y|\bigr) 
+\end{align*}
+</div>
+</div></article></details>
+</li>
+</ol></div></article><article class="exploration project-like" id="subsubsec-defprop-12"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Exploration</span><span class="codenumber"> 2.11 - </span>
+</h6>
+<ol class="decimal" id="subsubsec-defprop-12-1">
+<li id="item-espvect">
+<div class="para" id="item-espvect-1">Soit <span class="process-math">\(X\)</span> un vecteur aléatoire sommable au sens de la remarque <a href="sec-espvaralea.html#item-vecteur" class="xref" data-knowl="./knowl/xref/item-vecteur.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Point 1">Point 1</a> alors <span class="process-math">\(\EE(X)\)</span> ne dépend pas de la base choisie dans <span class="process-math">\(E\text{.}\)</span>
+</div>
+<details id="item-espvect-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Explication<span class="period">.</span></span></h6></summary><article class="hiddenproof knowl__content"><div class="para logical" id="item-espvect-2-1">
+<div class="para">Considérons une autre base <span class="process-math">\((e_1',e_2',\ldots,e_d')\)</span> de <span class="process-math">\(E\text{.}\)</span> Posons pour tout <span class="process-math">\(i\in[\![1,d]\!]\text{,}\)</span> <span class="process-math">\(e_j=a_{1,j}e_1'+a_{2,j}e_2'+\cdots+a_{d,j}e_d'\)</span> alors pour tout <span class="process-math">\(\omega\in\Omega\)</span>
+</div>
+<div class="displaymath process-math" id="item-espvect-2-1-6">
+\begin{align*}
+X(\omega) \amp= \sum_{j=1}^dX_j(\omega)\sum_{i=1}^da_{i,j}e_i' \\
+\amp= \sum_{i=1}^d\biggl(\sum_{j=1}^da_{i,j}X_j(\omega)\biggr)e_i' \\
+\amp=\sum_{i=1}^d Y_i(\omega)e_i' 
+\end{align*}
+</div>
+<div class="para">En appliquant la même recette au vecteur <span class="process-math">\(\EE(X):=\sum_{j=1}^d\EE(X_j)e_j'\)</span>  on aboutit à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X)=\sum_{i=1}^d\biggl(\sum_{j=1}^da_{i,j}\EE(X_j)\biggr)e_i'
+\end{equation*}
+</div>
+<div class="para">Maintenant, puisque les variables <span class="process-math">\(X_1,X_2,\ldots,X_d\)</span> sont par défintion sommabales alors les variables <span class="process-math">\(Y_1,Y_2,\ldots,Y_d\)</span> sont sommables par linéarité et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall i\in[\![1,d]\!],\; \EE(Y_i)=\sum_{j=1}^d a_{i,j}\EE(X_j)
+\end{equation*}
+</div>
+<div class="para">et ainsi  <span class="process-math">\(\EE(X)=\sum_{i=1}^d\EE(Y_i)e_i'\text{.}\)</span> Expression qui prouve que <span class="process-math">\(\EE(X)\)</span> ne dépend pas de la base utilisée.</div>
+</div></article></details>
+</li>
+<li id="subsubsec-defprop-12-1-2">
+<span class="heading"><span class="title">Linéarité de l’espérance d’un vecteur aléatoire.</span></span><div class="para logical" id="subsubsec-defprop-12-1-2-2">
+<div class="para">Si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont des vecteurs aléatoires sommables à valeurs dans un même espace vectoriel de dimension finie alors pour tout <span class="process-math">\(\lambda\in\R\text{,}\)</span> le vecteur <span class="process-math">\(X+\lambda Y\)</span> est sommable et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X+\lambda Y)=\EE(X)+\lambda\EE(Y)
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="subsubsec-defprop-12-1-2-3">
+<div class="para">D’un autre coté si <span class="process-math">\(V\)</span> est un vecteur constant non nul de <span class="process-math">\(E\)</span> et <span class="process-math">\(\lambda\)</span> est une <abbr class="acronym">VADR</abbr> alors le vecteur <span class="process-math">\(\lambda V\)</span> est sommable si et seulement si <span class="process-math">\(\lambda\)</span> est sommable et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(\lambda V)=\EE(\lambda)V\text{.}
+\end{equation*}
+</div>
+</div>
+</li>
+<li id="subsubsec-defprop-12-1-3">
+<span class="heading"><span class="title">Formule de transfert linéaire.</span></span><div class="para logical" id="subsubsec-defprop-12-1-3-2">
+<div class="para">Soit <span class="process-math">\(X\)</span> un vecteur aléatoire à valeurs dans un espace vectoriel de dimension finie <span class="process-math">\(E\text{.}\)</span> Si <span class="process-math">\(X\)</span> est sommable alors pour toute application linéaire <span class="process-math">\(u\)</span> définie sur <span class="process-math">\(E\text{,}\)</span> la variable <span class="process-math">\(u(X)\)</span> est sommable et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(u(X))=u(\EE(X))
+\end{equation*}
+</div>
+</div>
+<details id="subsubsec-defprop-12-1-3-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Explication<span class="period">.</span></span></h6></summary><article class="hiddenproof knowl__content"><div class="para logical" id="subsubsec-defprop-12-1-3-3-1">
+<div class="para">Si <span class="process-math">\(X_1,X_2,\ldots,X_n\)</span> sont les composantes de <span class="process-math">\(X\)</span> dans une base <span class="process-math">\((e_1,e_2,\ldots,e_n)\)</span> de <span class="process-math">\(E\text{,}\)</span> alors <span class="process-math">\(u(X)=\sum_{i=1}^n X_iu(e_i)\text{.}\)</span> Les variables <span class="process-math">\(X_i\)</span> sont sommables donc <span class="process-math">\(X\)</span> est sommable et par linéarité de l’espérance</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(u(X))=\sum_{i=1}^n\EE(X_i)u(e_i)
+\end{equation*}
+</div>
+<div class="para">Puisque par définition, <span class="process-math">\(\EE(X)=\sum_{i=1}^n\EE(X_i)e_i\text{,}\)</span> alors on a aussi</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u(\EE(X))=\sum_{i=1}^n\EE(X_i)u(e_i)
+\end{equation*}
+</div>
+</div></article></details>
+</li>
+</ol></article></section><section class="subsubsection" id="subsubsec-exemple-esperance"><h4 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber"></span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Exemples usuels</span>
+</h4>
+<figure class="list table-like" id="subsubsec-exemple-esperance-2"><figcaption><span class="type">Liste</span><span class="space"> </span><span class="codenumber">2.86<span class="period">.</span></span><span class="space"> </span>Espérances des lois usuelles</figcaption><div class="named-list-content">
+<div class="introduction" id="subsubsec-exemple-esperance-2-2"><div class="para" id="subsubsec-exemple-esperance-2-2-1">
+<span class="process-math">\(X\)</span> désignera une <abbr class="acronym">VADR</abbr>.</div></div>
+<dl class="description-list">
+<dt id="subsubsec-exemple-esperance-2-3-1">Loi uniforme</dt>
+<dd> <div class="para" id="subsubsec-exemple-esperance-2-3-1-2-1">Si <span class="process-math">\(X\sim \mathscr U(\{x_1,x_2,\ldots,x_n\})\)</span> alors <span class="process-math">\(\EE(X)=\displaystyle\frac1n\sum_{k=1}^nx_k \text{.}\)</span>
+</div> <div class="para" id="subsubsec-exemple-esperance-2-3-1-2-2">En particulier si <span class="process-math">\(X\sim \mathscr U(\iic{1,n})\)</span> alors <span class="process-math">\(\EE(X)=(n+1)/2\)</span>
+</div>
+</dd>
+<dt id="subsubsec-exemple-esperance-2-3-2">Loi de Bernouilli</dt>
+<dd> <div class="para" id="subsubsec-exemple-esperance-2-3-2-2-1">Si <span class="process-math">\(X\sim\mathscr B(p)\)</span> alors <span class="process-math">\(\EE(X)=p\text{.}\)</span>
+</div>
+</dd>
+<dt id="subsubsec-exemple-esperance-2-3-3">Loi binomiale</dt>
+<dd> <div class="para" id="subsubsec-exemple-esperance-2-3-3-2-1">Si <span class="process-math">\(X\sim\mathscr B(n,p)\)</span> alors <span class="process-math">\(\EE(X)=np\text{.}\)</span>
+</div>
+</dd>
+<dt id="subsubsec-exemple-esperance-2-3-4">Loi géométrique</dt>
+<dd> <div class="para" id="subsubsec-exemple-esperance-2-3-4-2-1">Si <span class="process-math">\(X\sim\mathscr G(p)\)</span> alors <span class="process-math">\(\EE(X)=\displaystyle\frac1p\text{.}\)</span>
+</div>
+</dd>
+<dt id="subsubsec-exemple-esperance-2-3-5">Loi de Poisson</dt>
+<dd> <div class="para" id="subsubsec-exemple-esperance-2-3-5-2-1">Si <span class="process-math">\(X\sim\mathscr P(\lambda)\)</span> alors <span class="process-math">\(\EE(X)=\lambda\text{.}\)</span>
+</div>
+</dd>
+</dl>
+</div></figure></section><section class="subsubsection" id="subsubsec-activites"><h4 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber"></span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Activités</span>
+</h4>
+<article class="activity project-like" id="subsubsec-activites-2"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.12 - </span> <span class="title">Loi hypergéométrique.</span>
+</h6>
+<div class="para" id="subsubsec-activites-2-2-1">Si <span class="process-math">\(X\sim \mathscr H(N,n,p)\)</span> alors <span class="process-math">\(\EE(X)=np\text{.}\)</span>
+</div>
+<div class="solutions"><details id="subsubsec-activites-2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsubsec-activites-2-3-1">
+<div class="para">Rappelons que <span class="process-math">\(X\sim \mathscr H(N,n,p)\)</span> signifie</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(\Omega)\subset [\![0,n]\!]\text{ et } \forall k\in X(\Omega),\; \Pr{X=k}=\frac{\binom{pN}{k}\binom{(1-p)N}{n-k}}{\binom Nn}
+\end{equation*}
+</div>
+<div class="para">Donc</div>
+<div class="displaymath process-math" id="subsubsec-activites-2-3-1-3">
+\begin{align*}
+\EE(X) \amp= \sum_{k=0}^{n}k\frac{\binom{pN}{k}\binom{(1-p)N}{n-k}}{\binom Nn} \\
+\amp= \sum_{k=1}^{n}\frac{pN\binom{pN-1}{k-1}\binom{(1-p)N}{n-k}}{\binom Nn} \\
+\amp= \frac{pN}{\binom Nn}\sum_{h=0}^{n-1}\binom{pN-1}{h}\binom{(1-p)N}{n-1-h} \\
+\amp= \frac{pN}{\binom Nn}\binom{N-1}{n-1} \\
+\EE(X)\amp= pn 
+\end{align*}
+</div>
+</div></div></details></div></article><article class="activity project-like" id="subsubsec-activites-3"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.13 - </span> <span class="title">Temps d’attente du <span class="process-math">\(k^\text{e}\)</span> succès.</span>
+</h6>
+<div class="para" id="subsubsec-activites-3-2-1">Si <span class="process-math">\(X_k\)</span> est le temps d’attente du <span class="process-math">\(k^{\text{e}}\)</span> succès quand on répète indéfiniment et de façon indépendante un test de Bernouilli de paramètre <span class="process-math">\(p\)</span> alors <span class="process-math">\(\EE(X_k)=\dfrac kp\)</span>
+</div>
+<div class="solutions"><details id="subsubsec-activites-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsubsec-activites-3-3-1">
+<div class="para">On peut écrire <span class="process-math">\(X_k=\sum_{i=1}^k Y_i\)</span> avec <span class="process-math">\(Y_1=X_1\)</span> et <span class="process-math">\(Y_i=X_i-X_{i-1}\)</span> si <span class="process-math">\(i\geqslant 2\text{.}\)</span> Les variables <span class="process-math">\(Y_i\)</span> sont mutuellement indépendantes et suivent toute la loi <span class="process-math">\(\mathscr G(p)\text{,}\)</span> donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X_k)=\sum_{i=1}^k\EE(Y_i)=k\EE(X_1)=\frac kp
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="subsubsec-activites-3-3-2">
+<div class="para">Par calcul direct : on a déjà calculé la loi de <span class="process-math">\(X_k\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall n\geqslant k,\; \Pr{X=n}=\binom{n-1}{k-1}p^k(1-p)^{n-k}
+\end{equation*}
+</div>
+<div class="para">donc</div>
+<div class="displaymath process-math" id="subsubsec-activites-3-3-2-3">
+\begin{align*}
+\EE(X_k) \amp= \sum_{n=k}^{\infty}n\binom{n-1}{k-1}p^k(1-p)^{n-k} \\
+\amp= \sum_{n=k}^{\infty}k\binom{n}{k}p^k(1-p)^{n-k} \\
+\amp= k\cdot \frac{p^k}{k!}\sum_{n=k}^{\infty} n(n-1)\cdots(n-k+1)(1-p)^{n-k} \\
+\amp= k\frac{p^k}{k!}\cdot \frac{\mathrm d^k}{\mathrm dt^k}\left.\Bigl(\frac1{1-t}\Bigr)\right|_{t=1-p} \\
+\amp= k\frac{p^k}{k!}\cdot \left.\Bigl(\frac{k!}{(1-t)^{k+1}}\Bigr)\right|_{t=1-p} \\
+\amp= \frac kp 
+\end{align*}
+</div>
+</div>
+</div></details></div></article><article class="activity project-like" id="act-essomme"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.14 - </span> <span class="title">Espérance d’une variable à valeurs dans <span class="process-math">\(\N\)</span>.</span>
+</h6>
+<div class="para logical" id="act-essomme-2-1">
+<div class="para">Une <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> à valeurs dans <span class="process-math">\(\N\)</span> est sommable si et seulement si la suite <span class="process-math">\((\Pr{X \gt n})_{n\in \N}\)</span> est sommable et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X)=\sum_{n\in \N}\Pr{X\gt n}
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details id="act-essomme-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="act-essomme-3-1">
+<div class="para">La famille <span class="process-math">\((\Pr{X\gt n})_{n\in\N^*}\)</span> est à termes réels positifs, ce qui legitime le calcul suivant, y compris pour l’interversion des sommes :</div>
+<div class="displaymath process-math" id="act-essomme-3-1-2">
+\begin{align*}
+\sum_{n\in\N}\Pr{X\gt n} \amp= \sum_{n=0}^{+\infty}\sum_{k=n+1}^{+\infty} \Pr{X=k} \\
+\amp= \sum_{k=1}^{+\infty}\sum_{n=0}^{k-1}\Pr{X=k} \\
+\amp= \sum_{k=1}^{+\infty} k\Pr{X=k} \\
+\amp= \EE(X) 
+\end{align*}
+</div>
+</div></div></details></div></article><article class="activity project-like" id="subsubsec-activites-5"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.15 - </span> <span class="title">Espérance du min.</span>
+</h6>
+<div class="para" id="subsubsec-activites-5-2-1">On considère deux VAD <span class="process-math">\(X,Y\)</span> à valeurs dans <span class="process-math">\(\N\text{,}\)</span> indépendantes et de même loi. Exprimer <span class="process-math">\(\EE(\min(X,Y))\)</span> en fonction des probabilités <span class="process-math">\(\Pr{X\gt n}\text{.}\)</span> Appliquer au cas où <span class="process-math">\(X\sim\mathscr G(p)\)</span> et expliquer le résultat obtenu.</div>
+<div class="solutions"><details id="subsubsec-activites-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsubsec-activites-5-3-1">
+<div class="para">Selon l’activité précédente</div>
+<div class="displaymath process-math" id="subsubsec-activites-5-3-1-1">
+\begin{align*}
+\EE(\min(X,Y)) \amp= \sum_{n\in\N}\Pr{\min(X,Y)\gt n} \\
+\amp= \sum_{n\in\N} \Pr{X\gt n, Y\gt n} \\
+\amp= \sum_{n\in\N}\Pr{X\gt n}\Pr{Y\gt n} \\
+\amp= \sum_{n\in\N} \Pr{X\gt n}^2 
+\end{align*}
+</div>
+<div class="para">Si <span class="process-math">\(X\sim \mathscr G(p)\)</span> alors pour tout <span class="process-math">\(n\in\N\)</span>
+</div>
+<div class="displaymath process-math" id="subsubsec-activites-5-3-1-4">
+\begin{align*}
+\Pr{X\gt n} \amp = \sum_{k=n+1}^\infty \Pr{X=k} \\
+\amp =  \sum_{k=n+1}^\infty p(1-p)^{k-1} \\
+\amp = p\cdot \frac{(1-p)^n}{1-(1-p)}=(1-p)^n 
+\end{align*}
+</div>
+<div class="para">et finalement</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(\min(X,Y))=\sum_{n\in\N}(1-p)^{2n}=\frac1{1-(1-p)^2}
+\end{equation*}
+</div>
+<div class="para">
+<span class="process-math">\(\min(X,Y)\)</span> est le temps d’attente d’au moins un succés quand on exécute simultanement deux instances indépendantes d’un même test de Bernouilli de paramètre <span class="process-math">\(p\text{.}\)</span> Si on note respectivement <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> les événements succés  pour le premier et le deuxième test, le paramètre de notre expérience de Bernouilli est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+q=\Pr{A\cup B}=1-\Pr{A^c\cap B^c}=1-(1-p)^2
+\end{equation*}
+</div>
+<div class="para">Ce qui montre qu’en fait <span class="process-math">\(\min(X,Y)\sim\mathscr G(1-(1-p)^2)\)</span>
+</div>
+</div>
+<div class="para logical" id="subsubsec-activites-5-3-2">
+<div class="para">Noter que si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont indépendantes mais <span class="process-math">\(X\sim\mathscr G(p)\)</span> et <span class="process-math">\(X\sim\mathscr G(q)\)</span> alors un calcul similaire aboutit à</div>
+<div class="displaymath process-math" id="subsubsec-activites-5-3-2-5">
+\begin{align*}
+\min(X,Y) \amp\sim \mathcal G\bigl(1-(1-p)(1-q)\bigr) \\
+\EE(\min(X,Y)) \amp= \frac{1}{1-(1-p)(1-q)} 
+\end{align*}
+</div>
+</div>
+</div></details></div></article><article class="activity project-like" id="subsubsec-activites-6"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.16 - </span> <span class="title">Une composition de lois.</span>
+</h6>
+<div class="para" id="subsubsec-activites-6-2-1">
+<span class="process-math">\(N\)</span> est une variable qui suit la loi <span class="process-math">\(\mathscr P(\lambda)\text{.}\)</span> <span class="process-math">\((X_n)_{n\in\N^*}\)</span> est une suite de variables de Bernouilli  de même paramètre <span class="process-math">\(p\text{.}\)</span> On suppose que <span class="process-math">\(N\)</span> et toutes les variables <span class="process-math">\(X_n\)</span> sont mutuellement indépendantes. Déterminer la loi de la variable <span class="process-math">\(S=X_1+X_2+\cdots+X_N\)</span> et calculer son espérance. Décrire une expérience aléatoire qu’on peut modéliser avec <span class="process-math">\(S\text{.}\)</span>
+</div>
+<div class="solutions"><details id="subsubsec-activites-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="subsubsec-activites-6-3-1">
+<div class="displaymath process-math" id="subsubsec-activites-6-3-1-1">
+\begin{align*}
+\Pr{S=n} \amp= \sum_{k=n}^\infty\Pr{S=n \giv  N=k}\Pr{N=k} \\
+\amp= \sum_{k=n}^\infty\Pr{X_1+X_2+\cdots+X_k=n}\Pr{N=k} \\
+\amp= \sum_{k=n}^{+\infty} \binom kn p^n(1-p)^{k-n}\cdot \frac{\lambda^k}{k!}e^{-\lambda} \\
+\amp= e^{-\lambda}\frac{(\lambda p)^n}{n!}\sum_{k=n}^\infty \frac{(\lambda(1-p))^{k-n}}{(k-n)!} \\
+\amp= e^{-\lambda}\frac{(\lambda p)^n}{n!}\cdot e^{\lambda(1-p)} \\
+\amp= \frac{(\lambda p)^n}{n!}e^{-\lambda p} 
+\end{align*}
+</div>
+<div class="para">Donc <span class="process-math">\(S\sim\mathscr P(\lambda p)\)</span> et par suite <span class="process-math">\(\EE(S)=\lambda p\text{.}\)</span>
+</div>
+</div></div></details></div></article></section></section><section class="subsection" id="subsec-varcovar"><h3 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">2.3.2</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Variance et covariance</span>
+</h3>
+<section class="subsubsection" id="subsubsec-varcovar"><h4 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber"></span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Définition et propriétés</span>
+</h4>
+<article class="definition definition-like" id="def-carre-sommable"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.87</span><span class="period">.</span><span class="space"> </span><span class="type">Définition</span>
+</h5>
+<div class="para" id="def-carre-sommable-1-1">Une <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> est dite de carré sommable si <span class="process-math">\(X^2\)</span> est sommable.</div> <div class="para" id="def-carre-sommable-1-2">On notera <span class="process-math">\(L^2(\Omega)\)</span> l’ensemble des <abbr class="acronym">VADR</abbr> de carrés sommables définies sur  <span class="process-math">\((\Omega,\mathscr T,P)\text{.}\)</span>
+</div></article><article class="proposition theorem-like" id="prop-ltwo"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.88</span><span class="period">.</span><span class="space"> </span><span class="type">Proposition</span>
+</h5>
+<div class="para" id="prop-ltwo-1-1">
+<span class="process-math">\(L^2(\Omega)\)</span> est un <span class="process-math">\(\R\)</span>-espace vectoriel et le produit de deux <abbr class="acronym">VADR</abbr> de carrés sommables est une variable sommable.</div></article><details id="prop-ltwo-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h5></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop-ltwo-2-1">
+<div class="para">Découle du fait que si <span class="process-math">\(X,Y\in L^2(\Omega)\)</span> alors <span class="process-math">\(|XY|\leq \frac12(X^2+Y^2)\)</span> et donc <span class="process-math">\(XY\in L^1(\Omega)\)</span> par domination. Ensuite pour tout <span class="process-math">\(\lambda\in \R\)</span>
+</div>
+<div class="displaymath process-math" id="prop-ltwo-2-1-5">
+\begin{align*}
+(X+\lambda Y)^1=X^2+\lambda^2Y^2+2\lambda XY \amp\leqslant X^2+\lambda^2Y^2+\lambda(X^2+Y^2) 
+\end{align*}
+</div>
+<div class="para">et donc, par domination, <span class="process-math">\(X+\lambda Y\in L^2(\Omega)\text{.}\)</span> Sachant que la variable nulle est dans <span class="process-math">\(L^2(\Omega)\text{,}\)</span> ceci prouve que <span class="process-math">\(L^2(\Omega)\)</span> est un sous-espace vectoriel de <span class="process-math">\(\R^\Omega\text{.}\)</span>
+</div>
+</div></article></details><article class="definition definition-like" id="def-varcovar"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.89</span><span class="period">.</span><span class="space"> </span><span class="type">Définition</span>
+</h5>
+<ol class="decimal" id="def-varcovar-3-1">
+<li id="def-varcovar-3-1-1"><div class="para logical" id="def-varcovar-3-1-1-1">
+<div class="para">Soit <span class="process-math">\(X\in L^2(\Omega)\text{.}\)</span> La variable <span class="process-math">\((X-E(X))^2\)</span> est sommable et son espérance est appelée variance de <span class="process-math">\(X\text{.}\)</span> On la note <span class="process-math">\(\VV(X)\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\VV(X):=\EE\bigl((X-\EE(X))^2\bigr)
+\end{equation*}
+</div>
+</div></li>
+<li id="def-varcovar-3-1-2"><div class="para logical" id="def-varcovar-3-1-2-1">
+<div class="para">Soient <span class="process-math">\(X,Y\in L^2(\Omega)\text{.}\)</span> La variable <span class="process-math">\((X-\EE(X))(Y-\EE(Y))\)</span> est sommable et son espérance est appelée covariance des variables <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\text{.}\)</span> On la note <span class="process-math">\(\Cov(X,Y)\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Cov(X,Y):=\EE\bigl((X-\EE(X))(Y-\EE(Y))\bigr)
+\end{equation*}
+</div>
+</div></li>
+</ol>
+<details id="def-varcovar-4" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Explication<span class="period">.</span></span></h6></summary><article class="hiddenproof knowl__content"><div class="para" id="def-varcovar-4-1">
+<span class="process-math">\(V(X)\)</span> est la moyenne «quadratique» de <span class="process-math">\(X-\EE(X)\text{.}\)</span> Elle mésure la moyenne de l’écart que peut prendre <span class="process-math">\(X\)</span> avec sa moyenne <span class="process-math">\(\EE(X)\text{.}\)</span>
+</div>
+<div class="para logical" id="def-varcovar-4-2">
+<div class="para">
+<span class="process-math">\(\Cov(X,Y)\)</span> mésure le degré de corélation entre <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\text{,}\)</span> c’est à dire à quels points les résultats obtenus par <span class="process-math">\(X\)</span> et par <span class="process-math">\(Y\)</span> s’influencent les uns les autres. On notera par exemple que si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont indépendantes (aucune corélation) alors <span class="process-math">\(X-\EE(X)\)</span> et <span class="process-math">\(Y-\EE(Y)\)</span> sont indépendantes et donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Cov(X,Y)=\EE(X-\EE(X))\EE(Y-\EE(Y))=0
+\end{equation*}
+</div>
+</div></article></details></article><article class="remark remark-like" id="subsubsec-varcovar-5"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.90</span><span class="period">.</span><span class="space"> </span><span class="type">Remarque</span>
+</h5>
+<ol class="decimal" id="subsubsec-varcovar-5-1">
+<li id="subsubsec-varcovar-5-1-1"><div class="para" id="subsubsec-varcovar-5-1-1-1">Noter que si <span class="process-math">\(X\in L^2(\Omega)\)</span> alors <span class="process-math">\(\VV(X)=\Cov(X,X)\text{.}\)</span>
+</div></li>
+<li id="subsubsec-varcovar-5-1-2"><div class="para" id="subsubsec-varcovar-5-1-2-1"></div></li>
+</ol></article><article class="proposition theorem-like" id="prop-var-identite"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.91</span><span class="period">.</span><span class="space"> </span><span class="type">Proposition</span>
+</h5>
+<div class="para logical" id="prop-var-identite-1-1">
+<div class="para">Soient <span class="process-math">\(X,Y\in L^2(\Omega)\)</span>
+</div>
+<ol class="decimal" id="prop-var-identite-1-1-2">
+<li id="prop-var-identite-1-1-2-1"><div class="para" id="prop-var-identite-1-1-2-1-1">
+<span class="process-math">\(\VV(X)\geqslant 0\)</span> avec égalité si et seulement si <span class="process-math">\(X\)</span> est presque partout constante.</div></li>
+<li id="prop-var-identite-1-1-2-2"><div class="para" id="prop-var-identite-1-1-2-2-1"><span class="process-math">\(\displaystyle \VV(X)=\EE(X^2)-\EE(X)^2=\EE\bigl(X(X-1)\bigr)-\EE(X)\bigl(\EE(X)-1\bigr)\)</span></div></li>
+<li id="prop-var-identite-1-1-2-3"><div class="para" id="prop-var-identite-1-1-2-3-1"><span class="process-math">\(\displaystyle \Cov(X,Y)=\EE(XY)-\EE(X)\EE(Y)\)</span></div></li>
+<li id="prop-var-identite-1-1-2-4"><div class="para" id="prop-var-identite-1-1-2-4-1">Si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont indépendantes alors <span class="process-math">\(\Cov(X,Y)=0\text{.}\)</span>
+</div></li>
+</ol>
+</div></article><article class="theorem theorem-like" id="thm-varcovar"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.92</span><span class="period">.</span><span class="space"> </span><span class="type">Théorème</span>
+</h5>
+<div class="para logical" id="thm-varcovar-1-1">
+<div class="para">
+<span class="process-math">\(\Cov\)</span> est une forme bilinéaire symétrique positive de <span class="process-math">\(L^2(\Omega)\text{.}\)</span> L’inégalité de Cauchy-Schwarz pour cette forme s’écrit :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall X,Y\in L^2(\Omega),\; \Cov(X,Y)^2\leqslant V(X)V(Y)
+\end{equation*}
+</div>
+<div class="para">avec égalité si et seulement si <span class="process-math">\(Y\)</span> est presque partout constante ou s’il existe des réels <span class="process-math">\(\lambda\)</span> et <span class="process-math">\(\mu\)</span> tels que <span class="process-math">\(X=\lambda Y+\mu\)</span>  presque partout.</div>
+</div></article><article class="proposition theorem-like" id="prop-varcovar"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.93</span><span class="period">.</span><span class="space"> </span><span class="type">Proposition</span>
+</h5>
+<div class="para logical" id="prop-varcovar-1-1">
+<div class="para">Soient <span class="process-math">\(X_1,X_2,\ldots,X_n\)</span> des variables aleátoires discrètes de carrés sommables.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\VV\left(\sum_{k=1}^n X_k\right)=\sum_{k=1}^n \VV(X_k)+2\sum_{1\leqslant i\lt j\leqslant n}\Cov\left(X_i,X_j\right)
+\end{equation*}
+</div>
+<div class="para">Si <span class="process-math">\(X_1,X_2,\ldots,X_n\)</span> sont <em class="emphasis">deux à deux indépendantes</em> alors en particulier</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\VV\left(\sum_{k=1}^n X_k\right)=\sum_{k=1}^n \VV(X_k)
+\end{equation*}
+</div>
+</div></article><article class="definition definition-like" id="def-ecarttype-covariance"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.94</span><span class="period">.</span><span class="space"> </span><span class="type">Définition</span>
+</h5>
+<div class="para logical" id="def-ecarttype-covariance-3-1">
+<div class="para">Soiente <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> des variables aléatoires de carrés sommables.</div>
+<ol class="decimal" id="def-ecarttype-covariance-3-1-3">
+<li id="def-ecarttype-covariance-3-1-3-1"><div class="para" id="def-ecarttype-covariance-3-1-3-1-1">On appelle <dfn class="terminology">écart-type</dfn> de <span class="process-math">\(X\)</span> le réel <span class="process-math">\(\sigma(X)=\sqrt{\VV(X)}\text{.}\)</span>
+</div></li>
+<li id="def-ecarttype-covariance-3-1-3-2"><div class="para logical" id="def-ecarttype-covariance-3-1-3-2-1">
+<div class="para">On suppose que <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> ne sont pas presque partout constantes. On appelle <dfn class="terminology">coefficient de corrélation</dfn> de <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> le réel</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\rho(X,Y)=\frac{\Cov(X,Y)}{\sigma(X)\sigma(Y)}
+\end{equation*}
+</div>
+</div></li>
+</ol>
+</div></article><article class="remark remark-like" id="subsubsec-varcovar-10"><h5 class="heading">
+<span class="space"> </span><span class="codenumber">2.95</span><span class="period">.</span><span class="space"> </span><span class="type">Remarque</span>
+</h5>
+<ol class="decimal" id="subsubsec-varcovar-10-1">
+<li id="subsubsec-varcovar-10-1-1"><div class="para" id="subsubsec-varcovar-10-1-1-1">
+<span class="process-math">\(\sigma\)</span> est une semi-norme de <span class="process-math">\(L^2(\Omega)\text{.}\)</span> Pour tout <span class="process-math">\(X\in L^2(\Omega)\text{,}\)</span> <span class="process-math">\(\sigma(X)=0\)</span> si et seulement si <span class="process-math">\(X\)</span> est presque partout constante.</div></li>
+<li id="subsubsec-varcovar-10-1-2">
+<div class="para" id="subsubsec-varcovar-10-1-2-1">Si <span class="process-math">\(\rho(X,Y)=0\)</span> on dit que les variables aléatoires <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont <em class="emphasis">non corrélées</em>. C’est le cas par exemple si elles sont indépendantes.</div>
+<div class="para" id="subsubsec-varcovar-10-1-2-2">La non corrélation est une sorte «d’orthogonalité» pour la forme bilinéaire symétrique <span class="process-math">\(\Cov\text{.}\)</span>
+</div>
+</li>
+<li id="subsubsec-varcovar-10-1-3">
+<div class="para logical" id="subsubsec-varcovar-10-1-3-1">
+<div class="para">Si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> ne sont pas presque partout constantes, selon l’inégalité de Cauchy-Schwarz, on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|\rho(X,Y)|\leqslant 1
+\end{equation*}
+</div>
+<div class="para">avec égalité si et seulement s’il existe des réels  <span class="process-math">\(a\ne0\)</span> et <span class="process-math">\(b\)</span> tels que <span class="process-math">\(X=aY+b\)</span> presque partout avec <span class="process-math">\(a\gt 0\)</span> si <span class="process-math">\(\rho(X,Y)=1\)</span> et <span class="process-math">\(a\lt 0\)</span> si <span class="process-math">\(\rho(X,Y)=-1\text{.}\)</span> On dit que <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont linéairement corrélées (positivément ou négativement selon le signe de <span class="process-math">\(\rho(X,Y)\)</span>).</div>
+</div>
+<div class="para" id="subsubsec-varcovar-10-1-3-2">Plus <span class="process-math">\(\sigma(X,Y)\)</span> est voisin de <span class="process-math">\(1\)</span> plus les variables <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont «positivement» corrélées. Plus il est voisin de <span class="process-math">\(-1\)</span> plus elles sont «négativement» corrélées.</div>
+</li>
+<li id="subsubsec-varcovar-10-1-4">
+<div class="para" id="subsubsec-varcovar-10-1-4-1">Une <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> est dite centrée si <span class="process-math">\(\EE(X)=0\text{.}\)</span> Elle est dite centrée réduite si elle est centrée et <span class="process-math">\(\sigma(X)=1\text{.}\)</span>
+</div>
+<div class="para" id="subsubsec-varcovar-10-1-4-2">Pour toute <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> non partout constante, la <abbr class="acronym">VADR</abbr> <span class="process-math">\(\frac{X-\EE(X)}{\sigma(X)}\)</span> est centrée réduite.</div>
+</li>
+</ol>
+<div class="para" id="subsubsec-varcovar-10-2"></div></article><article class="exploration project-like" id="subsubsec-varcovar-11"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Exploration</span><span class="codenumber"> 2.17 - </span> <span class="title">Matrice des covariances d’un vecteur aléatoire.</span>
+</h6>
+<div class="para" id="subsubsec-varcovar-11-3">On considère des <abbr class="acronym">VADR</abbr> <span class="process-math">\(X_1,X_2,\ldots,X_n\text{.}\)</span> On appelle matrice des covariances du vecteur <span class="process-math">\(X=(X_1,X_2,\ldots,X_n)\)</span> la matrice carrée <span class="process-math">\(\Sigma(X)\)</span> de taille <span class="process-math">\(n\times n\)</span> dont les coefficients sont <span class="process-math">\(\Cov(X_i,X_j)\text{.}\)</span> <span class="process-math">\(\Sigma(X)\)</span> est la matrice de Gram de la famille <span class="process-math">\((X_1,X_2,\ldots,X_n)\)</span> pour la forme bilinéaire symétrique <span class="process-math">\(\Cov\text{.}\)</span>
+</div>
+<div class="para logical" id="subsubsec-varcovar-11-4">
+<div class="para">Pour tout <span class="process-math">\((\lambda_1,\lambda_2,\ldots,\lambda_n)\in\R^n\text{,}\)</span> on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/task-sympos.html">
+\begin{equation*}
+\VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)={}^t\!\Lambda \Sigma(X)\Lambda
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(\Lambda={}^t\!\begin{pmatrix}\lambda_1\amp \lambda_2\amp \cdots\amp \lambda_n\end{pmatrix}\)</span> (voir l’activité <a href="sec-espvaralea.html#task-sympos" class="xref" data-knowl="./knowl/xref/task-sympos.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Question 2.18.a: Symétrie et positivité">Question 2.18.a</a>). On en déduit par exemple que <span class="process-math">\(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n\)</span> est presque partout constante  si et seulement si <span class="process-math">\(\Lambda\in\ker\Sigma(X)\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="subsubsec-varcovar-11-5">
+<div class="para">
+<span class="process-math">\(\Sigma(X)\)</span> est une matrice symétrique positive. Elle est en particulier orthogonalemnt diagonalisable et ses valeurs propres sont positives ou nulles. Une base orthonormale de vecteurs propres peut servir à construire une base de l’espace vectoriel engendré par <span class="process-math">\(X_1,X_2,\ldots,X_n\)</span> formée de <abbr class="acronym">VADR</abbr> <em class="emphasis">deux à deux non corrélées</em>. En outre les vecteurs dans cette base qui sont associés à la valeur propre nulle sont des <abbr class="acronym">VADR</abbr> presque partout constantes. Ce qui permet de représenter tout élément de <span class="process-math">\(\mathrm{Vect}\{X_1,X_2,\ldots,X_n\}\)</span> à une <abbr class="acronym">VADR</abbr> presque partout constante près comme une combinaison linéaire de <span class="process-math">\(r=\operatorname{rg}\Sigma(X)\)</span> <abbr class="acronym">VADR</abbr> non partout constantes et deux à deux non corrélées. Ces observations sont essentielles dans ce qu’on appelle Analyse en Composantes Principales (ACP). Voir pour cela :</div>
+<ul class="disc" id="subsubsec-varcovar-11-5-10">
+<li id="subsubsec-varcovar-11-5-10-1"><div class="para" id="subsubsec-varcovar-11-5-10-1-1">la définition sur <a class="external" href="https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales" target="_blank">Wikipedia</a><details class="ptx-footnote" aria-live="polite" id="subsubsec-varcovar-11-5-10-1-1-2"><summary class="ptx-footnote__number" title="Note de bas de page 2.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="subsubsec-varcovar-11-5-10-1-1-2"><code class="code-inline tex2jax_ignore">fr.wikipedia.org/wiki/Analyse_en_composantes_principales</code></div></details>
+</div></li>
+<li id="subsubsec-varcovar-11-5-10-2"><div class="para" id="subsubsec-varcovar-11-5-10-2-1">un document plus technique est plus détaillé sur <a class="external" href="http://www.mderouich.ma/web/Enseignements%202020/chapitreIII.pdf" target="_blank">le web</a><details class="ptx-footnote" aria-live="polite" id="subsubsec-varcovar-11-5-10-2-1-2"><summary class="ptx-footnote__number" title="Note de bas de page 2.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="subsubsec-varcovar-11-5-10-2-1-2"><code class="code-inline tex2jax_ignore">www.mderouich.ma/web/Enseignements%202020/chapitreIII.pdf</code></div></details>
+</div></li>
+</ul>
+<div class="para">D’autre propriétés de la matrices de covariances seront en outre explorées dans les activités <a href="sec-espvaralea.html#matrice-covariance-vecteur-aleatoire" class="xref" data-knowl="./knowl/xref/matrice-covariance-vecteur-aleatoire.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Activité 2.18: Matrice des covariances d’un vecteur aléatoire">Activité 2.18</a> et <a href="sec-espvaralea.html#esperance-forme-quadratique" class="xref" data-knowl="./knowl/xref/esperance-forme-quadratique.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Activité 2.19: Espérance d’une forme quadratique">Activité 2.19</a>
+</div>
+</div></article></section><section class="subsubsection" id="subsubsec-exemples-varcovar"><h4 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber"></span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Exemples usuels</span>
+</h4>
+<figure class="list table-like" id="list-var"><figcaption><span class="type">Liste</span><span class="space"> </span><span class="codenumber">2.96<span class="period">.</span></span><span class="space"> </span>Variances des lois usuelles.</figcaption><div class="named-list-content">
+<div class="introduction" id="list-var-2"><div class="para" id="list-var-2-1">On considère une <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\text{.}\)</span>
+</div></div>
+<dl class="description-list">
+<dt id="list-var-3-1">Loi uniforme</dt>
+<dd>
+<div class="para" id="list-var-3-1-2">Si <span class="process-math">\(X\sim \mathscr U(\iic{1,n})\)</span> à valeurs dans <span class="process-math">\([\![1,n]\!]\)</span> alors <span class="process-math">\(\VV(X)=\ds \frac{n^2-1}{12}\text{.}\)</span>
+</div>
+<div class="para" id="list-var-3-1-3">En général si <span class="process-math">\(X\)</span> suit une loi uniforme à valeurs dans <span class="process-math">\(\{x_1,x_2,\ldots,x_n\}\)</span> alors <span class="process-math">\(\VV(X)=\ds\frac1n\sum_{k=1}^nx_k^2-\frac1{n^2}\biggl(\sum_{k=1}^nx_k\biggr)^2\)</span>
+</div>
+</dd>
+<dt id="list-var-3-2">Loi de Bernouilli</dt>
+<dd><div class="para" id="list-var-3-2-2">Si <span class="process-math">\(X\sim\mathscr B(p)\)</span> alors <span class="process-math">\(\VV(X)=p(1-p)\)</span>
+</div></dd>
+<dt id="list-var-3-3">Loi binomiale</dt>
+<dd><div class="para" id="list-var-3-3-2">Si <span class="process-math">\(X\sim\mathscr B(n,p)\)</span> alors <span class="process-math">\(\VV(X)=np(1-p)\)</span>
+</div></dd>
+<dt id="list-var-3-4">Loi géometrique</dt>
+<dd><div class="para" id="list-var-3-4-2">Si <span class="process-math">\(X\sim \mathscr G(p)\)</span> alors <span class="process-math">\(\VV(X)=\ds\frac{1-p^2}{p}\)</span>
+</div></dd>
+<dt id="list-var-3-5">Loi de Poisson</dt>
+<dd><div class="para" id="list-var-3-5-2">Si <span class="process-math">\(X\sim\mathscr P(\lambda)\)</span> alors <span class="process-math">\(\VV(X)=\lambda\text{.}\)</span>
+</div></dd>
+</dl>
+</div></figure></section><section class="subsubsection" id="subsubsec-activites-varcovar"><h4 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber"></span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Activités</span>
+</h4>
+<article class="activity project-like" id="matrice-covariance-vecteur-aleatoire"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.18 - </span> <span class="title">Matrice des covariances d’un vecteur aléatoire.</span>
+</h6>
+<div class="introduction" id="matrice-covariance-vecteur-aleatoire-2">
+<div class="para" id="matrice-covariance-vecteur-aleatoire-2-1">Dans cette activité, nous étudions la matrice des covariances d’un vecteur aléatoire discret <span class="process-math">\(X = {}^t(X_1, X_2, \dots, X_n) \)</span> à valeurs dans <span class="process-math">\(\mathcal{M}_{n,1}(\mathbb{R}) \text{.}\)</span> Nous allons explorer les propriétés de cette matrice et en donner une application.</div>
+<div class="para logical" id="matrice-covariance-vecteur-aleatoire-2-2">
+<div class="para">On dit que <span class="process-math">\(X\)</span> admet un moment d’ordre <span class="process-math">\(k\)</span> si ses composantes <span class="process-math">\(X_1,X_2,\cdots,X_n\)</span> en admettent. On suppose que <span class="process-math">\(X\)</span> admet un moment d’ordre <span class="process-math">\(2\)</span> et on pose par définition</div>
+<ul class="disc" id="matrice-covariance-vecteur-aleatoire-2-2-6">
+<li id="matrice-covariance-vecteur-aleatoire-2-2-6-1"><div class="para" id="matrice-covariance-vecteur-aleatoire-2-2-6-1-1"><span class="process-math">\(\displaystyle \EE(X)={}^t(\EE(X_1)\; \EE(X_2)\;\cdots\; \EE(X_n))\)</span></div></li>
+<li id="matrice-covariance-vecteur-aleatoire-2-2-6-2"><div class="para" id="matrice-covariance-vecteur-aleatoire-2-2-6-2-1"><span class="process-math">\(\displaystyle \mathbf\Sigma(X)=\big(\Cov(X_i,X_j)\big)_{i,j}\)</span></div></li>
+</ul>
+<div class="para">
+<span class="process-math">\(\mathbf\Sigma(X)\)</span> est une matrice symétrique réelle d’ordre <span class="process-math">\(n\)</span> appelée matrice des covariances du vecteur <span class="process-math">\(X\text{.}\)</span>
+</div>
+</div>
+</div>
+<article class="task exercise-like" id="task-sympos"><h6 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">Symétrie et positivité.</span>
+</h6>
+<div class="para logical" id="task-sympos-2-1">
+<div class="para">Soit <span class="process-math">\(\Lambda={}^t\begin{pmatrix}\lambda_1 \amp \lambda_2 \amp\cdots\amp\lambda_n\end{pmatrix}\in\mathcal M_{n,1}(\R)\text{.}\)</span> Montrer que :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)=\Lambda^\top\mathbf\Sigma(X)\Lambda.
+\end{equation*}
+</div>
+<div class="para">et en déduire que <span class="process-math">\(\Sigma(X)\)</span> est une matrice symétrique positive.</div>
+</div>
+<div class="solutions"><details id="task-sympos-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="task-sympos-3-1">
+<div class="para">Par bilinéarité de la covariance on a le développement :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)=\sum_{i,j}\lambda_i\lambda_j\Cov(X_i,X_j).
+\end{equation*}
+</div>
+<div class="para">Un résultat usuel d’un autre côte donne</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{i,j}\lambda_i\lambda_j\Cov(X_i,X_j)=\Lambda^\top\mathbf\Sigma(X)\Lambda.
+\end{equation*}
+</div>
+<div class="para">donc <span class="process-math">\(\VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)=\Lambda^\top\mathbf\Sigma(X)\Lambda\text{.}\)</span> La matrice <span class="process-math">\(\Sigma(X)\)</span> qui est naturellement symétrique est donc positive puisque cette dernière égalité prouve que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall \Lambda\in\mathcal M_{n,1}(\R),\quad \Lambda^\top\mathbf\Sigma(X)\Lambda\geq0
+\end{equation*}
+</div>
+</div></div></details></div></article><article class="task exercise-like" id="matrice-covariance-vecteur-aleatoire-4"><h6 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Une expression de la matrice des covariances.</span>
+</h6>
+<div class="para logical" id="matrice-covariance-vecteur-aleatoire-4-2-1">
+<div class="para">Montrer que :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf\Sigma(X)=\EE\Bigl(\bigl(X-\EE(X)\bigr)\bigl(X-\EE(X)\bigr)^\top\Bigr).
+\end{equation*}
+</div>
+<div class="para">En déduire que si <span class="process-math">\(b\in\mathcal M_{n,1}(\R)\)</span> alors <span class="process-math">\(\Sigma(X+b)=\Sigma(X)\)</span> et qu’en particulier <span class="process-math">\(\Sigma(X-\EE(X))=\Sigma(X)\)</span>
+</div>
+</div>
+<div class="solutions"><details id="matrice-covariance-vecteur-aleatoire-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="matrice-covariance-vecteur-aleatoire-4-3-1">
+<div class="para">On observe que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(X-\EE(X))(X-\EE(X))^\top= \Bigl(\bigl(X_i-\EE(X_i)\bigr)\bigl(X_j-\EE(X_j)\bigr)\Bigr)_{i,j}
+\end{equation*}
+</div>
+<div class="para">Donc :</div>
+<div class="displaymath process-math" id="matrice-covariance-vecteur-aleatoire-4-3-1-2">
+\begin{align*}
+\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr) \amp= \Bigl(\EE\bigl[\bigl(X_i-\EE(X_i)\bigr)\bigl(X_j-\EE(X_j)\bigr)\bigr]\Bigr)_{i,j} \\
+\amp=\bigl(\Cov(X_i,Y_j)\bigr)_{i,j} \\
+\amp=\Sigma(X) 
+\end{align*}
+</div>
+<div class="para">Si <span class="process-math">\(Y=X+b\)</span> alors <span class="process-math">\(Y-\EE(Y)=X-\EE(X)\)</span> et donc <span class="process-math">\(\Sigma(Y)=\Sigma(X)\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like" id="matrice-covariance-vecteur-aleatoire-5"><h6 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">Transformation linéaire d’un vecteur aléatoire.</span>
+</h6>
+<div class="para logical" id="matrice-covariance-vecteur-aleatoire-5-2-1">
+<div class="para">Soient <span class="process-math">\(A \in \mathcal{M}_{n,m}(\mathbb{R}) \)</span> une matrice  et <span class="process-math">\(b \in \mathcal{M}_{m,1}(\mathbb{R}) \)</span> un vecteur colonne. On considère le vecteur aléatoire <span class="process-math">\(Y = AX + b \text{.}\)</span>
+</div>
+<ol class="decimal" id="matrice-covariance-vecteur-aleatoire-5-2-1-4">
+<li id="matrice-covariance-vecteur-aleatoire-5-2-1-4-1"><div class="para" id="p-derived-matrice-covariance-vecteur-aleatoire-5-2-1-4-1">Montrer que <span class="process-math">\(Y \)</span> admet des moments d’ordre 2.</div></li>
+<li id="matrice-covariance-vecteur-aleatoire-5-2-1-4-2"><div class="para" id="p-derived-matrice-covariance-vecteur-aleatoire-5-2-1-4-2">Montrer que :<div class="displaymath process-math">
+\begin{equation*}
+\EE(Y) = A \EE(X) + b.
+\end{equation*}
+</div>dans cette relation on peut remplacer <span class="process-math">\(X\)</span> par un vecteur aléatoire à valeurs dans un <span class="process-math">\(\R\)</span>-ev de dimension finie quelconque <span class="process-math">\(E\)</span> et <span class="process-math">\(A\)</span> par une application linéaire <span class="process-math">\(u\)</span> définie sur cet espace et à valeurs dans un autre espace <span class="process-math">\(E'\text{,}\)</span> le vecteur <span class="process-math">\(b\)</span> éant pris dans <span class="process-math">\(E'\text{.}\)</span> Elle s’écrit alors<div class="displaymath process-math">
+\begin{equation*}
+\EE(u(X) + b) = u(\EE(X)) + b.
+\end{equation*}
+</div>On admet cette dernière propriété.</div></li>
+<li id="matrice-covariance-vecteur-aleatoire-5-2-1-4-3"><div class="para" id="p-derived-matrice-covariance-vecteur-aleatoire-5-2-1-4-3">Montrer que la matrice des covariances de <span class="process-math">\(Y \)</span> est donnée par :<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(Y) = A \mathbf{\Sigma}(X) {}^t\!A.
+\end{equation*}
+</div>
+</div></li>
+</ol>
+</div>
+<div class="solutions"><details id="matrice-covariance-vecteur-aleatoire-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="matrice-covariance-vecteur-aleatoire-5-3-1"><ol class="decimal" id="matrice-covariance-vecteur-aleatoire-5-3-1-1">
+<li id="matrice-covariance-vecteur-aleatoire-5-3-1-1-1"><div class="para" id="p-derived-matrice-covariance-vecteur-aleatoire-5-3-1-1-1">Comme <span class="process-math">\(X \)</span> admet des moments d’ordre 2, chaque composante <span class="process-math">\(X_i \)</span> admet une variance finie. Chaque composante du vecteur <span class="process-math">\(Y = AX + b \)</span> est une combinaison linéaire des <span class="process-math">\(X_i \text{,}\)</span> donc <span class="process-math">\(Y \)</span> admet également des moments d’ordre 2.</div></li>
+<li id="matrice-covariance-vecteur-aleatoire-5-3-1-1-2"><div class="para" id="p-derived-matrice-covariance-vecteur-aleatoire-5-3-1-1-2">Par linéarité de l’espérance, on a :<div class="displaymath process-math" id="matrice-covariance-vecteur-aleatoire-5-3-1-1-2-1">
+\begin{align*}
+\EE(AX+b) \amp= \EE\biggl(\Bigl(\sum_{j=1}^nA_{i,j}X_j+b_i\Bigr)_{i,j}\biggr) \\
+\amp:= \biggl(\EE\Bigl(\sum_{j=1}^nA_{i,j}X_j+b_i\Bigr)\biggr)_{i,j} \\
+\amp= \biggl(\sum_{j=1}^nA_{i,j}\EE(X_j)+b_i\biggr)_{i,j} \\
+\amp= A\EE(X)+b 
+\end{align*}
+</div>
+</div></li>
+<li id="matrice-covariance-vecteur-aleatoire-5-3-1-1-3"><div class="para" id="p-derived-matrice-covariance-vecteur-aleatoire-5-3-1-1-3">La matrice des covariances de <span class="process-math">\(Y \)</span> est donnée par :<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(Y) = \Sigma(AX) = \EE\bigl(A(X-\EE(X))(X-\EE(X))^\top A^\top\bigr)
+\end{equation*}
+</div>Donc d’après la relation précédente sur l’espérance<div class="displaymath process-math" id="matrice-covariance-vecteur-aleatoire-5-3-1-1-3-3">
+\begin{align*}
+\Sigma(Y)\amp=A\EE\bigl((X-\EE(X))(X-\EE(X))^\top A^\top\bigr) \\
+\amp=A\Bigl(\EE\bigl(A(X-\EE(X))(X-\EE(X))^\top\bigr)\Bigr)^\top \\
+\amp= A\Bigl(A\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr)\Bigr)^\top \\
+\amp=A\Bigl(\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr)\Bigr)^\top A^\top \\
+\amp=A\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr) A^\top \\
+\amp= A\Sigma(X)A^\top 
+\end{align*}
+</div>
+</div></li>
+</ol></div></div></details></div></article><article class="task exercise-like" id="matrice-covariance-vecteur-aleatoire-6"><h6 class="heading">
+<span class="codenumber">(d)</span><span class="space"> </span><span class="title">Toute matrice symétrique positive est une matrice de covariances.</span>
+</h6>
+<div class="para" id="matrice-covariance-vecteur-aleatoire-6-2-1">Soit <span class="process-math">\(S \in \mathcal{M}_n(\mathbb{R}) \)</span> une matrice symétrique positive. Montrer qu’il existe un vecteur aléatoire <span class="process-math">\(Y \)</span> tel que <span class="process-math">\(S = \mathbf{\Sigma}(Y) \text{.}\)</span>
+</div>
+<div class="solutions"><details id="matrice-covariance-vecteur-aleatoire-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="matrice-covariance-vecteur-aleatoire-6-3-1">
+<div class="para">Comme <span class="process-math">\(S \)</span> est symétrique positive, il existe une matrice symétrique positive <span class="process-math">\(R\)</span> telle que : <span class="process-math">\(S = R^2 \text{.}\)</span> Soit <span class="process-math">\(Z \)</span> un vecteur aléatoire dont les composantes sont des variables aléatoires indépendantes de variance 1. On a <span class="process-math">\(\Sigma(Z)=I_n\)</span> et donc le vecteur <span class="process-math">\(Y = RZ \)</span> a pour matrice des covariances :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(Y) = R \mathbf{\Sigma}(Z) R^\top = R^2 = S.
+\end{equation*}
+</div>
+</div></div></details></div></article><article class="task exercise-like" id="matrice-covariance-vecteur-aleatoire-7"><h6 class="heading">
+<span class="codenumber">(e)</span><span class="space"> </span><span class="title">Produit d’Hadamard et indépendance.</span>
+</h6>
+<div class="para logical" id="matrice-covariance-vecteur-aleatoire-7-2-1">
+<div class="para">Soient <span class="process-math">\(X \)</span> et <span class="process-math">\(Y \)</span> deux vecteurs aléatoires de carrés sommables, centrés et indépendants. On définit le produit d’Hadamard de deux matrices de même tailles <span class="process-math">\(A,B\in\mathcal M_{n,m}(\R)\)</span> par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\circ B=\bigl(A_{i,j}B_{i,j}\bigr)_{i,j}
+\end{equation*}
+</div>
+<div class="para">Montrer que :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(X \circ Y) = \mathbf{\Sigma}(X) \circ \mathbf{\Sigma}(Y).
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details id="matrice-covariance-vecteur-aleatoire-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="matrice-covariance-vecteur-aleatoire-7-3-1">
+<div class="para">Comme <span class="process-math">\(X \)</span> et <span class="process-math">\(Y \)</span> sont indépendants alors pour tout couple d’indices <span class="process-math">\((i,j)\text{,}\)</span> <span class="process-math">\(X_i\)</span> et indépendant de <span class="process-math">\(Y_j\)</span> et donc <span class="process-math">\(\EE(X_iY_j)=\EE(X_i)\EE(Y_j)=0\text{.}\)</span> En outre, <span class="process-math">\(X_iX_j\)</span> est indépendant de  <span class="process-math">\(Y_iY_j\)</span> par coalition. On a alors :</div>
+<div class="displaymath process-math" id="matrice-covariance-vecteur-aleatoire-7-3-1-9">
+\begin{align*}
+\Cov(X_iY_i,X_jY_j) \amp= \EE\bigl((X_iY_i-\EE(X_iY_i))(X_jY_j-\EE(X_jY_j))\bigr) \\
+\amp= \EE\bigl((X_iY_i-\EE(X_i)\EE(Y_i))(X_jY_j-\EE(X_j)\EE(Y_j))\bigr) \\
+\amp= \EE\bigl((X_iY_i)(X_jY_j)\bigr) \\
+\amp= \EE(X_iX_j)\EE(Y_iY_j) \\
+\amp=\Cov(X_i,X_j)\Cov(Y_i,Y_j) 
+\end{align*}
+</div>
+<div class="para">Ce qui montre que <span class="process-math">\(\Sigma(X\circ Y) = \Sigma(X) \circ \Sigma(Y)\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like" id="matrice-covariance-vecteur-aleatoire-8"><h6 class="heading">
+<span class="codenumber">(f)</span><span class="space"> </span><span class="title">Produit d’Hadamard de matrices symétriques positives.</span>
+</h6>
+<div class="para" id="matrice-covariance-vecteur-aleatoire-8-2-1">En déduire que le produit d’Hadamard de deux matrices symétriques positives est une matrice symétrique positive.</div>
+<div class="solutions"><details id="matrice-covariance-vecteur-aleatoire-8-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="matrice-covariance-vecteur-aleatoire-8-3-1">Soient <span class="process-math">\(A \)</span> et <span class="process-math">\(B \)</span> deux matrices symétriques positives. D’après la question précédente, il existe des vecteurs aléatoires <span class="process-math">\(X \)</span> et <span class="process-math">\(Y \)</span> tels que <span class="process-math">\(A = \mathbf{\Sigma}(X) \)</span> et <span class="process-math">\(B = \mathbf{\Sigma}(Y) \text{.}\)</span> Alors, <span class="process-math">\(A \circ B = \mathbf{\Sigma}(X \circ Y) \text{,}\)</span> qui est une matrice des covariances, donc symétrique positive.</div></div></details></div></article></article><article class="activity project-like" id="esperance-forme-quadratique"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.19 - </span> <span class="title">Espérance d’une forme quadratique.</span>
+</h6>
+<div class="introduction" id="esperance-forme-quadratique-2">
+<div class="para" id="esperance-forme-quadratique-2-1">Soit <span class="process-math">\(X \)</span> un vecteur aléatoire de <span class="process-math">\(\mathbb{R}^n \)</span> ayant un moment d’ordre <span class="process-math">\(2\text{.}\)</span> On note <span class="process-math">\(\mathbf{\Sigma}(X) \)</span> la matrice des covariances de <span class="process-math">\(X \)</span> et <span class="process-math">\(\mu\)</span> son espérance.</div>
+<div class="para" id="esperance-forme-quadratique-2-2">L’activité propose de montrer la formule <a href="sec-espvaralea.html#formquad" class="xref" data-knowl="./knowl/xref/formquad.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Équation 2.2">(2.2)</a> dite formule des formes quadratiques et  quelques exemples d’application ensuite.</div>
+</div>
+<article class="task exercise-like" id="esperance-forme-quadratique-3"><h6 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">Formule des formes quadratiques.</span>
+</h6>
+<div class="para" id="esperance-forme-quadratique-3-2-1">Soit <span class="process-math">\(A\)</span> une matrice carrée constante. Démontrer la formule :</div>
+<div class="displaymath process-math" id="formquad">
+\begin{equation}
+\EE({}^tX A X) = \text{tr}(A \mathbf{\Sigma}(X)) + {}^t\mu A \mu.\tag{2.2}
+\end{equation}
+</div>
+<details id="esperance-forme-quadratique-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="esperance-forme-quadratique-3-3-1">Soit <span class="process-math">\(X\)</span> un vecteur aléatoire de dimension <span class="process-math">\(n\text{,}\)</span> de moyenne <span class="process-math">\(\mu = \EE(X)\)</span> et de matrice de covariance <span class="process-math">\(\mathbf{\Sigma}(X) = \EE((X - \mu)(X - \mu)^\top)\text{.}\)</span> Soit <span class="process-math">\(A\)</span> une matrice carrée de taille <span class="process-math">\(n \times n\text{.}\)</span>
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-2">Nous voulons calculer <span class="process-math">\(\EE({}^tX A X)\text{.}\)</span> Pour cela, décomposons <span class="process-math">\(X\)</span> en sa moyenne <span class="process-math">\(\mu\)</span> et son écart par rapport à la moyenne <span class="process-math">\(Y = X - \mu\text{.}\)</span> Ainsi, <span class="process-math">\(X = \mu + Y\text{,}\)</span> où <span class="process-math">\(\EE(Y) = 0\)</span> et <span class="process-math">\(\mathbf{\Sigma}(X) = \EE(Y Y^\top)\text{.}\)</span>
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-3">En substituant <span class="process-math">\(X = \mu + Y\)</span> dans la forme quadratique, nous obtenons :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+{}^tX A X = (\mu + Y)^\top A (\mu + Y).
+\end{equation*}
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-5">Développons cette expression :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+{}^tX A X = \mu^\top A \mu + \mu^\top A Y + Y^\top A \mu + Y^\top A Y.
+\end{equation*}
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-7">Prenons l’espérance des deux côtés. Comme <span class="process-math">\(\EE(Y) = 0\text{,}\)</span> les termes linéaires en <span class="process-math">\(Y\)</span> disparaissent :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE({}^tX A X) = \mu^\top A \mu + \EE(Y^\top A Y).
+\end{equation*}
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-9">Il reste à calculer <span class="process-math">\(\EE(Y^\top A Y)\text{.}\)</span> Notons que <span class="process-math">\(Y^\top A Y\)</span> est un scalaire, donc égal à sa trace :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y^\top A Y = \text{tr}(Y^\top A Y).
+\end{equation*}
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-11">En utilisant la propriété de cyclicité de la trace (<span class="process-math">\(\text{tr}(ABC) = \text{tr}(CAB)\)</span>), nous avons :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y^\top A Y = \text{tr}(A Y Y^\top).
+\end{equation*}
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-13">En prenant l’espérance, nous obtenons :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(Y^\top A Y) = \EE(\text{tr}(A Y Y^\top)) = \text{tr}(A \EE(Y Y^\top)).
+\end{equation*}
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-15">Or, <span class="process-math">\(\EE(Y Y^\top) = \mathbf{\Sigma}(X)\text{,}\)</span> donc :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(Y^\top A Y) = \text{tr}(A \mathbf{\Sigma}(X)).
+\end{equation*}
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-17">En combinant ce résultat avec l’expression précédente, nous obtenons finalement :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE({}^tX A X) = \mu^\top A \mu + \text{tr}(A \mathbf{\Sigma}(X)).
+\end{equation*}
+</div>
+<div class="para" id="esperance-forme-quadratique-3-3-19">Ce qui conclut la démonstration.</div>
+</div></details></article><article class="task exercise-like" id="esperance-forme-quadratique-4"><h6 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Modèle de portefeuille binaire.</span>
+</h6>
+<em class="emphasis">Objectif :</em> Comprendre comment les formes quadratiques peuvent modéliser les interactions entre actifs dans un portefeuille binaire.<div class="para" id="esperance-forme-quadratique-4-3-1">Vous gérez un portefeuille de 3 actifs binaires. Chaque actif <span class="process-math">\(X_i\)</span> peut être actif (<span class="process-math">\(X_i = 1\)</span>) avec une probabilité <span class="process-math">\(p_i\)</span> ou inactif (<span class="process-math">\(X_i = 0\)</span>) avec une probabilité <span class="process-math">\(1-p_i\text{.}\)</span> Les actifs peuvent être corrélés.</div> <div class="para" id="esperance-forme-quadratique-4-3-2"><em class="emphasis">Données :</em></div> <ul class="disc" id="esperance-forme-quadratique-4-3-3">
+<li id="esperance-forme-quadratique-4-3-3-1"><div class="para" id="p-derived-esperance-forme-quadratique-4-3-3-1"><span class="process-math">\(X_1 \sim \mathscr B(0.5)\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-4-3-3-2"><div class="para" id="p-derived-esperance-forme-quadratique-4-3-3-2"><span class="process-math">\(X_2 \sim \mathscr B(0.6)\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-4-3-3-3"><div class="para" id="p-derived-esperance-forme-quadratique-4-3-3-3"><span class="process-math">\(X_3 \sim \mathscr B(0.7)\text{.}\)</span></div></li>
+<li id="esperance-forme-quadratique-4-3-3-4"><div class="para" id="p-derived-esperance-forme-quadratique-4-3-3-4">La corrélation entre <span class="process-math">\(X_1\)</span> et <span class="process-math">\(X_2\)</span> est <span class="process-math">\(\rho = 0.3\text{,}\)</span> et <span class="process-math">\(X_3\)</span> est indépendant des deux autres.</div></li>
+<li id="esperance-forme-quadratique-4-3-3-5"><div class="para" id="p-derived-esperance-forme-quadratique-4-3-3-5">La matrice de pondération <span class="process-math">\(A = \begin{pmatrix} 1 \amp 0.5 \amp 0 \\ 0.5 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}\text{.}\)</span>
+</div></li>
+</ul> <details id="esperance-forme-quadratique-4-3-4" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="title">Rôle de la matrice de pondération.</span></h6></summary><article class="hiddenproof knowl__content"><div class="para" id="esperance-forme-quadratique-4-3-4-2">La matrice <span class="process-math">\(A\)</span> représente les interactions entre les actifs du portefeuille. Chaque élément <span class="process-math">\(A_{ij}\)</span> quantifie l’influence de l’actif <span class="process-math">\(j\)</span> sur l’actif <span class="process-math">\(i\text{.}\)</span> Par exemple, <span class="process-math">\(A_{12} = 0.5\)</span> signifie que l’actif 2 influence l’actif 1 avec un poids de 0.5. Les éléments diagonaux <span class="process-math">\(A_{ii}\)</span> représentent l’importance intrinsèque de chaque actif.</div></article></details> <div class="para" id="esperance-forme-quadratique-4-3-5"><em class="emphasis">Tâches :</em></div> <ol class="decimal" id="esperance-forme-quadratique-4-3-6">
+<li id="esperance-forme-quadratique-4-3-6-1"><div class="para" id="p-derived-esperance-forme-quadratique-4-3-6-1">Calculez la matrice de covariance <span class="process-math">\(\Sigma\text{.}\)</span>
+</div></li>
+<li id="esperance-forme-quadratique-4-3-6-2"><div class="para" id="p-derived-esperance-forme-quadratique-4-3-6-2">Calculez <span class="process-math">\(\mathbb{E}(X^\top A X)\)</span> en utilisant la formule <span class="process-math">\(\text{Tr}(A \Sigma) + \mu^\top A \mu\text{.}\)</span>
+</div></li>
+<li id="esperance-forme-quadratique-4-3-6-3"><div class="para" id="p-derived-esperance-forme-quadratique-4-3-6-3">Interprétez le résultat en termes de risque du portefeuille.</div></li>
+</ol>
+<details id="esperance-forme-quadratique-4-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="esperance-forme-quadratique-4-4-1"><em class="emphasis">Solution :</em></div>
+<ol class="decimal" id="esperance-forme-quadratique-4-4-2">
+<li id="esperance-forme-quadratique-4-4-2-1"><div class="para" id="p-derived-esperance-forme-quadratique-4-4-2-1">
+<em class="emphasis">Matrice de covariance :</em> <span class="process-math">\(\Sigma = \begin{pmatrix} 0.25 \amp 0.09 \amp 0 \\ 0.09 \amp 0.24 \amp 0 \\ 0 \amp 0 \amp 0.21 \end{pmatrix}. \)</span>
+</div></li>
+<li id="esperance-forme-quadratique-4-4-2-2"><div class="para" id="p-derived-esperance-forme-quadratique-4-4-2-2">
+<em class="emphasis">Calcul de <span class="process-math">\(\mathbb{E}(X^\top A X)\)</span> :</em><ul class="disc" id="esperance-forme-quadratique-4-4-2-2-2">
+<li id="esperance-forme-quadratique-4-4-2-2-2-1"><div class="para" id="p-derived-esperance-forme-quadratique-4-4-2-2-2-1"><span class="process-math">\(\text{Tr}(A \Sigma) = 0.79\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-4-4-2-2-2-2"><div class="para" id="p-derived-esperance-forme-quadratique-4-4-2-2-2-2"><span class="process-math">\(\mu^\top A \mu = 1.47\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-4-4-2-2-2-3"><div class="para" id="p-derived-esperance-forme-quadratique-4-4-2-2-2-3"><span class="process-math">\(\mathbb{E}(X^\top A X) = 0.79 + 1.47 = 2.26\text{.}\)</span></div></li>
+</ul>
+</div></li>
+<li id="esperance-forme-quadratique-4-4-2-3"><div class="para" id="p-derived-esperance-forme-quadratique-4-4-2-3">
+<em class="emphasis">Interprétation :</em> Une espérance plus élevée indique un portefeuille plus risqué.</div></li>
+</ol>
+</div></details></article><article class="task exercise-like" id="esperance-forme-quadratique-5"><h6 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">Réseau aléatoire avec interactions binaires.</span>
+</h6>
+<em class="emphasis">Objectif :</em> Explorer comment les formes quadratiques peuvent modéliser les connexions dans un réseau aléatoire.<div class="para" id="esperance-forme-quadratique-5-3-1">Vous étudiez un réseau de 4 nœuds, où chaque nœud <span class="process-math">\(X_i\)</span> est actif (<span class="process-math">\(X_i = 1\)</span>) avec une probabilité <span class="process-math">\(p_i\)</span> ou inactif (<span class="process-math">\(X_i = 0\)</span>) avec une probabilité <span class="process-math">\(1-p_i\text{.}\)</span> La matrice <span class="process-math">\(A\)</span> représente les connexions entre les nœuds.</div> <div class="para" id="esperance-forme-quadratique-5-3-2"><em class="emphasis">Données :</em></div> <ul class="disc" id="esperance-forme-quadratique-5-3-3">
+<li id="esperance-forme-quadratique-5-3-3-1"><div class="para" id="p-derived-esperance-forme-quadratique-5-3-3-1"><span class="process-math">\(X_1 \sim \mathscr B(0.5)\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-5-3-3-2"><div class="para" id="p-derived-esperance-forme-quadratique-5-3-3-2"><span class="process-math">\(X_2 \sim \mathscr B(0.6)\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-5-3-3-3"><div class="para" id="p-derived-esperance-forme-quadratique-5-3-3-3"><span class="process-math">\(X_3 \sim \mathscr B(0.7)\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-5-3-3-4"><div class="para" id="p-derived-esperance-forme-quadratique-5-3-3-4"><span class="process-math">\(X_4 \sim \mathscr B(0.8)\text{.}\)</span></div></li>
+<li id="esperance-forme-quadratique-5-3-3-5"><div class="para" id="esperance-forme-quadratique-5-3-3-5-1">les variables <span class="process-math">\(X_1,X_2,X_3,X_4\)</span> sont supposés inépendantes.</div></li>
+<li id="esperance-forme-quadratique-5-3-3-6"><div class="para" id="p-derived-esperance-forme-quadratique-5-3-3-6">La matrice de connexion <span class="process-math">\(A = \begin{pmatrix} 0 \amp 1 \amp 0 \amp 1 \\ 1 \amp 0 \amp 1 \amp 0 \\ 0 \amp 1 \amp 0 \amp 1 \\ 1 \amp 0 \amp 1 \amp 0 \end{pmatrix}\text{.}\)</span>
+</div></li>
+</ul> <details id="esperance-forme-quadratique-5-3-4" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="title">Rôle de la matrice de connexion.</span></h6></summary><article class="hiddenproof knowl__content"><div class="para" id="esperance-forme-quadratique-5-3-4-2">La matrice <span class="process-math">\(A\)</span> représente les connexions entre les nœuds du réseau. Chaque élément <span class="process-math">\(A_{ij}\)</span> vaut 1 si les nœuds <span class="process-math">\(i\)</span> et <span class="process-math">\(j\)</span> sont connectés, et 0 sinon. Par exemple, <span class="process-math">\(A_{12} = 1\)</span> signifie que les nœuds 1 et 2 sont connectés. Les éléments diagonaux <span class="process-math">\(A_{ii}\)</span> sont fixés à 0 pour indiquer qu’un nœud n’est pas connecté à lui-même.</div>
+<figure class="figure figure-like" id="fig-network"><div class="image-box" style="width: 33%; margin-left: 33.5%; margin-right: 33.5%;"><img src="external/images/network.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.97<span class="period">.</span></span><span class="space"> </span>Representation du réseaux étudié</figcaption></figure></article></details> <div class="para" id="esperance-forme-quadratique-5-3-5"><em class="emphasis">Tâches :</em></div> <ol class="decimal" id="esperance-forme-quadratique-5-3-6">
+<li id="esperance-forme-quadratique-5-3-6-1"><div class="para" id="p-derived-esperance-forme-quadratique-5-3-6-1">Calculez <span class="process-math">\(\mathbb{E}(X^\top A X)\)</span> en utilisant la formule <span class="process-math">\(\text{Tr}(A \Sigma) + \mu^\top A \mu\text{.}\)</span>
+</div></li>
+<li id="esperance-forme-quadratique-5-3-6-2"><div class="para" id="p-derived-esperance-forme-quadratique-5-3-6-2">Interprétez le résultat en termes de nombre attendu de paires de nœuds actifs connectés.</div></li>
+</ol>
+<details id="esperance-forme-quadratique-5-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="esperance-forme-quadratique-5-4-1"><em class="emphasis">Solution :</em></div>
+<ol class="decimal" id="esperance-forme-quadratique-5-4-2">
+<li id="esperance-forme-quadratique-5-4-2-1"><div class="para" id="p-derived-esperance-forme-quadratique-5-4-2-1">
+<em class="emphasis">Calcul de <span class="process-math">\(\mathbb{E}(X^\top A X)\)</span> :</em><ul class="disc" id="esperance-forme-quadratique-5-4-2-1-2">
+<li id="esperance-forme-quadratique-5-4-2-1-2-1"><div class="para" id="p-derived-esperance-forme-quadratique-5-4-2-1-2-1">La matrice de covariance <span class="process-math">\(\mathbf{\Sigma}(X)\)</span> est diagonale car les variables sont indépendantes :<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(X) = \begin{pmatrix} 0.25 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0.24 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0.21 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0.16 \end{pmatrix}.
+\end{equation*}
+</div>
+</div></li>
+<li id="esperance-forme-quadratique-5-4-2-1-2-2"><div class="para" id="p-derived-esperance-forme-quadratique-5-4-2-1-2-2">
+<span class="process-math">\(\text{Tr}(A \Sigma) = 0\)</span> (car <span class="process-math">\(A\Sigma\)</span> a des zéros sur la diagonale),</div></li>
+<li id="esperance-forme-quadratique-5-4-2-1-2-3"><div class="para" id="p-derived-esperance-forme-quadratique-5-4-2-1-2-3"><span class="process-math">\(\mu^\top A \mu = 3.42\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-5-4-2-1-2-4"><div class="para" id="p-derived-esperance-forme-quadratique-5-4-2-1-2-4"><span class="process-math">\(\mathbb{E}(X^\top A X) = 0 + 3.42 = 3.42\text{.}\)</span></div></li>
+</ul>
+</div></li>
+<li id="esperance-forme-quadratique-5-4-2-2"><div class="para" id="p-derived-esperance-forme-quadratique-5-4-2-2">
+<em class="emphasis">Interprétation :</em> En moyenne, 3.42 paires de nœuds actifs sont connectées dans le réseau.</div></li>
+</ol>
+</div></details></article><article class="task exercise-like" id="esperance-forme-quadratique-6"><h6 class="heading">
+<span class="codenumber">(d)</span><span class="space"> </span><span class="title">Modèle de vote avec dépendances.</span>
+</h6>
+<em class="emphasis">Objectif :</em> Analyser comment les formes quadratiques peuvent modéliser les influences entre électeurs dans un système de vote.<div class="para" id="esperance-forme-quadratique-6-3-1">Vous étudiez un système de vote avec 3 électeurs. Chaque électeur <span class="process-math">\(X_i\)</span> vote pour un candidat (<span class="process-math">\(X_i = 1\)</span>) avec une probabilité <span class="process-math">\(p_i\)</span> ou s’abstient (<span class="process-math">\(X_i = 0\)</span>) avec une probabilité <span class="process-math">\(1-p_i\text{.}\)</span> Les votes peuvent être corrélés.</div> <div class="para" id="esperance-forme-quadratique-6-3-2"><em class="emphasis">Données :</em></div> <ul class="disc" id="esperance-forme-quadratique-6-3-3">
+<li id="esperance-forme-quadratique-6-3-3-1"><div class="para" id="p-derived-esperance-forme-quadratique-6-3-3-1"><span class="process-math">\(X_1 \sim \mathscr B(0.6)\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-6-3-3-2"><div class="para" id="p-derived-esperance-forme-quadratique-6-3-3-2"><span class="process-math">\(X_2 \sim \mathscr B(0.7)\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-6-3-3-3"><div class="para" id="p-derived-esperance-forme-quadratique-6-3-3-3"><span class="process-math">\(X_3 \sim \mathscr B(0.8)\text{.}\)</span></div></li>
+<li id="esperance-forme-quadratique-6-3-3-4"><div class="para" id="p-derived-esperance-forme-quadratique-6-3-3-4">La corrélation entre <span class="process-math">\(X_1\)</span> et <span class="process-math">\(X_2\)</span> est <span class="process-math">\(\rho = 0.4\text{,}\)</span> et <span class="process-math">\(X_3\)</span> est indépendant des deux autres.</div></li>
+<li id="esperance-forme-quadratique-6-3-3-5"><div class="para" id="p-derived-esperance-forme-quadratique-6-3-3-5">La matrice de pondération <span class="process-math">\(A = \begin{pmatrix} 1 \amp 0.5 \amp 0 \\ 0.5 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}\text{.}\)</span>
+</div></li>
+</ul> <details id="esperance-forme-quadratique-6-3-4" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="title">Rôle de la matrice de pondération.</span></h6></summary><article class="hiddenproof knowl__content"><div class="para" id="esperance-forme-quadratique-6-3-4-2">La matrice <span class="process-math">\(A\)</span> représente les influences entre les électeurs. Chaque élément <span class="process-math">\(A_{ij}\)</span> quantifie l’influence de l’électeur <span class="process-math">\(j\)</span> sur l’électeur <span class="process-math">\(i\text{.}\)</span> Par exemple, <span class="process-math">\(A_{12} = 0.5\)</span> signifie que l’électeur 2 influence l’électeur 1 avec un poids de 0.5. Les éléments diagonaux <span class="process-math">\(A_{ii}\)</span> représentent l’importance intrinsèque de chaque électeur.</div></article></details> <div class="para" id="esperance-forme-quadratique-6-3-5"><em class="emphasis">Tâches :</em></div> <ol class="decimal" id="esperance-forme-quadratique-6-3-6">
+<li id="esperance-forme-quadratique-6-3-6-1"><div class="para" id="p-derived-esperance-forme-quadratique-6-3-6-1">Calculez la matrice de covariance <span class="process-math">\(\Sigma\text{.}\)</span>
+</div></li>
+<li id="esperance-forme-quadratique-6-3-6-2"><div class="para" id="p-derived-esperance-forme-quadratique-6-3-6-2">Calculez <span class="process-math">\(\mathbb{E}(X^\top A X)\)</span> en utilisant la formule <span class="process-math">\(\text{Tr}(A \Sigma) + \mu^\top A \mu\text{.}\)</span>
+</div></li>
+<li id="esperance-forme-quadratique-6-3-6-3"><div class="para" id="p-derived-esperance-forme-quadratique-6-3-6-3">Interprétez le résultat en termes d’influence des électeurs sur le résultat du vote.</div></li>
+</ol>
+<details id="esperance-forme-quadratique-6-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="esperance-forme-quadratique-6-4-1"><em class="emphasis">Solution :</em></div>
+<ol class="decimal" id="esperance-forme-quadratique-6-4-2">
+<li id="esperance-forme-quadratique-6-4-2-1"><div class="para" id="p-derived-esperance-forme-quadratique-6-4-2-1">
+<em class="emphasis">Matrice de covariance :</em> <span class="process-math">\(\Sigma = \begin{pmatrix} 0.24 \amp 0.112 \amp 0 \\ 0.112 \amp 0.21 \amp 0 \\ 0 \amp 0 \amp 0.16 \end{pmatrix}. \)</span>
+</div></li>
+<li id="esperance-forme-quadratique-6-4-2-2"><div class="para" id="p-derived-esperance-forme-quadratique-6-4-2-2">
+<em class="emphasis">Calcul de <span class="process-math">\(\mathbb{E}(X^\top A X)\)</span> :</em><ul class="disc" id="esperance-forme-quadratique-6-4-2-2-2">
+<li id="esperance-forme-quadratique-6-4-2-2-2-1"><div class="para" id="p-derived-esperance-forme-quadratique-6-4-2-2-2-1"><span class="process-math">\(\text{Tr}(A \Sigma) = 0.722\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-6-4-2-2-2-2"><div class="para" id="p-derived-esperance-forme-quadratique-6-4-2-2-2-2"><span class="process-math">\(\mu^\top A \mu = 1.97\text{,}\)</span></div></li>
+<li id="esperance-forme-quadratique-6-4-2-2-2-3"><div class="para" id="p-derived-esperance-forme-quadratique-6-4-2-2-2-3"><span class="process-math">\(\mathbb{E}(X^\top A X) = 0.722 + 1.97 = 2.692\text{.}\)</span></div></li>
+</ul>
+</div></li>
+<li id="esperance-forme-quadratique-6-4-2-3"><div class="para" id="p-derived-esperance-forme-quadratique-6-4-2-3">
+<em class="emphasis">Interprétation :</em> L’espérance élevée reflète une forte influence des électeurs corrélés sur le résultat du vote.</div></li>
+</ol>
+</div></details></article></article></section></section><section class="subsection" id="subsec-moment"><h3 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">2.3.3</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Moments d’ordre supérieurs</span>
+</h3>
+<article class="definition definition-like" id="def-moments"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.98</span><span class="period">.</span><span class="space"> </span><span class="type">Définition</span>
+</h4>
+<div class="para" id="def-moments-1-1">Soient <span class="process-math">\(X\)</span> une <abbr class="acronym">VADR</abbr> et <span class="process-math">\(p\in\N^*\text{.}\)</span> On dit que <span class="process-math">\(X\)</span> est <span class="process-math">\(p\)</span>-sommable si la variable <span class="process-math">\(X^p\)</span> est sommable. L’espéance <span class="process-math">\(\EE(X^p)\)</span> est alors appelée moment d’ordre <span class="process-math">\(p\)</span> de <span class="process-math">\(X\text{.}\)</span>
+</div> <div class="para" id="def-moments-1-2">On notera <span class="process-math">\(L^p(\Omega)\)</span> l’ensemble des <abbr class="acronym">VADR</abbr> <span class="process-math">\(p\)</span>-sommables de <span class="process-math">\((\Omega,\mathscr T,\PP\text{.}\)</span>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-varalea.html" title="Précédent"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span></a><a class="next-button button" href="sec-fctgen.html" title="Suivant"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="mailto:ibouja@gmail.com" target="_blank">Commentaires</a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="cpgem-link" href="https://texbouja.github.io/cpgem" title="CPGEM"><img class="logo" src="https://texbouja.github.io/cpgem/assets/img/favicons/favicon.png" alt="CPGEM logo"></a>
+</div>
+</body>
+</html>

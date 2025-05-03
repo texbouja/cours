@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="li"><h6 class="heading">
+<span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">1</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="type">Point</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soit <span class="process-math">\(X\)</span> un vecteur aléatoire sommable au sens de la remarque <a href="sec-espvaralea.html#item-vecteur" class="xref" data-knowl="./knowl/xref/item-vecteur.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Point 1">Point 1</a> alors <span class="process-math">\(\EE(X)\)</span> ne dépend pas de la base choisie dans <span class="process-math">\(E\text{.}\)</span>
+</div>
+<details xmlns:xlink="http://www.w3.org/1999/xlink" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Explication<span class="period">.</span></span></h6></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">Considérons une autre base <span class="process-math">\((e_1',e_2',\ldots,e_d')\)</span> de <span class="process-math">\(E\text{.}\)</span> Posons pour tout <span class="process-math">\(i\in[\![1,d]\!]\text{,}\)</span> <span class="process-math">\(e_j=a_{1,j}e_1'+a_{2,j}e_2'+\cdots+a_{d,j}e_d'\)</span> alors pour tout <span class="process-math">\(\omega\in\Omega\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+X(\omega) \amp= \sum_{j=1}^dX_j(\omega)\sum_{i=1}^da_{i,j}e_i' \\
+\amp= \sum_{i=1}^d\biggl(\sum_{j=1}^da_{i,j}X_j(\omega)\biggr)e_i' \\
+\amp=\sum_{i=1}^d Y_i(\omega)e_i' 
+\end{align*}
+</div>
+<div class="para">En appliquant la même recette au vecteur <span class="process-math">\(\EE(X):=\sum_{j=1}^d\EE(X_j)e_j'\)</span>  on aboutit à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X)=\sum_{i=1}^d\biggl(\sum_{j=1}^da_{i,j}\EE(X_j)\biggr)e_i'
+\end{equation*}
+</div>
+<div class="para">Maintenant, puisque les variables <span class="process-math">\(X_1,X_2,\ldots,X_d\)</span> sont par défintion sommabales alors les variables <span class="process-math">\(Y_1,Y_2,\ldots,Y_d\)</span> sont sommables par linéarité et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall i\in[\![1,d]\!],\; \EE(Y_i)=\sum_{j=1}^d a_{i,j}\EE(X_j)
+\end{equation*}
+</div>
+<div class="para">et ainsi  <span class="process-math">\(\EE(X)=\sum_{i=1}^d\EE(Y_i)e_i'\text{.}\)</span> Expression qui prouve que <span class="process-math">\(\EE(X)\)</span> ne dépend pas de la base utilisée.</div>
+</div></article></details></article><span class="incontext"><a class="internal" href="sec-espvaralea.html#item-espvect">Contexte</a></span>
+</body>
+</html>

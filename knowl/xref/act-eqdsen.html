@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Exercice</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">11<span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span></span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Solutions pseudo-DSE d’une EDLS non normalisable.</span>
+</h3>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">On considère une edls homogène d’ordre 2 de la forme</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+t^2x''+tp(t)x'+ q(t)x=0 \qquad (H)
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">et on suppose que les fonctions <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> sont dse en <span class="process-math">\(0\)</span> sur un intervalle <span class="process-math">\(]-r,r[\)</span> :</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+\forall t\in]-r,r[\qquad  p(t)=\sum_{n=0}^{+\infty} p_nt^n\qquad 
+q(t)=\sum_{n=0}^{+\infty}q_n t^n
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">On cherche les solutions de <span class="process-math">\((H)\)</span> qui se prolongent sur <span class="process-math">\(]-r,r[\)</span> sous la forme</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+f(t)=|t|^z\sum_{n=0}^{+\infty}a_n t^n
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">où <span class="process-math">\(a_0\ne0\)</span> et <span class="process-math">\(z\in \K\)</span> qui reste à déterminer. On note <span class="process-math">\(R\)</span> le rc de <span class="process-math">\(\sum a_n t^n\text{.}\)</span>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="act-eqdsen-2-8">
+<li>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que si <span class="process-math">\(f\)</span> induit une solution de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(]0,r[\)</span> alors</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+P(z)=0
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+\forall n\in\N^*,\;
+P(n+z)a_n=-\sum_{k=0}^{n-1}\big((k+z)p_{n-k}+q_{n-k}\big)a_k
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">où <span class="process-math">\(P\)</span> est le polynôme donné par <span class="process-math">\(P(X)=X(X-1)+p_0X+q_0\text{.}\)</span>
+</div>
+</li>
+<li>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Réciproquement soit <span class="process-math">\(z\)</span> la racine de <span class="process-math">\(P\)</span> qui a la plus grande partie réelle. On suppose que la suite <span class="process-math">\((a_n)\)</span> vérifie la relation de récurrence <span class="process-math">\((ER)\text{.}\)</span>
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que <span class="process-math">\(R\geq r\)</span> et que <span class="process-math">\(f\)</span> induit une solution de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(]0,r[\text{.}\)</span>
+</div>
+</li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Étudier la possibilité de prolonger <span class="process-math">\(f\)</span> en une solution de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(]-r,r[\text{.}\)</span>
+</div></li>
+</ol>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><ol class="lower-alpha lower-alpha-level-1" id="act-eqdsen-3-1">
+<li>
+<div class="para">Supposons que <span class="process-math">\(f\)</span> soit une solution de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(]0,r[\text{.}\)</span>
+</div>
+<aside class="aside aside-like"><div class="para">
+<span class="process-math">\(f\)</span> est continue sur <span class="process-math">\(]-r,r[\)</span> si <span class="process-math">\(\re z\geq0\text{,}\)</span> mais Il faudra que <span class="process-math">\(\re z\gt2\)</span> pour qu’elle soit deux fois dérivable sur <span class="process-math">\(]-r,r[\text{.}\)</span>
+</div></aside><div class="para">On peut dériver terme à terme la somme de la série de fonctions <span class="process-math">\(\sum
+a_nt^{n+z}\)</span> pour les mêmes raisons que pour une série entière, à savoir une cvu sur tout segment de <span class="process-math">\(]0,r[\)</span> de cette série et de ses séries dérivées.</div>
+<div class="para">En remplaçant <span class="process-math">\(x\)</span> par <span class="process-math">\(f(t)\)</span> dans <span class="process-math">\((H)\text{,}\)</span> on obtient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n=0}^{+\infty}\bigg(
+(z+n)(z+n-1)a_n+\sum_{k=0}^n(z+k)a_kp_{n-k}+\sum_{k=0}^na_kq_{n-k}
+\bigg)t^{n+z}=0
+\end{equation*}
+</div>
+<div class="para">Maintenant en multipliant par <span class="process-math">\(t^{-z}\)</span> on fait apparaitre la somme d’une série entière nulle. Ces coefficients sont donc tous nuls.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall n\in\N,\;
+(n+z)(n+z-1)a_n+\sum_{k=0}^n\Big((z+k)p_{n-k}+q_{n-k}\Big)a_k=0
+\end{equation*}
+</div>
+<div class="para logical">
+<div class="para">Sachant qu’on a supposé que <span class="process-math">\(a_0\ne0\text{,}\)</span> on peut donc écrire</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(ER)\qquad  \left\{\;\begin{aligned} \amp P(z)=0 \\ \amp \forall n\geq 1,\;P(z+n)a_n
+=-\sum_{k=0}^{n-1}\Big((z+k)p_{n-k}+q_{n-k}\Big)a_k \end{aligned}\right.
+\end{equation*}
+</div>
+</div>
+<aside class="aside aside-like"><div class="para">Soit <span class="process-math">\(z\)</span> est une racine de <span class="process-math">\(P\text{.}\)</span> Si <span class="process-math">\(P(z+n)\ne0\)</span> pour tout <span class="process-math">\(n\geq
+1\)</span> alors la suite <span class="process-math">\((a_n)_n\)</span> est bien définie et elle est entièrement déterminée par son premier terme <span class="process-math">\(a_0\text{.}\)</span>
+</div></aside>
+</li>
+<li>
+<div class="para">Soit <span class="process-math">\(z\)</span> la racine de <span class="process-math">\(P\)</span> ayant la plus grande partie réelle. Alors pour tout <span class="process-math">\(n\in\N^*\text{,}\)</span> on ne peut avoir <span class="process-math">\(P(z+n)=0\)</span> et donc les relations <span class="process-math">\((ER)\)</span> définissent complètement la suite <span class="process-math">\((a_n)_n\)</span> à partir de son premier terme <span class="process-math">\(a_0\text{.}\)</span> Il reste à justifier que le rc <span class="process-math">\(R\)</span> de la série entière <span class="process-math">\(\sum a_n t^n\)</span> vérifie <span class="process-math">\(R\geq
+r\text{.}\)</span> Pour cela, comme dans l’exercice précédent, en prenant <span class="process-math">\(\rho\in]0,r[\)</span> et <span class="process-math">\(M\gt0\)</span> tel que <span class="process-math">\(|p_n|\rho^n\leq M\)</span> et <span class="process-math">\(|q_n|\rho^n\leq
+M\)</span> pour tout <span class="process-math">\(n\in\N\text{,}\)</span> on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall n\in\N^*,\; |a_n|\leq \frac M{|P(z+n)|}
+\sum_{k=0}^{n-1}\frac{|z+k|+1}{\rho^{n-k}}|a_k|
+\end{equation*}
+</div>
+<div class="para">En introduisant maintenant la suite <span class="process-math">\((b_n)_n\)</span> définie par <span class="process-math">\(b_0=|a_0|\)</span> et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall n\in\N^*, b_{n}=\frac
+M{\rho^n|P(z+n)|}\sum_{k=0}^{n-1}\big(|z+k|+1\big)\rho^k b_k
+\end{equation*}
+</div>
+<div class="para">On aura pour tout <span class="process-math">\(n\in\N\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+b_{n+1} = \frac M{\rho^{n+1}|P(z+n+1)|}\bigg(
+\frac{\rho^{n}|P(z+n)|}{M}b_n+\big(|z+n|+1\big)\rho^n b_n \bigg) =
+\frac{|P(z+n)|+M|z+n|+M}{\rho |P(z+n+1)|}b_n
+\end{equation*}
+</div>
+<div class="para">Ici <span class="process-math">\(b_0\gt0\)</span> donc la relation <span class="process-math">\((ER)\)</span> implique que <span class="process-math">\(b_n\gt0\)</span> pour tout <span class="process-math">\(n\in\N^*\text{.}\)</span> Par suite pour tout réel <span class="process-math">\(t\ne 0\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Big|\frac{b_{n+1}t^{n+1}}{b_nt^n}\Big|=\frac{|P(z+n)|+M|z+n|+M}{\rho
+|P(z+n+1)|}|t|
+\end{equation*}
+</div>
+<div class="para">
+<span class="process-math">\(P\)</span> est unitaire de degré <span class="process-math">\(2\)</span> donc <span class="process-math">\(|P(z+n)|\sim |P(z+n+1)|\sim
+n^2\)</span> et donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Big|\frac{b_{n+1}t^{n+1}}{b_nt^n}\Big|\longrightarrow \frac{|t|}\rho
+\end{equation*}
+</div>
+<div class="para">La série entière <span class="process-math">\(\sum b_n t^n\)</span> a donc pour rc <span class="process-math">\(\rho\text{.}\)</span> Comme par construction <span class="process-math">\(|a_n|\leq b_n\)</span> alors <span class="process-math">\(R\geq \rho\text{,}\)</span> ceci pour tout <span class="process-math">\(\rho\in]0,r[\text{.}\)</span> Ainsi <span class="process-math">\(R\geq r\text{.}\)</span>
+</div>
+<div class="para">La fonction <span class="process-math">\(f\)</span> est donc bien définie et de classe <span class="process-math">\(\mathcal C^\infty\)</span> sur <span class="process-math">\(]0,r[\text{.}\)</span> La suite <span class="process-math">\((a_n)\)</span> vérifiant la relation <span class="process-math">\((ER)\text{,}\)</span> la fonction <span class="process-math">\(f\)</span> induit une solution sur <span class="process-math">\(]0,r[\)</span> de <span class="process-math">\((H)\text{.}\)</span>
+</div>
+<aside class="aside aside-like"><div class="para">La condition imposée à la racine <span class="process-math">\(z\)</span> de <span class="process-math">\(P\)</span> n’a servi qu’à assurer que <span class="process-math">\(P(z+n)\ne0\)</span> pour tout <span class="process-math">\(n\in\N^*\text{.}\)</span> Si les deux racines <span class="process-math">\(z_1\)</span> et <span class="process-math">\(z_2\)</span> de <span class="process-math">\(P\)</span> sont distinctes et vérifient <span class="process-math">\(z_1-z_2\notin\Z\)</span> alors cette dernière condition est remplie à la fois pour <span class="process-math">\(z_1\)</span> et pour <span class="process-math">\(z_2\text{.}\)</span> Ce qui permet de déterminer deux solutions linéairement indépendantes de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(]0,r[\text{.}\)</span>
+</div></aside><div class="para">Si les nombres <span class="process-math">\(p(0)\)</span> et <span class="process-math">\(q(0)\)</span> sont réels alors le polynôme <span class="process-math">\(P\)</span> est à coefficients réels. S’il admet deux racines complexes non réelles <span class="process-math">\(z\)</span> et <span class="process-math">\(\overline z\)</span> alors <span class="process-math">\(z-\overline z\)</span> est imaginaire pure et ne peut donc être un élément de <span class="process-math">\(\Z\text{.}\)</span> En revenant aux équations <span class="process-math">\((ER)\text{,}\)</span> on peut observer que si <span class="process-math">\((a_n)_n\)</span> est la suite associée à <span class="process-math">\(z\)</span> alors <span class="process-math">\((\overline{a_n})_n\)</span> est la suite associée à <span class="process-math">\(\overline z\text{.}\)</span> On obtient ainsi les deux solutions indépendantes de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(]0,r[\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned} f_1(t)\amp =t^{z}\sum_{n=0}^{+\infty}a_nt^n \amp \amp \amp  f_2(t)\amp =t^{\overline
+z}\sum_{n=0}^{+\infty}\overline{a_n}t^n \end{aligned}
+\end{equation*}
+</div>
+</li>
+<li>
+<div class="para">Par ailleurs en posant <span class="process-math">\(a_n=\delta_n a_0\text{,}\)</span> les relations <span class="process-math">\((ER)\)</span> se traduisent par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\delta_0=1 \qquad  \forall n\in\N^*,\; \delta_n=
+-\frac1{P(z+n)}\sum_{k=0}^{n-1}\Big((z+k)p_{n-k}+q_{n-k}\Big)\delta_k
+\end{equation*}
+</div>
+<div class="para">La suite <span class="process-math">\((\delta_n)_n\)</span> est donc unique et on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall t\in{}]-r,r[,\; f(t)=a_0|t|^z\sum_{n=0}^{+\infty}\delta_n
+t^n=a_0|t|^zg(t)
+\end{equation*}
+</div>
+<div class="para">La fonction <span class="process-math">\(g\)</span> ainsi introduite est de classe <span class="process-math">\(\mathcal C^\infty\)</span> sur <span class="process-math">\(]-r,r[\)</span> et vérifie <span class="process-math">\(g(0)=1\text{.}\)</span> La fonction <span class="process-math">\(f\)</span> est donc deux fois dérivable en <span class="process-math">\(0\)</span> si et seulement c’est la cas de la fonction <span class="process-math">\(t\longmapsto
+|t|^z\text{.}\)</span> Ce qui n’est possible que si <span class="process-math">\(z=2\)</span> ou <span class="process-math">\(\re z&gt;2\text{.}\)</span>
+</div>
+<aside class="aside aside-like"><div class="para">
+<span class="process-math">\(z\)</span> ne dépend que de <span class="process-math">\(p_0=p(0)\)</span> et <span class="process-math">\(q_0=q(0)\text{.}\)</span>
+</div></aside>
+</li>
+</ol></div></details></div></article><span class="incontext"><a class="internal" href="sec-eqdiff-exercices-approfondissement.html#act-eqdsen">Contexte</a></span>
+</body>
+</html>

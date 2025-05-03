@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-FR" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Équations linéaires scalaires du deuxième ordre</title>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Cours de mathématiques">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Sadik Boujaida">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.6.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.c7804631fa963734.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script>
+</head>
+<body id="coursmp" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="cours-mp.html"><span class="title">Cours de mathématiques</span><br> <span class="subtitle">pour les classes MP/MP*</span></a></h1>
+<p class="byline">Sadik Boujaida</p>
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Table des matières"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Table des matières</span></button><span class="treebuttons"><a class="up-button button" href="ch-eqdiff-cours.html" title=""><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span></a><a class="previous-button button" href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span></a><a class="next-button button" href="sec-eqdiff-exercices-approfondissement.html" title="Suivant"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Résultats de la recherche: </h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{mathtools}\require{empheq}\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\K}{\mathbb K}
+\newcommand\card{\operatorname{Card}}
+\newcommand\giv[1][\middle]{\nonscript\:#1\vert\nonscript\:\mathopen{}}
+\newcommand\qtext[1]{\quad\text{#1}\quad}
+\newcommand\llbracket{[\![}
+\newcommand\rrbracket{]\!]}
+\newcommand\iic[1]{\llbracket #1 \rrbracket}
+\newcommand\id{\mathrm{id}}
+\newcommand\e{\mathbf{e}}
+\newcommand\dt{\mathrm{d}}
+\newcommand\dd[2]{\frac{\partial #1}{\partial #2}}
+\newcommand\ddeux[3]{\frac{\partial #1^2}{\partial #1\ifx#1#2^#2\else\partial #2\fi}}
+\newcommand\func[5]{#1\:\;\begin{array}[t]{rcl}#2 \amp \longrightarrow \amp #3 \\ #4 \amp \longmapsto \amp #5\end{array}}
+\newcommand\fct[2]{#1\longrightarrow#2}
+\newcommand\nm[1]{\left\Vert#1\right\vert}
+\newcommand\nmm[1]{\left\Vert#1\right\Vert}
+\newcommand\tr{\operatorname{Tr}}
+\newcommand\re{\operatorname{Re}}
+\newcommand\im{\operatorname{Im}}
+\newcommand\rg{\operatorname{rg}}
+\newcommand\OPN[1]{\operatorname{#1}}
+\newcommand\PP{\mathbb P}
+\newcommand\EE{\mathbb E}
+\newcommand\VV{\mathbb V}
+\newcommand\Pr[1]{\mathbb P\left(#1\right)}
+\newcommand\Es[1]{\mathbb E\left(#1\right)}
+\newcommand\Va[1]{\mathbb V\left(#1\right)}
+\let\geq\geqslant
+\let\leq\leqslant
+\let\ds\displaystyle
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="1" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Pages Liminaires</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-eqdiff-cours.html" class="internal"><span class="codenumber">1</span> <span class="title">Équations différentielles linéaires</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Équations différentielles linéaires d’ordre <span class="process-math">\(1\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-eqdiff-equations-differentielles-lineaires-ord-1-4" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Solutions d’une équation différentielle linéaire du premier ordre</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-eqdiff-equations-differentielles-lineaires-ord-1-5" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Système fondamental de solutions de l’équation homogène</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-varconst" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Méthode de la variation des constantes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-eqdiff-equations-differentielles-lineaires-ord-1-8" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Équation différentielle linéaire du premier ordre à coefficients constants</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Équations différentielles linéaires scalaires, étude générale</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html#sec-eqdiff-equations-differentielles-lineaires-scalaires-2" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Le cadre général</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html#sec-eqdiff-equations-differentielles-lineaires-scalaires-3" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Le cas d’une équation à coefficients constants</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Équations linéaires scalaires du deuxième ordre</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqdiff-exercices-approfondissement.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercices d’approfondissement</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqdiff-exercices-entrainement.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercices d’entraînement</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Thèmes classiques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Équation et applications résolvantes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-4" class="internal"><span class="title">Équation résolvante de <span class="process-math">\((H)\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-5" class="internal"><span class="title">Application résolvante de <span class="process-math">\((H)\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-6" class="internal"><span class="title">Résolvante et équation complète</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-7" class="internal"><span class="title">Résolvantes d’une équation à coefficients constants</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-8" class="internal"><span class="title">Solutions périodiques d’une EDL périodique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Thèmes sur les équations scalaires du deuxième ordre</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-3" class="internal"><span class="title">Solutions développables en séries entières</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-4" class="internal"><span class="title">Transformation de l’équation homogène <span class="process-math">\((H)\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-5" class="internal"><span class="title">Problèmes aux limites</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-zeros-des-solutions" class="internal"><span class="title">Zéros des solutions d’une EDLS homogène du second ordre</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-7" class="internal"><span class="title">Solutions périodique d’une EDLS du second ordre périodique</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-probabiltes-discretes.html" class="internal"><span class="codenumber">2</span> <span class="title">Probabilité discrètes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-generalites.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Espaces de probabilité</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-tribu" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Tribus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-probabilite" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Probabilités</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-independance" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Indépendance des événements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-modelisation" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Modélisation de phénomènes aléatoires</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-generalites.html#exercises-approfondissement" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-varalea.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Variables aléatoires</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-varalea" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Variables aléatoires</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-indvar" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Indépendance des variables aléatoires discrètes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-loivaralea" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Loi d’une variable aléatoire discrète</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-loiusuelles" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Lois discrètes usuelles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-fonction-repartition" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Loi d’une variable aléatoire réelle : fonction de répartition </span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-loi-activite" class="internal"><span class="codenumber">2.2.6</span> <span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-espvaralea.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Espérance et moments d’une variable aléatoire discrète</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-espvaralea.html#subsec-esperance" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Espérance d’une variable aléatoire discrète</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-defprop" class="internal"><span class="title">Définition et propriétés</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-exemple-esperance" class="internal"><span class="title">Exemples usuels</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-activites" class="internal"><span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-espvaralea.html#subsec-varcovar" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Variance et covariance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-varcovar" class="internal"><span class="title">Définition et propriétés</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-exemples-varcovar" class="internal"><span class="title">Exemples usuels</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-activites-varcovar" class="internal"><span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsec-moment" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Moments d’ordre supérieurs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-fctgen.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Fonctions génératrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-defprop" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Définition et propriétés</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-generatrices-usuelles" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Fonctions génératrices des lois usuelles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-generatrice" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Concept de fonction génératrice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-defprop-activite" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-probas--actinum.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Activités numériques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-probas--actinum.html#sec-expgraph" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Exploration graphique</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-graphbinomiale" class="internal"><span class="title">Représentation graphique de lois usuelles</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-histogramme-lois-usuelles" class="internal"><span class="title">Échantillonage d’une loi discrète</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-lo-faible" class="internal"><span class="title">Loi Faible des grands nombres avec une loi géométrique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-probas--actinum.html#sec-principeinversion" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Principe d’inversion et simulation de variables aléatoires discrètes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-basetheo" class="internal"><span class="title">Base théorique</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-simulation-principe-inverse" class="internal"><span class="title">Simulation numérique</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-exercises">
+<div class="toc-title-box"><a href="sec-probas-exercices.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-approfondissement" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Exercices d’approfondissement</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-application" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Exercices d’application</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-thematique" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Exerices thématiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-recherche" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Exercices de recherche</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="section" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2"><h2 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">1.3</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Équations linéaires scalaires du deuxième ordre</span>
+</h2>
+<article class="warning remark-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-2"><h3 class="heading">
+<span class="space"> </span><span class="codenumber">1.34</span><span class="period">.</span><span class="space"> </span><span class="type">Mise en garde</span>
+</h3>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-2-1">Sous le thème des équations différentielles, les équations linéaires scalaires du deuxième ordre sont les équations les plus fréquemment abordées dans les sujets de concours.</div></article><article class="convention remark-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3"><h3 class="heading">
+<span class="space"> </span><span class="codenumber">1.35</span><span class="period">.</span><span class="space"> </span><span class="type">Conventions et notations</span>
+</h3>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-1">
+<div class="para">Soient <span class="process-math">\(a, b, c\)</span> et <span class="process-math">\(\varphi\)</span> des applications continues de <span class="process-math">\(I\)</span> dans <span class="process-math">\(\K\text{.}\)</span> On considère l’EDLS du deuxième ordre :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a(t)x'' + b(t)x' + c(t)x = \varphi(t)
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-2">
+<div class="para">Une solution de <span class="process-math">\((E)\)</span> sur <span class="process-math">\(I\)</span> est une fonction <span class="process-math">\(f: I \to \K\)</span> telle que :</div>
+<ul class="disc" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-2-4">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-2-4-1"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-2-4-1">
+<span class="process-math">\(f\)</span> est deux fois dérivable sur <span class="process-math">\(I\)</span> ;</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-2-4-2"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-2-4-2"><span class="process-math">\(\forall t \in I, \; a(t)f''(t) + b(t)f'(t) + c(t)f(t) = \varphi(t)\text{.}\)</span></div></li>
+</ul>
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-3">L’équation <span class="process-math">\((E)\)</span> est dite normalisée si <span class="process-math">\(a\)</span> est constante de valeur <span class="process-math">\(1\)</span> et normalisable si <span class="process-math">\(a\)</span> ne s’annule pas sur <span class="process-math">\(I\text{.}\)</span>
+</div>
+<aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-4"><h4 class="heading"><span class="title">Remarque.</span></h4>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-4-2">
+<div class="para">Si <span class="process-math">\((E)\)</span> est normalisable, alors elle est équivalente à l’équation normalisée obtenue en la divisant par <span class="process-math">\(a(t)\text{.}\)</span> En général, <span class="process-math">\((E)\)</span> est équivalente à toute équation de la forme :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a(t)\omega(t)x'' + b(t)\omega(t)x' + c(t)\omega(t)x = \varphi(t)\omega(t)
+\end{equation*}
+</div>
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-4-3">où <span class="process-math">\(\omega\)</span> est une fonction continue qui ne s’annule pas sur <span class="process-math">\(I\text{.}\)</span>
+</div></aside><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-5">Attention donc, les résultats du cadre général ne sont applicables à <span class="process-math">\((E)\)</span> que si elle est normalisable. En particulier, la dimension de l’ensemble <span class="process-math">\(S_I(H)\)</span> des solutions de l’équation homogène peut être strictement supérieure à <span class="process-math">\(2\text{.}\)</span>
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-6">
+<div class="para">Dans le cas où <span class="process-math">\((E)\)</span> est normalisable, elle équivaut au système différentiel :</div>
+<div class="displaymath process-math" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-6-2">
+\begin{align*}
+(SE) \amp\amp X' \amp= A(t)X + B(t)
+\end{align*}
+</div>
+<div class="para">où</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(t) = \begin{pmatrix} x(t) \\ x'(t) \end{pmatrix}, \quad
+A(t) = \begin{pmatrix}
+0 \amp 1 \\
+-\frac{c(t)}{a(t)} \amp -\frac{b(t)}{a(t)}
+\end{pmatrix}, \quad
+B(t) = \begin{pmatrix} 0 \\ \frac{\varphi(t)}{a(t)} \end{pmatrix}
+\end{equation*}
+</div>
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-3-7">On notera <span class="process-math">\((H)\)</span> l’équation homogène de <span class="process-math">\((E)\)</span> et <span class="process-math">\((SH)\)</span> celle de <span class="process-math">\((SE)\text{.}\)</span>
+</div></article><article class="assemblage assemblage-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4"><h3 class="heading"><span class="title">Récapitulatif.</span></h3>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-2">Dans cette rubrique, on ne fera qu’adapter les énoncés du cadre général au cas particulier d’une EDLS du deuxième ordre normalisable.</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3">
+<div class="para">On suppose donc que l’équation <span class="process-math">\((E)\)</span> est normalisable.</div>
+<ol class="decimal" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-1">
+<span class="heading"><span class="title">Théorème de Cauchy-Lipschitz.</span></span><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-1-2">Pour tout <span class="process-math">\((t_0, x_0, x_0') \in I \times \K^2\text{,}\)</span> il existe une unique solution <span class="process-math">\(f\)</span> de <span class="process-math">\((E)\)</span> telle que :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(t_0) = x_0 \quad \text{et} \quad f'(t_0) = x_0'
+\end{equation*}
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-2">
+<span class="heading"><span class="title">Structure des ensembles de solutions.</span></span><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-2-2">
+<span class="process-math">\(S_I(H)\)</span> est un <span class="process-math">\(\K\)</span>-espace vectoriel de dimension <span class="process-math">\(2\text{,}\)</span> et <span class="process-math">\(S_I(E) = f_0 + S_I(H)\)</span> pour toute solution <span class="process-math">\(f_0\)</span> de <span class="process-math">\((E)\)</span> sur <span class="process-math">\(I\text{.}\)</span>
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-3">
+<span class="heading"><span class="title">Système de solutions et wronskien.</span></span><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-3-2">Si <span class="process-math">\(f_1\)</span> et <span class="process-math">\(f_2\)</span> sont des solutions de l’équation homogène <span class="process-math">\((H)\text{,}\)</span> on appelle wronskien de <span class="process-math">\(f_1\)</span> et <span class="process-math">\(f_2\)</span> la fonction <span class="process-math">\(w\)</span> définie par :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w(t) = \begin{vmatrix} f_1(t) \amp f_2(t) \\ f_1'(t) \amp f_2'(t) \end{vmatrix}
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-3-4">La famille <span class="process-math">\((f_1, f_2)\)</span> est une base de <span class="process-math">\(S_I(H)\)</span> si et seulement si <span class="process-math">\(w\)</span> ne s’annule pas sur <span class="process-math">\(I\text{.}\)</span> Pour cela, il suffit qu’il ne s’annule pas en un point de <span class="process-math">\(I\text{.}\)</span>
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-4">
+<span class="heading"><span class="title">Équation du wronskien.</span></span><aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-4-2"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-4-2-1">Le wronskien de deux solutions de <span class="process-math">\((H)\)</span> ne dépend donc pas de la fonction <span class="process-math">\(c\text{.}\)</span>
+</div></aside><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-4-3">Soit <span class="process-math">\(w\)</span> le wronskien de deux solutions quelconques de <span class="process-math">\((H)\text{.}\)</span> Alors :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall t \in I, \; a(t)w'(t) + b(t)w(t) = 0
+\end{equation*}
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-5">
+<span class="heading"><span class="title">Variations des constantes.</span></span><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-5-2">On suppose qu’on connaît une base <span class="process-math">\((f_1, f_2)\)</span> de <span class="process-math">\(S_I(H)\text{.}\)</span> On note <span class="process-math">\(w\)</span> leur wronskien. En remplaçant <span class="process-math">\(X\)</span> par <span class="process-math">\(\lambda_1(t)\mathbf{V} f_1 + \lambda_2(t)\mathbf{V} f_2(t)\)</span> dans le système différentiel <span class="process-math">\((SE)\text{,}\)</span> alors :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(E)  \Longleftrightarrow \begin{cases}
+\lambda_1'(t)f_1(t) + \lambda_2'(t)f_2(t) = 0 \\
+\lambda_1'(t)f_1'(t) + \lambda_2'(t)f_2'(t) = \frac{\varphi(t)}{a(t)}
+\end{cases}
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-5-4">Les solutions de <span class="process-math">\((E)\)</span> sur <span class="process-math">\(I\)</span> sont donc les fonctions :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t \mapsto \lambda_1(t)f_1(t) + \lambda_2(t)f_2(t)
+\end{equation*}
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-5-6">
+<div class="para">où les fonctions <span class="process-math">\(\lambda_1\)</span> et <span class="process-math">\(\lambda_2\)</span> sont données par :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lambda_1'(t) = -\frac{f_2(t)\varphi(t)}{a(t)w(t)}, \quad
+\lambda_2'(t) = \frac{f_1(t)\varphi(t)}{a(t)w(t)}
+\end{equation*}
+</div>
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-6">
+<span class="heading"><span class="title">Une solution particulière.</span></span><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-6-2">
+<div class="para">En fixant un point <span class="process-math">\(t_0\in I\text{,}\)</span> on obtient une solution particulière <span class="process-math">\(g\)</span> de <span class="process-math">\((E)\)</span> en posant</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/rawsol.html" id="rawsol">
+\begin{equation}
+g(t) =-f_1(t)\int_{t_0}^t\frac{f_2(s)\varphi(s)}{a(s)w(s)}\mathrm{d}s+f_2(t)\int_{t_0}^t\frac{f_1(s)\varphi(s)}{a(s)w(s)}\mathrm{d}s\tag{1.1}
+\end{equation}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/rawsol.html" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-6-2-5">
+\begin{align*}
+\amp\text{ou encore}\amp\amp\amp g(t)\amp=\int_{t_0}^t\frac{\varphi(s)}{a(s)}H(t,s)\mathrm{d}s \\
+\amp\text{avec}\amp\amp\amp H(t,s)\amp=\frac1{w(s)}\left|\begin{matrix} f_1(s) \amp f_1(t) \\ f_2(s) \amp f_2(t)\end{matrix}\right|
+\end{align*}
+</div>
+<div class="para">en dérivant la relation <a href="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2.html#rawsol" class="xref" data-knowl="./knowl/xref/rawsol.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Équation 1.1">(1.1)</a> on voit en outre que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/rawsol.html">
+\begin{equation*}
+g'(t)=\int_{t_0}^t\frac{\varphi(s)}{a(s)}\frac{\partial H}{\partial t}(t,s)\mathrm{d}s
+\end{equation*}
+</div>
+<div class="para">De quoi on déduit que <span class="process-math">\(g\)</span> est l’unique solution de <span class="process-math">\((E)\)</span> qui vérifie <span class="process-math">\(g(t_0)=g'(t_0)=0\text{.}\)</span>
+</div>
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-7">
+<span class="heading"><span class="title">Expression complète des solutions de <span class="process-math">\((E)\)</span>.</span></span><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-7-2">
+<div class="para">Les solutions de <span class="process-math">\((E)\)</span> sont ainsi les fonctions de la forme</div>
+<div class="displaymath process-math" id="exprsol">
+\begin{equation}
+f(t) = \lambda_1 f_1(t) + \lambda_2 f_2(t) + \int_{t_0}^t \frac{\varphi(s)}{a(s)}H(t,s) \, ds\tag{1.2}
+\end{equation}
+</div>
+<div class="para">où <span class="process-math">\(\lambda_1, \lambda_2\)</span> sont des scalaires quelconques dans <span class="process-math">\(\K\text{.}\)</span>
+</div>
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-8">
+<span class="heading"><span class="title">Solution du problème de Cauchy.</span></span><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-4-3-2-8-2">
+<div class="para">Soient <span class="process-math">\(x_0,x_0'\in\K\text{.}\)</span> Sur la base de la relation <a href="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2.html#exprsol" class="xref" data-knowl="./knowl/xref/exprsol.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Équation 1.2">(1.2)</a> l’unique solution <span class="process-math">\(f\)</span> de <span class="process-math">\((E)\)</span> qui vérifie <span class="process-math">\(f(t_0)=x_0\)</span> et <span class="process-math">\(f'(t_0)=x_0'\)</span> est déterminée par le système linéaire d’inconnues <span class="process-math">\(\lambda_1\)</span> et <span class="process-math">\(\lambda_2\)</span>  :</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exprsol.html">
+\begin{equation*}
+\begin{cases}
+f_1(t_0)\lambda_1+f_2(t_0)\lambda_2=x_0 \\
+f_1'(t_0)\lambda_1+f_2'(t_0)\lambda_2=x_0'
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">dont le déterminant est <span class="process-math">\(w(t_0)\text{.}\)</span> </div>
+</div>
+</li>
+</ol>
+</div></article><article class="assemblage assemblage-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5"><h3 class="heading"><span class="title">Spécificités des <abbr class="acronym">EDLS</abbr> du second ordre.</span></h3>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-2">
+<div class="para">Dans cette rubrique, on examine quelques spécificités des équations linéaires scalaires du deuxième ordre. On considère les équations différentielles qu’on suppose normalisables sur <span class="process-math">\(I\)</span> :</div>
+<div class="displaymath process-math" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-2-2">
+\begin{align*}
+(E) \amp\amp a(t) x'' + b(t) x' + c(t) x \amp = \varphi(t) \\
+(H) \amp\amp a(t) x'' + b(t) x' + c(t) x \amp = 0 
+\end{align*}
+</div>
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3"><ol class="decimal" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-1">
+<span class="heading"><span class="title">Solutions passant par un même point.</span></span><aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-1-2"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-1-2-1">Chacune de ces solutions est entièrement déterminée par <span class="process-math">\(f'(t_0)\text{.}\)</span>
+</div></aside><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-1-3">Pour tout <span class="process-math">\((t_0, x_0) \in I \times \K\text{,}\)</span> il existe une infinité de solutions <span class="process-math">\(f\)</span> de <span class="process-math">\((E)\)</span> telles que <span class="process-math">\(f(t_0) = x_0\text{.}\)</span>
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-1-4">
+<div class="para">Si <span class="process-math">\(f\)</span> et <span class="process-math">\(g\)</span> sont des solutions distinctes de l’équation homogène <span class="process-math">\((H)\)</span> vérifiant la condition <span class="process-math">\(x(t_0) = x_0\text{,}\)</span> alors  :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(f, g) \text{ est un SFS de } (H)  \Longleftrightarrow x_0 \neq 0
+\end{equation*}
+</div>
+</div>
+<details id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-1-5" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Explication<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-1-5-1">
+<span class="process-math">\(W(t_0) = x_0 (g'(t_0) - f'(t_0))\)</span> et puisque <span class="process-math">\(f \neq g\text{,}\)</span> alors <span class="process-math">\(f'(t_0) \neq g'(t_0)\text{.}\)</span>
+</div></article></details>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2">
+<span class="heading"><span class="title">Système fondamental canonique en un point.</span></span><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-2">Soit <span class="process-math">\(t_0 \in I\text{.}\)</span> On appelle système fondamental canonique de solutions de <span class="process-math">\((H)\)</span> en <span class="process-math">\(t_0\)</span> le couple <span class="process-math">\((f_0, f_1)\)</span> de solutions de <span class="process-math">\((H)\)</span> définies par :</div>
+<aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-3"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-3-1">
+<span class="process-math">\(w(t_0) = 1\text{.}\)</span> <span class="process-math">\((f_0, f_1)\)</span> est bien un système fondamental de solutions de <span class="process-math">\((H)\text{.}\)</span>
+</div></aside><ul class="disc" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-4">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-4-1"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-4-1">
+<span class="process-math">\(f_0(t_0) = 1\text{,}\)</span> <span class="process-math">\(f_0'(t_0) = 0\)</span> ;</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-4-2"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-4-2">
+<span class="process-math">\(f_1(t_0) = 0\text{,}\)</span> <span class="process-math">\(f_1'(t_0) = 1\text{.}\)</span>
+</div></li>
+</ul>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-5">L’intérêt et qu’on obtienne des expressions simplifiées des solutions de <span class="process-math">\((H)\)</span> et de <span class="process-math">\((E)\)</span> :</div>
+<ul class="disc" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-6">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-6-1"><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-6-1-1">
+<div class="para">Les solutions de <span class="process-math">\((H)\)</span> sont données par :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(t) = f(t_0) f_0(t) + f'(t_0) f_1(t)
+\end{equation*}
+</div>
+</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-6-2"><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-6-2-1">
+<div class="para">Les solutions de <span class="process-math">\((E)\)</span> sont données par :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(t) = f(t_0) f_0(t) + f'(t_0) f_1(t) + \int_{t_0}^t H(t, s) \frac{\varphi(s)}{a(s)} \, ds
+\end{equation*}
+</div>
+</div></li>
+</ul>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-2-7">pour rappel, <span class="process-math">\(\ds H(t,s)=\frac1{w(s)}\left|\begin{matrix} f_0(s) \amp f_0(t) \\ f_1(s) \amp f_1(t)\end{matrix}\right|\text{.}\)</span>
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-3">
+<span class="heading"><span class="title">Wronskien croisé.</span></span><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-3-2">
+<div class="para">On considère deux EDLS homogènes normalisables sur <span class="process-math">\(I\)</span> (qui ne diffèrent que par le coefficient de <span class="process-math">\(x\)</span>) :</div>
+<div class="displaymath process-math" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-3-2-3">
+\begin{align*}
+(H_1)\amp\amp a(t) x'' + b(t) x' + c_1(t) x \amp = 0\\
+(H_2)\amp\amp a(t) x'' + b(t) x' + c_2(t) x \amp = 0
+\end{align*}
+</div>
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-3-3">
+<div class="para">Soient <span class="process-math">\(f_1\)</span> une solution de <span class="process-math">\((H_1)\)</span> sur <span class="process-math">\(I\)</span> et <span class="process-math">\(f_2\)</span> une solution de <span class="process-math">\((H_2)\)</span> sur <span class="process-math">\(I\text{.}\)</span> En posant <span class="process-math">\(w(t) = f_1(t) f_2'(t) - f_2(t) f_1'(t)\text{,}\)</span> on a :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a(t) w'(t) + b(t) w(t) = (c_1(t) - c_2(t)) f_1(t) f_2(t)
+\end{equation*}
+</div>
+<div class="para">c’est l’équation du wronksien croisé des équations <span class="process-math">\((H_1)\)</span> et <span class="process-math">\((H_2)\text{.}\)</span>
+</div>
+</div>
+<details id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-3-4" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Explication<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-3-4-1">Par dérivation du déterminant selon les lignes :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w'(t) = \frac{d}{dt} \begin{vmatrix} f_1(t) \amp f_2(t) \\ f_1'(t) \amp f_2'(t) \end{vmatrix} = \begin{vmatrix} f_1(t) \amp f_2(t) \\ f_1''(t) \amp f_2''(t) \end{vmatrix}
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-3-4-3">En utilisant les équations différentielles, on obtient :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w'(t) = \frac{c_1(t) - c_2(t)}{a(t)} f_1(t) f_2(t) - \frac{b(t)}{a(t)} w(t)
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-5-3-1-3-4-5">d’où le résultat.</div></article></details>
+</li>
+</ol></div></article><article class="assemblage assemblage-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6"><h3 class="heading"><span class="title">Techniques de résolution.</span></h3>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-2">Cette rubrique rassemble quelques remarques pratiques qui peuvent mener à la résolution d’une équation linéaire scalaire du deuxième ordre.</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-4">Dans les deux techniques suivantes, on suppose que <span class="process-math">\((E)\)</span> est normalisable sur <span class="process-math">\(I\)</span> et qu’on connaît une solution <span class="process-math">\(f_0\)</span> de l’équation homogène <span class="process-math">\((H)\)</span> qui ne s’annule pas sur <span class="process-math">\(I\text{.}\)</span>
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5"><ol class="decimal" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-1">
+<span class="heading"><span class="title">Méthode de Lagrange.</span></span><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-1-2">
+<div class="para">On pose <span class="process-math">\(x = f_0(t)y\)</span> et on remplace dans <span class="process-math">\((E)\)</span> pour obtenir l’équation :</div>
+<div class="displaymath process-math" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-1-2-3">
+\begin{align*}
+(E')\amp\amp a(t)f_0(t)y'' + \big(2a(t)f_0'(t) + b(t)f_0(t)\big)y' \amp= \varphi(t)
+\end{align*}
+</div>
+<div class="para">Cette équation peut être regardée comme une EDLS du premier ordre en <span class="process-math">\(y'\text{.}\)</span>
+</div>
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-1-3">Par ailleurs, en multipliant <span class="process-math">\((E')\)</span> par <span class="process-math">\(f_0/a\text{,}\)</span> on obtient  la forme plus mnémonique :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt}\big(f_0(t)^2y'\big) + r(t)\big(f_0(t)^2y'\big) = \psi(t)
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-1-5">où <span class="process-math">\(r=b/a\)</span> et <span class="process-math">\(\psi =\varphi/a\text{.}\)</span> Ce qui donne la forme générale de <span class="process-math">\(y'\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y' = \frac{\e^{-R(t)}}{f_0(t)^2}\Big(\lambda + \int_{t_0}^t \e^{R(s)}\psi(s) \, ds\Big)
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-1-7">où <span class="process-math">\(\lambda\)</span> est quelconque dans <span class="process-math">\(\K\)</span> et <span class="process-math">\(R\)</span> est une primitive de <span class="process-math">\(r \)</span> sur <span class="process-math">\(I\text{.}\)</span>
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-2">
+<span class="heading"><span class="title">Méthode du wronskien.</span></span><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-2-2">L’idée est d’utiliser le fait que les wronskiens de <span class="process-math">\((H)\)</span> sont les solutions de l’équation <span class="process-math">\(a(t)w' + b(t)w = 0\)</span> :</div>
+<aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-2-3"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-2-3-1">La méthode du wronskien permet de résoudre l’équation homogène <span class="process-math">\((H)\text{.}\)</span> Celle de Lagrange permet, si on le désire, de résoudre l’équation complète <span class="process-math">\((E)\text{.}\)</span>
+</div></aside><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-2-4"><div class="displaymath process-math">
+\begin{equation*}
+(H)  \Longleftrightarrow \begin{cases}
+a(t)w' + b(t)w = 0 \\
+f_0(t)x' - f_0'(t)x = w(t)
+\end{cases}
+\end{equation*}
+</div></div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-3">
+<span class="heading"><span class="title">Solutions développables en série entière.</span></span><aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-3-2"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-3-2-1">L’ensemble <span class="process-math">\(S\)</span> des solutions de l’équation homogène <span class="process-math">\((H)\)</span> qui sont développables en série entière en <span class="process-math">\(0\)</span> est un sous-espace vectoriel de <span class="process-math">\(S_I(H)\text{.}\)</span>
+</div></aside><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-6-5-1-3-3">Si les fonctions <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> et <span class="process-math">\(c\)</span> sont polynomiales, il est fort possible que <span class="process-math">\((H)\)</span> admette des solutions développables en série entière en <span class="process-math">\(0\text{,}\)</span> parfois polynomiales.</div>
+</li>
+</ol></div></article><article class="assemblage assemblage-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7"><h3 class="heading"><span class="title">Cas d’une EDLS à coefficients constants.</span></h3>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-2">
+<div class="para">On rappelle ici l’expression des solutions d’une EDLS d’ordre 2 à coefficients constants :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x'' + p x' + q x = \varphi(t)
+\end{equation*}
+</div>
+<div class="para">On note <span class="process-math">\(r_1\)</span> et <span class="process-math">\(r_2\)</span> les racines dans <span class="process-math">\(\C\)</span> du polynôme caractéristique de <span class="process-math">\((H)\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P = X^2 + p X + q
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3"><ol class="decimal" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1">
+<span class="heading"><span class="title">Solutions de l’équation homogène.</span></span><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1-2">les solutions de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(\R\)</span> à valeurs dans <span class="process-math">\(\K\)</span> sont de la forme :</div>
+<ul class="disc" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1-3">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1-3-1"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1-3-1">
+<span class="process-math">\(f(t) = \lambda_1 \e^{r_1 t} + \lambda_2 \e^{r_2 t}\)</span> si <span class="process-math">\(r_1, r_2 \in \K\)</span> et <span class="process-math">\(r_1 \neq r_2\)</span> ;</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1-3-2"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1-3-2">
+<span class="process-math">\(f(t) = (\lambda_1 t + \lambda_2) \e^{r t}\)</span> si <span class="process-math">\(r_1 = r_2 = r\)</span> ;</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1-3-3"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1-3-3">
+<span class="process-math">\(f(t) = \e^{\alpha t} \big( \lambda_1 \cos(\beta t) + \lambda_2 \sin(\beta t) \big)\)</span> si <span class="process-math">\(\K = \R\)</span> et <span class="process-math">\(r_1 = \overline{r_2} = \alpha + i \beta \notin \R\text{.}\)</span>
+</div></li>
+</ul>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-1-4">À chaque fois, <span class="process-math">\(\lambda_1\)</span> et <span class="process-math">\(\lambda_2\)</span> sont des scalaires quelconques dans <span class="process-math">\(\K\text{.}\)</span>
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-2">
+<span class="heading"><span class="title">Solution particulière de <span class="process-math">\((E)\)</span> dans le cas où <span class="process-math">\(\varphi(t) = R(t) \e^{\omega t}\)</span>.</span></span><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-2-2">
+<div class="para">si <span class="process-math">\(\varphi(t)\)</span> est de la forme <span class="process-math">\(R(t) \e^{\omega t}\)</span> où <span class="process-math">\(R\)</span> est une fonction polynomiale à coefficients dans <span class="process-math">\(\K\)</span> et <span class="process-math">\(\omega \in \K\text{,}\)</span> alors <span class="process-math">\((E)\)</span> admet une solution unique de la forme :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_0(t) = t^{\beta} Q(t) \e^{\omega t}
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(\beta\)</span> est la multiplicité de <span class="process-math">\(\omega\)</span> en tant que racine du polynôme caractéristique <span class="process-math">\(P\)</span> de <span class="process-math">\((H)\)</span> et <span class="process-math">\(Q\)</span> est un polynôme qui a le même degré que <span class="process-math">\(R\)</span> à déterminer.</div>
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3">
+<span class="heading"><span class="title">Solution particulière dans le cas général.</span></span><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3-2">
+<div class="para">sur la base de la relation <a href="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2.html#exprsol" class="xref" data-knowl="./knowl/xref/exprsol.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Équation 1.2">(1.2)</a>, <span class="process-math">\(t_0\)</span> étant un point quelconque choisi dans <span class="process-math">\(I\text{,}\)</span> <span class="process-math">\((E)\)</span> admet une solution de la forme :</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exprsol.html">
+\begin{equation*}
+f_0(t) = \int_{t_0}^t H(t, s) \varphi(s) \, ds
+\end{equation*}
+</div>
+<div class="para">où</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exprsol.html">
+\begin{equation*}
+H(t, s) = \frac{\begin{vmatrix} f_1(s) \amp f_1(t) \\ f_2(s) \amp f_2(t) \end{vmatrix}}{\begin{vmatrix} f_1(s) \amp f_1'(s) \\ f_2(s) \amp f_2'(s) \end{vmatrix}}
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3-3">
+<div class="para">Tout calcul fait :</div>
+<ul class="disc" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3-3-1">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3-3-1-1"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3-3-1-1">
+<span class="process-math">\(H(t, s) = \frac{\e^{r_2 (t - s)} - \e^{r_1 (t - s)}}{r_2 - r_1}\)</span> si <span class="process-math">\(r_1 \neq r_2\)</span> ;</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3-3-1-2"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3-3-1-2">
+<span class="process-math">\(H(t, s) = (t - s) \e^{r (t - s)}\)</span> si <span class="process-math">\(r_1 = r_2 = r\)</span> ;</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3-3-1-3"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-7-3-1-3-3-1-3">
+<span class="process-math">\(H(t, s) = \frac{\sin(\beta (t - s))}{\beta} \e^{\alpha (t - s)}\)</span> si <span class="process-math">\(r_1 = \overline{r_2} = \alpha + i \beta \notin \R\text{.}\)</span>
+</div></li>
+</ul>
+</div>
+</li>
+</ol></div></article><article class="example example-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8"><h3 class="heading">
+<span class="space"> </span><span class="codenumber">1.36</span><span class="period">.</span><span class="space"> </span><span class="type">Exemple</span><span class="space"> </span><span class="title">Exemples non génériques.</span>
+</h3>
+<ol class="decimal" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-1">
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-1-1">Résoudre en observant que <span class="process-math">\(x = t^2 + 1\)</span> est une solution :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(1 + t^2) x'' - 2 x = 0
+\end{equation*}
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-2">
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-2-1">Résoudre en commençant par chercher des solutions polynomiales de l’équation homogène :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(1 + t^2)^2 x'' - 2 t (1 + t^2) x' + 2 (t^2 - 1) x = 1 + t^2
+\end{equation*}
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-3">
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-3-1">Résoudre sur <span class="process-math">\(]0, 1[\text{,}\)</span> en commençant par chercher les solutions développables en série entière :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t (1 - t) x'' + (1 - 3 t) x' - x = 0
+\end{equation*}
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-4">
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-4-1">Résoudre sur <span class="process-math">\(]-1, 1[\text{,}\)</span> en commençant par chercher les solutions développables en série entière :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+4 (1 - t^2) x'' - 4 t x' + x = 0
+\end{equation*}
+</div>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-5">
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-8-2-5-1">Résoudre sur <span class="process-math">\(\R\text{,}\)</span> en posant <span class="process-math">\(u = t^2\)</span> et en étudiant le raccord en <span class="process-math">\(0\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t x'' - x' - t^3 x = 0
+\end{equation*}
+</div>
+</li>
+</ol></article><article class="example example-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9"><h3 class="heading">
+<span class="space"> </span><span class="codenumber">1.37</span><span class="period">.</span><span class="space"> </span><span class="type">Exemple</span><span class="space"> </span><span class="title">Équation de Cauchy-Euler.</span>
+</h3>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-1">
+<div class="para">On considère l’équation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t^2 x'' + a t x' + b x = 0
+\end{equation*}
+</div>
+<div class="para">L’équation n’est pas normalisable en <span class="process-math">\(0\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-2">
+<div class="para">On cherche les solutions sur <span class="process-math">\(]0, +\infty[\)</span> qui sont de la forme <span class="process-math">\(f(t) = t^r\text{.}\)</span> Pour que <span class="process-math">\(f\)</span> soit une solution, il faut et il suffit que <span class="process-math">\(r\)</span> soit une racine du polynôme :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P = X (X - 1) + a X + b
+\end{equation*}
+</div>
+</div> <div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-3">
+<div class="para">Si <span class="process-math">\(r_1\)</span> et <span class="process-math">\(r_2\)</span> sont les racines de <span class="process-math">\(P\)</span> dans <span class="process-math">\(\K\text{,}\)</span> les solutions de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(]0, +\infty[\)</span> sont de la forme :</div>
+<ul class="disc" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-3-7">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-3-7-1"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-3-7-1">
+<span class="process-math">\(f(t) = \lambda_1 t^{r_1} + \lambda_2 t^{r_2}\)</span> si <span class="process-math">\(r_1 \neq r_2\)</span> ;</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-3-7-2"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-3-7-2">
+<span class="process-math">\(f(t) = (\lambda_1 + \lambda_2 \ln t) t^r\)</span> si <span class="process-math">\(r_1 = r_2 = r\)</span> ;</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-3-7-3"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-3-7-3">
+<span class="process-math">\(f(t) = \big( \lambda_1 \cos(\im r \ln t) + \lambda_2 \sin(\im r \ln t) \big) t^{\re r}\)</span> si <span class="process-math">\(\K = \R\)</span> et <span class="process-math">\(r = r_1 = \overline{r_2} \notin \R\text{.}\)</span>
+</div></li>
+</ul>
+</div> <div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-4"><em class="alert">Autre méthode :</em></div> <div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-9-2-5">
+<div class="para">Si on pose <span class="process-math">\(x(t) = y(\ln t)\text{,}\)</span> alors <span class="process-math">\((E)\)</span> équivaut sur <span class="process-math">\(\R_+^*\)</span> à l’EDLS à coefficients constants :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y'' + (a - 1) y' + b y = 0
+\end{equation*}
+</div>
+<div class="para">équation à coefficients constants qui a pour polynôme caractéristique <span class="process-math">\(P\text{.}\)</span>
+</div>
+</div></article><article class="example example-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-10"><h3 class="heading">
+<span class="space"> </span><span class="codenumber">1.38</span><span class="period">.</span><span class="space"> </span><span class="type">Exemple</span><span class="space"> </span><span class="title">Équation d’Airy.</span>
+</h3>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-10-2-1">
+<div class="para">On considère l’équation :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x'' - t x = 0
+\end{equation*}
+</div>
+<div class="para">On cherche les solutions développables en série entière sur <span class="process-math">\(\R\text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-10-3-1">
+<div class="para">En remplaçant <span class="process-math">\(x\)</span> par <span class="process-math">\(f(t) = \sum_{n=0}^{+\infty} a_n t^n\)</span> dans <span class="process-math">\((H)\text{,}\)</span> on obtient :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+2 a_2 + \sum_{n=1}^{+\infty} \big( (n + 2) (n + 1) a_{n+2} - a_{n-1} \big) t^n = 0
+\end{equation*}
+</div>
+<div class="para">Ce qui revient à :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_2 = 0 \quad \text{et} \quad \forall n \in \N, \; a_{n+3} = \frac{a_n}{(n + 3) (n + 2)}
+\end{equation*}
+</div>
+<div class="para">ou encore, pour tout <span class="process-math">\(n \in \N^*\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{3n + 2} = 0, \quad
+a_{3n + 1} = \frac{2 \cdot 5 \cdots (3n - 1)}{(3n + 1)!} a_1, \quad
+a_{3n} = \frac{1 \cdot 4 \cdots (3n - 2)}{(3n)!} a_0
+\end{equation*}
+</div>
+<div class="para">Alors les solutions de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(\R\)</span> sont les fonctions données par :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(t) = a_0 f_0(t) + a_1 f_1(t)
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(a_0\)</span> et <span class="process-math">\(a_1\)</span> sont quelconques dans <span class="process-math">\(\R\)</span> et :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_0(t) = 1 + \sum_{n=0}^{+\infty} \frac{1 \cdot 4 \cdots (3n - 2)}{(3n)!} t^{3n}, \quad
+f_1(t) = t + \sum_{n=0}^{+\infty} \frac{2 \cdot 5 \cdots (3n - 1)}{(3n + 1)!} t^{3n + 1}
+\end{equation*}
+</div>
+<div class="para">On notera que les séries entières qui interviennent dans les expressions de <span class="process-math">\(f_0\)</span> et <span class="process-math">\(f_1\)</span> sont bien de rayon de convergence infini.</div>
+</div></div></details></div></article><article class="example example-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11"><h3 class="heading">
+<span class="space"> </span><span class="codenumber">1.39</span><span class="period">.</span><span class="space"> </span><span class="type">Exemple</span><span class="space"> </span><span class="title">Équation d’Hermite :.</span>
+</h3>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-2-1">
+<div class="displaymath process-math">
+\begin{equation*}
+x'' - 2 t x' + 2 a x = 0
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(a\)</span> est un réel positif ou nul. On cherche les solutions développables en série entière sur <span class="process-math">\(\R\text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-3-1">
+<div class="para">Comme pour l’équation d’Airy, <span class="process-math">\((H_a)\)</span> admet effectivement des solutions développables en série entière sur <span class="process-math">\(\R\)</span>  En remplaçant dans <span class="process-math">\((H_a)\text{,}\)</span> on obtient :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall n \in \N, \; (n + 2) (n + 1) a_{n+2} = 2 (n - a) a_n
+\end{equation*}
+</div>
+<div class="para">Et donc pour tout <span class="process-math">\(n \in \N^*\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{2n} = \frac{2^{2n}}{(2n)!} (n - (1 + a / 2)) (n - 1 - (1 + a / 2)) \cdots (1 - (1 + a / 2)) a_0
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{2n + 1} = \frac{2^{2n}}{(2n + 1)!} (n - (a + 1) / 2) (n - 1 - (a + 1) / 2) \cdots (1 - (a + 1) / 2) a_1
+\end{equation*}
+</div>
+<div class="para">Si on prolonge la fonction <span class="process-math">\(\Gamma\)</span> d’Euler sur <span class="process-math">\(\R \setminus \Z_-\)</span> par la relation :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall s \in \R_- \setminus \Z_-, \; \Gamma(s) = \frac{\Gamma(s - E(s))}{s (s + 1) \cdots (s - E(s) - 1)}
+\end{equation*}
+</div>
+<div class="para">De cette manière, elle continuera à vérifier l’équation fonctionnelle :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Gamma(s) = (s - 1) \Gamma(s - 1), \quad \forall s \in \R \setminus \Z_-
+\end{equation*}
+</div>
+<div class="para">et donc :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall s \in \R \setminus \Z_-, \forall n \in \N, \; \Gamma(s) = (s - 1) (s - 2) \cdots (s - n) \Gamma(s - n)
+\end{equation*}
+</div>
+<div class="para">Avec respectivement <span class="process-math">\(s = \frac{1}{2} a + 1\)</span> et <span class="process-math">\(s = \frac{1}{2} a + \frac{1}{2}\text{,}\)</span> on obtient les écritures :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{2n} = \frac{(-1)^n 2^{2n} \Gamma(\frac{1}{2} a + 1)}{(2n)! \Gamma(\frac{1}{2} a + 1 - n)} a_0, \quad
+a_{2n + 1} = \frac{(-1)^n 2^{2n} \Gamma(\frac{1}{2} a + \frac{1}{2})}{(2n + 1)! \Gamma(\frac{1}{2} a + \frac{1}{2} - n)} a_1
+\end{equation*}
+</div>
+<div class="para">d’où les solutions de <span class="process-math">\((H_a)\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(t) = a_0 f_0(t) + a_1 f_1(t)
+\end{equation*}
+</div>
+<div class="para">avec :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f_0(t) = \sum_{n=0}^{+\infty} (-1)^n \frac{2^{2n} \Gamma(\frac{1}{2} a + 1)}{(2n)! \Gamma(\frac{1}{2} a + 1 - n)} t^{2n}, \quad
+f_1(t) = \sum_{n=0}^{+\infty} (-1)^n \frac{2^{2n} \Gamma(\frac{1}{2} a + \frac{1}{2})}{(2n + 1)! \Gamma(\frac{1}{2} a + \frac{1}{2} - n)} t^{2n + 1}
+\end{equation*}
+</div>
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-3-2">En fait, les écritures précédentes ne sont valables que si <span class="process-math">\(\frac{1}{2} a + 1 \notin \N\)</span> et <span class="process-math">\(\frac{1}{2} a + \frac{1}{2} \notin \N\text{.}\)</span> Dans le cas contraire, en revenant aux relations précédentes, on aura :</div>
+<ul class="disc" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-3-3">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-3-3-1"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-3-3-1">Si <span class="process-math">\(\frac{1}{2} a + 1 \in \N\text{,}\)</span> c’est-à-dire <span class="process-math">\(a = 2 p\)</span> avec <span class="process-math">\(p \in \N^*\text{,}\)</span> alors :</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-3-3-5"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-3-3-5">Si <span class="process-math">\(\frac{1}{2} a + \frac{1}{2} \in \N\text{,}\)</span> c’est-à-dire <span class="process-math">\(a = 2 p + 1\)</span> avec <span class="process-math">\(p \in \N^*\text{,}\)</span> alors :</div></li>
+</ul>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-11-3-4">On notera que si <span class="process-math">\(a\)</span> est un entier positif, alors <span class="process-math">\((H_a)\)</span> admet au moins une solution polynomiale. Cette solution est paire si <span class="process-math">\(a\)</span> est pair et impaire si <span class="process-math">\(a\)</span> est impair.</div>
+</div></details></div></article><article class="example example-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12"><h3 class="heading">
+<span class="space"> </span><span class="codenumber">1.40</span><span class="period">.</span><span class="space"> </span><span class="type">Exemple</span><span class="space"> </span><span class="title">Équation de Tchebytchev.</span>
+</h3>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-2-1">On considère l’équation différentielle :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(1 - t^2) x'' - t x' + a^2 x = 0
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-2-3">où <span class="process-math">\(a\)</span> est un réel positif. On cherche les solutions développables en série entière sur <span class="process-math">\(]-1, 1[\text{.}\)</span>
+</div>
+<div class="solutions"><details id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-1">En remplaçant <span class="process-math">\(x\)</span> par <span class="process-math">\(f(t) = \sum_{n=0}^{+\infty} a_n t^n\)</span> dans l’équation, on obtient la relation de récurrence :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall n \in \N, \; (n + 2) (n + 1) a_{n+2} = (n^2 - a^2) a_n
+\end{equation*}
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-3">
+<div class="para">Pour tout <span class="process-math">\(n \in \N^*\text{,}\)</span> on a :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{2n} = \frac{(2n - 2)^2 - a^2}{(2n) (2n - 1)} \frac{(2n - 4)^2 - a^2}{(2n - 2) (2n - 3)} \cdots \frac{-a^2}{2 \cdot 1} a_0 = \frac{a_0}{(2n)!} \prod_{k=0}^{n-1} ((2k)^2 - a^2)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{2n + 1} = \frac{(2n - 1)^2 - a^2}{(2n + 1) (2n)} \frac{(2n - 3)^2 - a^2}{(2n - 1) (2n - 2)} \cdots \frac{1 - a^2}{3 \cdot 2} a_1 = \frac{a_1}{(2n + 1)!} \prod_{k=0}^{n-1} ((2k + 1)^2 - a^2)
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-4">
+<div class="para">Par suite, les solutions de l’équation sur <span class="process-math">\(]-1, 1[\)</span> sont les fonctions données par :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(t) = a_0 f_0(t) + a_1 f_1(t)
+\end{equation*}
+</div>
+<div class="para">où :</div>
+<div class="displaymath process-math" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-4-3">
+\begin{align*}
+f_0(t) \amp = 1 + \sum_{n=1}^{+\infty} \prod_{k=0}^{n-1} \big((2k)^2 - a^2\big) \frac{t^{2n}}{(2n)!}\\
+f_1(t) \amp = t + \sum_{n=1}^{+\infty} \prod_{k=0}^{n-1} \big((2k + 1)^2 - a^2\big) \frac{t^{2n + 1}}{(2n + 1)!}
+\end{align*}
+</div>
+</div>
+<aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-5"><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-5-1">
+<div class="para">On peut de manière directe prouver que l’équation admet au moins une solution polynomiale si <span class="process-math">\(a = m \in \N\)</span> : c’est le polynôme de Tchebychev <span class="process-math">\(T_m\)</span> défini par :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall \theta \in \R, \; T_m(\cos \theta) = \cos(m \theta)
+\end{equation*}
+</div>
+</div></aside><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-6">On notera que :</div>
+<ul class="disc" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-7">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-7-1"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-7-1">Si <span class="process-math">\(a\)</span> est un entier positif pair, <span class="process-math">\(a = 2p\)</span> avec <span class="process-math">\(p \in \N\text{,}\)</span> alors <span class="process-math">\(a_{2n} = 0\)</span> si <span class="process-math">\(n \geq p\)</span> et <span class="process-math">\(f_0\)</span> est une fonction polynomiale paire de degré <span class="process-math">\(2p\text{.}\)</span>
+</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-7-2"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-7-2">Si <span class="process-math">\(a\)</span> est un entier positif impair, <span class="process-math">\(a = 2p + 1\)</span> avec <span class="process-math">\(p \in \N\text{,}\)</span> alors <span class="process-math">\(a_{2n + 1} = 0\)</span> si <span class="process-math">\(n \geq p\)</span> et <span class="process-math">\(f_1\)</span> est une fonction polynomiale impaire de degré <span class="process-math">\(2p + 1\text{.}\)</span>
+</div></li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-7-3"><div class="para" id="p-derived-sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-12-3-7-3">Si <span class="process-math">\(a\)</span> est un entier positif, alors l’équation admet au moins une solution polynomiale.</div></li>
+</ul>
+</div></details></div></article><article class="assemblage assemblage-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13"><h3 class="heading"><span class="title">Transformation d’une EDLS du second ordre.</span></h3>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-2">Pour la simplification de l’étude de certaines proriétés des solutions d’une EDLS du second ordre, on la transforme en des formes plus adaptées. La suite expose les deux transformations les plus utilisées.</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3"><ol class="decimal" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1">
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1">
+<span class="heading"><span class="title">Forme normale d’une EDLS du deuxième ordre.</span></span><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-2">
+<div class="para">On suppose que les fonctions <span class="process-math">\(a\)</span> et <span class="process-math">\(b\)</span> sont de classe <span class="process-math">\(\mathcal{C}^1\text{.}\)</span> Alors il existe une fonction <span class="process-math">\(k\)</span> de classe <span class="process-math">\(\mathcal{C}^2\)</span> qui ne s’annule pas sur <span class="process-math">\(I\)</span> telle qu’en posant <span class="process-math">\(x = k(t) y\text{,}\)</span> <span class="process-math">\((E)\)</span> soit équivalente à une équation de la forme :</div>
+<div class="displaymath process-math" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-2-9">
+\begin{align*}
+(EN)\amp\amp\amp\amp
+y'' + q(t) y \amp= \psi(t)\mkern100mu
+\end{align*}
+</div>
+<div class="para">Cette équation est dite une forme normale de l’équation <span class="process-math">\((E)\text{.}\)</span>
+</div>
+</div>
+<details id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Explication<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3-1">Supposons pour l’instant qu’une telle fonction existe. On a alors :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x = k(t) y, \quad x' = k(t) y' + k'(t) y(t), \quad x'' = k(t) y'' + 2 k'(t) y' + k''(t) y
+\end{equation*}
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3-3">
+<div class="para">
+<span class="process-math">\((E)\)</span> sera de ce fait équivalente à l’EDLS d’inconnue <span class="process-math">\(y\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a(t) k(t) y'' + \big(2 a(t) k'(t) + b(t) k(t)\big) y' + \big(a(t) k''(t) + b(t) k'(t) + c(t) k(t)\big) y = \varphi(t)
+\end{equation*}
+</div>
+</div>
+<aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3-4"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3-4-1">L’équation du wronskien de <span class="process-math">\((EN)\)</span> est <span class="process-math">\(w' = 0\text{.}\)</span> Tous ses wronskiens sont constants.</div></aside><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3-5">En choisissant <span class="process-math">\(k\)</span> comme une solution non nulle de l’équation du premier ordre :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+2 a(t) k' + b(t) k = 0
+\end{equation*}
+</div>
+<div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3-7">
+<div class="para">elle sera effectivement de classe <span class="process-math">\(\mathcal{C}^2\)</span> car <span class="process-math">\(a\)</span> et <span class="process-math">\(b\)</span> sont supposées de classe <span class="process-math">\(\mathcal{C}^1\text{,}\)</span> ne s’annulera pas sur <span class="process-math">\(I\)</span> et on aura :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(E)  \Longleftrightarrow y'' + q(t) y = \psi(t)
+\end{equation*}
+</div>
+</div>
+<aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3-8"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3-8-1">Les équations de type <span class="process-math">\(x'' + q(t) x = 0\)</span> sont souvent associées à l’étude de la distribution des zéros d’une solution sur <span class="process-math">\(I\text{,}\)</span> de l’existence de solutions périodiques dans le cas où la fonction <span class="process-math">\(q\)</span> est périodique...</div></aside><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-1-3-9">
+<div class="para">avec :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+q(t) = \frac{a(t) k''(t) + b(t) k'(t) + c(t) k(t)}{a(t) k(t)}, \quad \psi(t) = \frac{\varphi(t)}{a(t) k(t)}
+\end{equation*}
+</div>
+</div></article></details>
+</li>
+<li id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2">
+<span class="heading"><span class="title">Forme auto-adjointe.</span></span><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-2">On suppose que la fonction <span class="process-math">\(a\)</span> est de classe <span class="process-math">\(\mathcal{C}^1\)</span> sur <span class="process-math">\(I\text{.}\)</span> Alors il existe une fonction <span class="process-math">\(p\)</span> de classe <span class="process-math">\(\mathcal{C}^1\)</span> ne s’annulant pas sur <span class="process-math">\(I\)</span> et une fonction <span class="process-math">\(q\)</span> continue sur <span class="process-math">\(I\)</span> telle que <span class="process-math">\((H)\)</span> soit équivalente à l’équation :</div>
+<aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-3"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-3-1">L’équation du wronskien de <span class="process-math">\((HA)\)</span> est <span class="process-math">\((p w)' = 0\text{.}\)</span> Tous les wronskiens de <span class="process-math">\((HA)\)</span> sont proportionnels à <span class="process-math">\(\frac{1}{p}\text{.}\)</span>
+</div></aside><div class="para logical" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-4"><div class="displaymath process-math">
+\begin{equation*}
+(p(t) x')' + q(t) x = 0
+\end{equation*}
+</div></div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-5">Cette équation est dite une forme auto-adjointe de l’équation homogène <span class="process-math">\((H)\text{.}\)</span>
+</div>
+<aside class="aside aside-like" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-6"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-6-1">Contrairement à une forme normale de <span class="process-math">\((H)\text{,}\)</span> on conserve la même fonction inconnue <span class="process-math">\(x\text{.}\)</span>
+</div></aside><details id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-7" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Explication<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-7-1">Considérons pour l’instant une fonction <span class="process-math">\(\sigma\)</span> quelconque de classe <span class="process-math">\(\mathcal{C}^1\)</span> et ne s’annulant pas sur <span class="process-math">\(I\text{.}\)</span> Alors :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(H)  \Longleftrightarrow a(t) \sigma(t) x'' + b(t) \sigma(t) x' + c(t) \sigma(t) x = 0
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-7-3">Si on choisit <span class="process-math">\(\sigma\)</span> comme une solution non nulle sur <span class="process-math">\(I\)</span> de l’EDLS du premier ordre :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a(t) \sigma' + (a'(t) - b(t)) \sigma = 0
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-7-5">on aura <span class="process-math">\((a \sigma)' = b \sigma\)</span> et <span class="process-math">\((H)\)</span> se ramène donc à :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(a(t) \sigma(t) x')' + c(t) \sigma(t) x = 0
+\end{equation*}
+</div>
+<div class="para" id="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2-13-3-1-2-7-7">Il suffit de poser <span class="process-math">\(p = a \sigma\)</span> qui est bien de classe <span class="process-math">\(\mathcal{C}^1\)</span> et ne s’annule pas sur <span class="process-math">\(I\)</span> et <span class="process-math">\(q = c \sigma\text{.}\)</span>
+</div></article></details>
+</li>
+</ol></div></article></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html" title="Précédent"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span></a><a class="next-button button" href="sec-eqdiff-exercices-approfondissement.html" title="Suivant"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="mailto:ibouja@gmail.com" target="_blank">Commentaires</a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="cpgem-link" href="https://texbouja.github.io/cpgem" title="CPGEM"><img class="logo" src="https://texbouja.github.io/cpgem/assets/img/favicons/favicon.png" alt="CPGEM logo"></a>
+</div>
+</body>
+</html>

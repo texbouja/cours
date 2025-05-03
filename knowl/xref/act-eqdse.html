@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Exercice</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">10<span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span></span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Solutions DSE d’une EDLS normalisable.</span>
+</h3>
+<div class="introduction"><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">On considère une EDLS normalisée d’ordre <span class="process-math">\(2\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+(H) \amp\amp 
+x''(t)+p(t)x'+q(t)x=0
+\end{align*}
+</div>
+<div class="para">et on suppose que <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> sont <abbr class="acronym">DSE</abbr> en <span class="process-math">\(0\)</span> sur un intervalle <span class="process-math">\(]-r,r[\)</span> :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall t\in]-r,r[\qquad p(t)=\sum_{n=0}^{+\infty} p_nt^n\qquad q(t)=\sum_{n=0}^{+\infty}q_n t^n
+\end{equation*}
+</div>
+<div class="para">On considère une fonction <span class="process-math">\(f\)</span> <abbr class="acronym">DSE</abbr> en <span class="process-math">\(0\)</span> qu’on écrit sous la forme <span class="process-math">\(f(t)=\sum\limits_{n=0}^{+\infty}a_n t^n\text{.}\)</span>
+</div>
+</div></div>
+<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que si <span class="process-math">\(f\)</span> est une solution de <span class="process-math">\((E)\)</span>  alors</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{align*}
+(ER) \amp\amp 
+\forall n\in\N,\; a_{n+2}=\frac{-1}{(n+1)(n+2)}
+\sum_{k=0}^n\big((k+1)a_{k+1}p_{n-k}+a_kq_{n-k}\big)
+\end{align*}
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">En injectant l’expression <span class="process-math">\(f(t)=\sum_{n=0}^{+\infty}a_nt^n\)</span> dans l’équation <span class="process-math">\((H)\)</span> on obtient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n=0}^{+\infty}(n+2)(n+1)a_{n+2}t^n+\sum_{n=0}^{+\infty}\sum_{k=0}^n((k+1)a_{k+1}p_{n-k})t^n+\sum_{n=0}^{+\infty}\sum_{k=0}^na_kq_{n-k}t^k=0
+\end{equation*}
+</div>
+</div>
+<aside class="aside aside-like"><div class="para">Cette relation implique que la suite <span class="process-math">\((a_n)_n\)</span> est entièrement déterminée par ses deux premiers termes <span class="process-math">\(a_0\)</span> et <span class="process-math">\(a_1\text{.}\)</span> L’ensemble de ces suites est un <span class="process-math">\(\K\)</span>-ev de dimension <span class="process-math">\(\leq 2\text{.}\)</span>
+</div></aside><div class="para logical">
+<div class="para">De quoi on déduit que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall n\in\N,\; (n+2)(n+1)a_{n+2}+\sum_{k=0}^n\big((k+1)a_kp_{n-k}+a_kq_{n-k}\big)=0
+\end{equation*}
+</div>
+</div>
+</div></details></div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">Réciproquement, soit une suite non nulle <span class="process-math">\((a_n)_n\)</span> qui vérifie la relation <span class="process-math">\((ER)\text{.}\)</span> On considère  <span class="process-math">\(\rho \in{}]0,r[\)</span> et <span class="process-math">\(M\gt0\)</span> tels que <span class="process-math">\(|p_n|\rho^n\leq M\)</span> et <span class="process-math">\(|q_n|\rho^n\leq M\)</span> pour tout <span class="process-math">\(n\in\N\text{.}\)</span> On pose <span class="process-math">\(b_0=|a_0|,\; b_1=|a_1|\)</span> et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall n\in\N,\; b_{n+2}=\frac{M}{(n+1)(n+2)}\Big(
+\sum_{k=0}^n\frac{(k+1)b_{k+1}+b_k}{\rho^{n-k}}+ \rho b_{n+1}\Big) 
+\end{equation*}
+</div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="act-eqdse-4-1-2">
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que <span class="process-math">\(|a_n|\leq b_n\text{,}\)</span> pour tout <span class="process-math">\(n\in\N\text{.}\)</span>
+</div></li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que <span class="process-math">\(b_{n+1}=\ds b_n\frac{n(n-1)+nM\rho+M\rho^2}{\rho n(n+1)}\text{.}\)</span>
+</div></li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">En déduire que <span class="process-math">\(\sum a_nt^n\)</span> a un <abbr class="acronym">RC</abbr> <span class="process-math">\(\geq r\text{.}\)</span>
+</div></li>
+</ol>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">L’existence de <span class="process-math">\(M\)</span> tel que <span class="process-math">\(|p_n|\rho^n\leq M\)</span> et <span class="process-math">\(|q_n|\rho ^n\)</span> découle du fait que <span class="process-math">\(\rho\)</span> est plue petit que les rayons de convergence des séries entières <span class="process-math">\(\sum p_nt^n\)</span> et <span class="process-math">\(\sum q_n t^n\text{.}\)</span>
+</div>
+<div class="para logical">
+<div class="para">Ensuite la relation précédente sur les termes <span class="process-math">\(a_n\)</span> implique que pour tout <span class="process-math">\(n\in\N\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|a_{n+1}|\leq\frac M{(n+2)(n+1)}
+\sum_{k=0}^n\frac{1}{\rho^{n-k}}\big((k+1)|a_{k+1}|+|a_k|\big)
+\end{equation*}
+</div>
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="act-eqdse-4-2-3">
+<li>
+<div class="para">Une récurrence évidente établit donc que <span class="process-math">\(|a_n|\leq b_n\)</span> pour tout <span class="process-math">\(n\in\N\text{.}\)</span>
+</div>
+<aside class="aside aside-like"><div class="para">le rôle du terme <span class="process-math">\(\rho b_{n+1}\)</span> dans la définition de <span class="process-math">\(b_{n+2}\)</span> deviendra claire dans la suite.</div></aside>
+</li>
+<li>
+<div class="para">Simplifions l’écriture de <span class="process-math">\(b_{n+1}\text{.}\)</span> Pour tout <span class="process-math">\(n\geq 2\)</span>
+</div>
+<aside class="aside aside-like"><div class="para">C’est l’ajout du terme <span class="process-math">\(\rho b_n\)</span> dans la définition de <span class="process-math">\(b_{n+2}\)</span> qui a permis l’obtention d’une relation aussi simple entre <span class="process-math">\(b_{n+1}\)</span> et <span class="process-math">\(b_n\text{.}\)</span>
+</div></aside><div class="displaymath process-math">
+\begin{align*}
+b_{n+1}\amp=
+\frac{M}{n(n+1)}\Big(\sum_{k=0}^{n-1}
+\frac{(k+1)b_{k+1}+b_k}{\rho^{n-1-k}}+ \rho b_{n}\Big)\\
+\amp=
+\frac{M}{n(n+1)}\bigg(\frac1\rho\Big(\sum_{k=0}^{n-2}
+\frac{(k+1)b_{k+1}+b_k}{\rho^{n-2-k}}+\rho b_{n-1}\Big)+(nb_n+b_{n-1}) +\rho b_{n}- b_{n-1}\bigg) \\
+\amp=
+\frac{M}{n(n+1)}\Big(\frac{(n-1)n}{\rho M}b_n+nb_n+\rho b_{n}\Big) \\
+\amp=
+\frac{b_n}{\rho n(n+1)}\big(n(n-1)+n\rho M+\rho^2 M\big)\\
+b_{n+1}\amp=\alpha_nb_n 
+\qquad \text{avec}\;\alpha_n=\frac{n(n-1)+n\rho M+\rho^2M}{\rho n(n+1)}
+\end{align*}
+</div>
+</li>
+<li><div class="para logical">
+<div class="para">La suite <span class="process-math">\((a_n)\)</span> est non nulle donc <span class="process-math">\((b_n)\)</span> est non nulle, et comme <span class="process-math">\(\alpha_n&gt;0\)</span> alors <span class="process-math">\(b_n&gt;0\)</span> pour tout <span class="process-math">\(n\geq n_0\)</span> dès que <span class="process-math">\(b_{n_0}\ne 0\)</span> pour un certain <span class="process-math">\(n_0\text{.}\)</span> Par suite</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall t\ne0,\; \Big|\frac{b_{n+1}t^{n+1}}{b_nt^n}\Big|=\alpha_n|t|\longrightarrow \frac{|t|}\rho
+\end{equation*}
+</div>
+<div class="para">La série entière <span class="process-math">\(\sum b_nt^n\)</span> a donc un <abbr class="acronym">RC</abbr> qui vaut <span class="process-math">\(\rho\text{.}\)</span> Notons <span class="process-math">\(R\)</span> le <abbr class="acronym">RC</abbr> de <span class="process-math">\(\sum a_n t^n\text{.}\)</span> Comme <span class="process-math">\(|a_n|\leq b_n\)</span> alors <span class="process-math">\(R\geq \rho\)</span> pour tout <span class="process-math">\(\rho \in]0,r[\text{.}\)</span> Donc <span class="process-math">\(R\geq r\text{.}\)</span>
+</div>
+</div></li>
+</ol>
+</div></details></div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que pour tous <span class="process-math">\(a_0,a_1\in \K\text{,}\)</span> il existe une unique solution <span class="process-math">\(f\)</span> de <span class="process-math">\((H)\)</span> <abbr class="acronym">DSE</abbr> sur <span class="process-math">\(]-r,r[\)</span> telle que <span class="process-math">\(f(0)=a_0\)</span> et <span class="process-math">\(f'(0)=a_1\text{.}\)</span>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">En compilant les résultats de la question précédente, on voit que <span class="process-math">\(f\)</span> est une solution de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(]-r,r[\)</span> si et seulement si la suite <span class="process-math">\((a_n)\)</span> vérifie la relation <span class="process-math">\((ER)\text{.}\)</span>
+</div>
+<aside class="aside aside-like"><div class="para">Reformulons : si les fonctions <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> sont continues sur un intervalle <span class="process-math">\(I\)</span> et sont <abbr class="acronym">DSE</abbr> en <span class="process-math">\(0\)</span> sur <span class="process-math">\(]-r,r[\subset I\)</span> alors toutes les solutions de <span class="process-math">\((H)\)</span> sur <span class="process-math">\(I\)</span> sont <abbr class="acronym">DSE</abbr> en <span class="process-math">\(0\)</span> sur <span class="process-math">\(]-r,r[\text{.}\)</span>
+</div></aside><div class="para">La suite <span class="process-math">\((a_n)_n\)</span> elle même est entièrement déterminée par les termes <span class="process-math">\(a_0\)</span> et <span class="process-math">\(a_1\text{.}\)</span> Comme <span class="process-math">\(a_0=f(0)\)</span> et <span class="process-math">\(a_1=f'(0)\)</span> alors pour tout <span class="process-math">\(a_0,a_1\in \R\)</span> il existe une unique solution <span class="process-math">\(f\)</span> de <span class="process-math">\((H)\)</span> <abbr class="acronym">DSE</abbr> en <span class="process-math">\(0\)</span> telle que <span class="process-math">\(f(0)=a_0\)</span> et <span class="process-math">\(f'(0)=a_0\text{.}\)</span>
+</div>
+</div></details></div></article></article><span class="incontext"><a class="internal" href="sec-eqdiff-exercices-approfondissement.html#act-eqdse">Contexte</a></span>
+</body>
+</html>

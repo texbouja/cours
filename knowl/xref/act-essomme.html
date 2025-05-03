@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.14 - </span> <span class="title">Espérance d’une variable à valeurs dans <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\N\)</span>.</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">Une <abbr class="acronym">VADR</abbr> <span class="process-math">\(X\)</span> à valeurs dans <span class="process-math">\(\N\)</span> est sommable si et seulement si la suite <span class="process-math">\((\Pr{X \gt n})_{n\in \N}\)</span> est sommable et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X)=\sum_{n\in \N}\Pr{X\gt n}
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">La famille <span class="process-math">\((\Pr{X\gt n})_{n\in\N^*}\)</span> est à termes réels positifs, ce qui legitime le calcul suivant, y compris pour l’interversion des sommes :</div>
+<div class="displaymath process-math">
+\begin{align*}
+\sum_{n\in\N}\Pr{X\gt n} \amp= \sum_{n=0}^{+\infty}\sum_{k=n+1}^{+\infty} \Pr{X=k} \\
+\amp= \sum_{k=1}^{+\infty}\sum_{n=0}^{k-1}\Pr{X=k} \\
+\amp= \sum_{k=1}^{+\infty} k\Pr{X=k} \\
+\amp= \EE(X) 
+\end{align*}
+</div>
+</div></div></details></div></article><span class="incontext"><a class="internal" href="sec-espvaralea.html#act-essomme">Contexte</a></span>
+</body>
+</html>

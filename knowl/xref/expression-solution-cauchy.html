@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">1.22</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="type">Théorème</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Expression intégrale de la solution du problème de Cauchy.</span>
+</h4>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">Soient <span class="process-math">\(t_0\in I\)</span> et <span class="process-math">\(x_0\in E\text{.}\)</span> L’unique solution <span class="process-math">\(f\)</span> de l’équation complète <span class="process-math">\((E)\)</span> vérifiant la condition initiale <span class="process-math">\(f(t_0)=x_0\)</span> est donnée par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall t\in I,\; f(t)=\e^{(t-t_0)a}\cdot x_0+\int_{t_0}^t\e^{(t-s)a}\cdot b(s)\dt s
+\end{equation*}
+</div>
+</div></article><details xmlns:xlink="http://www.w3.org/1999/xlink" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">Notons <span class="process-math">\(f\)</span> l’unique solution de <span class="process-math">\((E)\)</span> telle que <span class="process-math">\(f(t_0)=x_0\)</span> et posons</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(t)=\e^{-ta}\cdot f(t)
+\end{equation*}
+</div>
+<div class="para">La fonction <span class="process-math">\(g\)</span> est de classe <span class="process-math">\(\mathcal C^1\)</span> et on a</div>
+<div class="displaymath process-math">
+\begin{align*}
+g'(t)\amp =-a\circ \e^{-ta}\cdot f(t)+\e^{-ta}\cdot f'(t)\\
+\amp=
+-a\circ \e^{-ta}\cdot f(t)+\e^{-ta}\cdot\bigl(a\cdot f(t)+b(t)\bigr)\\
+\amp=
+\e^{-ta}\cdot b(t)
+\end{align*}
+</div>
+<div class="para">
+<span class="process-math">\(g\)</span> est donc une primitive de la fonction <span class="process-math">\(t\longmapsto \e^{-ta}\cdot b(t) \text{.}\)</span> Puisque <span class="process-math">\(g(t_0)=\e^{-t_0a}\cdot f(t_0)=\e^{-t_0a}\cdot x_0\)</span> alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g(t)=\e^{-t_0a}\cdot x_0+\int_{t_0}^t \e^{-sa}\cdot b(s)\mathrm ds
+\end{equation*}
+</div>
+<div class="para">et donc</div>
+<div class="displaymath process-math">
+\begin{align*}
+f(t) \amp=
+\e^{ta}\cdot\biggl(\e^{-t_0a}\cdot x_0+\int_{t_0}^t \e^{-sa}\cdot b(s)\mathrm ds\biggr)\\
+\amp= \e^{(t-t_0)a}\cdot x_0+\int_{t_0}^t\e^{(t-s)a}\cdot b(s)\dt s
+\end{align*}
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#expression-solution-cauchy">Contexte</a></span>
+</body>
+</html>

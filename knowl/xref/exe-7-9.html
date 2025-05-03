@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Exercice</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">9<span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span></span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Théorème de Sturm.</span>
+</h3>
+<div class="introduction">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soient <span class="process-math">\(I\)</span> un intervalle non trivial de <span class="process-math">\(\mathbb{R}\text{,}\)</span> <span class="process-math">\(p_1, p_2 : I \rightarrow \mathbb{R}\)</span> deux fonctions continues telles que <span class="process-math">\(p_1 \leq p_2\text{.}\)</span> On considère également deux fonctions <span class="process-math">\(y_1, y_2 : I \rightarrow \mathbb{R}\)</span> non identiquement nulles, de classe <span class="process-math">\(\mathcal{C}^2\)</span> telles que</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+\forall x \in I, \quad y_1''(x) + p_1(x)y_1(x) = 0 \quad \text{et} \quad y_2''(x) + p_2(x)y_2(x) = 0.
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Enfin, <span class="process-math">\(a\)</span> et <span class="process-math">\(b\)</span> désignent deux zéros consécutifs de <span class="process-math">\(y_1\text{.}\)</span>
+</div>
+</div>
+<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Démontrer que <span class="process-math">\(y_2\)</span> s’annule au moins une fois dans <span class="process-math">\([a, b]\)</span> ou que <span class="process-math">\(y_2(a) = y_2(b) = 0\text{.}\)</span>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Comme <span class="process-math">\(y_1\)</span> ne s’annule pas sur <span class="process-math">\([a, b]\text{,}\)</span> elle y est de signe constant et quitte à la changer en son opposée on peut supposer qu’elle est strictement positive sur <span class="process-math">\([a, b]\text{.}\)</span> Supposons que <span class="process-math">\(y_2\)</span> ne s’annule pas dans <span class="process-math">\([a, b]\text{.}\)</span> Elle y est donc de signe constant et ici aussi, quitte à changer <span class="process-math">\(y_2\)</span> en son opposée, on peut supposer <span class="process-math">\(y_2 \gt 0\)</span> sur <span class="process-math">\([a, b]\text{.}\)</span>
+</div>
+<div class="para">Considérons alors le wronskien <span class="process-math">\(W\)</span> du couple <span class="process-math">\((y_1, y_2)\text{,}\)</span> <span class="process-math">\(W = \begin{vmatrix} y_1\amp   y_2 \\ y_1'\amp   y_2' \end{vmatrix}\text{.}\)</span>
+</div>
+<div class="para">Il s’agit là d’une fonction de classe <span class="process-math">\(\mathcal{C}^1\)</span> sur <span class="process-math">\(I\)</span> et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+W' = (y_1y_2' - y_2y_1')' = y_1y_2'' - y_2y_1'' = y_1y_2 (p_1 - p_2) \leq 0.
+\end{equation*}
+</div>
+<div class="para">Ainsi, <span class="process-math">\(W\)</span> est décroissante sur <span class="process-math">\([a, b]\text{.}\)</span>
+</div>
+<div class="para">Or <span class="process-math">\(W(a) = -y_2(a)y_1'(a)\)</span> et <span class="process-math">\(y_2(a) \geq 0, \, y_1'(a) \gt 0, \, donc \, W(a) \leq 0\text{.}\)</span>
+</div>
+<div class="para">De même <span class="process-math">\(W(b) = -y_2(b)y_1'(b)\)</span> et <span class="process-math">\(y_2(b) \geq 0, \, y_1'(b) \lt 0, \, donc \, W(b) \geq 0\text{.}\)</span>
+</div>
+<div class="para">Conclusion</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall x \in [a, b], \, 0 \geq W(a) \geq W(x) \geq W(b) \geq 0.
+\end{equation*}
+</div>
+<div class="para">On a donc <span class="process-math">\(W = 0\)</span> sur <span class="process-math">\([a, b]\text{.}\)</span>
+</div>
+<div class="para">En particulier <span class="process-math">\(W(a) = -y_2(a)y_1'(a) = 0\)</span> et <span class="process-math">\(W(b) = -y_2(b)y_1'(b) = 0, \, donc \, y_2(a) = 0 = y_2(b)\text{.}\)</span>
+</div>
+</div></details></div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Dans le cas où <span class="process-math">\(y_2\)</span> ne s’annule pas dans <span class="process-math">\([a, b]\text{,}\)</span> démontrer que <span class="process-math">\(y_2\)</span> est proportionnelle à <span class="process-math">\(y_1\)</span> sur le segment <span class="process-math">\([a, b]\text{.}\)</span>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Supposons que <span class="process-math">\(y_2(a) = 0 = y_2(b)\text{.}\)</span> En reprenant les précédents calculs, on voit que l’on a toujours <span class="process-math">\(W\)</span> décroissante sur <span class="process-math">\([a, b]\)</span> avec <span class="process-math">\(W(a) = W(b) = 0, \, donc \, W\)</span> est nulle sur <span class="process-math">\([a, b]\text{.}\)</span>
+</div>
+<div class="para">On en déduit que sur <span class="process-math">\([a, b]\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left(\frac{y_2}{y_1}\right)' = 0.
+\end{equation*}
+</div>
+<div class="para">Il existe donc <span class="process-math">\(\alpha \in \mathbb{R}^*\)</span> tel que <span class="process-math">\(y_2 = \alpha y_1\)</span> sur <span class="process-math">\([a, b]\text{.}\)</span> Cette relation est encore vraie en <span class="process-math">\(a\)</span> et en <span class="process-math">\(b\text{.}\)</span>
+</div>
+</div></details></div></article></article><span class="incontext"><a class="internal" href="sec-eqdiff-exercices-entrainement.html#exe-7-9">Contexte</a></span>
+</body>
+</html>

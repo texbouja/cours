@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Exercice</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">5<span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span></span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Application résolvante d’une équation différentielle linéaire.</span>
+</h3>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">On considère une EDL du premier ordre</div>
+<div class="displaymath process-math">
+\begin{align*}
+(E) \amp\amp x'\amp=a(t).x+b(t) 
+\end{align*}
+</div>
+<div class="para">et on note <span class="process-math">\((H)\)</span> son équation homogène. On appelle équation résolvante de <span class="process-math">\((E)\text{,}\)</span> l’équation différentielle linéaire homogène d’ordre 1</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u' = a(t) \circ u
+\end{equation*}
+</div>
+<div class="para">l’inconnue <span class="process-math">\(u\)</span> étant une application de classe <span class="process-math">\(\mathcal C^1\)</span> de <span class="process-math">\(I\)</span> dans <span class="process-math">\(\mathcal L(E)\text{.}\)</span> On appelle application résolvante de <span class="process-math">\((H)\)</span> l’application définie sur <span class="process-math">\(I^2\)</span> par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall (t, s) \in I^2 \qquad R(t, s) = r_s(t)
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(r_s\)</span> est l’unique solution de <span class="process-math">\((RH)\)</span> qui vérifie <span class="process-math">\(r_s(s) = \id_E\text{.}\)</span>
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="application-resolvante-2-15">
+<li><div class="para">Montrer que pour tout <span class="process-math">\((t, s, \sigma) \in I^3\text{,}\)</span> <span class="process-math">\(R(t, s) \circ R(s, \sigma) = R(t, \sigma)\text{.}\)</span> En déduire que <span class="process-math">\(R(t, s)\)</span> est inversible et que <span class="process-math">\(R(t, s)^{-1} = R(s, t)\text{.}\)</span>
+</div></li>
+<li><div class="para">Exprimer les solutions de <span class="process-math">\((RH)\)</span> et celles de <span class="process-math">\((H)\)</span> en fonction de <span class="process-math">\(R\text{.}\)</span>
+</div></li>
+<li><div class="para">Donner l’expression de <span class="process-math">\(R(t, s)\)</span> dans le cas où l’application <span class="process-math">\(a\)</span> est constante.</div></li>
+<li><div class="para">Montrer que si <span class="process-math">\(a(t) \circ a(s) = a(s) \circ a(t)\)</span> pour tout <span class="process-math">\(t, s \in I\text{,}\)</span> alors<div class="displaymath process-math">
+\begin{equation*}
+R(t, s) = \exp\bigg(\int_s^t a(\theta) \, d\theta\bigg)
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">On fixe <span class="process-math">\(t_0 \in I\)</span> et on considère l’application <span class="process-math">\(r : t \longmapsto R(t, t_0)\text{.}\)</span> Vérifier que pour tout <span class="process-math">\((t, s) \in I^2\text{,}\)</span> <span class="process-math">\(R(t, s) = r(t) \circ r(s)^{-1}\)</span> et en déduire que <span class="process-math">\(R\)</span> est de classe <span class="process-math">\(\mathcal C^1\)</span> sur <span class="process-math">\(I^2\)</span> avec<div class="displaymath process-math">
+\begin{equation*}
+\frac{\partial R}{\partial t}(t, s) = a(t) \circ R(t, s) \quad \text{et} \quad \frac{\partial R}{\partial s}(t, s) = -R(t, s) \circ a(s)
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">On suppose que <span class="process-math">\(a\)</span> est bornée et on pose <span class="process-math">\(M = \sup\limits_{s \in I} \|a(s)\|\text{.}\)</span> Montrer que<div class="displaymath process-math">
+\begin{equation*}
+\forall t \in I,\; \|R(t, t_0) - \id_E\| \leq \e^{M|t - t_0|} - 1
+\end{equation*}
+</div>En déduire que pour toute solution <span class="process-math">\(f\)</span> de l’équation homogène <span class="process-math">\((H)\)</span><div class="displaymath process-math">
+\begin{equation*}
+\|f(t) - f(t_0)\| \leq \big(\e^{M|t - t_0|} - 1\big) \|f(t_0)\|
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">Soit <span class="process-math">\(x_0 \in E\text{.}\)</span> Montrer que l’unique solution <span class="process-math">\(g\)</span> de l’équation complète <span class="process-math">\((E)\)</span> telle que <span class="process-math">\(g(t_0) = x_0\)</span> est donnée par la <em class="alert">formule de Duhamel</em> :<div class="displaymath process-math">
+\begin{equation*}
+\forall t \in I \quad g(t) = R(t, t_0) x_0 + \int_{t_0}^t R(t, s) \cdot b(s) \, ds
+\end{equation*}
+</div>
+</div></li>
+</ol>
+</div>
+<details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><ol class="lower-alpha lower-alpha-level-1" id="application-resolvante-3-1">
+<li><div class="para">Pour <span class="process-math">\(s \in I\)</span> fixé, la fonction <span class="process-math">\(t \longmapsto R(t, s)\)</span> est par définition l’unique solution de <span class="process-math">\((RH)\)</span> qui prend la valeur <span class="process-math">\(\id_E\)</span> en <span class="process-math">\(t = s\text{.}\)</span> Si on fixe <span class="process-math">\(s\)</span> et <span class="process-math">\(\sigma\)</span> dans <span class="process-math">\(I\text{,}\)</span> les fonctions <span class="process-math">\(u : t \longmapsto R(t, s) \circ R(s, \sigma)\)</span> et <span class="process-math">\(v : t \longmapsto R(t, \sigma)\)</span> sont des solutions de <span class="process-math">\((RH)\)</span> et on a <span class="process-math">\(u(s) = v(s) = R(s, \sigma)\text{.}\)</span> On a donc <span class="process-math">\(u = v\)</span> d’après le théorème de Cauchy-Lipschitz, soit <span class="process-math">\(R(t, s) \circ R(s, \sigma) = R(t, \sigma)\)</span> pour tout <span class="process-math">\(t \in I\text{.}\)</span> En particulier lorsque <span class="process-math">\(\sigma = t\text{,}\)</span> on obtient <span class="process-math">\(R(t, s) \circ R(s, t) = R(t, t) = \id_E\)</span> donc <span class="process-math">\(R(t, s)\)</span> est inversible d’inverse <span class="process-math">\(R(s, t)\text{.}\)</span>
+</div></li>
+<li><div class="para">Fixons <span class="process-math">\(t_0 \in I\text{.}\)</span> Pour tout <span class="process-math">\(u_0 \in \mathcal L(E)\text{,}\)</span> l’unique solution <span class="process-math">\(u\)</span> de <span class="process-math">\((RH)\)</span> telle que <span class="process-math">\(u(t_0) = u_0\)</span> est donnée par <span class="process-math">\(u(t) = R(t, t_0) \circ u_0\text{.}\)</span> Pour tout <span class="process-math">\(x_0 \in E\text{,}\)</span> l’unique solution <span class="process-math">\(f\)</span> de <span class="process-math">\((H)\)</span> telle que <span class="process-math">\(f(t_0) = x_0\)</span> est donnée par <span class="process-math">\(f(t) = R(t, t_0) \cdot x_0\text{.}\)</span>
+</div></li>
+<li><div class="para">On suppose que <span class="process-math">\(a\)</span> est constante. Pour tout <span class="process-math">\(s \in I\text{,}\)</span> l’unique solution <span class="process-math">\(f\)</span> de <span class="process-math">\((H)\)</span> telle que <span class="process-math">\(f(s) = x_0\)</span> est donnée par <span class="process-math">\(f(t) = \e^{(t - s)a} \cdot x_0\text{.}\)</span> On a donc<div class="displaymath process-math">
+\begin{equation*}
+\forall (t, s) \in I,\; \forall x_0 \in E,\; R(t, s) \cdot x_0 = \e^{(t - s)a} \cdot x_0
+\end{equation*}
+</div>Ce qui implique que <span class="process-math">\(R(t, s) = \e^{(t - s)a}\text{.}\)</span>
+</div></li>
+<li><div class="para">On suppose donc que <span class="process-math">\(a(t)\)</span> et <span class="process-math">\(a(s)\)</span> commutent pour tout <span class="process-math">\(t, s \in I\text{.}\)</span> Posons alors<div class="displaymath process-math">
+\begin{equation*}
+U(t, s) = \exp\bigg(\int_s^t a(\theta) \, d\theta\bigg)
+\end{equation*}
+</div>Fixons <span class="process-math">\(s \in I\)</span> et considérons la fonction <span class="process-math">\(r : t \longmapsto U(t, s)\text{.}\)</span> L’application <span class="process-math">\(r\)</span> est dérivable sur <span class="process-math">\(I\)</span> et on a<div class="displaymath process-math">
+\begin{equation*}
+r'(t) = a(t) \circ \exp\bigg(\int_s^t a(\theta) \, d\theta\bigg) = a(t) \circ r(t)
+\end{equation*}
+</div>
+<span class="process-math">\(r\)</span> est donc une solution de <span class="process-math">\((RH)\)</span> sur <span class="process-math">\(I\text{.}\)</span> Notons par ailleurs que <span class="process-math">\(r(s) = \id_E\text{.}\)</span> Donc par définition de <span class="process-math">\(R\text{,}\)</span> on a<div class="displaymath process-math">
+\begin{equation*}
+\forall t \in I,\; U(t, s) = R(t, s)
+\end{equation*}
+</div>Ces égalités sont valables pour tout <span class="process-math">\(s \in I\)</span> donc <span class="process-math">\(R = U\text{.}\)</span>
+</div></li>
+<li><div class="para">
+<span class="process-math">\(r\)</span> est l’unique solution de <span class="process-math">\((RH)\)</span> telle que <span class="process-math">\(r(t_0) = \id_E\text{.}\)</span> Soient <span class="process-math">\(r, s \in I\text{.}\)</span> On a <span class="process-math">\(R(t, s) = R(t, t_0) \circ R(s, t_0)^{-1} = r(t) \circ r(s)^{-1}\text{.}\)</span> Les fonctions <span class="process-math">\(t \longmapsto R(t, s)\)</span> et <span class="process-math">\(s \longmapsto R(t, s)\)</span> sont donc dérivables et on a<div class="displaymath process-math">
+\begin{equation*}
+\frac{\partial R}{\partial t}(t, s) = r'(t) \circ r(s)^{-1} = a(t) \circ r(t) \circ r(s)^{-1} = a(t) \circ R(t, s)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{\partial R}{\partial s}(t, s) = r(t) \circ \frac{d}{ds} r(s)^{-1} = -r(t) \circ \big(r(s)^{-1} \circ r'(s) \circ r(s)^{-1}\big) = -R(t, s) \circ a(s)
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">On a<div class="displaymath process-math">
+\begin{equation*}
+R(t, t_0) - \id_E = r(t) - r(t_0) = \int_{t_0}^t a(s) \circ r(s) \, ds
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r(t) - r(t_0) = \int_{t_0}^t a(s) \circ \big(\id_E + (r(s) - r(t_0))\big) \, ds
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\|r(t) - r(t_0)\| \leq M \bigg|\int_{t_0}^t \big(1 + \|r(s) - r(t_0)\|\big) \, ds\bigg|
+\end{equation*}
+</div>On introduit maintenant la fonction réelle continue <span class="process-math">\(\varphi\)</span> définie par<div class="displaymath process-math">
+\begin{equation*}
+\forall t \in I,\; \varphi(t) = 1 + \|r(t) - r(t_0)\|
+\end{equation*}
+</div>Si <span class="process-math">\(t \gt t_0\text{,}\)</span> on a d’après l’inégalité précédente<div class="displaymath process-math">
+\begin{equation*}
+\varphi(t) \leq 1 + M \int_{t_0}^t \varphi(s) \, ds
+\end{equation*}
+</div>En posant<div class="displaymath process-math">
+\begin{equation*}
+\psi(t) = \e^{-M(t - t_0)} \bigg(\frac{1}{M} + \int_{t_0}^t \varphi(s) \, ds\bigg)
+\end{equation*}
+</div>on a<div class="displaymath process-math">
+\begin{equation*}
+\psi'(t) = \bigg(\varphi(t) - 1 - M \int_{t_0}^t \varphi(s) \, ds\bigg) \e^{-M(t - t_0)} \leq 0
+\end{equation*}
+</div>Et donc <span class="process-math">\(\psi\)</span> est décroissante sur <span class="process-math">\(I \cap [t_0, +\infty[\text{.}\)</span> Comme <span class="process-math">\(\psi(t_0) = \frac{1}{M}\text{,}\)</span> alors <span class="process-math">\(\psi(t) \leq \frac{1}{M}\)</span> sur <span class="process-math">\(I \cap [t_0, +\infty[\text{.}\)</span> Ainsi<div class="displaymath process-math">
+\begin{equation*}
+\forall t \in I \cap [t_0, +\infty[,\; \varphi(t) \leq \e^{M(t - t_0)}
+\end{equation*}
+</div>et donc<div class="displaymath process-math">
+\begin{equation*}
+\forall t \in I \cap [t_0, +\infty[,\; \|r(t) - r(t_0)\| \leq \e^{M(t - t_0)} - 1
+\end{equation*}
+</div>Si <span class="process-math">\(f\)</span> est une solution de <span class="process-math">\((H)\text{,}\)</span> alors <span class="process-math">\(f(t) = r(t) \cdot f(t_0)\)</span> et donc<div class="displaymath process-math">
+\begin{equation*}
+\|f(t) - f(t_0)\| = \|(r(t) - r(t_0)) \cdot f(t_0)\| \leq \big(\e^{M|t - t_0|} - 1\big) \|f(t_0)\|
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">Les solutions de l’équation homogène s’écrivent sous la forme <span class="process-math">\(f(t) = R(t, t_0) \cdot v\)</span> où <span class="process-math">\(v\)</span> est un vecteur quelconque de <span class="process-math">\(E\text{.}\)</span> La variation des constantes revient donc à faire varier le vecteur <span class="process-math">\(v\text{.}\)</span> Posons donc <span class="process-math">\(x(t) = R(t, t_0) \cdot v(t)\text{.}\)</span> On a alors<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/expression-solution-cauchy.html">
+\begin{equation*}
+(E) \Longleftrightarrow R(t, t_0) \cdot v'(t) = b(t) \Longleftrightarrow v'(t) = R(t_0, t) \cdot b(t)
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/expression-solution-cauchy.html">
+\begin{equation*}
+\exists v_0 \in E \;;\; v(t) = v_0 + \int_{t_0}^t R(t_0, s) \cdot b(s) \, ds
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/expression-solution-cauchy.html">
+\begin{equation*}
+\exists v_0 \in E \;;\; x(t) = R(t, t_0) \cdot v_0 + \int_{t_0}^t R(t, s) \cdot b(s) \, ds
+\end{equation*}
+</div>Dans cette dernière expression de <span class="process-math">\(x(t)\text{,}\)</span> on a <span class="process-math">\(x(t_0) = v_0\)</span> donc L’unique solution <span class="process-math">\(f\)</span> de <span class="process-math">\((E)\)</span> qui vérifie <span class="process-math">\(f(t_0) = x_0\)</span> est donnée par la  :<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/expression-solution-cauchy.html">
+\begin{equation*}
+\forall t \in I,\; f(t) = R(t, t_0) \cdot x_0 + \int_{t_0}^t R(t, s) \cdot b(s) \, ds
+\end{equation*}
+</div>c’est <em class="alert">la formule de Duhamel</em>. Elle généralise l’expression de la solution du problème de Cauchy d’une équation à coefficients constants donnée dans <a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#expression-solution-cauchy" class="xref" data-knowl="./knowl/xref/expression-solution-cauchy.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Théorème 1.22: Expression intégrale de la solution du problème de Cauchy">Théorème 1.22</a>
+</div></li>
+</ol></div></details></article><span class="incontext"><a class="internal" href="sec-eqdiff-exercices-approfondissement.html#application-resolvante">Contexte</a></span>
+</body>
+</html>

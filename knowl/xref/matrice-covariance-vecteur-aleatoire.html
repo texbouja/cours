@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.18 - </span> <span class="title">Matrice des covariances d’un vecteur aléatoire.</span>
+</h6>
+<div class="introduction">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Dans cette activité, nous étudions la matrice des covariances d’un vecteur aléatoire discret <span class="process-math">\(X = {}^t(X_1, X_2, \dots, X_n) \)</span> à valeurs dans <span class="process-math">\(\mathcal{M}_{n,1}(\mathbb{R}) \text{.}\)</span> Nous allons explorer les propriétés de cette matrice et en donner une application.</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">On dit que <span class="process-math">\(X\)</span> admet un moment d’ordre <span class="process-math">\(k\)</span> si ses composantes <span class="process-math">\(X_1,X_2,\cdots,X_n\)</span> en admettent. On suppose que <span class="process-math">\(X\)</span> admet un moment d’ordre <span class="process-math">\(2\)</span> et on pose par définition</div>
+<ul class="disc" id="matrice-covariance-vecteur-aleatoire-2-2-6">
+<li><div class="para"><span class="process-math">\(\displaystyle \EE(X)={}^t(\EE(X_1)\; \EE(X_2)\;\cdots\; \EE(X_n))\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\displaystyle \mathbf\Sigma(X)=\big(\Cov(X_i,X_j)\big)_{i,j}\)</span></div></li>
+</ul>
+<div class="para">
+<span class="process-math">\(\mathbf\Sigma(X)\)</span> est une matrice symétrique réelle d’ordre <span class="process-math">\(n\)</span> appelée matrice des covariances du vecteur <span class="process-math">\(X\text{.}\)</span>
+</div>
+</div>
+</div>
+<article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(a)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Symétrie et positivité.</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">Soit <span class="process-math">\(\Lambda={}^t\begin{pmatrix}\lambda_1 \amp \lambda_2 \amp\cdots\amp\lambda_n\end{pmatrix}\in\mathcal M_{n,1}(\R)\text{.}\)</span> Montrer que :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)=\Lambda^\top\mathbf\Sigma(X)\Lambda.
+\end{equation*}
+</div>
+<div class="para">et en déduire que <span class="process-math">\(\Sigma(X)\)</span> est une matrice symétrique positive.</div>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Par bilinéarité de la covariance on a le développement :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)=\sum_{i,j}\lambda_i\lambda_j\Cov(X_i,X_j).
+\end{equation*}
+</div>
+<div class="para">Un résultat usuel d’un autre côte donne</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{i,j}\lambda_i\lambda_j\Cov(X_i,X_j)=\Lambda^\top\mathbf\Sigma(X)\Lambda.
+\end{equation*}
+</div>
+<div class="para">donc <span class="process-math">\(\VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)=\Lambda^\top\mathbf\Sigma(X)\Lambda\text{.}\)</span> La matrice <span class="process-math">\(\Sigma(X)\)</span> qui est naturellement symétrique est donc positive puisque cette dernière égalité prouve que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall \Lambda\in\mathcal M_{n,1}(\R),\quad \Lambda^\top\mathbf\Sigma(X)\Lambda\geq0
+\end{equation*}
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(b)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Une expression de la matrice des covariances.</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">Montrer que :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf\Sigma(X)=\EE\Bigl(\bigl(X-\EE(X)\bigr)\bigl(X-\EE(X)\bigr)^\top\Bigr).
+\end{equation*}
+</div>
+<div class="para">En déduire que si <span class="process-math">\(b\in\mathcal M_{n,1}(\R)\)</span> alors <span class="process-math">\(\Sigma(X+b)=\Sigma(X)\)</span> et qu’en particulier <span class="process-math">\(\Sigma(X-\EE(X))=\Sigma(X)\)</span>
+</div>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On observe que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(X-\EE(X))(X-\EE(X))^\top= \Bigl(\bigl(X_i-\EE(X_i)\bigr)\bigl(X_j-\EE(X_j)\bigr)\Bigr)_{i,j}
+\end{equation*}
+</div>
+<div class="para">Donc :</div>
+<div class="displaymath process-math">
+\begin{align*}
+\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr) \amp= \Bigl(\EE\bigl[\bigl(X_i-\EE(X_i)\bigr)\bigl(X_j-\EE(X_j)\bigr)\bigr]\Bigr)_{i,j} \\
+\amp=\bigl(\Cov(X_i,Y_j)\bigr)_{i,j} \\
+\amp=\Sigma(X) 
+\end{align*}
+</div>
+<div class="para">Si <span class="process-math">\(Y=X+b\)</span> alors <span class="process-math">\(Y-\EE(Y)=X-\EE(X)\)</span> et donc <span class="process-math">\(\Sigma(Y)=\Sigma(X)\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(c)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Transformation linéaire d’un vecteur aléatoire.</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">Soient <span class="process-math">\(A \in \mathcal{M}_{n,m}(\mathbb{R}) \)</span> une matrice  et <span class="process-math">\(b \in \mathcal{M}_{m,1}(\mathbb{R}) \)</span> un vecteur colonne. On considère le vecteur aléatoire <span class="process-math">\(Y = AX + b \text{.}\)</span>
+</div>
+<ol class="decimal" id="matrice-covariance-vecteur-aleatoire-5-2-1-4">
+<li><div class="para">Montrer que <span class="process-math">\(Y \)</span> admet des moments d’ordre 2.</div></li>
+<li><div class="para">Montrer que :<div class="displaymath process-math">
+\begin{equation*}
+\EE(Y) = A \EE(X) + b.
+\end{equation*}
+</div>dans cette relation on peut remplacer <span class="process-math">\(X\)</span> par un vecteur aléatoire à valeurs dans un <span class="process-math">\(\R\)</span>-ev de dimension finie quelconque <span class="process-math">\(E\)</span> et <span class="process-math">\(A\)</span> par une application linéaire <span class="process-math">\(u\)</span> définie sur cet espace et à valeurs dans un autre espace <span class="process-math">\(E'\text{,}\)</span> le vecteur <span class="process-math">\(b\)</span> éant pris dans <span class="process-math">\(E'\text{.}\)</span> Elle s’écrit alors<div class="displaymath process-math">
+\begin{equation*}
+\EE(u(X) + b) = u(\EE(X)) + b.
+\end{equation*}
+</div>On admet cette dernière propriété.</div></li>
+<li><div class="para">Montrer que la matrice des covariances de <span class="process-math">\(Y \)</span> est donnée par :<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(Y) = A \mathbf{\Sigma}(X) {}^t\!A.
+\end{equation*}
+</div>
+</div></li>
+</ol>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical"><ol class="decimal" id="matrice-covariance-vecteur-aleatoire-5-3-1-1">
+<li><div class="para">Comme <span class="process-math">\(X \)</span> admet des moments d’ordre 2, chaque composante <span class="process-math">\(X_i \)</span> admet une variance finie. Chaque composante du vecteur <span class="process-math">\(Y = AX + b \)</span> est une combinaison linéaire des <span class="process-math">\(X_i \text{,}\)</span> donc <span class="process-math">\(Y \)</span> admet également des moments d’ordre 2.</div></li>
+<li><div class="para">Par linéarité de l’espérance, on a :<div class="displaymath process-math">
+\begin{align*}
+\EE(AX+b) \amp= \EE\biggl(\Bigl(\sum_{j=1}^nA_{i,j}X_j+b_i\Bigr)_{i,j}\biggr) \\
+\amp:= \biggl(\EE\Bigl(\sum_{j=1}^nA_{i,j}X_j+b_i\Bigr)\biggr)_{i,j} \\
+\amp= \biggl(\sum_{j=1}^nA_{i,j}\EE(X_j)+b_i\biggr)_{i,j} \\
+\amp= A\EE(X)+b 
+\end{align*}
+</div>
+</div></li>
+<li><div class="para">La matrice des covariances de <span class="process-math">\(Y \)</span> est donnée par :<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(Y) = \Sigma(AX) = \EE\bigl(A(X-\EE(X))(X-\EE(X))^\top A^\top\bigr)
+\end{equation*}
+</div>Donc d’après la relation précédente sur l’espérance<div class="displaymath process-math">
+\begin{align*}
+\Sigma(Y)\amp=A\EE\bigl((X-\EE(X))(X-\EE(X))^\top A^\top\bigr) \\
+\amp=A\Bigl(\EE\bigl(A(X-\EE(X))(X-\EE(X))^\top\bigr)\Bigr)^\top \\
+\amp= A\Bigl(A\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr)\Bigr)^\top \\
+\amp=A\Bigl(\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr)\Bigr)^\top A^\top \\
+\amp=A\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr) A^\top \\
+\amp= A\Sigma(X)A^\top 
+\end{align*}
+</div>
+</div></li>
+</ol></div></div></details></div></article><article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(d)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Toute matrice symétrique positive est une matrice de covariances.</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soit <span class="process-math">\(S \in \mathcal{M}_n(\mathbb{R}) \)</span> une matrice symétrique positive. Montrer qu’il existe un vecteur aléatoire <span class="process-math">\(Y \)</span> tel que <span class="process-math">\(S = \mathbf{\Sigma}(Y) \text{.}\)</span>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Comme <span class="process-math">\(S \)</span> est symétrique positive, il existe une matrice symétrique positive <span class="process-math">\(R\)</span> telle que : <span class="process-math">\(S = R^2 \text{.}\)</span> Soit <span class="process-math">\(Z \)</span> un vecteur aléatoire dont les composantes sont des variables aléatoires indépendantes de variance 1. On a <span class="process-math">\(\Sigma(Z)=I_n\)</span> et donc le vecteur <span class="process-math">\(Y = RZ \)</span> a pour matrice des covariances :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(Y) = R \mathbf{\Sigma}(Z) R^\top = R^2 = S.
+\end{equation*}
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(e)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Produit d’Hadamard et indépendance.</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">Soient <span class="process-math">\(X \)</span> et <span class="process-math">\(Y \)</span> deux vecteurs aléatoires de carrés sommables, centrés et indépendants. On définit le produit d’Hadamard de deux matrices de même tailles <span class="process-math">\(A,B\in\mathcal M_{n,m}(\R)\)</span> par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\circ B=\bigl(A_{i,j}B_{i,j}\bigr)_{i,j}
+\end{equation*}
+</div>
+<div class="para">Montrer que :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(X \circ Y) = \mathbf{\Sigma}(X) \circ \mathbf{\Sigma}(Y).
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Comme <span class="process-math">\(X \)</span> et <span class="process-math">\(Y \)</span> sont indépendants alors pour tout couple d’indices <span class="process-math">\((i,j)\text{,}\)</span> <span class="process-math">\(X_i\)</span> et indépendant de <span class="process-math">\(Y_j\)</span> et donc <span class="process-math">\(\EE(X_iY_j)=\EE(X_i)\EE(Y_j)=0\text{.}\)</span> En outre, <span class="process-math">\(X_iX_j\)</span> est indépendant de  <span class="process-math">\(Y_iY_j\)</span> par coalition. On a alors :</div>
+<div class="displaymath process-math">
+\begin{align*}
+\Cov(X_iY_i,X_jY_j) \amp= \EE\bigl((X_iY_i-\EE(X_iY_i))(X_jY_j-\EE(X_jY_j))\bigr) \\
+\amp= \EE\bigl((X_iY_i-\EE(X_i)\EE(Y_i))(X_jY_j-\EE(X_j)\EE(Y_j))\bigr) \\
+\amp= \EE\bigl((X_iY_i)(X_jY_j)\bigr) \\
+\amp= \EE(X_iX_j)\EE(Y_iY_j) \\
+\amp=\Cov(X_i,X_j)\Cov(Y_i,Y_j) 
+\end{align*}
+</div>
+<div class="para">Ce qui montre que <span class="process-math">\(\Sigma(X\circ Y) = \Sigma(X) \circ \Sigma(Y)\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(f)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Produit d’Hadamard de matrices symétriques positives.</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">En déduire que le produit d’Hadamard de deux matrices symétriques positives est une matrice symétrique positive.</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">Soient <span class="process-math">\(A \)</span> et <span class="process-math">\(B \)</span> deux matrices symétriques positives. D’après la question précédente, il existe des vecteurs aléatoires <span class="process-math">\(X \)</span> et <span class="process-math">\(Y \)</span> tels que <span class="process-math">\(A = \mathbf{\Sigma}(X) \)</span> et <span class="process-math">\(B = \mathbf{\Sigma}(Y) \text{.}\)</span> Alors, <span class="process-math">\(A \circ B = \mathbf{\Sigma}(X \circ Y) \text{,}\)</span> qui est une matrice des covariances, donc symétrique positive.</div></div></details></div></article></article><span class="incontext"><a class="internal" href="sec-espvaralea.html#matrice-covariance-vecteur-aleatoire">Contexte</a></span>
+</body>
+</html>

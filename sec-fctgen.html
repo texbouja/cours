@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-FR" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Fonctions génératrices</title>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Cours de mathématiques">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Sadik Boujaida">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.6.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.c7804631fa963734.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f7a03b209751032d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.541c9106f2c605b9.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script>
+</head>
+<body id="coursmp" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="cours-mp.html"><span class="title">Cours de mathématiques</span><br> <span class="subtitle">pour les classes MP/MP*</span></a></h1>
+<p class="byline">Sadik Boujaida</p>
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Table des matières"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Table des matières</span></button><span class="treebuttons"><a class="up-button button" href="ch-probabiltes-discretes.html" title=""><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span></a><a class="previous-button button" href="sec-espvaralea.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span></a><a class="next-button button" href="sec-probas--actinum.html" title="Suivant"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Résultats de la recherche: </h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{mathtools}\require{empheq}\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\K}{\mathbb K}
+\newcommand\card{\operatorname{Card}}
+\newcommand\giv[1][\middle]{\nonscript\:#1\vert\nonscript\:\mathopen{}}
+\newcommand\qtext[1]{\quad\text{#1}\quad}
+\newcommand\llbracket{[\![}
+\newcommand\rrbracket{]\!]}
+\newcommand\iic[1]{\llbracket #1 \rrbracket}
+\newcommand\id{\mathrm{id}}
+\newcommand\e{\mathbf{e}}
+\newcommand\dt{\mathrm{d}}
+\newcommand\dd[2]{\frac{\partial #1}{\partial #2}}
+\newcommand\ddeux[3]{\frac{\partial #1^2}{\partial #1\ifx#1#2^#2\else\partial #2\fi}}
+\newcommand\func[5]{#1\:\;\begin{array}[t]{rcl}#2 \amp \longrightarrow \amp #3 \\ #4 \amp \longmapsto \amp #5\end{array}}
+\newcommand\fct[2]{#1\longrightarrow#2}
+\newcommand\nm[1]{\left\Vert#1\right\vert}
+\newcommand\nmm[1]{\left\Vert#1\right\Vert}
+\newcommand\tr{\operatorname{Tr}}
+\newcommand\re{\operatorname{Re}}
+\newcommand\im{\operatorname{Im}}
+\newcommand\rg{\operatorname{rg}}
+\newcommand\OPN[1]{\operatorname{#1}}
+\newcommand\PP{\mathbb P}
+\newcommand\EE{\mathbb E}
+\newcommand\VV{\mathbb V}
+\newcommand\Pr[1]{\mathbb P\left(#1\right)}
+\newcommand\Es[1]{\mathbb E\left(#1\right)}
+\newcommand\Va[1]{\mathbb V\left(#1\right)}
+\let\geq\geqslant
+\let\leq\leqslant
+\let\ds\displaystyle
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="1" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Pages Liminaires</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eqdiff-cours.html" class="internal"><span class="codenumber">1</span> <span class="title">Équations différentielles linéaires</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Équations différentielles linéaires d’ordre <span class="process-math">\(1\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-eqdiff-equations-differentielles-lineaires-ord-1-4" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Solutions d’une équation différentielle linéaire du premier ordre</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-eqdiff-equations-differentielles-lineaires-ord-1-5" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Système fondamental de solutions de l’équation homogène</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-varconst" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Méthode de la variation des constantes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-ord-1.html#sec-eqdiff-equations-differentielles-lineaires-ord-1-8" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Équation différentielle linéaire du premier ordre à coefficients constants</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Équations différentielles linéaires scalaires, étude générale</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html#sec-eqdiff-equations-differentielles-lineaires-scalaires-2" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Le cadre général</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaires.html#sec-eqdiff-equations-differentielles-lineaires-scalaires-3" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Le cas d’une équation à coefficients constants</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-lineaires-scalaire-ordre-2.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Équations linéaires scalaires du deuxième ordre</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqdiff-exercices-approfondissement.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Exercices d’approfondissement</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqdiff-exercices-entrainement.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercices d’entraînement</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Thèmes classiques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Équation et applications résolvantes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-4" class="internal"><span class="title">Équation résolvante de <span class="process-math">\((H)\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-5" class="internal"><span class="title">Application résolvante de <span class="process-math">\((H)\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-6" class="internal"><span class="title">Résolvante et équation complète</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-7" class="internal"><span class="title">Résolvantes d’une équation à coefficients constants</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-3-8" class="internal"><span class="title">Solutions périodiques d’une EDL périodique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Thèmes sur les équations scalaires du deuxième ordre</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-3" class="internal"><span class="title">Solutions développables en séries entières</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-4" class="internal"><span class="title">Transformation de l’équation homogène <span class="process-math">\((H)\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-5" class="internal"><span class="title">Problèmes aux limites</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-zeros-des-solutions" class="internal"><span class="title">Zéros des solutions d’une EDLS homogène du second ordre</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-eqdiff-equations-differentielles-themes-classiques.html#sec-eqdiff-equations-differentielles-themes-classiques-4-7" class="internal"><span class="title">Solutions périodique d’une EDLS du second ordre périodique</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-probabiltes-discretes.html" class="internal"><span class="codenumber">2</span> <span class="title">Probabilité discrètes</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-generalites.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Espaces de probabilité</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-tribu" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Tribus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-probabilite" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Probabilités</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-independance" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Indépendance des événements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-generalites.html#subsec-modelisation" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Modélisation de phénomènes aléatoires</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-generalites.html#exercises-approfondissement" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-varalea.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Variables aléatoires</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-varalea" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Variables aléatoires</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-indvar" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Indépendance des variables aléatoires discrètes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-loivaralea" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Loi d’une variable aléatoire discrète</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-loiusuelles" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Lois discrètes usuelles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-fonction-repartition" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Loi d’une variable aléatoire réelle : fonction de répartition </span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-varalea.html#subsec-loi-activite" class="internal"><span class="codenumber">2.2.6</span> <span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-espvaralea.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Espérance et moments d’une variable aléatoire discrète</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-espvaralea.html#subsec-esperance" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Espérance d’une variable aléatoire discrète</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-defprop" class="internal"><span class="title">Définition et propriétés</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-exemple-esperance" class="internal"><span class="title">Exemples usuels</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-activites" class="internal"><span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-espvaralea.html#subsec-varcovar" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Variance et covariance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-varcovar" class="internal"><span class="title">Définition et propriétés</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-exemples-varcovar" class="internal"><span class="title">Exemples usuels</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsubsec-activites-varcovar" class="internal"><span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-espvaralea.html#subsec-moment" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Moments d’ordre supérieurs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-fctgen.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Fonctions génératrices</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-defprop" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Définition et propriétés</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-generatrices-usuelles" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Fonctions génératrices des lois usuelles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-generatrice" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Concept de fonction génératrice</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fctgen.html#subsec-defprop-activite" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Activités</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-probas--actinum.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Activités numériques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-probas--actinum.html#sec-expgraph" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Exploration graphique</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-graphbinomiale" class="internal"><span class="title">Représentation graphique de lois usuelles</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-histogramme-lois-usuelles" class="internal"><span class="title">Échantillonage d’une loi discrète</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-lo-faible" class="internal"><span class="title">Loi Faible des grands nombres avec une loi géométrique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec-probas--actinum.html#sec-principeinversion" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Principe d’inversion et simulation de variables aléatoires discrètes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-basetheo" class="internal"><span class="title">Base théorique</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec-probas--actinum.html#subsec-simulation-principe-inverse" class="internal"><span class="title">Simulation numérique</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-exercises">
+<div class="toc-title-box"><a href="sec-probas-exercices.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-approfondissement" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Exercices d’approfondissement</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-application" class="internal"><span class="codenumber">2.6.2</span> <span class="title">Exercices d’application</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-thematique" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Exerices thématiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-probas-exercices.html#sec-exos-recherche" class="internal"><span class="codenumber">2.6.4</span> <span class="title">Exercices de recherche</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="section" id="sec-fctgen"><h2 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">2.4</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Fonctions génératrices</span>
+</h2>
+<section class="subsection" id="subsec-defprop"><h3 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">2.4.1</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Définition et propriétés</span>
+</h3>
+<article class="definition definition-like" id="def-fctgen"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.99</span><span class="period">.</span><span class="space"> </span><span class="type">Définition</span><span class="space"> </span><span class="title">Fonction génératrice.</span>
+</h4>
+<div class="para logical" id="def-fctgen-3">
+<div class="para">La fonction génératrice d’une variable aléatoire <span class="process-math">\(X\)</span> à valeurs dans <span class="process-math">\(\N\)</span> est définie par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G_X(t) = \mathbb E\left(t^X\right)=\sum_{n=0}^{\infty}\mathbb \Pr{X=n} t^n.
+\end{equation*}
+</div>
+<div class="para">On notera <span class="process-math">\(R_X\)</span> le rayon de convergence de la série entière <span class="process-math">\(\sum \Pr{X=n}t^n\)</span>
+</div>
+</div></article><article class="remark remark-like" id="subsec-defprop-3"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.100</span><span class="period">.</span><span class="space"> </span><span class="type">Remarque</span>
+</h4>
+<div class="para" id="subsec-defprop-3-1">Soit <span class="process-math">\(X\)</span> une variable aléatoire à valeurs dans <span class="process-math">\(\N\text{.}\)</span>
+</div>
+<ol class="decimal" id="subsec-defprop-3-2">
+<li id="subsec-defprop-3-2-1"><div class="para" id="subsec-defprop-3-2-1-1">Puisque la série <span class="process-math">\(\sum \Pr{X=n}\)</span> est convergente de somme <span class="process-math">\(1\)</span> alors <span class="process-math">\(R_X\geqslant 1\)</span> et <span class="process-math">\(G_X(1)=1\text{.}\)</span>
+</div></li>
+<li id="subsec-defprop-3-2-2"><div class="para logical" id="subsec-defprop-3-2-2-1">
+<div class="para">La loi de <span class="process-math">\(X\)</span> est entièrement déterminée par sa fonction génératrice <span class="process-math">\(G_X\text{,}\)</span> dans le sens où si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont des VAD à valeurs dans <span class="process-math">\(\N\)</span> alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X\sim Y\Longleftrightarrow G_X=G_Y
+\end{equation*}
+</div>
+<div class="para">Noter aussi que dans ce cas <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> ont les mêmes moments, en particulier la même espérance.</div>
+</div></li>
+<li id="subsec-defprop-3-2-3"><div class="para" id="subsec-defprop-3-2-3-1">Si <span class="process-math">\(X(\Omega)\)</span> est fini alors <span class="process-math">\(G_X\)</span> est polynomiale de degré <span class="process-math">\(\leqslant \max X(\Omega)\text{.}\)</span>
+</div></li>
+<li id="subsec-defprop-3-2-4">
+<div class="para logical" id="subsec-defprop-3-2-4-1">
+<div class="para">Si <span class="process-math">\(R_X\gt 1\)</span> alors <span class="process-math">\(X\)</span> admet des moments à tout ordre et pour tout <span class="process-math">\(k\in\N^*\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/theo-momfact.html">
+\begin{equation*}
+\EE\bigl(X(X-1)\cdots(X-k+1)\bigr)=G_X^{(k)}(1)
+\end{equation*}
+</div>
+<div class="para">Noter donc que l’hypothèse <span class="process-math">\(R_X\gt 1\)</span> simplifie considérablement la justificiation du <a href="sec-fctgen.html#theo-momfact" class="xref" data-knowl="./knowl/xref/theo-momfact.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Théorème 2.105: des moments factoriels">Théorème 2.105</a> enoncé ci-dessus.</div>
+</div>
+<details id="subsec-defprop-3-2-4-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Explication<span class="period">.</span></span></h5></summary><article class="hiddenproof knowl__content"><div class="para logical" id="subsec-defprop-3-2-4-2-1">
+<div class="para">Si <span class="process-math">\(R_X\gt 1\)</span> alors <span class="process-math">\(G_X\)</span> est infiniment dérivable en <span class="process-math">\(1\)</span> et pour tout <span class="process-math">\(k\in\N^*\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G_X^{(k)}(1)=\sum_{n\geqslant k}n(n-1)\cdots(n-k+1)\Pr{X=n} 
+\end{equation*}
+</div>
+<div class="para">La série <span class="process-math">\(\sum n(n-1)\cdots(n-k+1)\Pr{X=n}\)</span> est donc convergente ce qui signifie par théorème de transfert que la variable <span class="process-math">\(X(X-1)\cdots(X-k+1)\)</span> est sommable et que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE\bigl(X(X-1)\cdots(X-k+1)\bigr)=G_X^{(k)}(1)\text{.}
+\end{equation*}
+</div>
+<div class="para">Comme <span class="process-math">\(X^k\)</span> est une combinaison linéaire de variables de la forme <span class="process-math">\(X(X-1)\cdots(X-i+1)\)</span> alors <span class="process-math">\(X^k\)</span> est sommable et <span class="process-math">\(\EE(X^k)\)</span> s’exprime en fonction des dérivées <span class="process-math">\(G_X^{(i)}(1)\)</span> pour <span class="process-math">\(i\leqslant k\text{.}\)</span>
+</div>
+</div></article></details>
+</li>
+</ol></article><article class="lemma theorem-like" id="lem-abel"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.101</span><span class="period">.</span><span class="space"> </span><span class="type">Lemme</span><span class="space"> </span><span class="title">du à Abel.</span>
+</h4>
+<div class="para logical" id="lem-abel-2-1">
+<div class="para">Soit <span class="process-math">\(\sum a_n t^n\)</span> une série entière à coefficients réels positifs qu’on suppose de rayon de convergence <span class="process-math">\(1\text{.}\)</span> On note <span class="process-math">\(g\)</span> sa somme. Alors pour tout <span class="process-math">\(p\in\N^*\)</span> <span class="process-math">\(g\)</span> est <span class="process-math">\(p\)</span>-fois dérivable en <span class="process-math">\(1\)</span> si et seulement si la série <span class="process-math">\(\sum n^pa_n\)</span> converge et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall k\in\iic{1,p},\;
+g^{(k)}(1)=\sum_{n=k}^{+\infty} n(n-1)\cdots(n-k+1)a_n
+\end{equation*}
+</div>
+</div></article><article class="theorem theorem-like" id="subsec-defprop-5"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.102</span><span class="period">.</span><span class="space"> </span><span class="type">Théorème</span><span class="space"> </span><span class="title">Fonction génératrice de la somme de deux variables indépendantes.</span>
+</h4>
+<div class="para" id="subsec-defprop-5-2-1">Soient <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> deux variables aléatoires à valeurs dans <span class="process-math">\(\N\text{.}\)</span> Si <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> sont indépendantes alors <span class="process-math">\(G_{X+Y}=G_XG_Y\text{.}\)</span>
+</div></article><article class="corollary theorem-like" id="subsec-defprop-6"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.103</span><span class="period">.</span><span class="space"> </span><span class="type">Corollaire</span>
+</h4>
+<div class="para logical" id="subsec-defprop-6-1-1">
+<div class="para">Si <span class="process-math">\(X_1,X_2,\ldots,X_k\)</span> sont des variables aléatoires mutuellement indépendantes à valeurs dans <span class="process-math">\(\N\)</span> alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G_{X_1+X_2+\cdots+X_k}=G_{X_1}G_{X_2}\cdots G_{X_k}
+\end{equation*}
+</div>
+</div></article><article class="theorem theorem-like" id="subsec-defprop-7"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.104</span><span class="period">.</span><span class="space"> </span><span class="type">Théorème</span><span class="space"> </span><span class="title">Expression de l’espérance et de la variance à l’aide la fonction génératrice.</span>
+</h4>
+<div class="para logical" id="subsec-defprop-7-2-1">
+<div class="para">Soit <span class="process-math">\(X\)</span> une variable aléatoire à valeurs dans <span class="process-math">\(\N\text{.}\)</span>
+</div>
+<ol class="decimal" id="subsec-defprop-7-2-1-3">
+<li id="subsec-defprop-7-2-1-3-1"><div class="para logical" id="subsec-defprop-7-2-1-3-1-1">
+<div class="para">
+<span class="process-math">\(X\)</span> est sommable si et seulement si <span class="process-math">\(G_X\)</span> est dérivable en <span class="process-math">\(1\)</span> et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X)=G_X'(1)\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li id="subsec-defprop-7-2-1-3-2"><div class="para logical" id="subsec-defprop-7-2-1-3-2-1">
+<div class="para">
+<span class="process-math">\(X\)</span> est de carré sommable si et seulement si <span class="process-math">\(G_X\)</span> est deux fois dérivable en <span class="process-math">\(1\)</span> et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\VV(X)=G_X''(1)-G_X'(1)\left(G_X'(1)-1\right)\text{.}
+\end{equation*}
+</div>
+</div></li>
+</ol>
+</div></article><article class="theorem theorem-like" id="theo-momfact"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.105</span><span class="period">.</span><span class="space"> </span><span class="type">Théorème</span><span class="space"> </span><span class="title">des moments factoriels.</span>
+</h4>
+<div class="para logical" id="theo-momfact-2-1">
+<div class="para">Soit <span class="process-math">\(X\)</span> une VAD à valeurs dans <span class="process-math">\(\N\text{.}\)</span> Pour tout <span class="process-math">\(p\in\N^*\text{,}\)</span> <span class="process-math">\(X\)</span> est <span class="process-math">\(p\)</span>-sommable si et seulement si <span class="process-math">\(G_X\)</span> est <span class="process-math">\(p\)</span>-fois dérivable en <span class="process-math">\(1\)</span> et dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall k\in\iic{1,p},\;
+G_X^{(k)}=\EE\bigl(X(X-1)\cdots(X-k+1)\bigr)
+\end{equation*}
+</div>
+<div class="para">L’espérance <span class="process-math">\(\EE\bigl(X(X-1)\cdots(X-k+1)\bigr)\)</span> est appelée moment factoriel d’ordre <span class="process-math">\(k\)</span> de <span class="process-math">\(X\text{.}\)</span>
+</div>
+</div></article></section><section class="subsection" id="subsec-generatrices-usuelles"><h3 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">2.4.2</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Fonctions génératrices des lois usuelles</span>
+</h3>
+<figure class="list table-like" id="subsec-generatrices-usuelles-2"><figcaption><span class="type">Liste</span><span class="space"> </span><span class="codenumber">2.106<span class="period">.</span></span><span class="space"> </span></figcaption><div class="named-list-content"><dl class="description-list">
+<dt id="subsec-generatrices-usuelles-2-1-1">Loi uniforme</dt>
+<dd><div class="para" id="subsec-generatrices-usuelles-2-1-1-2">Si <span class="process-math">\(X\sim \mathscr U(\iic{1,n})\)</span> à valeurs dans <span class="process-math">\(\iic{1,n}\)</span> alors <span class="process-math">\(G_X(t)=\ds\frac{1}{n}\frac{t-t^{n+1}}{1-t}\text{.}\)</span>
+</div></dd>
+<dt id="subsec-generatrices-usuelles-2-1-2">Loi de Bernouilli</dt>
+<dd><div class="para" id="subsec-generatrices-usuelles-2-1-2-2">Si <span class="process-math">\(X\sim\mathscr B(p)\)</span> alors <span class="process-math">\(G_X(t)=1-p+pt\)</span>
+</div></dd>
+<dt id="subsec-generatrices-usuelles-2-1-3">Loi binomiale</dt>
+<dd><div class="para" id="subsec-generatrices-usuelles-2-1-3-2">Si <span class="process-math">\(X\sim\mathscr B(n,p)\)</span> alors <span class="process-math">\(G_X(t)=(1-p+pt)^n\text{.}\)</span>
+</div></dd>
+<dt id="subsec-generatrices-usuelles-2-1-4">Loi géométrique</dt>
+<dd><div class="para" id="subsec-generatrices-usuelles-2-1-4-2">Si <span class="process-math">\(X\sim\mathscr G(p)\)</span> alors <span class="process-math">\(G_X(t)=\ds\frac{pt}{1-(1-p)t}\text{.}\)</span>
+</div></dd>
+<dt id="subsec-generatrices-usuelles-2-1-5">Loi de Poisson</dt>
+<dd><div class="para" id="subsec-generatrices-usuelles-2-1-5-2">Si <span class="process-math">\(X\sim\mathscr P(\lambda)\)</span> alors <span class="process-math">\(G_X(t)=e^{\lambda(t-1)}\text{.}\)</span>
+</div></dd>
+</dl></div></figure></section><section class="subsection" id="subsec-generatrice"><h3 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">2.4.3</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Concept de fonction génératrice</span>
+</h3>
+<article class="exploration project-like" id="subsec-generatrice-2"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Exploration</span><span class="codenumber"> 2.20 - </span> <span class="title">Fonction génératrice d’une suite.</span>
+</h6>
+<div class="para" id="subsec-generatrice-2-2">Pour toute suite <span class="process-math">\((a_n)_n\)</span> réelle ou complexe on appelle série génératrice de <span class="process-math">\((a_n)_n\text{,}\)</span> la série entière <span class="process-math">\(\sum a_nt^n\text{.}\)</span> Si le rayon de convergence de celle-ci est non nul, on appelle sa somme fonction génératrice de la suite <span class="process-math">\((a_n)_n\text{.}\)</span>
+</div>
+<div class="para" id="subsec-generatrice-2-3">On appelle aussi, série génératrice exponentielle de <span class="process-math">\((a_n)_n\text{,}\)</span> la série entière <span class="process-math">\(\sum\frac{a_n}{n!}t^n\text{.}\)</span> Celle-ci a plus de chance d’avoir un rayon de convergence non nul que <span class="process-math">\(\sum a_nt^n\)</span>
+</div>
+<div class="para" id="subsec-generatrice-2-4">Si on connaît la fonction génératrice <span class="process-math">\(g\)</span> d’une suite alors on peut retrouver la suite en calculant le développement de Taylor de <span class="process-math">\(g\text{.}\)</span> D’où l’utilité des fonctions génératrices : si une suite est définie par une relation de récurrence alors on traduit, dans certains cas, cette relation en une équation fonctionnelle ou différentielle de la fonction génératrice. Résoudre cette équation nous permet ensuite d’identifier l’expression explicite des termes de la suite.</div>
+<div class="para" id="subsec-generatrice-2-5">La fonction génératrice d’une VAD à valeurs dans <span class="process-math">\(\N\)</span> est ainsi la fonction génératrice de la suite <span class="process-math">\((\Pr{X=n})_n\text{,}\)</span> ie de la loi de <span class="process-math">\(X\text{.}\)</span>
+</div></article><article class="example example-like" id="subsec-generatrice-3"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.107</span><span class="period">.</span><span class="space"> </span><span class="type">Exemple</span><span class="space"> </span><span class="title">Fonction génératrice des coefficients binomiaux.</span>
+</h4>
+<div class="para logical" id="subsec-generatrice-3-2">
+<div class="para">On sait que pour tout réels <span class="process-math">\(\alpha\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall t\in]-1,1[,\; (1+t)^\alpha=\sum_{n=0}^{+\infty}\binom \alpha nt^n
+\end{equation*}
+</div>
+<div class="para">La fonction <span class="process-math">\(t\longmapsto (1+t)^\alpha\)</span> est donc la fonction génératrice des coefficients binomiaux <span class="process-math">\(\binom \alpha n\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="subsec-generatrice-3-3">
+<div class="para">Comme application, on peut écrire pour tous <span class="process-math">\(\alpha, \beta\in\R\text{,}\)</span> <span class="process-math">\((1+t)^{\alpha+\beta}=(1+t)^\alpha(1+t)^\beta\)</span> et en identifiant les coefficients des développements en séries de Taylor des deux membres de cette égalité on obtient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall n\in\N,\; \sum_{k=0}^n\binom \alpha  k\binom{\beta}{n-k}=\binom{\alpha+\beta}n 
+\end{equation*}
+</div>
+<div class="para">C’est la formule de Vandermonde.</div>
+</div>
+<div class="para logical" id="subsec-generatrice-3-4">
+<div class="para">Dans le même ordre d’idée on sait que pour tout entier <span class="process-math">\(p\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{p!}{(1-t)^{p+1}}=\sum_{n=p}^{+\infty}\binom {p+n}pt^n
+\end{equation*}
+</div>
+<div class="para">donc en identifiant les développements des deux côtés dans l’égalité suivante</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{(1-t)^{p+q+2}}=\frac{1}{(1-t)^{p+1}}\frac{1}{(1-t)^{q+1}}
+\end{equation*}
+</div>
+<div class="para">on obtient pour tout <span class="process-math">\(n\in\N\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-generatrice-3-4-5">
+\begin{align*}
+\sum_{k=0}^n\frac{\binom{p+k}{p}}{p!}\frac{\binom{q+n-k}{q}}{q!}\amp=\frac{\binom{p+q+n+1}{p+q+1}}{(p+q+1)!} 
+\end{align*}
+</div>
+<div class="para">Cette dernière formule est antagoniste avec la formule de Vandermonde dans le sens où ce sont les indices supérieurs des coefficients binomaux qui changent en fonction de l’indice de sommation.</div>
+</div></article><article class="example example-like" id="subsec-generatrice-4"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.108</span><span class="period">.</span><span class="space"> </span><span class="type">Exemple</span><span class="space"> </span><span class="title">Somme de variables de Poisson MI.</span>
+</h4>
+<div class="para" id="subsec-generatrice-4-2">Soient <span class="process-math">\(X_1,X_2,\ldots,X_p\)</span> des variables aléatoires MI suivant des lois de Poissons de paramètre respectifs <span class="process-math">\(\lambda_1,\lambda_2,\ldots,\lambda_k\text{.}\)</span> On note <span class="process-math">\(S=X_1+X_2+\cdots+X_k\text{.}\)</span> On veut déterminer la loi de <span class="process-math">\(S\text{.}\)</span>
+</div>
+<div class="para logical" id="subsec-generatrice-4-3">
+<div class="para">On a pour tout <span class="process-math">\(t\in\R\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G_S(t)=\prod_{i=1}^kG_{X_i}(t)=\exp\bigg((t-1)\sum_{i=1}^k\lambda_i\biggr)
+\end{equation*}
+</div>
+<div class="para">On en déduit que <span class="process-math">\(S\)</span> suit la loi de poisson <span class="process-math">\(\mathscr P(\lambda)\)</span> où <span class="process-math">\(\lambda=\sum_{i=1}^k\lambda_i\text{.}\)</span>
+</div>
+</div>
+<div class="para" id="subsec-generatrice-4-4">Ce résultat s’interprète par le fait que le nombre de clients servi par unité de temps dans une file d’attente qui comporte <span class="process-math">\(k\)</span> guichets indépendants est une variable aléatoire suivant une loi de Poisson de paramètre <span class="process-math">\(\lambda=\sum_{i=1}^k\lambda_i\text{.}\)</span>
+</div></article><article class="example example-like" id="subsec-generatrice-5"><h4 class="heading">
+<span class="space"> </span><span class="codenumber">2.109</span><span class="period">.</span><span class="space"> </span><span class="type">Exemple</span><span class="space"> </span><span class="title">Une formule d’inversion.</span>
+</h4>
+<div class="para logical" id="subsec-generatrice-5-2">
+<div class="para">Soit <span class="process-math">\(X\)</span> une VAD à valeurs dans <span class="process-math">\(\N\text{.}\)</span> On suppose que <span class="process-math">\(R_X\gt 1\text{.}\)</span> Alors <span class="process-math">\(G_X\)</span> est développable en série de taylor en <span class="process-math">\(1\text{,}\)</span> ie</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G_X(t)=\sum_{n=0}^\infty \frac{G_X^{(n)}(1)}{n!}(t-1)^n=\sum_{n=0}^\infty\EE\left(\binom Xn\right)(t-1)^n
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(\binom Xn\)</span> désigne la variable aléatoire définie par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\binom Xn=\frac{X(X-1)\cdots(X-n+1)}{n!}
+\end{equation*}
+</div>
+<div class="para">Grâce à la convergence absolue de la série à droite dans l’égalité précédente pour <span class="process-math">\(t\)</span> voisin de <span class="process-math">\(1\text{,}\)</span> on peut appliquer la formule de Fubini pour transformer l’expression de <span class="process-math">\(G_X(t)\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-generatrice-5-2-12">
+\begin{align*}
+G_X(t) \amp=
+\sum_{n=0}^{+\infty}\EE\left(\binom Xn\right)\sum_{k=0}^n(-1)^{n-k}\binom nk t^k \\
+\amp=
+\sum_{k=0}^{+\infty}(-1)^k\left[\sum_{n=k}^{+\infty}(-1)^{n}\binom nk\EE\left(\binom Xn\right)\right] t^k  
+\end{align*}
+</div>
+<div class="para">et par identification de ce développement avec celui par défaut de <span class="process-math">\(G_X\)</span> on obtient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall k\in\N,\;
+\Pr{X=k}=(-1)^k\sum_{n=k}^{+\infty}(-1)^{n}\binom nk\EE\left(\binom Xn\right)
+\end{equation*}
+</div>
+<div class="para">Théoriquement, ces formules permettent donc de calculer la loi de <span class="process-math">\(X\)</span> connaissant les moyennes de toutes les variables <span class="process-math">\(X(X-1)\cdots(X-n+1)\text{.}\)</span>Par exemple</div>
+<div class="displaymath process-math" id="subsec-generatrice-5-2-17">
+\begin{align*}
+\Pr{X=0} \amp=\sum_{n=0}^{+\infty}(-1)^{n}\EE\left(\binom Xn\right)  \\
+\Pr{X=1} \amp =
+\sum_{n=1}^{+\infty}(-1)^{n+1}n\EE\left(\binom Xn\right) 
+\end{align*}
+</div>
+</div>
+<div class="para logical" id="subsec-generatrice-5-3">
+<div class="para">Noter que si <span class="process-math">\(X(\Omega)\)</span> est fini alors la variable <span class="process-math">\(\binom Xn\)</span> et nulle pour tout <span class="process-math">\(n\)</span> supérieur à <span class="process-math">\(N=\max X(\Omega)\)</span> et donc que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall k\in X(\Omega),\; \Pr{X=k}=\sum_{n=k}^{N}(-1)^{n-k}\binom nk\EE\left(\binom Xn\right)
+\end{equation*}
+</div>
+<div class="para">qu’on peut lier aux relations obtenues par formule de transfert</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall k\in X(\Omega),\;
+\EE\left(\binom Xk\right)=\sum_{n=k}^{N}\binom nk\Pr{X=n}
+\end{equation*}
+</div>
+</div></article></section><section class="subsection" id="subsec-defprop-activite"><h3 class="heading hide-type">
+<span xmlns:exsl="http://exslt.org/common" class="codenumber">2.4.4</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="type">Sous-section</span><span class="space"> </span><span xmlns:exsl="http://exslt.org/common" class="title">Activités</span>
+</h3>
+<article class="activity project-like" id="fonction-generatrice-xsup"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.21 - </span> <span class="title">Fonction génératrice de la suite <span class="process-math">\((\Pr{X\geq n})_n\)</span>.</span>
+</h6>
+<div class="introduction" id="fonction-generatrice-xsup-2"><div class="para logical" id="fonction-generatrice-xsup-2-1">
+<div class="para">On considère une VAD <span class="process-math">\(X\)</span> à valeurs dans <span class="process-math">\(\N\)</span> et on pose pour tout <span class="process-math">\(t\in]-1,1[\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F_X(t)=\sum_{n=0}^{+\infty}\Pr{X\geq n}t^n
+\end{equation*}
+</div>
+</div></div>
+<article class="task exercise-like" id="fonction-generatrice-xsup-3"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">Expression de <span class="process-math">\(F_X\)</span>.</span>
+</h5>
+<div class="para logical" id="fonction-generatrice-xsup-3-2-1">
+<div class="para">Justifier que <span class="process-math">\(F_X\)</span> est bien définie et montrer que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F_X(t)=\frac{G_X(t)-1}{t-1}
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like" id="fonction-generatrice-xsup-4"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Expression de l’espérance de <span class="process-math">\(X\)</span>.</span>
+</h5>
+<div class="para logical" id="fonction-generatrice-xsup-4-2-1">
+<div class="para">En déduire que <span class="process-math">\(X\)</span> est sommable si et seulement si <span class="process-math">\(F_X\)</span> admet une limite finie en <span class="process-math">\(1\)</span> et que dans ce cas</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(X)=\sum_{n\in\N}\Pr{X\geq n}
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like" id="fonction-generatrice-xsup-5"><h5 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">Loi du <span class="process-math">\(\min\)</span>.</span>
+</h5>
+<div class="para logical" id="fonction-generatrice-xsup-5-2-1">
+<div class="para">Soient <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> deux VAD sommables et indépendantes à valeurs dans <span class="process-math">\(\N\)</span> et soit <span class="process-math">\(Z=\min(X,Y)\text{.}\)</span> Exprimer <span class="process-math">\(\Pr{Z\geq n}\)</span> en fonction de <span class="process-math">\(\Pr{X\geq n}\)</span> et de <span class="process-math">\(\Pr{Y\geq n}\text{.}\)</span> En déduire que pour tout <span class="process-math">\(t\in[0,1[\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F_Z(t)=\frac1{2\pi}\int_0^{2\pi}F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta})\mathrm d\theta   
+\end{equation*}
+</div>
+<div class="para">Simplifier cette expression dans le cas où <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> suivent la même loi.</div>
+</div>
+<div class="solutions"><details id="fonction-generatrice-xsup-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="fonction-generatrice-xsup-5-3-1">
+<div class="para">Pour tout <span class="process-math">\(n\in\N\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Pr{Z\gt n}=\Pr{X\gt n,Y\gt n}=\Pr{X\gt n}\Pr{Y\gt n}
+\end{equation*}
+</div>
+<div class="para">D’autre part, par produit de Cauchy de deux séries absolument convergentes,  pour un <span class="process-math">\(t\in[0,1[\)</span> fixé et un <span class="process-math">\(\theta\in{}[0,2\pi]\)</span> quelconque</div>
+<div class="displaymath process-math" id="fonction-generatrice-xsup-5-3-1-5">
+\begin{align*}
+F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta}) \amp =
+\sum_{n\in\N}
+\sum_{k=0}^n\bigl(\Pr{X\gt k}t^{k/2}e^{ik\theta}\bigr)\bigl(\Pr{Y\gt n-k}t^{(n-k)/2}e^{i(k-n)\theta}\bigr) \\
+\amp=
+\sum_{n\in\N} u_n(\theta)\\
+\text{avec}\quad u_n(\theta)\amp=
+t^{n/2}\sum_{k=0}^n
+\Pr{X\gt k}\Pr{Y\gt n-k}e^{i(2k-n)\theta} 
+\end{align*}
+</div>
+<div class="para">Comme <span class="process-math">\(\bigcup\limits_{k=0}^{n}(X\gt k,Y\gt n-k)\subset (X+Y\gt n)\)</span> alors pour tout <span class="process-math">\(\theta\in[0,2\pi]\)</span>
+</div>
+<div class="displaymath process-math" id="fonction-generatrice-xsup-5-3-1-8">
+\begin{align*}
+\left|u_n(\theta)\right| \amp\leq
+t^{n/2}\sum_{k=0}^n\Pr{X\gt k,Y\gt n-k} \\
+\amp\leq t^{n/2}\Pr{X+Y\gt n}\leq t^{n/2} 
+\end{align*}
+</div>
+<div class="para">Puisque <span class="process-math">\(\sqrt t \lt 1 \text{,}\)</span> la série <span class="process-math">\(\sum t^{n/2}\)</span> est convergente alors la série de fonctions continues <span class="process-math">\(\sum u_n\)</span>  converge normalement sur le ségment <span class="process-math">\([0,2\pi]\text{.}\)</span> On peut donc intégrer terme à terme l’égalité précédente. Ce qui donne.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_0^{2\pi}F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta})\mathrm d\theta =
+\sum_{n\in\N}t^{n/2}
+\sum_{k=0}^n\Pr{X\gt k}\Pr{Y\gt n-k}\int_0^{2\pi}e^{i(2k-n)\theta}\mathrm d\theta
+\end{equation*}
+</div>
+<div class="para">et comme <span class="process-math">\(\int_{0}^{2\pi}e^{ih\theta}\mathrm d\theta=2\delta_{0h}\pi\)</span> pour tout <span class="process-math">\(h\in\Z\)</span> alors <span class="process-math">\(\int_0^{2\pi}e^{i(2k-n)\theta}\mathrm d\theta\)</span> est nulle sauf lorsque <span class="process-math">\(n\)</span> est paire et <span class="process-math">\(k=n/2\text{.}\)</span> Alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_0^{2\pi}F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta})\mathrm d\theta =
+2\pi\sum_{n\in\N}t^{n}\Pr{X\gt n}\Pr{Y\gt n}
+\end{equation*}
+</div>
+<div class="para">et finalement</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac1{2\pi}\int_0^{2\pi}F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta})\mathrm d\theta = F_Z(t)
+\end{equation*}
+</div>
+<div class="para">Dans le cas où <span class="process-math">\(X\)</span> et <span class="process-math">\(Y\)</span> suivent la même loi alors <span class="process-math">\(F_Y(t^{1/2}e^{-i\theta})=\overline{F_X(t^{1/2}e^{i\theta})}\)</span> et donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F_Z(t)=\frac1{2\pi}\int_0^{2\pi}\bigl|F_X(t^{1/2}e^{i\theta})\bigr|^2\mathrm d\theta
+\end{equation*}
+</div>
+</div></div></details></div></article></article><article class="activity project-like" id="fonction-generatrice-premier-retour"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.22 - </span> <span class="title">Fonction génératrice du premier retour à l’origine.</span>
+</h6>
+<div class="introduction" id="fonction-generatrice-premier-retour-2">
+<div class="para" id="fonction-generatrice-premier-retour-2-1">Dans cette activité, nous étudions une marche aléatoire biaisée sur une droite. À chaque pas, l’objet avance d’un pas avec une probabilité <span class="process-math">\(p\)</span> ou recule d’un pas avec une probabilité <span class="process-math">\(q = 1 - p\text{.}\)</span> Sachant qu’à l’instant <span class="process-math">\(0\)</span> l’objet est à l’origine, on note <span class="process-math">\(N\)</span> le temps d’attente du premier retour à l’origine et <span class="process-math">\(X_n \)</span> la position de l’objet à l’instant <span class="process-math">\(n \text{.}\)</span>
+</div>
+<div class="para logical" id="fonction-generatrice-premier-retour-2-2">
+<div class="para">L’objectif est de trouver une relation entre  les fonctions génératrices</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(t) = \sum_{n=1}^{+\infty} \Pr{N = n} t^n \qtext{et} U(t) = \sum_{n=0}^{+\infty} \Pr{X_n = 0} t^n
+\end{equation*}
+</div>
+<div class="para">et de calculer ensuite <span class="process-math">\(F(t)\text{.}\)</span> On notera que <span class="process-math">\(F\)</span> n’est pas la fonction génératrice de la variable <span class="process-math">\(N\)</span> puisque celle-ci peut potentiellement prendre la valeur <span class="process-math">\(+\infty\text{.}\)</span>
+</div>
+</div>
+</div>
+<article class="task exercise-like" id="fonction-generatrice-premier-retour-3"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">Définition des fonctions génératrices.</span>
+</h5>
+<div class="para" id="fonction-generatrice-premier-retour-3-2-1">Expliquer pourquoi <span class="process-math">\(F(t) \)</span> et <span class="process-math">\(U(t) \)</span> sont bien définies pour <span class="process-math">\(t \in [0, 1) \text{.}\)</span>
+</div>
+<div class="solutions"><details id="fonction-generatrice-premier-retour-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="fonction-generatrice-premier-retour-3-3-1">Les fonctions génératrices <span class="process-math">\(F(t) \)</span> et <span class="process-math">\(U(t) \)</span> sont les sommes de séries entières dont les coefficients sont des probabilités (donc compris entre 0 et 1). Par conséquents leurs rayons de convergences sont supérieurs ou égaux à <span class="process-math">\(1\text{.}\)</span>
+</div></div></details></div></article><article class="task exercise-like" id="fonction-generatrice-premier-retour-4"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Relation entre <span class="process-math">\(F(t) \)</span> et <span class="process-math">\(U(t) \)</span>.</span>
+</h5>
+<div class="para logical" id="fonction-generatrice-premier-retour-4-2-1">
+<div class="para">Montrer que les fonctions génératrices <span class="process-math">\(F(t) \)</span> et <span class="process-math">\(U(t) \)</span> sont liées par la relation :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+U(t) = F(t) U(t) + 1.
+\end{equation*}
+</div>
+<div class="para">En déduire une expression de <span class="process-math">\(F(t) \)</span> en fonction de <span class="process-math">\(U(t) \text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details id="fonction-generatrice-premier-retour-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="fonction-generatrice-premier-retour-4-3-1">
+<div class="para">On peut écrire pour tout <span class="process-math">\(n\gt0\)</span> :</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-probatota.html">
+\begin{equation*}
+\Pr{X_n = 0} = \sum_{k=1}^n  \Pr{X_{n} = 0\giv N=k} \Pr{N = k}.
+\end{equation*}
+</div>
+<div class="para">«Intuitivement» : <span class="process-math">\(\Pr{X_n=0 \giv  N=k}=\Pr{X_{n-k}=0}\)</span> car il s’agit de revenir à l’origine en <span class="process-math">\(n-k\)</span> pas une fois le retour à l’origine s’est produit pour la première fois à l’instant <span class="process-math">\(k\text{.}\)</span> Donc</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-probatota.html" id="eq-probatota">
+\begin{equation}
+\Pr{X_n = 0} = \sum_{k=1}^n  \Pr{N=k}\Pr{X_{n-k}=0}.\tag{2.3}
+\end{equation}
+</div>
+<div class="para">Plus rigoureusement, on peut écrire</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-probatota.html" id="fonction-generatrice-premier-retour-4-3-1-7">
+\begin{align*}
+(X_n=0,N=k) \amp= (X_1X_2\cdots X_{k-1}\ne0, X_k=0, X_n=0) \\
+\amp= (X_1X_2\cdots X_{k-1}\ne0, X_k=0, X_n-X_k=0) 
+\end{align*}
+</div>
+<div class="para">Maintenant si note <span class="process-math">\(B_n\)</span> le déplacement de l’objet à l’instant <span class="process-math">\(n\)</span> alors le couple <span class="process-math">\((X_1X_2\ldots X_{k-1},X_k)\)</span> est une fonction des variables <span class="process-math">\(B_1,B_2,\ldots,B_k\)</span> et <span class="process-math">\(X_n-X_k\)</span> est une fonction des variables <span class="process-math">\(B_{k+1},\ldots,B_{n}\text{.}\)</span> Donc <span class="process-math">\((X_1X_2\ldots X_{k-1},X_k)\)</span> et <span class="process-math">\(X_n-X_k\)</span> sont indépendants par coalition. En outre <span class="process-math">\(X_n-X_k=B_{k+1}+\cdots+B_{n}\)</span> suit la même loi que <span class="process-math">\(B_1+B_2+\cdots+B_{n-k}=X_{n-k}\text{.}\)</span> Ainsi</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-probatota.html" id="fonction-generatrice-premier-retour-4-3-1-18">
+\begin{align*}
+\Pr{X_n=0,N=k} \amp= \Pr{X_1X_2\cdots X_{k-1}\ne0, X_k=0}\Pr{X_n-X_k=0} \\
+\amp= \Pr{N=k}\Pr{X_{n-k}=0} 
+\end{align*}
+</div>
+<div class="para">En multipliant <a href="sec-fctgen.html#eq-probatota" class="xref" data-knowl="./knowl/xref/eq-probatota.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Équation 2.3">(2.3)</a> par <span class="process-math">\(t^n \)</span> et en sommant sur <span class="process-math">\(n \text{,}\)</span> on obtient :</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-probatota.html">
+\begin{equation*}
+U(t) = F(t) U(t) + 1.
+\end{equation*}
+</div>
+<div class="para">En résolvant pour <span class="process-math">\(F(t) \text{,}\)</span> on trouve :</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-probatota.html">
+\begin{equation*}
+F(t) = \frac{U(t) - 1}{U(t)}.
+\end{equation*}
+</div>
+</div></div></details></div></article><article class="task exercise-like" id="fonction-generatrice-premier-retour-5"><h5 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">Calcul de <span class="process-math">\(U(t) \)</span>.</span>
+</h5>
+<div class="para logical" id="fonction-generatrice-premier-retour-5-2-1">
+<div class="para">Calculer la fonction génératrice <span class="process-math">\(U(t) \)</span> en utilisant la loi de <span class="process-math">\(X_n \text{.}\)</span> On rappelle que <span class="process-math">\(X_n \)</span> suit une loi binomiale décalée :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X_n = 2S_n - n,
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(S_n \)</span> suit une loi binomiale <span class="process-math">\(\mathscr{B}(n, p) \text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details id="fonction-generatrice-premier-retour-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="fonction-generatrice-premier-retour-5-3-1">
+<div class="para">La probabilité que <span class="process-math">\(X_n = 0 \)</span> est donnée par :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Pr{X_n = 0} = \Pr{2S_n - n = 0} = \Pr{S_n = n/2}.
+\end{equation*}
+</div>
+<div class="para">Comme <span class="process-math">\(S_n \)</span> suit une loi binomiale <span class="process-math">\(\mathscr{B}(n, p) \text{,}\)</span> on a :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Pr{S_n = k} = \binom{n}{k} p^k q^{n - k}.
+\end{equation*}
+</div>
+<div class="para">Ainsi, pour <span class="process-math">\(n \)</span> pair, <span class="process-math">\(\Pr{X_n = 0} = \binom{n}{n/2} p^{n/2} q^{n/2} \text{,}\)</span> et pour <span class="process-math">\(n \)</span> impair, <span class="process-math">\(\Pr{X_n = 0} = 0 \text{.}\)</span> La fonction génératrice <span class="process-math">\(U(t) \)</span> est donc :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+U(t) = \sum_{n=0}^{+\infty} \binom{2n}{n} (p q)^n t^{2n}.
+\end{equation*}
+</div>
+<div class="para">On pose <span class="process-math">\(r=2\sqrt{pq}\text{,}\)</span> de telle sorte qu’on puisse écrire</div>
+<div class="displaymath process-math">
+\begin{equation*}
+U(t)=\sum_{n=0}^{+\infty} \frac{\binom{2n}{n}}{2^{2n}} (rt)^{2n}.
+\end{equation*}
+</div>
+<div class="para">et en utilisant le développement en série entière de <span class="process-math">\(1/\sqrt{1-t^2}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+U(t)=\frac{1}{\sqrt{1-(rt)^2}}=\frac{1}{\sqrt{1-4pqt^2}}.
+\end{equation*}
+</div>
+</div></div></details></div></article><article class="task exercise-like" id="fonction-generatrice-premier-retour-6"><h5 class="heading">
+<span class="codenumber">(d)</span><span class="space"> </span><span class="title">Expression de <span class="process-math">\(F(t) \)</span>.</span>
+</h5>
+<div class="para" id="fonction-generatrice-premier-retour-6-2-1">En utilisant les résultats des questions précédentes, donner une expression explicite de la fonction génératrice <span class="process-math">\(F(t) \text{.}\)</span>
+</div>
+<div class="solutions"><details id="fonction-generatrice-premier-retour-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="fonction-generatrice-premier-retour-6-3-1">
+<div class="para">D’après la question 2, on a :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(t) = \frac{U(t) - 1}{U(t)}.
+\end{equation*}
+</div>
+<div class="para">En utilisant l’expression de <span class="process-math">\(U(t) \)</span> obtenue à la question 3, on trouve :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(t) = \frac{\frac{1}{\sqrt{1-4pqt^2}}-1}{\frac{1}{\sqrt{1-4pqt^2}}} = 1 - \sqrt{1-4pqt^2}.
+\end{equation*}
+</div>
+</div></div></details></div></article><article class="task exercise-like" id="fonction-generatrice-premier-retour-7"><h5 class="heading">
+<span class="codenumber">(e)</span><span class="space"> </span><span class="title">Calcul de la probabilité du retour vers l’origine.</span>
+</h5>
+<div class="para" id="fonction-generatrice-premier-retour-7-2-1">Calculer la probabilité du retour vers l’origine.</div>
+<div class="solutions"><details id="fonction-generatrice-premier-retour-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="fonction-generatrice-premier-retour-7-3-1">
+<div class="para">La probabilité du retour vers l’origine est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Pr{N\lt\infty}= \sum_{n=1}^{+\infty}\Pr{N=n}=F(1)=1-\sqrt{1-4pq}\text{.}
+\end{equation*}
+</div>
+</div></div></details></div></article></article><article class="activity project-like" id="fonction-caracteristique-conversion"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.23 - </span> <span class="title">Fonction caractéristique d’une variable aléatoire à valeurs dans <span class="process-math">\(\Z\)</span>.</span>
+</h6>
+<div class="introduction" id="fonction-caracteristique-conversion-3"><div class="para" id="fonction-caracteristique-conversion-3-1">Dans cette activité, nous étudions la fonction caractéristique d’une variable aléatoire <span class="process-math">\(X \)</span> à valeurs dans <span class="process-math">\(\Z\text{.}\)</span> La fonction caractéristique est un outil puissant en probabilités, permettant de caractériser la loi d’une variable aléatoire et de simplifier certains calculs. Nous allons définir cette fonction, explorer ses propriétés, et l’utiliser pour calculer des moments et des probabilités.</div></div>
+<article class="task exercise-like" id="fonction-caracteristique-conversion-4"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">Définition de la fonction caractéristique.</span>
+</h5>
+<div class="para logical" id="fonction-caracteristique-conversion-4-2-1">
+<div class="para">Soit <span class="process-math">\(X \)</span> une variable aléatoire à valeurs dans <span class="process-math">\(\Z\text{.}\)</span> On définit sa fonction caractéristique <span class="process-math">\(\phi_X \)</span> par :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\phi_X(t) = \EE\left[e^{itX}\right] = \sum_{n\in\Z} \Pr{X = n} e^{int},
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(t \in \R \text{.}\)</span>
+</div>
+</div> <div class="para logical" id="fonction-caracteristique-conversion-4-2-2"><ol class="decimal" id="fonction-caracteristique-conversion-4-2-2-1">
+<li id="fonction-caracteristique-conversion-4-2-2-1-1"><div class="para" id="p-derived-fonction-caracteristique-conversion-4-2-2-1-1">Montrer que <span class="process-math">\(\phi_X(t) \)</span> est bien définie pour tout <span class="process-math">\(t \in \R \text{.}\)</span>
+</div></li>
+<li id="fonction-caracteristique-conversion-4-2-2-1-2"><div class="para" id="p-derived-fonction-caracteristique-conversion-4-2-2-1-2">Montrer que <span class="process-math">\(\phi_X(t) \)</span> est <span class="process-math">\(2\pi \)</span>-périodique et continue sur <span class="process-math">\(\R\text{.}\)</span>
+</div></li>
+</ol></div>
+<div class="solutions"><details id="fonction-caracteristique-conversion-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="fonction-caracteristique-conversion-4-3-1"><ol class="decimal" id="fonction-caracteristique-conversion-4-3-1-1">
+<li id="fonction-caracteristique-conversion-4-3-1-1-1"><div class="para" id="p-derived-fonction-caracteristique-conversion-4-3-1-1-1">La fonction caractéristique <span class="process-math">\(\phi_X(t) \)</span> est bien définie pour tout <span class="process-math">\(t \in \R \text{,}\)</span> car <span class="process-math">\(|e^{itX}|=1\)</span> et donc <span class="process-math">\(e^{itX}\)</span> est sommable.</div></li>
+<li id="fonction-caracteristique-conversion-4-3-1-1-2"><div class="para" id="p-derived-fonction-caracteristique-conversion-4-3-1-1-2">Les fonctions <span class="process-math">\(t\mapsto e^{int} \)</span> sont <span class="process-math">\(2\pi \)</span>-périodiques, donc <span class="process-math">\(\phi_X \)</span> est également <span class="process-math">\(2\pi \)</span>-périodique. En outre, on peut écrire<div class="displaymath process-math">
+\begin{equation*}
+\phi_X(t)=\sum_{n=0}^{+\infty}\Pr{X=n}e^{int}+\sum_{n=1}^{+\infty}\Pr{X=-n}e^{-int}.
+\end{equation*}
+</div>Les sommes des deux séries dans cette expression sont continues par convergence normale sur <span class="process-math">\(\R\text{.}\)</span> D’où la continuité de <span class="process-math">\(\phi_X \)</span> sur <span class="process-math">\(\R\text{.}\)</span>
+</div></li>
+</ol></div></div></details></div></article><article class="task exercise-like" id="fonction-caracteristique-conversion-5"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Exemples de fonctions caractéristiques.</span>
+</h5>
+<div class="para logical" id="fonction-caracteristique-conversion-5-2-1">
+<div class="para">Calculer la fonction caractéristique pour les lois suivantes :</div>
+<ol class="decimal" id="fonction-caracteristique-conversion-5-2-1-1">
+<li id="fonction-caracteristique-conversion-5-2-1-1-1"><div class="para" id="p-derived-fonction-caracteristique-conversion-5-2-1-1-1">Si <span class="process-math">\(X \sim \mathcal{B}(n, p) \)</span> (loi binomiale), montrer que :<div class="displaymath process-math">
+\begin{equation*}
+\phi_X(t) = \left(1 - p + p e^{it}\right)^n.
+\end{equation*}
+</div>
+</div></li>
+<li id="fonction-caracteristique-conversion-5-2-1-1-2"><div class="para" id="p-derived-fonction-caracteristique-conversion-5-2-1-1-2">Si <span class="process-math">\(X \sim \mathcal{G}(p) \)</span> (loi géométrique), montrer que :<div class="displaymath process-math">
+\begin{equation*}
+\phi_X(t) = \frac{p e^{it}}{1 - (1 - p) e^{it}}.
+\end{equation*}
+</div>
+</div></li>
+<li id="fonction-caracteristique-conversion-5-2-1-1-3"><div class="para" id="p-derived-fonction-caracteristique-conversion-5-2-1-1-3">Si <span class="process-math">\(X \sim \mathcal{P}(\lambda) \)</span> (loi de Poisson), montrer que :<div class="displaymath process-math">
+\begin{equation*}
+\phi_X(t) = e^{\lambda (e^{it} - 1)}.
+\end{equation*}
+</div>
+</div></li>
+</ol>
+</div>
+<div class="solutions"><details id="fonction-caracteristique-conversion-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="fonction-caracteristique-conversion-5-3-1"><ol class="decimal" id="fonction-caracteristique-conversion-5-3-1-1">
+<li id="fonction-caracteristique-conversion-5-3-1-1-1"><div class="para" id="p-derived-fonction-caracteristique-conversion-5-3-1-1-1">Pour <span class="process-math">\(X \sim \mathcal{B}(n, p) \text{,}\)</span> la fonction caractéristique est :<div class="displaymath process-math">
+\begin{equation*}
+\phi_X(t) = \sum_{k=0}^n \binom{n}{k} p^k (1 - p)^{n - k} e^{itk} = \left(1 - p + p e^{it}\right)^n.
+\end{equation*}
+</div>
+</div></li>
+<li id="fonction-caracteristique-conversion-5-3-1-1-2"><div class="para" id="p-derived-fonction-caracteristique-conversion-5-3-1-1-2">Pour <span class="process-math">\(X \sim \mathcal{G}(p) \text{,}\)</span> la fonction caractéristique est :<div class="displaymath process-math">
+\begin{equation*}
+\phi_X(t) = \sum_{k=1}^{+\infty} p (1 - p)^{k - 1} e^{itk} = \frac{p e^{it}}{1 - (1 - p) e^{it}}.
+\end{equation*}
+</div>
+</div></li>
+<li id="fonction-caracteristique-conversion-5-3-1-1-3"><div class="para" id="p-derived-fonction-caracteristique-conversion-5-3-1-1-3">Pour <span class="process-math">\(X \sim \mathcal{P}(\lambda) \text{,}\)</span> la fonction caractéristique est :<div class="displaymath process-math">
+\begin{equation*}
+\phi_X(t) = \sum_{k=0}^{+\infty} \frac{\lambda^k e^{-\lambda}}{k!} e^{itk} = e^{\lambda (e^{it} - 1)}.
+\end{equation*}
+</div>
+</div></li>
+</ol></div></div></details></div></article><article class="task exercise-like" id="fonction-caracteristique-conversion-6"><h5 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">Dérivation et moments.</span>
+</h5>
+<div class="para logical" id="fonction-caracteristique-conversion-6-2-1"><ol class="decimal" id="fonction-caracteristique-conversion-6-2-1-1">
+<li id="fonction-caracteristique-conversion-6-2-1-1-1"><div class="para" id="p-derived-fonction-caracteristique-conversion-6-2-1-1-1">Montrer que si <span class="process-math">\(X \)</span> admet un moment d’ordre <span class="process-math">\(p \text{,}\)</span> alors <span class="process-math">\(\phi_X \)</span> est de classe <span class="process-math">\(\mathcal{C}^p \)</span> et :<div class="displaymath process-math">
+\begin{equation*}
+\phi_X^{(k)}(0) = i^k \EE(X^k) \quad \text{pour tout } k \in \{1, \dots, p\}.
+\end{equation*}
+</div>
+</div></li>
+<li id="fonction-caracteristique-conversion-6-2-1-1-2"><div class="para" id="p-derived-fonction-caracteristique-conversion-6-2-1-1-2">Montrer que si <span class="process-math">\(X\)</span> admet des moments à tout ordre et s’il existe des constantes <span class="process-math">\(c,r\gt 0\)</span> telles que<div class="displaymath process-math">
+\begin{equation*}
+\forall n\in\N,\; \EE(|X|^n)\leq cr^n
+\end{equation*}
+</div>alors <span class="process-math">\(\phi_X\)</span> est développable en série entière sur <span class="process-math">\(\R\)</span> et<div class="displaymath process-math">
+\begin{equation*}
+\phi_X(t)=\sum_{n=0}^{+\infty}\frac{i^n}{n!}\EE(X^n)t^n
+\end{equation*}
+</div>
+</div></li>
+</ol></div>
+<div class="solutions"><details id="fonction-caracteristique-conversion-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="fonction-caracteristique-conversion-6-3-1"><ol class="decimal" id="fonction-caracteristique-conversion-6-3-1-1">
+<li id="fonction-caracteristique-conversion-6-3-1-1-1"><div class="para" id="p-derived-fonction-caracteristique-conversion-6-3-1-1-1">Si <span class="process-math">\(X \)</span> admet un moment d’ordre <span class="process-math">\(p \text{,}\)</span> alors la série <span class="process-math">\(\sum_{n=-\infty}^{+\infty} n^k \Pr{X = n} \)</span> converge pour tout <span class="process-math">\(k \leq p \text{.}\)</span> Par le théorème de dérivation terme à terme, <span class="process-math">\(\phi_X \)</span> est de classe <span class="process-math">\(\mathcal{C}^p \text{,}\)</span> et :<div class="displaymath process-math">
+\begin{equation*}
+\phi_X^{(k)}(0) = i^k \sum_{n=-\infty}^{+\infty} n^k \Pr{X = n} = i^k \EE(X^k).
+\end{equation*}
+</div>
+</div></li>
+<li id="fonction-caracteristique-conversion-6-3-1-1-2"><div class="para" id="p-derived-fonction-caracteristique-conversion-6-3-1-1-2">Si <span class="process-math">\(X \)</span> admet des moments à tout ordre et que la série génératrice converge, alors par l’inégalité de Taylor-Lagrange appliquée à <span class="process-math">\(e^{iu} \text{,}\)</span> on a :<div class="displaymath process-math">
+\begin{equation*}
+\left| e^{int} - \sum_{k=0}^p \frac{i^k n^k}{k!} t^k \right| \leq \frac{|n t|^{p+1}}{(p+1)!}.
+\end{equation*}
+</div>En multipliant par <span class="process-math">\(\Pr{X = n} \)</span> et en sommant sur <span class="process-math">\(\Z \text{,}\)</span> on obtient :<div class="displaymath process-math">
+\begin{equation*}
+\left| \EE(e^{itX}) - \sum_{k=0}^p \frac{i^k}{k!} \EE(X^k) t^k \right| \leq \frac{\EE\left(|X|^{p+1}\right)}{(p+1)!} |t|^{p+1}.
+\end{equation*}
+</div>Ainsi, <span class="process-math">\(\phi_X(t) = \sum_{p=0}^{+\infty} \frac{i^p}{p!} \EE(X^p) t^p \text{.}\)</span>
+</div></li>
+</ol></div></div></details></div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-espvaralea.html" title="Précédent"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span></a><a class="next-button button" href="sec-probas--actinum.html" title="Suivant"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="mailto:ibouja@gmail.com" target="_blank">Commentaires</a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="cpgem-link" href="https://texbouja.github.io/cpgem" title="CPGEM"><img class="logo" src="https://texbouja.github.io/cpgem/assets/img/favicons/favicon.png" alt="CPGEM logo"></a>
+</div>
+</body>
+</html>

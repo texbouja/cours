@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.19 - </span> <span class="title">Espérance d’une forme quadratique.</span>
+</h6>
+<div class="introduction">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soit <span class="process-math">\(X \)</span> un vecteur aléatoire de <span class="process-math">\(\mathbb{R}^n \)</span> ayant un moment d’ordre <span class="process-math">\(2\text{.}\)</span> On note <span class="process-math">\(\mathbf{\Sigma}(X) \)</span> la matrice des covariances de <span class="process-math">\(X \)</span> et <span class="process-math">\(\mu\)</span> son espérance.</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">L’activité propose de montrer la formule <a href="sec-espvaralea.html#formquad" class="xref" data-knowl="./knowl/xref/formquad.html" data-reveal-label="Dévoiler" data-close-label="Fermer" title="Équation 2.2">(2.2)</a> dite formule des formes quadratiques et  quelques exemples d’application ensuite.</div>
+</div>
+<article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(a)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Formule des formes quadratiques.</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soit <span class="process-math">\(A\)</span> une matrice carrée constante. Démontrer la formule :</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation}
+\EE({}^tX A X) = \text{tr}(A \mathbf{\Sigma}(X)) + {}^t\mu A \mu.\tag{2.2}
+\end{equation}
+</div>
+<details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Soit <span class="process-math">\(X\)</span> un vecteur aléatoire de dimension <span class="process-math">\(n\text{,}\)</span> de moyenne <span class="process-math">\(\mu = \EE(X)\)</span> et de matrice de covariance <span class="process-math">\(\mathbf{\Sigma}(X) = \EE((X - \mu)(X - \mu)^\top)\text{.}\)</span> Soit <span class="process-math">\(A\)</span> une matrice carrée de taille <span class="process-math">\(n \times n\text{.}\)</span>
+</div>
+<div class="para">Nous voulons calculer <span class="process-math">\(\EE({}^tX A X)\text{.}\)</span> Pour cela, décomposons <span class="process-math">\(X\)</span> en sa moyenne <span class="process-math">\(\mu\)</span> et son écart par rapport à la moyenne <span class="process-math">\(Y = X - \mu\text{.}\)</span> Ainsi, <span class="process-math">\(X = \mu + Y\text{,}\)</span> où <span class="process-math">\(\EE(Y) = 0\)</span> et <span class="process-math">\(\mathbf{\Sigma}(X) = \EE(Y Y^\top)\text{.}\)</span>
+</div>
+<div class="para">En substituant <span class="process-math">\(X = \mu + Y\)</span> dans la forme quadratique, nous obtenons :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+{}^tX A X = (\mu + Y)^\top A (\mu + Y).
+\end{equation*}
+</div>
+<div class="para">Développons cette expression :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+{}^tX A X = \mu^\top A \mu + \mu^\top A Y + Y^\top A \mu + Y^\top A Y.
+\end{equation*}
+</div>
+<div class="para">Prenons l’espérance des deux côtés. Comme <span class="process-math">\(\EE(Y) = 0\text{,}\)</span> les termes linéaires en <span class="process-math">\(Y\)</span> disparaissent :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE({}^tX A X) = \mu^\top A \mu + \EE(Y^\top A Y).
+\end{equation*}
+</div>
+<div class="para">Il reste à calculer <span class="process-math">\(\EE(Y^\top A Y)\text{.}\)</span> Notons que <span class="process-math">\(Y^\top A Y\)</span> est un scalaire, donc égal à sa trace :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y^\top A Y = \text{tr}(Y^\top A Y).
+\end{equation*}
+</div>
+<div class="para">En utilisant la propriété de cyclicité de la trace (<span class="process-math">\(\text{tr}(ABC) = \text{tr}(CAB)\)</span>), nous avons :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+Y^\top A Y = \text{tr}(A Y Y^\top).
+\end{equation*}
+</div>
+<div class="para">En prenant l’espérance, nous obtenons :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(Y^\top A Y) = \EE(\text{tr}(A Y Y^\top)) = \text{tr}(A \EE(Y Y^\top)).
+\end{equation*}
+</div>
+<div class="para">Or, <span class="process-math">\(\EE(Y Y^\top) = \mathbf{\Sigma}(X)\text{,}\)</span> donc :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE(Y^\top A Y) = \text{tr}(A \mathbf{\Sigma}(X)).
+\end{equation*}
+</div>
+<div class="para">En combinant ce résultat avec l’expression précédente, nous obtenons finalement :</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\EE({}^tX A X) = \mu^\top A \mu + \text{tr}(A \mathbf{\Sigma}(X)).
+\end{equation*}
+</div>
+<div class="para">Ce qui conclut la démonstration.</div>
+</div></details></article><article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(b)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Modèle de portefeuille binaire.</span>
+</h6>
+<em xmlns:xlink="http://www.w3.org/1999/xlink" class="emphasis">Objectif :</em> Comprendre comment les formes quadratiques peuvent modéliser les interactions entre actifs dans un portefeuille binaire.<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Vous gérez un portefeuille de 3 actifs binaires. Chaque actif <span class="process-math">\(X_i\)</span> peut être actif (<span class="process-math">\(X_i = 1\)</span>) avec une probabilité <span class="process-math">\(p_i\)</span> ou inactif (<span class="process-math">\(X_i = 0\)</span>) avec une probabilité <span class="process-math">\(1-p_i\text{.}\)</span> Les actifs peuvent être corrélés.</div> <div xmlns:xlink="http://www.w3.org/1999/xlink" class="para"><em class="emphasis">Données :</em></div> <ul class="disc" id="esperance-forme-quadratique-4-3-3">
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_1 \sim \mathscr B(0.5)\text{,}\)</span></div></li>
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_2 \sim \mathscr B(0.6)\text{,}\)</span></div></li>
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_3 \sim \mathscr B(0.7)\text{.}\)</span></div></li>
+<li><div class="para">La corrélation entre <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_1\)</span> et <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_2\)</span> est <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\rho = 0.3\text{,}\)</span> et <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_3\)</span> est indépendant des deux autres.</div></li>
+<li><div class="para">La matrice de pondération <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(A = \begin{pmatrix} 1 \amp 0.5 \amp 0 \\ 0.5 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}\text{.}\)</span>
+</div></li>
+</ul> <details xmlns:xlink="http://www.w3.org/1999/xlink" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="title">Rôle de la matrice de pondération.</span></h6></summary><article class="hiddenproof knowl__content"><div class="para">La matrice <span class="process-math">\(A\)</span> représente les interactions entre les actifs du portefeuille. Chaque élément <span class="process-math">\(A_{ij}\)</span> quantifie l’influence de l’actif <span class="process-math">\(j\)</span> sur l’actif <span class="process-math">\(i\text{.}\)</span> Par exemple, <span class="process-math">\(A_{12} = 0.5\)</span> signifie que l’actif 2 influence l’actif 1 avec un poids de 0.5. Les éléments diagonaux <span class="process-math">\(A_{ii}\)</span> représentent l’importance intrinsèque de chaque actif.</div></article></details> <div xmlns:xlink="http://www.w3.org/1999/xlink" class="para"><em class="emphasis">Tâches :</em></div> <ol class="decimal" id="esperance-forme-quadratique-4-3-6">
+<li><div class="para">Calculez la matrice de covariance <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\Sigma\text{.}\)</span>
+</div></li>
+<li><div class="para">Calculez <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\mathbb{E}(X^\top A X)\)</span> en utilisant la formule <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\text{Tr}(A \Sigma) + \mu^\top A \mu\text{.}\)</span>
+</div></li>
+<li><div class="para">Interprétez le résultat en termes de risque du portefeuille.</div></li>
+</ol>
+<details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para"><em class="emphasis">Solution :</em></div>
+<ol class="decimal" id="esperance-forme-quadratique-4-4-2">
+<li><div class="para">
+<em class="emphasis">Matrice de covariance :</em> <span class="process-math">\(\Sigma = \begin{pmatrix} 0.25 \amp 0.09 \amp 0 \\ 0.09 \amp 0.24 \amp 0 \\ 0 \amp 0 \amp 0.21 \end{pmatrix}. \)</span>
+</div></li>
+<li><div class="para">
+<em class="emphasis">Calcul de <span class="process-math">\(\mathbb{E}(X^\top A X)\)</span> :</em><ul class="disc" id="esperance-forme-quadratique-4-4-2-2-2">
+<li><div class="para"><span class="process-math">\(\text{Tr}(A \Sigma) = 0.79\text{,}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\mu^\top A \mu = 1.47\text{,}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\mathbb{E}(X^\top A X) = 0.79 + 1.47 = 2.26\text{.}\)</span></div></li>
+</ul>
+</div></li>
+<li><div class="para">
+<em class="emphasis">Interprétation :</em> Une espérance plus élevée indique un portefeuille plus risqué.</div></li>
+</ol>
+</div></details></article><article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(c)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Réseau aléatoire avec interactions binaires.</span>
+</h6>
+<em xmlns:xlink="http://www.w3.org/1999/xlink" class="emphasis">Objectif :</em> Explorer comment les formes quadratiques peuvent modéliser les connexions dans un réseau aléatoire.<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Vous étudiez un réseau de 4 nœuds, où chaque nœud <span class="process-math">\(X_i\)</span> est actif (<span class="process-math">\(X_i = 1\)</span>) avec une probabilité <span class="process-math">\(p_i\)</span> ou inactif (<span class="process-math">\(X_i = 0\)</span>) avec une probabilité <span class="process-math">\(1-p_i\text{.}\)</span> La matrice <span class="process-math">\(A\)</span> représente les connexions entre les nœuds.</div> <div xmlns:xlink="http://www.w3.org/1999/xlink" class="para"><em class="emphasis">Données :</em></div> <ul class="disc" id="esperance-forme-quadratique-5-3-3">
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_1 \sim \mathscr B(0.5)\text{,}\)</span></div></li>
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_2 \sim \mathscr B(0.6)\text{,}\)</span></div></li>
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_3 \sim \mathscr B(0.7)\text{,}\)</span></div></li>
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_4 \sim \mathscr B(0.8)\text{.}\)</span></div></li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">les variables <span class="process-math">\(X_1,X_2,X_3,X_4\)</span> sont supposés inépendantes.</div></li>
+<li><div class="para">La matrice de connexion <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(A = \begin{pmatrix} 0 \amp 1 \amp 0 \amp 1 \\ 1 \amp 0 \amp 1 \amp 0 \\ 0 \amp 1 \amp 0 \amp 1 \\ 1 \amp 0 \amp 1 \amp 0 \end{pmatrix}\text{.}\)</span>
+</div></li>
+</ul> <details xmlns:xlink="http://www.w3.org/1999/xlink" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="title">Rôle de la matrice de connexion.</span></h6></summary><article class="hiddenproof knowl__content"><div class="para">La matrice <span class="process-math">\(A\)</span> représente les connexions entre les nœuds du réseau. Chaque élément <span class="process-math">\(A_{ij}\)</span> vaut 1 si les nœuds <span class="process-math">\(i\)</span> et <span class="process-math">\(j\)</span> sont connectés, et 0 sinon. Par exemple, <span class="process-math">\(A_{12} = 1\)</span> signifie que les nœuds 1 et 2 sont connectés. Les éléments diagonaux <span class="process-math">\(A_{ii}\)</span> sont fixés à 0 pour indiquer qu’un nœud n’est pas connecté à lui-même.</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 33%; margin-left: 33.5%; margin-right: 33.5%;"><img src="external/images/network.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.97<span class="period">.</span></span><span class="space"> </span>Representation du réseaux étudié</figcaption></figure></article></details> <div xmlns:xlink="http://www.w3.org/1999/xlink" class="para"><em class="emphasis">Tâches :</em></div> <ol class="decimal" id="esperance-forme-quadratique-5-3-6">
+<li><div class="para">Calculez <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\mathbb{E}(X^\top A X)\)</span> en utilisant la formule <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\text{Tr}(A \Sigma) + \mu^\top A \mu\text{.}\)</span>
+</div></li>
+<li><div class="para">Interprétez le résultat en termes de nombre attendu de paires de nœuds actifs connectés.</div></li>
+</ol>
+<details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para"><em class="emphasis">Solution :</em></div>
+<ol class="decimal" id="esperance-forme-quadratique-5-4-2">
+<li><div class="para">
+<em class="emphasis">Calcul de <span class="process-math">\(\mathbb{E}(X^\top A X)\)</span> :</em><ul class="disc" id="esperance-forme-quadratique-5-4-2-1-2">
+<li><div class="para">La matrice de covariance <span class="process-math">\(\mathbf{\Sigma}(X)\)</span> est diagonale car les variables sont indépendantes :<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{\Sigma}(X) = \begin{pmatrix} 0.25 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0.24 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0.21 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0.16 \end{pmatrix}.
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">
+<span class="process-math">\(\text{Tr}(A \Sigma) = 0\)</span> (car <span class="process-math">\(A\Sigma\)</span> a des zéros sur la diagonale),</div></li>
+<li><div class="para"><span class="process-math">\(\mu^\top A \mu = 3.42\text{,}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\mathbb{E}(X^\top A X) = 0 + 3.42 = 3.42\text{.}\)</span></div></li>
+</ul>
+</div></li>
+<li><div class="para">
+<em class="emphasis">Interprétation :</em> En moyenne, 3.42 paires de nœuds actifs sont connectées dans le réseau.</div></li>
+</ol>
+</div></details></article><article class="task exercise-like"><h6 class="heading">
+<span class="codenumber">(d)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Modèle de vote avec dépendances.</span>
+</h6>
+<em xmlns:xlink="http://www.w3.org/1999/xlink" class="emphasis">Objectif :</em> Analyser comment les formes quadratiques peuvent modéliser les influences entre électeurs dans un système de vote.<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Vous étudiez un système de vote avec 3 électeurs. Chaque électeur <span class="process-math">\(X_i\)</span> vote pour un candidat (<span class="process-math">\(X_i = 1\)</span>) avec une probabilité <span class="process-math">\(p_i\)</span> ou s’abstient (<span class="process-math">\(X_i = 0\)</span>) avec une probabilité <span class="process-math">\(1-p_i\text{.}\)</span> Les votes peuvent être corrélés.</div> <div xmlns:xlink="http://www.w3.org/1999/xlink" class="para"><em class="emphasis">Données :</em></div> <ul class="disc" id="esperance-forme-quadratique-6-3-3">
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_1 \sim \mathscr B(0.6)\text{,}\)</span></div></li>
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_2 \sim \mathscr B(0.7)\text{,}\)</span></div></li>
+<li><div class="para"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_3 \sim \mathscr B(0.8)\text{.}\)</span></div></li>
+<li><div class="para">La corrélation entre <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_1\)</span> et <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_2\)</span> est <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\rho = 0.4\text{,}\)</span> et <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(X_3\)</span> est indépendant des deux autres.</div></li>
+<li><div class="para">La matrice de pondération <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(A = \begin{pmatrix} 1 \amp 0.5 \amp 0 \\ 0.5 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}\text{.}\)</span>
+</div></li>
+</ul> <details xmlns:xlink="http://www.w3.org/1999/xlink" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="title">Rôle de la matrice de pondération.</span></h6></summary><article class="hiddenproof knowl__content"><div class="para">La matrice <span class="process-math">\(A\)</span> représente les influences entre les électeurs. Chaque élément <span class="process-math">\(A_{ij}\)</span> quantifie l’influence de l’électeur <span class="process-math">\(j\)</span> sur l’électeur <span class="process-math">\(i\text{.}\)</span> Par exemple, <span class="process-math">\(A_{12} = 0.5\)</span> signifie que l’électeur 2 influence l’électeur 1 avec un poids de 0.5. Les éléments diagonaux <span class="process-math">\(A_{ii}\)</span> représentent l’importance intrinsèque de chaque électeur.</div></article></details> <div xmlns:xlink="http://www.w3.org/1999/xlink" class="para"><em class="emphasis">Tâches :</em></div> <ol class="decimal" id="esperance-forme-quadratique-6-3-6">
+<li><div class="para">Calculez la matrice de covariance <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\Sigma\text{.}\)</span>
+</div></li>
+<li><div class="para">Calculez <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\mathbb{E}(X^\top A X)\)</span> en utilisant la formule <span xmlns:xlink="http://www.w3.org/1999/xlink" class="process-math">\(\text{Tr}(A \Sigma) + \mu^\top A \mu\text{.}\)</span>
+</div></li>
+<li><div class="para">Interprétez le résultat en termes d’influence des électeurs sur le résultat du vote.</div></li>
+</ol>
+<details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para"><em class="emphasis">Solution :</em></div>
+<ol class="decimal" id="esperance-forme-quadratique-6-4-2">
+<li><div class="para">
+<em class="emphasis">Matrice de covariance :</em> <span class="process-math">\(\Sigma = \begin{pmatrix} 0.24 \amp 0.112 \amp 0 \\ 0.112 \amp 0.21 \amp 0 \\ 0 \amp 0 \amp 0.16 \end{pmatrix}. \)</span>
+</div></li>
+<li><div class="para">
+<em class="emphasis">Calcul de <span class="process-math">\(\mathbb{E}(X^\top A X)\)</span> :</em><ul class="disc" id="esperance-forme-quadratique-6-4-2-2-2">
+<li><div class="para"><span class="process-math">\(\text{Tr}(A \Sigma) = 0.722\text{,}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\mu^\top A \mu = 1.97\text{,}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\mathbb{E}(X^\top A X) = 0.722 + 1.97 = 2.692\text{.}\)</span></div></li>
+</ul>
+</div></li>
+<li><div class="para">
+<em class="emphasis">Interprétation :</em> L’espérance élevée reflète une forte influence des électeurs corrélés sur le résultat du vote.</div></li>
+</ol>
+</div></details></article></article><span class="incontext"><a class="internal" href="sec-espvaralea.html#esperance-forme-quadratique">Contexte</a></span>
+</body>
+</html>

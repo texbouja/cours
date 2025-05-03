@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Exercice</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">6<span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span></span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Déterminant de l’application résolvante.</span>
+</h3>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">On reprend les notations de l’exercice précédent.</div>
+<ul class="disc" id="determinant-resolvante-2-1">
+<li><div class="para">Montrer que<div class="displaymath process-math">
+\begin{equation*}
+\forall (t, s) \in I^2,\; \det\big(R(t, s)\big) = \exp\bigg(\int_s^t \tr\big(a(\theta)\big) \, d\theta\bigg)
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">On suppose que <span class="process-math">\(I = \R\)</span> et que l’application <span class="process-math">\(t \longmapsto \|a(t)\|\)</span> est intégrable sur <span class="process-math">\(\R\text{.}\)</span> Montrer qu’il existe <span class="process-math">\(\delta \gt 0\)</span> tel que<div class="displaymath process-math">
+\begin{equation*}
+\forall (t, s) \in \R^2,\; \det\big(R(t, s)\big) \geq \delta
+\end{equation*}
+</div>
+</div></li>
+</ul>
+</div>
+<details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical"><ul class="disc" id="determinant-resolvante-3-1-1">
+<li><div class="para">Fixons <span class="process-math">\(s \in I\text{.}\)</span> Soit <span class="process-math">\(\mathcal B = (e_1, e_2, \ldots, e_n)\)</span> la base qu’on a fixée dans <span class="process-math">\(E\text{.}\)</span> Les fonctions <span class="process-math">\(f_k : t \longmapsto R(t, s) \cdot e_k\)</span> sont des solutions de <span class="process-math">\((H)\)</span> et leur wronksien est<div class="displaymath process-math">
+\begin{equation*}
+W(t) = \det_{\mathcal B}(R(t, s) \cdot e_1, \ldots, R(t, s) \cdot e_n) = \det\big(R(t, s)\big)
+\end{equation*}
+</div>L’équation du wronksien donne ainsi<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt} \det\big(R(t, s)\big) = \tr\big(a(t)\big) \det \big(R(t, s)\big)
+\end{equation*}
+</div>Il existe donc un scalaire qui dépend de <span class="process-math">\(s\)</span> qu’on va noter <span class="process-math">\(\lambda(s)\)</span> tel que<div class="displaymath process-math">
+\begin{equation*}
+\forall t \in I,\; \det\big(R(t, s)\big) = \lambda(s) \exp\bigg(\int_s^t \tr\big(a(\theta)\big) \, d\theta\bigg)
+\end{equation*}
+</div>Mais comme <span class="process-math">\(\det\big(R(s, s)\big) = \det(\id_E) = 1\text{,}\)</span> alors <span class="process-math">\(\lambda(s) = 1\)</span> et ainsi<div class="displaymath process-math">
+\begin{equation*}
+\forall (t, s) \in I^2,\; \det\big(R(t, s)\big) = \exp\bigg(\int_s^t \tr\big(a(\theta)\big) \, d\theta\bigg)
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">La trace est une forme linéaire continue de <span class="process-math">\(\mathcal L(E)\)</span> donc il existe une constante <span class="process-math">\(c \gt 0\)</span> telle que<div class="displaymath process-math">
+\begin{equation*}
+\forall u \in \mathcal L(E),\; |\tr u| \leq c \|u\|
+\end{equation*}
+</div>On a donc<div class="displaymath process-math">
+\begin{equation*}
+\forall t \in \R,\; |\tr a(t)| \leq c \|a(t)\|
+\end{equation*}
+</div>Ce qui montre que l’application <span class="process-math">\(t \longmapsto \tr a(t)\)</span> est intégrable sur <span class="process-math">\(\R\text{.}\)</span> Posons alors<div class="displaymath process-math">
+\begin{equation*}
+T = \int_{-\infty}^{+\infty} \tr a(\theta) \, d\theta
+\end{equation*}
+</div>Soit un réel <span class="process-math">\(\alpha \gt 0\text{.}\)</span> Il existe un réel <span class="process-math">\(A \gt 0\)</span> tel que<div class="displaymath process-math">
+\begin{equation*}
+\forall (s, t) \in \R^2,\; |t| \gt A \text{ et } |s| \gt A \longrightarrow \bigg|\,T - \int_s^t \tr\big(a(\theta)\big) \, d\theta\,\bigg| \leq \alpha
+\end{equation*}
+</div>et donc<div class="displaymath process-math">
+\begin{equation*}
+\forall (t, s) \in \big(\R \setminus [-A, A]\big)^2,\; \int_s^t \tr\big(a(\theta)\big) \, d\theta \geq T - \alpha
+\end{equation*}
+</div>Ce qui implique que pour tout <span class="process-math">\((t, s)\)</span> en dehors du compact <span class="process-math">\([-A, A]^2\text{,}\)</span> on a<div class="displaymath process-math">
+\begin{equation*}
+\det\big(R(t, s)\big) \geq \e^{T - \alpha} \gt 0
+\end{equation*}
+</div>Sur le compact <span class="process-math">\([-A, A]^2\text{,}\)</span> l’application continue <span class="process-math">\((t, s) \longmapsto \det\big(R(t, s)\big)\)</span> est bornée et atteint ses bornes. Comme elle ne s’annule pas sur <span class="process-math">\([-A, A]^2\text{,}\)</span> alors sa borne inférieure est strictement positive. D’où l’existence d’un réel <span class="process-math">\(\delta \gt 0\)</span> tel que<div class="displaymath process-math">
+\begin{equation*}
+\forall (t, s) \in \R^2,\; \det\big(R(t, s)\big) \geq \delta
+\end{equation*}
+</div>
+</div></li>
+</ul></div></div></details></article><span class="incontext"><a class="internal" href="sec-eqdiff-exercices-approfondissement.html#determinant-resolvante">Contexte</a></span>
+</body>
+</html>

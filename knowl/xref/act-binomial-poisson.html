@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h6 xmlns:exsl="http://exslt.org/common" class="heading">
+<span class="type">Activité</span><span class="codenumber"> 2.6 - </span> <span class="title">Comportement asymptotique d’une loi binomiale.</span>
+</h6>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">On considère une suite <span class="process-math">\((p_n)_{n\in\N^*}\)</span> de nombres réels de <span class="process-math">\([0,1]\)</span> et on suppose que <span class="process-math">\(np_n\longrightarrow \lambda\in\R^*\text{.}\)</span> Soit pour tout <span class="process-math">\(n\in\N^*\)</span> une variable aléatoire <span class="process-math">\(X_n\)</span> qui suit la loi <span class="process-math">\(\mathscr B(n,p_n)\text{.}\)</span> Déterminer pour tout entier <span class="process-math">\(k\)</span> fixé, la limite de <span class="process-math">\(\Pr{X_n=k}\)</span> et donner une interprétation du résultat obtenu.</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Fixons <span class="process-math">\(k\in\N\)</span> et considérons un entier <span class="process-math">\(n\geqslant k\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Pr{X_n=k}=\binom nk p_n^k(1-p_n)^{n-k}= \frac1{k!}n(n-1)\cdots(n-k+1)p_n^k(1-p_n)^{n-k}
+\end{equation*}
+</div>
+<div class="para">
+<span class="process-math">\(p_n\sim\lambda/n\)</span> donc <span class="process-math">\((1-p_n)^k\longrightarrow 1\)</span> et donc <span class="process-math">\((1-p_n)^{n-k}\sim (1-p_n)^n\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+(1-p_n)^n \amp= \exp\Bigl(n\ln(1-p_n)\Bigr) \\
+\amp= \exp\Bigl(n\ln\bigl(1-\lambda/n+o(1/n)\bigl)\Bigr) \\
+\amp= \exp\Bigl(n\bigl(-\lambda/n+o(1/n)\bigr)\Bigr) \\
+(1-p_n)^n \amp\longrightarrow e^{-\lambda} 
+\end{align*}
+</div>
+<div class="para">D’un autre côté, puisque <span class="process-math">\(k\)</span> est fixé alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+n(n-1)\cdots (n-k+1)p_n^k\sim (np_n)^k\longrightarrow \lambda^k
+\end{equation*}
+</div>
+<div class="para">Ainsi <span class="process-math">\(\Pr{X_n=k}\longrightarrow \frac{\lambda^k}{k!}e^{-\lambda} \text{,}\)</span> ou encore</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall k\in\N^*,\; \Pr{X_n=k}\longrightarrow \Pr{X=k}
+\end{equation*}
+</div>
+<div class="para">où <span class="process-math">\(X\)</span> est une variable aléatoire qui suit la loi <span class="process-math">\(\mathscr P(\lambda)\text{.}\)</span> On dit que la suite <span class="process-math">\((X_n)_n\)</span> <dfn class="terminology">converge en loi</dfn>  vers <span class="process-math">\(X\text{.}\)</span>
+</div>
+</div>
+<div class="para">Ainsi, une variable aléatoire binomiale de paramètres <span class="process-math">\(n,p\)</span> se comporte lorsque <span class="process-math">\(n\)</span> est grand comme une loi de Poisson de paramètre <span class="process-math">\(\lambda\approx np\text{.}\)</span>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-varalea.html#act-binomial-poisson">Contexte</a></span>
+</body>
+</html>

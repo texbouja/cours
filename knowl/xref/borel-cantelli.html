@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">4<span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span></span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Lemme de Borel-Cantelli.</span>
+</h4>
+<div class="introduction"><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">Soit <span class="process-math">\((A_n)\)</span> une suite d’événements. On pose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \bigcap_{n \geq 0} \left( \bigcup_{k \geq n} A_k \right)
+\end{equation*}
+</div>
+<div class="para">
+<span class="process-math">\(A\)</span> est l’événement «<span class="process-math">\(A_k\)</span> se réalise pour une infinité d’indices <span class="process-math">\(k\)</span>».</div>
+</div></div>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Lemme 1 de Borel-Cantelli.</span>
+</h5>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que si la série <span class="process-math">\(\sum_{n \geq 0} \mathbb{P} (A_n)\)</span> converge alors <span class="process-math">\(\mathbb{P} (A) = 0\text{.}\)</span>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">Notons <span class="process-math">\(B_n = \bigcup_{k \geq n} A_k\text{.}\)</span> La suite <span class="process-math">\((B_n)\)</span> est décroissante donc <span class="process-math">\(\mathbb{P} (A) = \lim_{n \to +\infty} \mathbb{P} (B_n)\text{.}\)</span> D’après le cours, on sait que <span class="process-math">\(\mathbb{P} (B_n) \leq \sum_{k=n}^{+\infty} \mathbb{P} (A_k)\)</span> et comme la série <span class="process-math">\(\sum_{n \geq 0} \mathbb{P} (A_n)\)</span> converge,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{n \to +\infty} \sum_{k=n}^{+\infty} \mathbb{P} (A_k) = 0 \text{ (le reste tend vers 0)}.
+\end{equation*}
+</div>
+<div class="para">Conclusion : <span class="process-math">\(\mathbb{P} (A) = \lim_{n \to +\infty} \mathbb{P} (B_n) = 0\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Lemme 2 de Borel-Cantelli.</span>
+</h5>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">On suppose que les événements <span class="process-math">\(A_n\)</span> sont indépendants, montrer que si la série <span class="process-math">\(\sum_{n \geq 0} \mathbb{P} (A_n)\)</span> diverge alors <span class="process-math">\(\mathbb{P} (A) = 1\text{.}\)</span>
+</div>
+<div class="solutions">
+<details xmlns:xlink="http://www.w3.org/1999/xlink" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indication</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para">Montrer que pour tout <span class="process-math">\(n \geq 0\text{,}\)</span> <span class="process-math">\(\mathbb{P} \left( \bigcap_{k \geq n} (\Omega \setminus A_k) \right) = 0\)</span> et penser au logarithme qui transforme produit en somme...</div></div></details><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Omega \setminus A = \bigcup_{n \geq 0} \left( \bigcap_{k \geq n} (\Omega \setminus A_k) \right)\text{.}
+\end{equation*}
+</div>
+<div class="para">Montrons que pour tout <span class="process-math">\(n \geq 0\text{,}\)</span> <span class="process-math">\(\mathbb{P} \left( \bigcap_{k \geq n} (\Omega \setminus A_k) \right) = 0\text{,}\)</span> et on en déduit que <span class="process-math">\(\mathbb{P}(\Omega \setminus A) = 0\text{.}\)</span>
+</div>
+</div>
+<div class="para logical">
+<div class="para">Par décroissance de la famille <span class="process-math">\(\left( \bigcap_{k=n}^{N} (\Omega \setminus A_k) \right)\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbb{P} \left( \bigcap_{k \geq n} (\Omega \setminus A_k) \right) = \lim_{N \to +\infty} \mathbb{P} \left( \bigcap_{k=n}^{N} (\Omega \setminus A_k) \right).
+\end{equation*}
+</div>
+<div class="para">Or par indépendance, <span class="process-math">\(\mathbb{P} \left( \bigcap_{k=n}^{N} (\Omega \setminus A_k) \right) = \prod_{k=n}^{N} (1 - \mathbb{P}(A_k))\text{.}\)</span>
+</div>
+</div>
+<div class="para logical">
+<div class="para">Il suffit donc de démontrer que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{N \to +\infty} \prod_{k=n}^{N} (1 - \mathbb{P}(A_k)) = 0
+\end{equation*}
+</div>
+<div class="para">pour conclure.</div>
+</div>
+<div class="para">S’il existe un <span class="process-math">\(k \geq N\)</span> tel que <span class="process-math">\(\mathbb{P}(A_k) = 1\text{,}\)</span> le résultat est immédiat.</div>
+<div class="para logical">
+<div class="para">Dans le cas contraire, pour tout <span class="process-math">\(k \geq n\text{,}\)</span> <span class="process-math">\(1 - \mathbb{P}(A_k)  \gt 0\text{,}\)</span> on peut considérer le logarithme du produit et on utilise l’inégalité <span class="process-math">\(\ln(1 + x) \leq x\)</span> pour <span class="process-math">\(x  \gt -1\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\ln \left( \prod_{k=n}^{N} (1 - \mathbb{P}(A_k)) \right) = \sum_{k=n}^{N} \ln (1 - \mathbb{P}(A_k)) \leq -\sum_{k=n}^{N} \mathbb{P}(A_k) \underset{N \to +\infty}{\to} -\infty
+\end{equation*}
+</div>
+<div class="para">car</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n \geq 0} \mathbb{P}(A_n)
+\end{equation*}
+</div>
+<div class="para">diverge. Ainsi, le produit tend vers 0, et donc <span class="process-math">\(\mathbb{P} (A) = 1\text{.}\)</span>
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(c)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Application 1.</span>
+</h5>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para logical">
+<div class="para">Soit <span class="process-math">\((X_n)_{n \geq 0}\)</span> une suite de variables aléatoires et <span class="process-math">\(X\)</span> une variable aléatoire discrète. Pour <span class="process-math">\(\varepsilon  \gt 0\text{,}\)</span> on pose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_n (\varepsilon) = \{ |X_n - X|  \gt \varepsilon \}\text{.}
+\end{equation*}
+</div>
+<div class="para">Montrer que si pour tout <span class="process-math">\(\varepsilon  \gt 0\text{,}\)</span> la série <span class="process-math">\(\sum_{n \geq 0} \mathbb{P} (A_n (\varepsilon))\)</span> converge alors la suite <span class="process-math">\(X_n\)</span> converge presque sûrement vers <span class="process-math">\(X\text{,}\)</span> c’est-à-dire qu’il existe <span class="process-math">\(\mathcal{A}\)</span> tel que <span class="process-math">\(\mathbb{P} (\mathcal{A}) = 1\)</span> et pour tout <span class="process-math">\(\omega \in \mathcal{A}, \lim_{n \to +\infty} X_n (\omega) = X(\omega)\text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">D’après le lemme 1 de Borel-Cantelli, <span class="process-math">\(\mathbb{P}(B(\varepsilon)) = 0\)</span> avec <span class="process-math">\(B(\varepsilon) = \bigcap_{n \geq 0} \left( \bigcup_{k \geq n} A_k (\varepsilon) \right)\text{.}\)</span> Posons <span class="process-math">\(\mathcal{B} = \bigcup_{p \geq 1} B \left( \frac{1}{p} \right)\text{.}\)</span> On sait que <span class="process-math">\(\mathbb{P}(\mathcal{B}) = 0\text{.}\)</span> Soit <span class="process-math">\(\omega \in \Omega \setminus \mathcal{B}\text{.}\)</span> On a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\forall p \geq 1, \exists n \geq 0, \forall k \geq n, \omega \notin A_k \left( \frac{1}{p} \right)
+\end{equation*}
+</div>
+<div class="para">c’est-à-dire <span class="process-math">\(\forall p \geq 1, \exists n \geq 0, \forall k \geq n, |X_k (\omega) - X(\omega)| \leq \frac{1}{p}\)</span> ce qui est équivalent à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{n \to +\infty} X_k (\omega) = X(\omega).
+\end{equation*}
+</div>
+<div class="para">Ainsi, sur <span class="process-math">\(\mathcal{A} = \Omega \setminus \mathcal{B}\)</span> de probabilité 1, on a pour tout <span class="process-math">\(\omega \in \mathcal{A}, \lim_{n \to +\infty} X_n (\omega) = X(\omega)\text{.}\)</span>
+</div>
+</div></div></details></div></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(d)</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Application 2.</span>
+</h5>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">On tape aléatoirement un texte au clavier, chaque caractère étant équiprobable. Montrer que presque sûrement le texte tapé (supposé très grand) contiendra n’importe quel ouvrage littéraire connu.</div>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Soit <span class="process-math">\(X_n\)</span> la variable aléatoire représentant le caractère tapé à la <span class="process-math">\(n^e\)</span> étape. Les variables aléatoires <span class="process-math">\((X_n)_n \in \mathbb{N}\)</span> sont indépendantes (et de même loi).</div>
+<div class="para">On considère un texte d’un ouvrage littéraire connu (il y en a un nombre fini). Soit <span class="process-math">\(\ell\)</span> sa longueur et <span class="process-math">\((c_i)_i \in [1, \ell]\)</span> ce texte codé en suite de caractères.</div>
+<div class="para">Posons <span class="process-math">\(A_k = \{\forall i \in [1, \ell], X_{k+i} = c_i \}\text{.}\)</span> Il est clair que les événements <span class="process-math">\((A_{\ell k})_{k \geq 0}\)</span> sont indépendants et que pour tout <span class="process-math">\(k \geq 0\text{,}\)</span> <span class="process-math">\(\mathbb{P}(A_{\ell k}) = \frac{1}{N^\ell}\)</span> où <span class="process-math">\(N\)</span> est le nombre de caractères possibles.</div>
+<div class="para logical">
+<div class="para">Comme la série (à terme général constant)</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k \geq 0} \mathbb{P}(A_{\ell k})
+\end{equation*}
+</div>
+<div class="para">diverge, le lemme 2 de Borel-Cantelli nous permet d’affirmer que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbb{P}\left(\bigcap_{n \geq 0}\left(\bigcup_{k \geq n} A_{\ell k}\right)\right)=1.
+\end{equation*}
+</div>
+<div class="para">Ainsi, de façon presque sûre, le texte tapé contiendra une infinité de fois le texte littéraire que nous avons choisi. Comme il existe un nombre fini de textes littéraires, de façon presque sûre, le texte tapé contient à terme tous les textes littéraires une infinité de fois. Ce « paradoxe » dit de Borel s’explique par le fait que les apparitions (en moyenne) de tels textes sont extrêmement rares et dépassent largement l’espérance de vie d’un être humain...</div>
+</div>
+</div></details></div></article></article><span class="incontext"><a class="internal" href="sec-probas-exercices.html#borel-cantelli">Contexte</a></span>
+</body>
+</html>

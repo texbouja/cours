@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Exercice</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="codenumber">13<span xmlns:xlink="http://www.w3.org/1999/xlink" class="period">.</span></span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="space"> </span><span class="title">Solutions périodiques d’une EDLS du second ordre.</span>
+</h3>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soit <span class="process-math">\(p\)</span> une fonction continue <span class="process-math">\(T\)</span>-périodique sur <span class="process-math">\(\R\text{.}\)</span> On considère l’équation</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="displaymath process-math">
+\begin{equation*}
+x''+p(t)x=0
+\end{equation*}
+</div>
+<div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Soit <span class="process-math">\((f_1,f_2)\)</span> le sfs canonique de <span class="process-math">\((H)\)</span> en <span class="process-math">\(0\text{.}\)</span> On note <span class="process-math">\(w\)</span> son wronksien.</div> <ol class="lower-alpha lower-alpha-level-1" id="solutions-periodiques-scalar-2nd-2-4">
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que <span class="process-math">\(w\equiv 1\text{.}\)</span>
+</div></li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que <span class="process-math">\((H)\)</span> admet au moins une solution <span class="process-math">\(T\)</span>-périodique non nulle si et seulement si <span class="process-math">\(f_1(T)+f_2'(T)=2\text{.}\)</span>
+</div></li>
+<li><div xmlns:xlink="http://www.w3.org/1999/xlink" class="para">Montrer que <span class="process-math">\((H)\)</span> admet au moins une solution non nulle <span class="process-math">\(f\)</span> telle que <span class="process-math">\(f(t+T)=-f(t)\)</span> si et seulement si <span class="process-math">\(f_1(T)+f_2'(T)=-2\text{.}\)</span>
+</div></li>
+</ol>
+<div class="solutions"><details xmlns:xlink="http://www.w3.org/1999/xlink" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><ol class="lower-alpha lower-alpha-level-1" id="solutions-periodiques-scalar-2nd-3-1">
+<li><div class="para">Puisque l’équation est normale tous ses wronksiens sont constants (<span class="process-math">\(w'=0\)</span>). Les solutions <span class="process-math">\(f_1\)</span> et <span class="process-math">\(f_2\)</span> sont définies par les conditions <span class="process-math">\(f_1(0)=f_2'(0)=1\)</span> et <span class="process-math">\(f_1'(0)=f_2(0)=0\)</span> donc leurs wronksien <span class="process-math">\(w\)</span> vérifie <span class="process-math">\(w(0)=f_1(0)f_2'(0)-f_1(0)f_2'(0)=1\text{.}\)</span> Alors <span class="process-math">\(w\equiv1\text{.}\)</span>
+</div></li>
+<li>
+<div class="para">Soit <span class="process-math">\(f\)</span> une solution de <span class="process-math">\((H)\text{.}\)</span> Posons</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f=\lambda f_1+\mu f_2
+\end{equation*}
+</div>
+<div class="para">On considère la fonction <span class="process-math">\(g:t\longmapsto f(t+T)\text{.}\)</span> Puisque <span class="process-math">\(p\)</span> est <span class="process-math">\(T\)</span>-périodique alors <span class="process-math">\(g\)</span> est aussi une solution de <span class="process-math">\((H)\text{.}\)</span> Elle est égale à <span class="process-math">\(f\)</span> si et seulement si <span class="process-math">\(f(0)=g(0)\)</span> et <span class="process-math">\(f'(0)=g'(0)\text{.}\)</span> Ce qui équivaut à <span class="process-math">\(\lambda
+=\lambda f_1(T)+\mu f_2(T)\)</span> et <span class="process-math">\(\mu =\lambda f_1'(T)+\mu f_2'(T)\text{.}\)</span> Ainsi <span class="process-math">\((H)\)</span> admet une solution <span class="process-math">\(T\)</span>-périodique non nulle si et seulement si le système linéaire d’inconnues <span class="process-math">\(\lambda\)</span> et <span class="process-math">\(\mu\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{cases} (f_1(T)-1)\lambda +f_2(T)\mu=0 \\ f_1'(T)\lambda+(f_2'(T)-1)\mu=0  \end{cases}
+\end{equation*}
+</div>
+<div class="para">admet au moins une solution non nulle. Ce qui équivaut à dire que le déterminant <span class="process-math">\(\Delta\)</span> de ce système est nul. Comme</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Delta=(f_1(T)-1)(f_2'(T)-1)-f_1'(T)f_2(T)=
+w(T)-f_1(T)-f_2'(T)+1=2-f_1(T)-f_2'(T)
+\end{equation*}
+</div>
+<div class="para">alors <span class="process-math">\((H)\)</span> admet au moins une solution <span class="process-math">\(T\)</span>-périodique non nulle si et seulement si <span class="process-math">\(f_1(T)+f_2'(T)=2\text{.}\)</span> Dans ce cas toute solution <span class="process-math">\(f\)</span> de <span class="process-math">\((H)\)</span> qui vérifie <span class="process-math">\(f(0)=\lambda\)</span> et <span class="process-math">\(f'(0)=\mu\)</span> où <span class="process-math">\((\lambda,\mu)\)</span> est une solution de <span class="process-math">\((ER)\)</span> est <span class="process-math">\(T\)</span>-péridodique.</div>
+<div class="para">Pour faire le lien avec les résultats déjà démontrés en exercice concernant les solutions périodique d’un système différentiel linéaire du premier ordre observons que :</div>
+<ol class="lower-roman" id="solutions-periodiques-scalar-2nd-3-1-2-9">
+<li><div class="para">La condition donnée équivaut à ce que <span class="process-math">\(1\)</span> soit une <abbr class="acronym">VAP</abbr> de la matrice <span class="process-math">\(r(T)=\smash[b]{\left(\begin{smallmatrix} f_1(T) \amp  f_2(T) \\
+f_1'(T) \amp  f_2'(T)\end{smallmatrix}\right)}\)</span>
+</div></li>
+<li><div class="para">Si <span class="process-math">\(A(t)=\left(\begin{smallmatrix}0\amp 1\\-q(t)\amp 0\end{smallmatrix}\right)\)</span> alors l’application <span class="process-math">\(r:t\longmapsto \left(\begin{smallmatrix} f_1(t) \amp  f_2(t) \\
+f_1'(t) \amp  f_2'(t)\end{smallmatrix}\right)\)</span> est l’unique solution de l’edl <span class="process-math">\(U'=A(t)U\)</span> telle que <span class="process-math">\(U(0)=I_2\text{.}\)</span>
+</div></li>
+</ol>
+</li>
+<li>
+<div class="para">Une solution <span class="process-math">\(f\)</span> non nulle de <span class="process-math">\((H)\)</span> vérifiera <span class="process-math">\(f(t+T)=-f(t)\)</span> si et seulement si <span class="process-math">\(f(T)=-f(0)\)</span> et <span class="process-math">\(f'(T)=-f(0)\text{.}\)</span> En posant <span class="process-math">\(f=\lambda
+f_0+\mu f_1\text{,}\)</span> ces conditions équivalent à</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{cases} (f_1(T)+1)\lambda +f_2(T)\mu=0 \\ f_1'(T)\lambda+(f_2'(T)+1)\mu=0  \end{cases}
+\end{equation*}
+</div>
+<div class="para">Ce qui équivaut cette fois à <span class="process-math">\(f_1(T)+f_2'(T)=-2\text{.}\)</span>
+</div>
+</li>
+</ol></div></details></div></article><span class="incontext"><a class="internal" href="sec-eqdiff-exercices-approfondissement.html#solutions-periodiques-scalar-2nd">Contexte</a></span>
+</body>
+</html>
