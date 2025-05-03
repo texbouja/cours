@@ -1,0 +1,786 @@
+
+
+\section{Équations différentielles linéaires scalaires d'ordre $p\geq2$}
+
+\subsection{Le cadre général}
+
+\begin{genthm}{Conventions et notations}
+$p$ désignera un entier strictement positif.
+
+On considère des fonctions continues $a_0,a_1,\ldots,a_{p-1},\varphi$ de $I$ dans $\K$.
+
+\unite L'équation différentielle
+\formule{$
+x^{(p)}+a_{p-1}(t)x^{(p-1)}+\cdots+a_1(t)x'+a_0(t)x=\varphi(t)
+$}[$(E)$]
+est dite une équations différentielle linéaire scalaire d'ordre $p$. Une solution de $(E)$ sur $I$ est par définition une fonction $f:I\lra \K$ de classe $\mathcal C^p$ telle que
+\formule{$
+\forall t\in I,\; f^{(p)}(t)+a_{p-1}(t)f^{(p-1)}(t)+\cdots+a_1(t)f'(t)+a_0(t)f(t)=\varphi(t)
+$}
+On notera $S_I(E)$ l'ensemble de ces solutions.
+\unite L'équation homogène de $(E)$ est l'équation différentielle
+\formule{$
+x^{(p)}+a_{p-1}(t)x^{(p-1)}+\cdots+a_1(t)x'+a_0(t)x=0
+$}[$(H)$]
+\unite Soient $t_0\in I$ et $x_0,x_1,\ldots,x_{p-1}\in\K$.
+Une fonction $f:I\lra \K$ est dite une solution sur $I$ du  problème de Cauchy :
+\formule{$\bca
+x^{(p)}+a_{p-1}(t)x^{(p-1)}+\cdots+a_1(t)x'+a_0(t)x=\varphi(t) \\
+x(t_0)=x_0,\; x'(t_0)=x_1,\;\ldots,\; x^{(p-1)}(t_0)=x_{p-1}
+\eca$}
+si c'est une solution de $(E)$ sur $I$ qui vérifie
+\formule{$f(t_0)=x_0$, $f'(t_0)=x_1,\;\ldots,\; f^{(p-1)}(t_0)=x_{p-1}$}
+\unite En posant $X={}^t\big(x\; x'\;\cdots x^{(p-1)}\big)$, l'équation $(E)$ se ramène au système différentiel linéaire du premier ordre :
+\formule{$
+X'=A(t)X+\Phi(t)
+$}[$(S)$]
+\formule[avec]{$
+A(t)=\begin{pmatrix} 0&1&0 &\cdots & 0 \\
+\vdots & \ddots & \ddots &\ddots&\vdots \\
+\vdots && \ddots &\ddots&0 \\
+0 &\cdots&&0&1\\
+-a_0(t) & -a_1(t) & \cdots && -a_{p-1}(t)
+\end{pmatrix} \quad
+\Phi(t)=\begin{pmatrix} 0\\  \vdots \\ 0 \\ \varphi(t) \end{pmatrix}
+$}
+On notera $(SH)$ le système homogène de $(S)$.
+\nb $A(t)$ est une matrice compagne pour tout $t\in I$.\endnb
+\end{genthm}
+
+\begin{prop}
+Une fonction $f:I\lra\K$ de classe $\mathcal C^p$ est une solution de $(E)$ (resp. de $(H)$) sur $I$ si et seulement si la fonction $\V f:I\lra \mathcal M_{p,1}(\K)$ définie par
+\formule{$
+\forall t\in I,\; \V f(t)={}^t\big(f(t)\quad f'(t)\; \cdots\; f^{(p-1)}(t)\big)
+$}
+est une solution du système différentiel $(S)$ (resp. de $(SH)$) sur $I$.
+
+En outre, l'application
+\formule{$
+\V:\fct{\mathcal C^p(I,\K)}{\mathcal C^1(I,\mathcal M_{p,1}(\K))}f{\V f}
+$}
+induit une bijection de $S_I(E)$ sur $S_I(S)$ (resp. de $S_I(H)$ sur $S_I(SH)$).
+\nb $\V$\; induit un isomorphisme entre les $\K$-ev $S_I(H)$ et $S_I(SH)$.\endnb
+\end{prop}
+
+\begin{theo}[important](de Cauchy-Lipschitz)
+Pour tout $(t_0,x_0,\ldots,x_{p-1})\in I\times \K^p$, il existe une unique solution $f$ de $(E)$ sur $I$ telle que
+\formule{$
+f(t_0)=x_0,\; f'(t_0)=x_1,\ldots,f^{(p-1)}(t_0)=x_{p-1}
+$}
+\end{theo}
+
+\begin{coro}
+\xit+ $S_I(H)$ est un $\K$-ev de dimension $p$.
+\xit $S_I(E)=f_0+S_I(H)$ pour toute solution $f_0$ de $(E)$ sur $I$.
+\exit
+\end{coro}
+
+\begin{voca}
+Soient $f_1,f_2,\ldots,f_p$ des solutions de l'équation homogène $(H)$.
+Nous dirons que $(f_1,f_2,\ldots,f_p)$ est un système fondamental de solutions $(H)$ si c'est une base de $S_I(H)$. Nous appellerons wronksien des solutions $f_1,f_2,\ldots,f_p$, le wronksien $W$ de $(\V f_1,\V f_2,\ldots,\V f_p)$ dans la base canonique de $\mathcal M_{p,1}(\K)$ :
+\formule{$
+\forall t\in I, W(t)=\begin{vmatrix}
+f_1(t) & f_2(t) & \cdots & f_p(t) \\
+f_1'(t) & f_2'(t) & \cdots & f_p'(t) \\
+\vdots & \vdots && \vdots \\
+f_1^{(p-1)}(t) & f_2^{(p-1)}(t) & \cdots & f_p^{(p-1)}(t)
+\end{vmatrix}
+$}
+\end{voca}
+
+
+\begin{prop}
+Soient $f_1,f_2,\ldots,f_p$ des solutions de l'équation homogène $(H)$. Soit $W$ leur wronksien. Grâce à l'isomorphisme induit par $\V$, les assertions suivantes sont équivalentes
+\xit+(|i|) $(f_1,f_2,\ldots,f_p)$ est un système fondamental de solutions de $(H)$ ;
+\xit $(\V f_1,\V f_2,\ldots,\V f_p)$ est un système fondamental de solutions de $(SH)$ ;
+\xit $\forall t\in I,\; W(t)\ne0$ ;
+\xit $\exists t_0\in I\;;\; W(t_0)\ne0$.
+\exit
+\end{prop}
+
+\begin{prop}
+Rappelons l'écriture de l'équation homogène $(H)$
+\formule{$
+x^{(p)}+a_{p-1}(t)x^{(p-1)}+\cdots+a_1(t)x'+a_0(t)x=0
+$}
+Avec les notations de la proposition précédente, l'équation du wronksien donne ici
+\formule{$
+\forall t\in I,\; W'(t)+a_{p-1}(t)W(t)=0
+$}
+\nb Les wronksiens des solutions de $(H)$ ne dépendent que de la fonction $a_{p-1}$.\endnb
+\end{prop}
+
+\begin{prop}(Sur la variation des constantes)
+Rappelons l'écriture de l'équation complète $(E)$
+\formule{$
+x^{(p)}+a_{p-1}(t)x^{(p-1)}+\cdots+a_1(t)x'+a_0(t)x=\varphi(t)
+$}
+On suppose qu'on connait un système fondamental $(f_1,f_2,\ldots,f_p)$ de solutions de l'équation homogène $(H)$. En posant
+$\V f(t)=\lambda_1 \V f_1(t)+\V f_2(t)+\cdots+\V f_p(t)$ on a
+\formule{$
+(E)\Llra\left\{\begin{array}{c@{\;+\;}c@{\;+\;}c@{\;+\;}c@{\;=\;}l}
+f_1(t)\lambda_1'(t) & f_2(t)\lambda_2'(t) & \cdots & f_p(t)\lambda_p'(t) & 0 \\
+f_1'(t)\lambda_1'(t) & f_2'(t)\lambda_2'(t) & \cdots & f_p'(t)\lambda_p'(t) & 0 \\
+\multicolumn{5}{c}{\vdots} \\
+f_1^{(p-2)}(t)\lambda_1'(t) & f_2^{(p-2)}(t)\lambda_2'(t) & \cdots & f_p^{(p-2)}(t)\lambda_p'(t) & 0 \\
+f_1^{(p-1)}(t)\lambda_1'(t) & f_2^{(p-1)}(t)\lambda_2'(t) & \cdots & f_p^{(p-1)}(t)\lambda_p'(t) & \varphi(t)
+\end{array}\right.$}
+\end{prop}
+
+\subsection{Le cas d'une équation à coefficients constants}
+
+\begin{theo}(Solution d'une \textsc{edl} scalaire  homogène à coefficients constants)<eqscal>
+Soient des scalaires $b_0,b_1,\ldots,b_{p-1}\in \K$. On considère l'équation différentielle linéaire scalaire homogène d'ordre $p$ dite à coefficients constants
+\formule{$
+x^{(p)}+b_{p-1}x^{(p-1)}+\cdots+b_1 x'+b_0x=0
+$}[$(H)$]
+On appelle polynôme caractéristique de $(H)$ le polynôme
+\formule{$
+P=X^p+b_{p-1}X^{p-1}+\cdots+b_1X+b_0
+$}
+\nb Les solutions de $(H)$ sont en fait de classe $\mathcal C^\infty$ sur $\R$.\endnb
+\xit+ Si $P$ est scindé sur $\K$, $P=\prod_{k=1}^r(X-\lambda_k)^{\alpha_k}$ où $\lambda_1,\lambda_2,\ldots,\lambda_r$ sont les racines distinctes de $P$ alors
+\formule{$
+S_\R(H)=\Big\{t\mapsto\sum_{k=1}^rQ_k(t)\e^{\lambda_k t}\mid \forall k\in\iic{1,r},\;
+Q_k\in\K_{\alpha_k-1}[X]\Big\}
+$}
+\xit Si $\K=\R$ mais $P$ n'est pas scindé sur $\R$ :
+\formule{$P=\prod_{k=1}^s(X-\mu_k)^{\beta_k}\prod_{k=1}^r(X-\lambda_k)^{\alpha_k}(X-\OV\lambda_k)^{\alpha_k}$}
+où $\mu_1,\ldots,\mu_s$ sont les racines réelles éventuelles de $P$ et $\lambda_1,\ldots,\lambda_r$ ses racines complexes non réelles alors les solutions réelles de $(H)$ sur $\R$ sont les fonctions
+\formule{$
+t\mapsto\sum_{k=1}^sQ_k(t)\e^{\mu_k t}+
+\sum_{k=1}^r\big(U_k(t)\cos(t\im\lambda_k)+V_k(t)\sin(t\im\lambda_k)\big)\e^{t\re\lambda_k}
+$}
+Où $Q_k\in\R_{\beta_k-1}[X]$ et $U_k,V_k\in\R_{\alpha_k-1}[X]$ sont des polynômes quelconques.
+\nb Les solutions réelles de $(H)$ sont les parties réelles de ses solutions complexes.
+\endnb
+\exit
+\end{theo}
+
+\begin{remas}(Commentaires sur la démonstration du théorème \ref{theo:eqscal})
+Quelques aspects simples qui sont à la base de la démonstration du théorème précédent mais qui ont un intérêt intrinsèque. On introduit l'opérateur
+\formule{$
+D:\fct{\mathcal C^{\infty}(\R,\C)}{\mathcal C^{\infty}(\R,\C)}{f}{f'}
+$}
+\unite Soit $\lambda\in\C$. La famille formée des fonctions $f_n:t\longmapsto t^n\e^{\lambda t}$ est libre.
+
+\dem Il suffit de remarquer que si $Q(t)\e^{\lambda t}=0$ pour tout $t\in\C$, $Q$ étant un polynôme de $\C[X]$ alors $Q(t)=0$ pour tout $t\in\R$, soit $Q=0$.
+\enddem
+
+\unite Soit un polynôme $P=\sum_{k=0}^pa_kX^k\in\C[X]$ de degré $p$ donné. Considérons l'\textsc{edls} homogène d'ordre $p$
+\formule{$
+a_px^{(p)}+a_{p-1}x^{(p-1)}+\cdots a_1x'+a_0x=0
+$}[(H)]
+Alors $P$ est associé au polynôme caractéristique de $(H)$ et on a
+\formule{$S_\R(H)=\ker P(D)$}
+En particulier $\dim \ker P(D)=\deg P$.
+\unite Si $P=(X-\lambda)^\alpha$ où $\lambda\in\C$ et $\alpha\in\N^*$ alors
+\formule{$
+\ker P(D)=\big\{t\longmapsto Q(t)\e^{\lambda t}\mid Q\in\C_{\alpha-1}[X]\big\}
+$}
+\dem Observons que si $Q\in\C[X]$ et $f:t\longmapsto Q(t)\e^{\lambda t}$ alors
+\formule{$
+(D-\lambda\id)\cdot f(t)=\big(Q'(t)+\lambda Q(t)-\lambda Q(t)\big)\e^{\lambda t}=
+Q'(t)\e^{\lambda t}
+$}
+\begin{develop}
+Et donc pour tout $k\in\N$, &
+\Aboxed{(D-\lambda\id)^k\cdot f(t)&=
+Q^{(k)}(t)\e^{\lambda t}} \\
+Si $\deg Q<\alpha$ alors &
+(D-\lambda\id)^\alpha\cdot f&=0
+\end{develop}
+$\ker (D-\lambda)^\alpha$ est de dimension $\alpha$ et il contient  les $\alpha$ fonctions $t\longmapsto t^k\e^{\lambda t}$, $k\in\iic{0,\alpha-1}$ qui forment une famille libre. Elle en constituent donc une base. D'où le résultat.
+\enddem
+
+\unite Si $P$ est scindé sous la forme $P=a\prod_{k=1}^r(X-\lambda_k)^{\alpha_k}$ , où $\lambda_1,\ldots,\lambda_r$ sont deux à deux distincts alors le résultat précédent et le théorème de décomposition des noyaux impliquent que
+\formule{$
+\ker P(D)=\Big\{t\mapsto\sum_{k=1}^rQ_k(t)\e^{\lambda_k t}\mid \forall k\in\iic{1,r},\;
+Q_k\in\K_{\alpha_k-1}[X]\Big\}
+$}
+
+\unite Une conséquence  de ce qui précède : si $\lambda_1,\lambda_2,\ldots,\lambda_r$ sont des scalaires deux à deux distincts et $Q_1,Q_2,\ldots,Q_r$ des polynômes quelconques alors
+\formule{$
+\Big(\forall t\in\R,\; \sum_{k=1}^rQ_k(t)\e^{\lambda_k t}=0\Big)\Lra
+\forall k\in\iic{1,r},\; Q_k=0
+$}
+
+\unite<remess> Soit $P\in\C[X]$ de degré $p$. La formule de Taylor  permet d'écrire : \formule{$
+P=\sum_{k=0}^p\frac{P^{(k)}(\lambda)}{k!}(X-\lambda)^k
+$}
+Donc selon la relation \ref{petiteeq}, pour tout $f:t\longmapsto Q(t)\e^{\lambda t}$, où $Q\in\C[X]$,
+\formule{$
+P(D)\cdot f(t)=\Big(\sum_{k=0}^p\frac{P^{(k)}(\lambda)}{k!}Q^{(k)}(t)\Big)\e^{\lambda t}
+$}
+Où on constate que $P(D)\cdot f(t)$ est de la forme $R(t)\e^{\lambda t}$ avec
+$\deg R=\deg Q-\beta$, $\beta$ étant la multiplicité de $\lambda$ en tant que racine de $P$, avec la convention $\beta=0$ si $\lambda$ n'est pas une racine de $P$.
+\nb Cette observation est à la base de la remarque suivante sur la recherche de solutions particulières d'une \textsc{edls} à coefficients constants dans le cas où le second membre est de la forme $R(t)\e^{\lambda t}$.
+\endnb
+\end{remas}
+
+\begin{genthm}{Solution particulière}
+  (dans le cas où $\varphi(t)=R(t)\e^{\lambda t}$)
+ Soient $P,R\in\C[X]$ et $\lambda\in\C$. Considérons l'\textsc{edls} à coefficients constants
+\formule{$
+P(D)\cdot x=R(t)\e^{\lambda t}
+$}[(E)]
+Alors $(E)$ admet  une solution unique de la forme $f:t\longmapsto t^\beta Q(t)\e^{\lambda t}$, où $Q$ est un polynôme de même degré que $R$ et $\beta$ est la multiplicité de $\lambda$ en tant que racine de $P$ (avec $\beta=0$ si $\lambda$ n'est pas une racine de $P$).
+
+\dem
+En posant pour l'instant $f(t)=Q(t)\e^{\lambda t}$ alors selon la remarque \ref{remas:remess}, $f$ est une solution de $(E)$ si et seulement si
+\formule{$
+\sum_{k=0}^p\frac{P^{(k)}(\lambda)}{k!}Q^{(k)}=R
+$}
+Par définition de $\beta$ on a $P(\lambda)=\cdots=P^{(\beta-1)}(\lambda)=0$ et $P^{(\beta)}(\lambda)\ne0$ donc cela équivaut~à
+\formule{$
+\sum_{k=\beta}^p\frac{P^{(k)}(\lambda)}{k!}Q^{(k)}=R
+$}
+Le polynôme à gauche de cette égalité a le même degré que $Q^{(\beta)}$, soit $\deg Q-\beta$, d'où l'idée de remplacer $Q$ par $X^\beta Q$. Dans ce cas $Q$ serait de même degré que $R$ et l'égalité précédente équivallerait à
+\formule*{$
+\sum_{k=\beta}^p\frac{P^{(k)}(\lambda)}{k!}(X^\beta Q)^{(k)}=R
+$}[eqsecmem]
+En posant $r=\deg R$, il suffit maintenant de remarquer que l'application
+\formule{$
+\phi:\fct{\C_r[X]}{\C_r[X]}{Q}{\sum_{k=\beta}^p\frac{P^{(k)}(\lambda)}{k!}(X^\beta Q)^{(k)}}
+$}
+est un endomorphisme de $\C_r[X]$ qui est injectif car il conserve le degré. C'est donc  un isomorphisme de $\C_r[X]$. Il existe donc un unique polynôme $Q$ de degré $\leq r$ (et donc $\deg Q=r$) qui vérifie \eqref{eqsecmem}. La fonction $f:t\longmapsto t^\beta Q(t)\e^{\lambda t}$ est  une solution de $(E)$.
+\enddem
+
+\nb Une fonction de la forme plus générale $h:t\longmapsto U(t)\e^{\lambda t}$ avec $U\in\C[X]$ est une solution de $(E)$ si et seulement si $h-f$ est une solution de l'équation homogène $(H)$. Comme $h(t)-f(t)=\big(U(t)-t^\beta Q(t)\big)\e^{\lambda t}$ alors ceci n'est possible que si $U-X^kQ$ est un polynôme de degré $<\beta$.
+\endnb
+\end{genthm}
+
+\begin{exem}
+\unite Trouver les solutions complexes de l'\textsc{edls} : $x'''-3x'+2x=0$
+\unite Trouver les solutions réelles de l'\textsc{edls} : $x^{(4)}-2x'''+3x''+x=0$.
+\end{exem}
+
+
+\subsection{Exercices d'approfondissement}
+
+\begin{exer}
+Dans cet exercice, on résume les connaissances de base sur la résolution d'une équation différentielle linéaire scalaire à coefficients constants.
+
+Soit  $E=\mathcal C^\infty(\R,\C)$. On note $D$ l'opérateur de dérivation de $E$ et pour tout $\lambda\in\C$, $T_\lambda$ l'endomorphisme de $E$ défini par
+\formule{$
+\forall f\in E,\forall t\in \R,\; T_\lambda f(t)=f(t)\e^{\lambda t}
+$}
+
+On considère dans la suite un polynôme non constant $P\in\C[X]$.
+\xit+
+\formule[Montrer que]{$
+\forall \lambda\in\C,\; P(D-\lambda\id)=T_\lambda\circ P(D)\circ T_{-\lambda}
+$}
+\xit Montrer que pour tous $\lambda\in\C$ et $p\in\N^*$,
+\formule{$
+\ker(D-\lambda\id)^p=\{t\longmapsto Q(t)\e^{\lambda t}\mid Q\in\C_{p-1}[X]\}
+$}
+\xit
+\formule[Décrire les solutions de l'\textsc{edls}]{$P(D)\cdot x=0$}[(H)]
+\xit  Soit $n\in\N$. Montrer que $P(D)$ induit un endomorphisme inversible sur $\C_n[X]$ si et seulement si $P(0)\ne0$.
+\xit Soient $R\in\C[X]$ et $\lambda\in\C$. Montrer que l'\textsc{edls}
+\formule{$
+P(D)\cdot x=R(t)\e^{\lambda t}
+$}[(E)]
+admet une solution unique de la forme $t\longmapsto t^\beta Q(t)\e^{\lambda t}$ où $Q$ est un polynôme de même degré que $R$ et $\beta$ est la multiplicité de $\lambda$ en tant que racine de $P$ (avec $\beta=0$ si $\lambda$ n'est pas une racine de $P$). Décrire les solutions de $(E)$.
+\exit
+\end{exer}
+
+\section{Équations linéaires scalaires du deuxième ordre}
+
+\begin{genthm}[important=]{Avertissement}
+Sous le thème des équations différentielles, les équations linéaires scalaires du deuxième ordre sont les équations les plus fréquemment abordées dans les sujets de concours.
+\end{genthm}
+
+\begin{genthm}{Conventions et notations}
+Soient $a,b,c$ et $\varphi$ des applications continues de $I$ dans $\K$. On considère l'\textsc{edls} du deuxième ordre
+\formule{$
+a(t)x''+b(t)x'+c(t)x=\varphi(t)
+$}[(E)]
+Une solution de $(E)$ sur $I$ est une fonction $f:I\longmapsto \K$ telle que
+\begin{cond}
+& $f$ est deux fois dérivable sur $I$ ;\\
+& $\forall t\in I,\; a(t)f''(t)+b(t)f'(t)+c(t)f(t)=\varphi(t)$
+\end{cond}
+
+L'équation $(E)$ est dite normalisée si $a$ est constante de valeur $1$ et normalisable si $a$ ne s'annule pas sur $I$.
+\nb Si $(E)$ est normalisable alors elle est équivalente à l'équation normalisée obtenu en la divisant par $a(t)$. En général $(E)$ est équivalente à toute équation de la forme
+\formule{$a(t)\omega(t)x''+b(t)\omega(t)x'+c(t)\omega(t)x=\varphi(t)\omega(t)$}
+où $\omega$ est une fonction continue qui ne s'annule pas sur $I$.
+\endnb
+Attention donc, les résultats du cadre général ne sont applicables à $(E)$ que si elle est normalisable. En particulier la dimension de l'ensemble $S_I(H)$ des solutions de l'équation homogène peut être strictement supérieure à $2$.
+
+Dans le cas où $(E)$ est normalisable, elle équivaut au système différentiel
+\formule{$
+X'=A(t)X+B(t)
+$}[(SE)]
+\formule[où]{$
+X(t)=\begin{pmatrix} x(t) \\ x'(t)\end{pmatrix} \quad
+A(t)=\begin{pmatrix}
+0 & 1 \\ -\ts\frac{c(t)}{a(t)} & -\ts\frac{b(t)}{a(t)}
+\end{pmatrix} \quad
+B(t)=\begin{pmatrix} 0 \\ \ts\frac{\varphi(t)}{a(t)}\end{pmatrix}
+$}
+On notera $(H)$ l'équation homogène de $(E)$ et $(SH)$ celle de $(SE)$.
+\end{genthm}
+
+\begin{genthm}{Récaputilatif}
+Dans cette rubrique on ne fera qu'adapter les énoncés du cadre général au cas particulier d'une \textsc{edls} du deuxième ordre normalisable.
+
+\resultat{On suppose donc que l'équation $(E)$ est normalisable.}
+
+\unite(théorème de Cauchy-Lipschitz)
+Pour tout $(t_0,x_0,x_0')\in I\times \K^2$, il existe une unique solution $f$ de $(E)$ telle que
+\formule{$f(t_0)=x_0\xituad f'(t_0)=x_0'$}
+
+\unite(Structure des ensembles de solutions)
+$S_I(H)$ et un $\K$-ev de dimension $2$ et $S_I(E)=f_0+S_I(H)$ pour toute solution $f_0$ de $(E)$ sur $I$ .
+
+\unite(Système de solutions et wronksien)
+Si $f_1$ et $f_2$ sont des solutions de l'équation homogène $(H)$, on appelle wronksien de $f_1$ et $f_2$ la fonction $w$ définie par
+\formule{$
+w(t)=\begin{vmatrix} f_1(t) & f_2(t) \\ f_1'(t) & f_2'(t) \end{vmatrix}
+$}
+La famille $(f_1,f_2)$ est une base de $S_I(H)$ si et seulement si $w$ ne s'annule pas sur $I$. Pour cela il suffit qu'il ne s'annule pas en un point de $I$.
+
+\unite(Équation du wronksien)
+Soit $w$ le wronksien de deux solutions quelconques de $(H)$. Alors
+\formule{$
+\forall t\in I,\; a(t)w'(t)+b(t)w(t)=0
+$}
+\nb le wronksien de deux solutions de $(H)$ ne dépend donc pas de la fonction $c$.
+\endnb
+
+\unite(Variations des constantes)
+On suppose qu'on connait une base $(f_1,f_2)$ de $S_I(H)$. On note $w$ leur wronksien. En remplaçant $X$ par
+$\lambda_1(t)\V f_1+\lambda_2(t)\V f_2(t)$ dans le système différentiel $(SE)$ alors
+\formule{$
+(E)\Llra\begin{cases}
+\lambda_1'(t)f_1(t)+\lambda_2'(t)f_2(t)=0 \\
+\lambda_1'(t)f_1'(t)+\lambda_2'(t)f_2'(t)=\frac{\varphi(t)}{a(t)}
+\end{cases}
+$}
+Les solutions de $(E)$ sur $I$ sont donc les fonctions
+\formule{$
+t\longmapsto \lambda_1(t)f_1(t)+\lambda_2(t)f_2(t)
+$}
+où les fonctions $\lambda_1$ et $\lambda_2$ sont données par :
+\formule{$\aligned
+\lambda_1'(t)&=-\frac{f_2(t)\varphi(t)}{a(t)w(t)} &&&
+\lambda_2'(t)&=\frac{f_1(t)\varphi(t)}{a(t)w(t)}
+\endaligned$}
+\end{genthm}
+
+\begin{remap}(Techniques de résolution)
+Cette rubrique rassemble quelques remarques pratiques qui peuvent mener à la résolution d'une équation linéaire scalaire du deuxième ordre.
+
+\nb Il n'existe aucune méthode générale qui permet de résoudre toutes les \textsc{edls} d'ordre 2.
+\endnb
+
+Dans les deux techniques suivantes, on suppose que $(E)$ est normalisable sur $I$ et qu'on connait une solution $f_0$ de l'équation homogène $(H)$ qui ne s'annule pas sur $I$.
+\unite(Méthode de Lagrange)
+On pose $x=f_0(t)y$ et on remplace dans $(E)$ pour obtenir l'équation :
+\formule{$
+a(t)f_0(t)y''+\big(2a(t)f_0'(t)+b(t)f_0(t)\big)y'=\varphi(t)
+$}[$(E')$]
+Cette équation peut être regardée comme une \textsc{edls} du premier ordre en $y'$.
+\nb En multipliant $(E')$ par $f_0/a$ on obtient une équation de la forme
+\begin{develop}
+& f_0(t)^2y''+2f_0(t)f_0'(t)y'+r(t)f_0(t)^2y'&=\psi(t) \\
+ou encore &
+\frac{\dt}{\dt t}\big(f_0(t)^2y'\big)+r(t)\big(f_0(t)^2y'\big)&=\psi(t)
+& $(E'')$
+\end{develop}
+Ce qui donne la forme générale de $y'$
+\formule{$
+y'=\frac{\e^{-R(t)}}{f_0(t)^2}\Big(\lambda+\int_{t_0}^t\e^{R(s)}\psi(s)\dt s\Big)
+$}
+où $\lambda$ est quelconque dans $\K$ et $R$ est une primitive de $r=\frac ba$ sur $I$ et $\psi=\frac \varphi a$.
+\endnb
+\unite(Méthode du wronksien)
+L'idée est d'utiliser le fait que les wronksiens de $(H)$ sont les solutions de l'équation $a(t)w'+b(t)w=0$ :
+\formule{$
+(H)\Llra \bca a(t)w'+b(t)w=0 \\ f_0(t)x'-f_0'(t)x=w(t) \eca
+$}
+\nb La méthode du wronksien permet de résoudre l'équation homogène $(H)$. Celle de Lagrange permet, si on le désire, de résoudre l'équation complète $(E)$.
+\endnb
+
+\unite(Solutions développables en série entière)
+Si les fonctions $a$, $b$ et $c$ sont polynomiales, il est fort possible que $(H)$ admette des solutions développables en série entière en $0$, parfois polynomiales.
+\nb
+L'ensemble $S$ des solutions de l'équation homogène $(H)$ qui sont \dse en $0$ est un \emph{sev} de $S_I(H)$.
+\endnb
+
+\unite(Expression complète des solutions de \boldmath $(E)$)
+On suppose que $(E)$ est normalisable. Si on connait un \textsc{sfs} $(f_1,f_2)$ de $(H)$ alors les solutions de $(E)$ sont données par :
+\resultat(100){
+\formule*{$\aligned
+f(t)&=\lambda_1f_1(t)+\lambda_2 f_2(t)+
+\!\!\int_{t_0}^t\!\!\frac{\varphi(s)}{a(s)w(s)}\big(f_1(s)f_2(t)-f_1(t)f_2(s)\big)\dt s\\ f(t)&=
+\lambda_1f_1(t)+\lambda_2 f_2(t)+
+\!\!\int_{t_0}^t\!\!H(t,s)\frac{\varphi(s)}{a(s)}\dt s
+\endaligned$}[exprsol]
+$\lambda_1,\lambda_2$ sont quelconques dans $\K$, $w$ est le wronksien de $(f_1,f_2)$ et $H(t,s)$ est donné par
+\formule{$
+H(t,s)=\frac1{w(s)}\begin{vmatrix} f_1(s) & f_1(t) \\ f_2(s) & f_2(t)\end{vmatrix}
+$}
+}
+
+\unite(Cas d'une équation non normalisable)
+Dans le cas où $(E)$ n'est pas normalisable, on résout $(E)$ sur les sous-intervalles de $I$ qui ne contiennent pas de zéros de $a$ et on effectue une étude des raccords en ces points des solutions obtenues.
+
+\nb
+Concrètement si $a$ admet, par exemple, un seul zéro $\alpha$ dans $I$, on résout $(E)$ sur les intervalles $I_1={}]-\infty,\alpha[{}\cap I$ et $I_2={}]\alpha,+\infty[{}\cap I$. Disons que $g_1$ est l'expression générale des solutions sur $I_1$ et $g_2$ celle des solutions sur $I_2$ les fonctions $g_1$ s'exprimant avec les paramètres $\lambda _1$ et $\mu_1$, $g_2$ avec les paramètres $\lambda_2$ et $\mu_2$. On cherche ensuite les conditions sur ces quatre paramètres pour que la fonction définie sur $I\setminus \{\alpha\}$ par
+\formule{$
+g(t)=\left|\,\aligned f_1(t) && \text{si $t\in I_1$} \\
+f_2(t) && \text{si $t\in I_2$}
+\endaligned\right.$}
+se prolonge en une fonction deux fois dérivable sur $I$. On observera qu'un maximum de quatre paramètres indépendants interviendront dans l'expression finale de $g$ et donc que la dimension de l'espace (affine) des solutions de $(E)$ n'est plus forcément $2$. En particulier il se peut que le problème de Cauchy $x(t_0)=x_0, x'(t_0)=x_0'$ sur $I$ tout entier admette plusieurs solutions comme il se peut qu'il n'en admette aucune.
+
+En général, si $a$ admet $r$ zéros dans $I$ alors $\dim S_I(H)\leq 2(r+1)$. Si $a$ admet une infinité de zéros dans $I$ alors il est possible que la dimension de $S_I(H)$ soit infinie.
+\endnb
+\end{remap}
+
+\begin{exemf}(\acp{edl} à coefficients constants)
+On rappelle ici l'expression des solutions d'une \textsc{edls} d'ordre $2$ à coefficients constants :
+\formule{$
+x''+px'+qx=\varphi(t)
+$}[$(E)$]
+On note $r_1$ et $r_2$ les racines dans $\C$ du polynôme caractéristique de $(H)$ :\formule{$P=X^2+pX+q$}
+\xit+(Solutions de l'équation homogène) les solutions de $(H)$ sur $\R$ à valeurs dans $\K$ sont de la forme
+\begin{cons}[12pt]
+& $f(t)=\lambda_1\e^{r_1t}+\lambda_2\e^{r_2t}$ si $r_1,r_2\in\K$ et $r_1\ne r_2$\\
+& $f(t)=(\lambda_1 t+\lambda_2)\e^{rt}$ si $r_1=r_2=r$\\
+& $f(t)=\e^{\alpha t}\big(\lambda_1\cos \beta t+\lambda_2\sin \beta t\big)$ si $\K=\R$ et $r_1=\OV{r_2}=\alpha+i\beta\notin\R$.
+\end{cons}
+À chaque fois $\lambda_1$ et $\lambda_2$ sont des scalaires quelconques dans $\K$.
+\xit(Solution particulière de $(E)$ dans le cas où $\varphi(t)=R(t)\e^{\omega t}$) si $\varphi(t)$ est de la forme $R(t)\e^{\omega t}$ où $R$ est une fonction polynomiale à coefficients dans $\K$ et $\omega\in\K$ alors $(E)$ admet une solution unique de la forme
+\begin{cons}[12pt]
+& $f_0(t)=t^{\beta}Q(t)\e^{\omega t}$ \\
+\end{cons}
+où $\beta$ est la multiplicité de $\omega$ en tant que racine du polynôme caractéristique $P$ de $(H)$ et $Q$ est un polynôme qui a le même degré que $R$ à déterminer.
+
+\xit(solution particulière dans le cas général) sur la fois de la relation \eqref{exprsol}, $t_0$ étant un point quelconque choisi dans $I$, $(E)$ admet une solution de la forme
+\formule{$
+f_0(t)=\int_{t_0}^t H(t,s)\varphi(s)\dt s
+\xituad \text{où}\;
+H(t,s)=\frac{\begin{vmatrix} f_1(s) & f_1(t) \\ f_2(s) & f_2(t)\end{vmatrix}}
+{\begin{vmatrix} f_1(s) & f_1'(s) \\ f_2(s) & f_2'(s)\end{vmatrix}}
+$}
+Tout calcul fait :
+\begin{cons}[1.2cm][ll]
+&  $\ds H(t,s)=\frac{\e^{r_2(t-s)}-\e^{r_1(t-s)}}{r_2-r_1}$ & si $r_1\ne r_2$\\
+&  $\ds H(t,s)=(t-s)\e^{r(t-s)}$ & si $r_1=r_2=r$ \\[5pt]
+&  $\ds H(t,s)=\frac{\sin\beta(t-s)}{\beta}\e^{\alpha(t-s)}$ & si $r_1=\OV{r_2}=\alpha+i\beta\notin\R$
+\end{cons}
+\exit
+\end{exemf}
+
+\begin{exem}(des exemples non génériques)
+\unite Résoudre en observant que $x=t^2+1$ est une solution :
+\formule{$(1+t^2)x''-2x=0$}
+\unite Résoudre en commençant pas chercher des solutions polynomiales de l'équation homogène :
+\formule{$
+(1+t^2)^2x''-2t(1+t^2)x'+2(t^2-1)x=1+t^2
+$}
+\unite Résoudre sur $]0,1[$,  en commençant par chercher les solutions \textsc{dse}
+\formule{$
+t(1-t)x''+(1-3t)x'-x=0
+$}
+\unite Résoudre sur $]-1,1[$ en commençant par chercher les solutions \textsc{dse}
+\formule{$
+4(1-t^2)x''-4tx'+x=0
+$}
+\unite Résoudre sur $\R$ en posant $u=t^2$ et en étudiant le raccord en $0$
+\formule{$tx''-x'-t^3x=0$}
+\end{exem}
+
+\begin{exem}(d'\textsc{edls} usuelles du second ordre)
+\unite(équation de Cauchy-Euler)
+\formule{$
+t^2x''+atx'+bx=0
+$}[(H)]
+\nb L'équation n'est pas normalisable en $0$.\endnb
+On cherche les solutions sur $]0,+\infty[$ qui sont de la forme $f(t)=t^r$. Pour que $f$ soit une solution il faut et il suffit que $r$ soit une racine du polynôme
+\formule{$
+P=X(X-1)+aX+b
+$}
+Si $r_1$ et $r_2$ sont les racines de $P$ dans $\K$, les solutions de $(H)$ sur $]0,+\infty[$ sont  de la forme
+\begin{cons}[2pt]
+& $f(t)=\lambda_1 t^{r_1}+\lambda_2 t^{r_2}$ si $r_1\ne r_2$ \\
+& $f(t)=(\lambda_1+\lambda_2 \ln t)t^r$ si $r_1=r_2=r$ \\
+& $f(t)=\Big(\lambda_1\cos\big(\im r\ln t\big)+\lambda_2\sin\big(\im r\ln t\big)\Big)t^{\re r}$ si $\K=\R$ et $r=r_1=\OV{r_2}\notin\R$
+\end{cons}
+\nb Si on pose $x(t)=y(\ln t)$ alors $(E)$ équivaut sur $\R_+^*$ à l'\textsc{eqdls} à coefficients constants :
+\formule{$y''+(a-1)y'+by=0$}
+équation qui a pour polynôme caractéristique $P$.
+\endnb
+
+\unite(équation d'Airy)
+\formule{$
+x''-tx=0
+$}[$(H)$]
+On cherche les solutions \dse sur $\R$.
+\nb de telles solutions existent effectivement, voir exercice \ref{exer:eqdse}.
+\endnb
+\mini(Calculs)
+En remplaçant $x$ par $f(t)=\sum_{n=0}^{+\infty}a_nt^n$ dans $(H)$ on obtient
+\formule{$
+2a_2+\sum_{n=1}^{+\infty}\big((n+2)(n+1)a_{n+2}-a_{n-1}\big)t^n=0
+$}
+\formule[Ce qui revient a]{$\aligned
+a_2&=0 &&& \forall n\in\N,\; a_{n+3}=\frac{a_n}{(n+3)(n+2)}
+\endaligned$}
+\formule[ou encore, pour tout $n\in\N^*$]{$\aligned
+a_{3n+2}&=0 &
+a_{3n+1}&=\frac{2\cdot 5\cdots (3n-1)}{(3n+1)!}a_1 &
+a_{3n}&=\frac{1\cdot 4\cdots (3n-2)}{(3n)!}a_0
+\endaligned$}
+Alors les solutions de $(H)$ sur $\R$ sont les fonctions données par
+\formule{$f(t)=a_0f_0(t)+a_1f_1(t)$}
+où $a_0$ et $a_1$ sont quelconques dans $\R$ et
+\formule{$\aligned
+f_0(t) &= 1+\sum_{n=0}^{+\infty}\frac{1\cdot 4\cdots (3n-2)}{(3n)!}t^{3n} &&&
+f_1(t) &= t+\sum_{n=0}^{+\infty}\frac{2\cdot 5\cdots (3n-1)}{(3n+1)!}t^{3n+1}
+\endaligned$}
+On notera que les séries entières qui interviennent dans les expressions de $f_0$ et $f_1$ sont bien de \textsc{rc} infini.
+\endmini
+
+\unite(équation d'Hermite)
+\formule{$
+x''-2t x'+2a x=0
+$}[$(H_a)$]
+où $a$ est un réel positif ou nul. On cherche les solutions \dse sur $\R$.
+\mini(calculs)
+Comme pour l'équation d'Airy, $(H_a)$ admet effectivement des solutions \dse sur $\R$ (exercice \ref{exer:eqdse}). En remplaçant dans $(H_a)$ on obtient
+\formule{$
+\forall n\in\N,\; (n+2)(n+1)a_{n+2}=2(n-a)a_n
+$}
+Et donc pour tout $n\in\N^*$
+\formule*{$\aligned
+a_{2n}&=\frac{2^{2n}}{(2n)!}(n-(1+a/2))(n-1-(1+a/2))\cdots(1-(1+a/2))a_0 \\
+a_{2n+1}&=\frac{2^{2n}}{(2n+1)!}(n-(a+1)/2)(n-1-(a+1)/2)\cdots(1-(a+1)/2)a_1
+\endaligned$}[recan]
+Si on prolonge la fonction $\Gamma$ d'Euler sur $\R\setminus \Z_-$ par la relation
+\formule{$
+\forall s\in\R_-\setminus \Z_-,\; \Gamma(s)=
+\frac{\Gamma(s-E(s))}{s(s+1)\cdots(s-E(s)-1)}
+$}
+De cette manière elle continuera à vérifier l'équation fonctionnelle
+\formule{$
+\Gamma(s)=(s-1)\Gamma(s-1),\;\forall s\in\R\setminus \Z_-
+$}
+\formule[et donc ]{$
+\forall s\in\R\setminus \Z_-,\forall n\in\N,\;
+\Gamma(s)=(s-1)(s-2)\cdots(s-n)\Gamma(s-n)
+$}
+Avec respectivement $s=\frac12a+1$ et $s=\frac12 a+\frac12$ on obtient les écritures
+\formule*{$\aligned
+a_{2n}&=\frac{(-1)^n2^{2n}\Gamma(\frac12a+1)}{(2n)!\Gamma(\frac12a+1-n)}a_0 &
+a_{2n+1}&=\frac{(-1)^n2^{2n}\Gamma(\frac12a+\frac12)}{(2n+1)!\Gamma(\frac12a+\frac12-n)}a_1
+\endaligned$}[expran]
+\formule[d'où les solutions de $(H_a)$ :]{$
+f(t)=a_0f_0(t)+a_1f_1(t)
+$}
+\formule[avec]{$\aligned
+f_0(t)&=\sum_{n=0}^{+\infty}(-1)^n\frac{2^{2n}\Gamma(\frac12a+1)}{(2n)!\Gamma(\frac12a+1-n)} t^{2n} \\
+f_1(t)&=\sum_{n=0}^{\infty}(-1)^n\frac{2^{2n}\Gamma(\frac12a+\frac12)}{(2n+1)!\Gamma(\frac12a+\frac12-n)}t^{2n+1}
+\endaligned$}
+En fait les écritures \eqref{expran} ne sont valables que si $\frac12a+1\notin\N$ et $\frac12a+\frac12\notin \N$. Dans le cas contraire, en revenant aux relations \eqref{recan}, on aura :
+\xit+ Si $\frac12a+1\in\N$, ie $a=2p$ avec $p\in\N^*$ alors
+\formule{$\aligned
+a_{2n} &=(-1)^n\frac{2^{2n}}{(2n)!}\frac{p!}{(p-n)!} & \text{si $n\leq p$} \\
+a_{2n} &=0 & \text{si $n>p$}
+\endaligned$}
+Dans ce cas la fonction $f_0$ est polynomiale.
+\xit+ Si $\frac12a+\frac12\in\N$, ie $a=2p+1$ avec $p\in\N^*$ alors
+\formule{$\aligned
+a_{2n+1} &=(-1)^n\frac{2^{2n}}{(2n+1)!}\frac{p!}{(p-n)!} & \text{si $n\leq p$} \\
+a_{2n+1} &=0 & \text{si $n>p$}
+\endaligned$}
+Dans ce cas,  c'est la fonction $f_1$ qui est polynomiale.
+\xit On notera que si $a$ est un entier positif alors $(H_a)$ admet au moins une solution polynomiale. Cette solution est paire si $a$ est paire et impaire si $a$ est impaire.
+\exit
+\endmini
+
+\unite(équation de Tchebytchev)
+\formule{$
+(1-t^2)x''-tx'+a^2x=0
+$}[$(H_a)$]
+où $a$ est un réel positif. On cherche les solutions \dse sur $]-1,1[$
+\mini(calculs)
+En remplaçant $x$ par $f(t)=\sum_{n=0}^{+\infty} a_nt^n$ dans $(H_a)$, on se ramène à l'équation de récurrence
+\formule{$
+\forall n\in\N,\; (n+2)(n+1)a_{n+2}=(n^2-a^2)a_n
+$}
+Et donc pour tout $n\in\N^*$
+\formule{$\aligned
+a_{2n}&=\frac{(2n-2)^2-a^2}{(2n)(2n-1)}\frac{(2n-4)^2-a^2}{(2n-2)(2n-3)}\cdots
+\frac{-a^2}{2\cdot 1}a_0=\frac{a_0}{(2n)!}\prod_{k=0}^{n-1}((2k)^2-a^2) \\
+a_{2n+1}&=\frac{(2n-1)^2-a^2}{(2n+1)(2n)}\frac{(2n-3)^2-a^2}{(2n-1)(2n-2)}\cdots
+\frac{1-a^2}{3\cdot 2}a_1=\frac{a_1}{(2n+1)!}\prod_{k=0}^{n-1}((2k+1)^2-a^2)
+\endaligned$}
+Par suite les solutions de $(H_a)$ sur $]-1,1[$ sont les fonctions donnée par
+\formule{$
+f(t)=a_0f_0(t)+a_1f_1(t)
+$}
+\formule[où]{$\aligned
+f_0(t)&=1+\sum_{n=1}^{+\infty}\tsprod_{k=0}^{n-1}\big((2k)^2-a^2\big)\frac{t^{2n}}{(2n)!} &
+f_1(t)&=t+\sum_{n=1}^{+\infty}\tsprod_{k=0}^{n-1}\big((2k+1)^2-a^2\big)\frac{t^{2n+1}}{(2n+1)!}
+\endaligned$}
+On notera que :
+\xit+ Si $a$ est un entier positif pair, $a=2p$ avec $p\in\N$ alors $a_{2n}=0$ si $n\geq p$ et $f_0$ est une fonction polynomiale paire de degré $2p$.
+\xit Si $a$ est un entier positif impair, $a=2p+1$ avec $p\in\N$ alors $a_{2n+1}=0$ si $n\geq p$ et $f_1$ est une fonction polynomiale impaire de degré $2p+1$.
+\xit si $a$ est un entier positif alors $(H_a)$ admet au moins une solution polynomiale.
+\exit
+\endmini
+\nb On peut de manière directe prouver que $(H_a)$ admet au moins une solution polynomiale si $a=m\in\N$ : c'est le polynôme de Tchebychev $T_m$ défini par
+\formule{$
+\forall \theta\in\R,\; T_m(\cos\theta)=\cos m\theta
+$}
+\endnb
+\end{exem}
+
+
+\begin{remas}
+Dans cette rubrique, on examine quelques spécifités des équations linéaires scalaires du deuxième ordre. On considère les équations différentielles qu'on suppose normalisables sur $I$
+\begin{develop}
+& a(t)x''+b(t)x'+c(t)x&=\varphi(t) & $(E)$ \\
+& a(t)x''+b(t)x'+c(t)x&=0 & $(H)$
+\end{develop}
+
+\unite(Condition initiale \boldmath $x(t_0)=x_0$)
+Pour tout $(t_0,x_0)\in I\times \K$, il existe une infinité de solutions $f$ de $(E)$ telles que
+$f(t_0)=x_0$.
+\nb chacune de ces solutions est entièrement déterminée par la valeur de $f'(t_0)$.
+\endnb
+
+\medskip
+Si $f$ et $g$ sont des solutions distinctes de l'équation homogène $(H)$ vérifiant la condition $x(t_0)=x_0$ alors
+\formule{$
+(f,g) \text{ est un \textsc{sfs} de } (H)\Llra x_0\ne0
+$}
+\mini(car) $W(t_0)=x_0(g'(t_0)-f'(t_0))$ et puisque $f\ne g$ alors $f'(t_0)\ne g'(t_0)$.
+\endmini
+
+\unite(Système fondamental canonique en un point)
+Soit $t_0\in I$. On appelle système fondamental canonique de solutions de $(H)$ en $t_0$ le couple $(f_0,f_1)$ de solutions de $(H)$ définies par
+\begin{cond}
+& $f_0(t_0)=1,\;f_0'(t_0)=0$ \\
+& $f_1(t_0)=0,\;f_1'(t_0)=1$
+\end{cond}
+\nb $w(t_0)=1$.  $(f_0,f_1)$ est bien un \textsc{sfs} de $(H)$.\endnb
+\begin{Resultat}
+Si $(f_0,f_1)$ est le \textsc{sfs} canonique de $(H)$ en $t_0$ alors
+\xit+ Les solutions de $(H)$ sont données par :
+\formule{$
+f(t)=f(t_0)f_0(t)+f'(t_0)f_1(t)
+$}
+\xit les solutions de $(E)$ sont données par :
+\formule{$
+f(t)=f(t_0)f_1(t)+f'(t_0) f_2(t)+
+\!\int_{t_0}^t\!H(t,s)\frac{\varphi(s)}{a(s)}\dt s
+$}
+Avec $H(t,s)=\frac1{w(s)}\big(f_0(s)f_1(t)-f_0(t)f_1(s)\big)$.
+\exit
+\end{Resultat}
+\unite(Forme normale d'une eqdls du deuxième ordre)
+On suppose que les fonctions $a$ et $b$ sont de classes $\mathcal C^1$. Alors il existe une fonction $k$ de classe $\mathcal C^2$ qui ne s'annule pas sur $I$ telle qu'en posant $x=k(t)y$, $(E)$ soit équivalente à une équation de la forme
+\resultat{$
+y''+q(t)y=\psi(t)
+$}[$(EN)$]
+$(EN)$ est dite une forme normale de l'équation $(E)$.
+
+\dem Supposons pour l'instant qu'une telle fonction existe. On a alors
+\formule{$\aligned
+x&=k(t)y \\
+x'&=k(t)y'+k'(t)y(t) \\
+x''&=k(t)y''+2k'(t)y'+k''(t)y
+\endaligned$}
+$(E)$ sera de ce fait équivalente à l'\textsc{edls} d'inconnue $y$ :
+\formule{$
+a(t)k(t)y''+\big(2a(t)k'(t)+b(t)k(t)\big)y'+(a(t)k''(t)+b(t)k'(t)+c(t)k(t)\big)y=\varphi(t)
+$}
+En choisissant $k$ comme une solution non nulle de l'équation du premier ordre
+\formule{$2a(t)k'+b(t)k=0$}
+elle sera effectivement de classe $\mathcal C^2$ car $a$ et $b$ sont supposées de classe $\mathcal C^1$, ne s'annulera pas sur $I$ et on aura
+\formule{$
+(E)\Llra y''+q(t)y=\psi(t)
+$}
+\formule[avec]{$\aligned
+q(t)&=\frac{a(t)k''(t)+b(t)k'(t)+c(t)k(t)}{a(t)k(t)} &&&
+\psi(t)=\frac{\varphi(t)}{a(t)k(t)}
+\endaligned$}
+\enddem
+\nb L'équation du wronksien de $(EN)$ est $w'=0$. Tous ses wronksiens sont constants.
+\endnb
+\nb Les équations de type $x''+q(t)x=0$ sont souvent associées à l'étude de la distribution des zéros d'une solutions sur $I$, de l'existence de solutions périodiques dans le cas où la fonction $q$ est périodique...
+\endnb
+
+\unite(forme auto-adjointe d'une eqdls du deuxième ordre)<eqautoadj>
+On suppose que la fonction $a$ est de classe $\mathcal C^1$ sur $I$. Alors il existe une fonction $p$ de classe $\mathcal C^1$ ne s'annulant pas sur $I$ et une fonction $q$ continue sur $I$ telle que $(H)$ soit équivalente à l'équation
+\resultat{$
+(p(t)x')'+q(t)x=0
+$}[(HA)]
+$(HA)$ est dite une forme auto-adjointe de l'équation homogène $(H)$.
+\nb Contrairement à une forme normale de $(H)$, dans une forme auto-adjointe, on conserve la même fonction inconnue $x$. Noter également qu'une équation normale et un cas particulier d'une équation auto-adjointe ($p(t)=1$).
+\endnb
+\dem Considérons pour l'instant une fonction $\sigma$ quelconque de classe $\mathcal C^1$ et ne s'annulant pas sur $I$. Alors
+\formule*{$
+(H)\Llra a(t)\sigma(t)x''+b(t)\sigma(t)x'+c(t)\sigma(t)c(t)x=0
+$}[eqinter]
+Si on choisit $\sigma$ comme une solution non nulle sur $I$ de l'\textsc{eqdls} du premier ordre
+\formule{$
+a(t)\sigma'+(a'(t)-b(t))\sigma=0
+$}
+on aura $(a\sigma)'=b\sigma$ et $(H)$ se ramène donc selon \eqref{eqinter}  à
+\formule{$
+(a(t)\sigma(t)x'\big)'+c(t)\sigma(t)x=0
+$}
+Il suffit  de poser $p=a\sigma$ qui est bien de classe $\mathcal C^1$ et ne s'annule pas sur $I$ et $q=c\sigma$.
+\enddem
+\nb
+L'équation du wronksien de $(HA)$ est $(pw)'=0$. Tous les wronksiens de $(HA)$ sont proportionnel à $\ts\frac1p$.
+\endnb
+
+\unite(wronksien croisé)
+On considère deux \textsc{eqls} homogènes normalisables sur $I$ (qui ne différent que par le coefficient de $x$)
+\begin{develop}
+& a(t)x''+b(t)x'+c_1(t)x&=0 & $(H_1)$ \\
+& a(t)x''+b(t)x'+c_2(t)x&=0 & $(H_2)$
+\end{develop}
+Soient $f_1$ une solution de $(H_1)$ sur $I$ et $f_2$ une solution de $(H_2)$ sur $I$. En posant $w (t)=f_1(t)f_2'(t)-f_2(t)f_1'(t)$ on a
+\resultat*{$a(t)w '(t)+b(t)w (t)=(c_1(t)-c_2(t))f_1(t)f_2(t)$}[wronkcroise]
+\dem Par dérivation du déterminant selon les lignes:
+\begin{align*}
+w '(t)&=\frac\d{\dt t}
+\begin{vmatrix}
+f_1(t) & f_2(t) \\ f_1'(t) & f_2'(t)
+\end{vmatrix} \\ &=
+\begin{vmatrix}
+f_1(t) & f_2(t) \\ f_1''(t) & f_2''(t)
+\end{vmatrix} \\ &=
+\begin{vmatrix}
+f_1(t) & f_2(t) \\ -\frac{c_1(t)}{a(t)}f_1(t)-\frac{b(t)}{a_(t)}f_1'(t) &
+-\frac{c_2(t)}{a(t)}f_2(t)-\frac{b(t)}{a(t)}f_2'(t)
+\end{vmatrix} \\ &=
+\frac{f_1(t)f_2(t)}{a(t)}\begin{vmatrix}
+1 & 1 \\ -c_1(t) & -c_2(t)
+\end{vmatrix}
+-\frac{b(t)}{a(t)} \begin{vmatrix}
+f_1(t) & f_2(t) \\ f_1'(t) & f_2'(t)
+\end{vmatrix} \\ &=
+\frac{c_1(t)-c_2(t)}{a(t)}f_1(t)f_2(t)-\frac{b(t)}{a(t)}w (t)
+\end{align*}
+\enddem
+\nb La relation \eqref{wronkcroise} devient :
+\begin{cons}[8pt]
+& $w'(t)=(q_1(t)-q_2(t)f_1(t)f_2(t)$ si  $(H_1)$ et $(H_2)$ sont normales ; \\
+& $(pw)'(t)=(q_1(t)-q_2(t)f_1(t)f_2(t)$ si  $(H_1)$ et $(H_2)$ sont auto-adjointes.
+\end{cons}
+\endnb
+\end{remas}
+
+
+
+

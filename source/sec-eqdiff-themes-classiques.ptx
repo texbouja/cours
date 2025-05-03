@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-eqdiff-equations-differentielles-themes-classiques" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Thèmes classiques</title>
+
+    <objectives>
+    <introduction>
+        <p>Ce chapitre propose une initiation à certaines thèmatiques liées aux <term>EDL</term>. Des notions qui sont abordées sous différentes formes dans les sujets de concours qui traitent des équations différentielles.</p>
+        <p> Les résultats sont exposés sous forme de cours (hors programme) et la plupart sont démontré dans les exercices proposés dans la subsection <xref ref="sec-eqdiff-exercices-approfondissement"/>.
+        </p> 
+    </introduction>
+    </objectives>
+
+    <subsection>
+        <title>Équation et applications résolvantes</title>
+
+        <convention>
+            <!-- <title>Conventions et notations</title> -->
+            <p><m>a</m> et <m>b</m> sont des applications continues définies sur <m>I</m> à valeurs respectivement dans <m>\mathcal L(E)</m> et dans <m>E</m>. On considère les équations différentielles</p>
+            <mdn>  
+            <mrow xml:id="eq-E"> (E)\amp\amp x'\amp=a(t)\cdot x+b(t) </mrow> 
+            <mrow xml:id="eq-H"> (H)\amp\amp x'\amp=a(t)\cdot x </mrow> 
+            </mdn>
+        </convention>
+        <remark>
+            <p>
+                Les résultats de cette subsection sont traités dans les exercices <xref ref="application-resolvante"/> et <xref ref="determinant-resolvante"/>.
+            </p>
+        </remark>
+
+        <subsubsection>
+            <title>Équation résolvante de <m>(H)</m></title>
+
+            <insight>
+            <p>On appelle équation résolvante de <m>(H)</m>, l'équation différentielle linéaire <em>homogène</em> du premier ordre</p>
+            <mdn> <mrow> (RH)\amp\amp  u'=a(t)\circ u </mrow></mdn>
+            <p>l'inconnue <m>u</m> étant une fonction dérivable de <m>I</m> dans <m>\mathcal L(E)</m>.</p>
+            
+            </insight>
+            <paragraphs>
+            <title>Espace des solutions de <m>(RH)</m></title>
+                
+                <p><m>(RH)</m> s'écrit sous la forme <m>u'=\phi(t)\cdot u</m>, où <m>\phi</m> est l'application continue de <m>I</m> dans <m>\mathcal L(E)</m> définie par <m>\phi(t)\cdot v=a(t)\circ v</m> pour tout <m>t\in I</m> et <m>v\in\mathcal L(E)</m>.<me>\dim S_I(RH)=\dim \mathcal L(E)=(\dim E)^2</me>.
+                </p>
+            </paragraphs>
+            <paragraphs>
+                <title>Transfert de solutions</title>
+            <p>Si <m>u</m> est une solution de <m>(RH)</m> sur <m>I</m> alors</p>
+            <ol>
+                <li><p>pour tout <m>e\in E</m>, <m>f:t\longmapsto u(t)\cdot e</m> est une solution de <m>(H)</m> sur <m>I</m>.</p></li>
+                <li><p>pour tout <m>v\in \mathcal L(E)</m>, <m>t\longmapsto u(t)\circ v</m> est une solution de <m>(RH)</m> sur <m>I</m>.</p></li>
+            </ol>
+            </paragraphs>
+            <paragraphs>
+                <title>Conservation du rang</title> 
+            <p>Si <m>u</m> est une solution de <m>(RH)</m> sur <m>I</m> alors le rang de <m>u(t)</m> est le même pour tout <m>t\in I</m>. En particulier s'il existe <m>t_0\in I</m> tel que <m>u(t_0)</m> est inversible alors <m>u(t)</m> est inversible pour tout <m>t\in I</m>. On dit alors que <m>u</m> est une solution fondamentale de l'équation résolvante <m>(RH)</m>.</p>
+            </paragraphs>
+            <paragraphs>
+                <title>Solutions de <m>(RH)</m> et <m>(H)</m> en fonction d'une solution fondamentale</title>
+            <p>Si <m>r</m> une solution fondamentale de <m>(RH)</m>, alors</p>
+            <ol>
+                <li><p>les solutions de <m>(RH)</m> sont les fonctions <m>u:t\longmapsto r(t)\circ v</m> où <m>v\in\mathcal L(E)</m>.</p></li>
+                <li><p>les solutions de <m>(H)</m> sont les fonctions <m>f:t\longmapsto r(t)\cdot e</m> où <m>e\in E</m>.</p></li>
+            </ol>
+            <p>Les solutions de <m>(H)</m> et celles de <m>(RH)</m> peuvent donc toutes s'exprimer à l'aide d'une seule solution de <m>(RH)</m>. Mais ce constat est à peu près inutile quand il s'agit de résoudre effectivement <m>(H)</m>. Il est beaucoup moins évident de déterminer une solution de <m>(RH)</m> que de déterminer directement des solutions de <m>(H)</m>.</p>
+            <p>Si <m>\mathcal B=(e_1,\ldots,e_d)</m> est une base de <m>E</m> alors les fonctions <m>f_k:t\longmapsto r(t)\cdot e_k</m> forment un système fondamental de solutions de <m>(H)</m>. Leurs wronksien dans la base <m>\mathcal B</m> est la fonction <m>W:t \longmapsto \det\big(r(t)\big)</m>.</p>
+            <p>d'où le titre de solution fondamentale attribué à ce genre d'application.</p>
+            </paragraphs>
+            <paragraphs>
+                <title>Expression des solutions avec conditions initiales</title>
+            <p>Si <m>t_0\in I</m> et <m>r</m> est l'unique solution de <m>(RH)</m> telle que <m>r(t_0)=\id_E</m> alors</p>
+            <ol>
+                <li><p>pour toute solution <m>f</m> de <m>(H)</m> : <m>f(t)=r(t)\cdot f(t_0),\; \forall t\in I</m>.</p></li>
+                <li><p>pour toute solution <m>u</m> de <m>(RH)</m> : <m>u(t)=r(t)\circ u(t_0),\;\forall t\in I</m>.</p></li>
+            </ol>
+        </paragraphs>
+        </subsubsection>
+
+
+        <subsubsection>
+            <title>Application résolvante de <m>(H)</m></title>
+                <paragraphs>
+                    <title>Définition de l'application résolvante</title>
+            <p>On appelle application résolvante de l'équation homogène <m>(H)</m>, l'application <m>R:I\times I\longmapsto \mathcal L(E)</m> définie par</p>
+            <men>\forall (t,s)\in I^2,\; R(t,s)=r_s(t)</men>
+            <p>où <m>r_s</m> est l'unique solution de <m>(RH)</m> vérifiant <m>r_s(s)=\id_E</m>. Précisons :</p>
+            <ol>
+                <li><p>pour tout <m>(t,s)\in I^2</m>, <m>R(t,s)</m> donne la position dans <m>\mathcal L(E)</m> à l'instant <m>t</m> de la solution de <m>(RH)</m> qui est passée, ou passera, par <m>\id_E</m> à l'instant <m>s</m>.</p></li>
+                <li><p>si on fixe <m>s\in I</m>, l'application <m>t\longmapsto R(t,s)</m> donne l'évolution au cours du temps de la solution de <m>(RH)</m> qui est passé, ou passera, par <m>\id_E</m> à l'instant <m>s</m>.</p></li>
+                <li><p>si on fixe <m>t\in I</m>, l'application <m>s\longmapsto R(t,s)</m> est le flot à l'instant <m>t</m> de toutes les solutions qui sont passées, ou passeront par <m>\id_E</m> à l'instant <m>s</m>.</p></li>
+            </ol>
+            </paragraphs>
+
+            <paragraphs>
+                <title>Une application pour les exprimer toutes</title>
+            <p>Soit <m>t_0\in I</m></p>
+            <ol>
+                <li><p>Pour tout <m>u_0\in \mathcal L(E)</m>, l'unique solution <m>u</m> de <m>(RH)</m> telle que <m>u(t_0)=u_0</m> est donnée par <m>u(t)=R(t,t_0)\circ u_0</m>, soit <m>u(t)=R(t,t_0)\circ u(t_0)</m>.</p></li>
+                <li><p>pour tout <m>x_0\in E</m>, l'unique solution <m>f</m> de <m>(H)</m> telle que <m>f(t_0)=x_0</m> est donnée par <m>f(t)=R(t,t_0)\cdot x_0</m>, soit <m>f(t)=R(t,t_0)\cdot f(t_0)</m>.</p></li>
+            </ol>
+            </paragraphs>
+
+            <paragraphs>
+                <title>Les propriétés de la résolvante</title>
+            <ol>
+                <li><p>pour tout <m>(t,s)\in I^2</m>, <m>R(t,s)</m> est un endomorphisme inversible de <m>E</m>.</p></li>
+                <li><p>pour tout <m>(t,s,\ell)\in I^3</m>, <m>R(t,s)\circ R(s,\ell)=R(t,\ell)</m>. En particulier <m>R(t,s)^{-1}=R(s,t)</m>.</p></li>
+                <li><p><m>R</m> est de classe <m>\mathcal C^1</m> sur <m>I^2</m> et pour tout <m>(t,s)\in I^2</m></p>
+                    <md>
+                        <mrow>\dd Rt(t,s)\amp =a(t)\circ R(t,s) </mrow>
+                        <mrow>\dd Rs(t,s)\amp =-R(t,s)\circ a(s)</mrow>
+                    </md>
+                </li>
+            </ol>
+            </paragraphs>
+
+            <paragraphs>
+                <title>Expression de la résolvante en fonction des solutions fondamentales</title>
+            <p>Pour toute solution fondamentale <m>r</m> de l'équation <m>(RH)</m> on a</p>
+            <men>\forall (t,s)\in I^2,\; R(t,s)=r(t)\circ r(s)^{-1}</men>
+            </paragraphs>
+        </subsubsection>
+
+        <subsubsection>
+            <title>Résolvante et équation complète</title>
+            
+            <paragraphs> 
+            <title>Variation des constantes</title>
+            <p>Sachant que les solutions de <m>(H)</m> sont les fonctions <m>t\longmapsto r(t)\cdot e</m> où <m>e</m> est un vecteur quelconque de <m>E</m>, la méthode de la variation des constantes revient donc à faire varier le vecteur <m>e</m>. On pose donc <m>x(t)=r(t)\cdot e(t)</m>. Alors
+            <men>(E)\Longleftrightarrow r(t)\cdot e'(t)=b(t)\Longleftrightarrow e'(t)=r(t)^{-1}\cdot b(t)</men>
+            Ce qui permet en théorie de calculer <m>e'</m> et donc <m>e</m>.</p>
+            </paragraphs>
+
+            <paragraphs>
+            <title>Formule de Duhammel</title>
+            <p>Soit <m>(t_0,x_0)\in I\times E</m>. L'unique solution <m>f</m> de <m>(E)</m> vérifiant la condition initiale <m>f(t_0)=x_0</m> est donnée par la formule dite de Duhammel :</p>
+            <men xml:id="formule-duhammel">
+            \forall t\in\R,\; f(t)=R(t,t_0)\cdot x_0+\int_{t_0}^tR(t,s)\cdot b(s)\mathrm{d} s
+            </men>
+            <p>Dans cette expression de <m>f(t)</m>, l'intégrale représente une solution particulière de l'équation <m>(E)</m>, la solution qui à l'instant <m>t_0</m> passe par le vecteur nul. L'autre partie est la solution de l'équation homogène <m>(H)</m> qui à l'instant <m>t_0</m> passe par le point <m>x_0</m>.</p>
+            <p>
+                On notera également que cette expression généralise celle de la solution du problème de Cauchy d'une EDL à coefficients constant vue dans <xref ref="expression-solution-cauchy"/>
+            </p>
+            </paragraphs>
+
+        <paragraphs>
+            <title>Cas où <m>a(t)\circ a(s)=a(s)\circ a(t)</m> </title>
+            <p>On suppose que pour tous <m>t,s\in I</m> 
+            <me>
+                a(t)\circ a(s)=a(s)\circ a(t)
+            </me>
+            Alors selon <xref ref="expression-solutions-commutatives"/> la résolvante de <m>(H)</m> est donnée par 
+            <me>
+               \forall (t,s)\in I^2,\;
+               R(t,s)=\exp\biggl(\int_{s}^ta(u)\mathrm d u\biggr) 
+            </me>
+            </p>
+            
+            
+        </paragraphs>
+        </subsubsection>
+
+        <subsubsection>
+            <title>Résolvantes d'une équation à coefficients constants</title>
+            <p>On suppose ici que l'application <m>a</m> est constante. L'équation résolvante de <m>(E)</m> est </p>
+            <mdn> <mrow> (RH)\amp\amp u'\amp=a\circ u </mrow> </mdn>
+            <ol>
+                <li><p>Les solutions de <m>(RH)</m> sont les fonctions <m>r:t\longmapsto \e^{ta}\circ r_0</m> où <m>r_0</m> est un endomorphisme quelconque de <m>E</m>. En particulier, l'application</p>
+                    <men>r:t\longmapsto \e^{ta}</men>
+                    <p>est une solution fondamentale de <m>(RH)</m>. Celle qui prend la valeur <m>\id_E</m> en <m>t=0</m>.</p>
+                </li>
+                <li><p>L'application résolvante <m>R</m> de <m>(H)</m> est donc donnée par</p>
+                    <men>\forall (t,s)\in \R^2,\; R(t,s)=\e^{(t-s)a}</men>
+                </li>
+            </ol>
+            
+        </subsubsection>
+
+    <subsubsection>
+        <title>Solutions périodiques d'une EDL périodique</title>
+        <p>
+            Voir <xref ref="sysdiff-solutions-periodiques"/>
+        </p>
+        
+    </subsubsection>
+    </subsection>
+
+    <subsection>
+        <title>Thèmes sur les équations scalaires du deuxième ordre</title>
+
+        <convention>
+            <p>Dans tout cette subsection, on se donne une <term>EDLS</term> d'ordre <m>2</m> <m>(E)</m> et son équation homogène <m>(H)</m> qu'on suppose normalisables sur l'intervalle <m>I</m>, sauf mention explicite du contraire,</p>
+                <mdn>
+                    <mrow>(E)\amp\amp a(t)x'' + b(t)x' + c(t)x \amp= \varphi(t) </mrow>
+                    <mrow>(H)\amp\amp a(t)x'' + b(t)x' + c(t)x \amp= 0 </mrow>
+                </mdn>
+            <p>On suppose en outre que l'intervalle <m>I</m> est ouvert.</p>
+        </convention>
+
+        <subsubsection>
+        <title>Solutions développables en séries entières</title>
+        <p> Commençons par quelque résultats sur la possibilité que l'équation homogène admette des solutions qui sont développables en séries entières au voisinage de <m>0</m>. Si de telles solutions existent alors elles peuvent contribuer à résoudre complétement l'équation <m>(E)</m>.
+        </p> 
+        
+        <p>On suppose que <m>0\in I</m>. On peut démontrer les deux résultats fondamentaux suivants :</p>
+
+        <theorem><title>Cas d'une équation normalisée</title>
+            <statement>
+                <p>On suppose que l'équation <m>(H)</m> est normalisée et que les fonctions <m>b</m> et <m>c</m> sont développables en séries entières en <m>0</m> sur un intervalle <m>]-r,r[\subset I</m>. Alors toutes les solutions de <m>(H)</m> sur <m>I</m> sont développables en séries entières en <m>0</m> sur <m>]-r,r[</m>.</p>
+            </statement>
+                <proof>
+                    <p>Voir exercice 
+                    <xref ref="act-eqdse"/>
+                    </p>
+                </proof>
+            </theorem>
+            <theorem>
+                <title>Cas d'une équation non normalisable</title>
+                <statement>
+                <p>Dans le cas où <m>(H)</m> n'est pas normalisable en <m>0</m>, si on peut la ramener à une équation de la forme</p>
+                <men>t^2x'' + tp(t)x' + q(t)x = 0 \quad (H)</men>
+                <p>où <m>p</m> et <m>q</m> sont développables en séries entières en <m>0</m> sur un intervalle <m>]-r,r[\subset I</m>, alors <m>(H)</m> admet au moins une solution sur <m>]0,r[</m> de la forme</p>
+                <men>f(t) = t^s\sum_{n=0}^{+\infty}a_nt^n</men>
+                <p>où <m>\sum a_nt^n</m> est une série entière de rayon de convergence <m>\geqslant r</m> et <m>s</m> est une racine du polynôme</p>
+                <men>P = X(X-1) + p(0)X + q(0)</men>
+                <p>La fonction <m>f</m> est dite une solution de Frobenius de <m>(H)</m> et <m>P</m> est dit polynôme initialisateur de <m>(H)</m>.</p>
+            </statement>
+                <proof>
+                    <p>Voir exercice 
+                    <xref ref="act-eqdsen"/>.
+                    </p>
+                </proof>
+            </theorem>
+    </subsubsection>
+
+        <subsubsection>
+        <title>Transformation de l'équation homogène <m>(H)</m></title>
+        <p>Tout au long du chapitre précédent, on a utilisé, de façon éparpillée, quelques idées simples pour transformer une <term>EDLS</term> du second ordre. Le but ici est de les rassembler.</p>
+        
+        <paragraphs>
+            <title>Transformations de type <m>x=k(t)y</m></title>
+            
+                <p>Soit une fonction <m>k</m> de classe <m>\mathcal C^2</m> qui ne s'annule pas sur <m>I</m>. En posant <m>x(t)=k(t)y(t)</m>, alors <m>(H)</m> est équivalente à l'équation</p>
+                    <md>
+                        <mrow>a(t)k(t)y'' + \big(2a(t)k'(t) + b(t)k(t)\big)y' + (a(t)k''(t) + b(t)k'(t) + c(t)k(t)\big)y \amp= 0</mrow>
+                    </md>
+                <p>On en a dégagé deux applications intéressantes :</p>
+                <ol>
+                    <li>
+                        <p>La méthode de Lagrange :</p>
+                        <p>Si <m>k</m> est une solution de <m>(H)</m> qui ne s'annule pas sur <m>I</m>, alors <m>(H)</m> équivaut à l'<term>EDLS</term> d'ordre <m>1</m> en <m>y'</m></p>
+                        <men>a(t)k(t)y'' + \big(2a(t)k'(t) + b(t)k(t)\big)y' = 0</men>
+                        <p>Cette méthode permet de résoudre complètement l'équation <m>(H)</m> par calcul de primitives.</p>
+                    </li>
+                    <li>
+                        <p>Forme normale de <m>(H)</m> :</p>
+                        <p>Si <m>k</m> est une solution non nulle de l'équation <m>2a(t)k' + b(t)k = 0</m>, alors on obtient la forme normale de <m>(H)</m> :
+                        <me>
+                            y''+p(t)y=0
+                        </me>
+                        avec <m>a=\ds\frac{ak''+bk'+ck}{ak}</m>.
+                        
+                    </p>
+                    </li> 
+                    </ol>
+        </paragraphs>
+                    
+    <paragraphs>
+        <title>Forme exacte, équation adjointe</title>
+        <p>On suppose que <m>a</m> est de classe <m>\mathcal C^2</m> et <m>b</m> est de classe <m>\mathcal C^1</m> sur <m>I</m>.</p>
+        <ol>
+            <li>
+                <title>Transformation en une forme exacte</title>
+                <p>On dit que <m>(E)</m> admet une forme exacte sur <m>I</m> s'il existe une fonction <m>r</m> de classe <m>\mathcal C^2</m> <em>ne s'annulant pas sur</em> <m>I</m> et une fonction <m>s</m> de classe <m>\mathcal C^1</m> telles que <m>(E)</m> soit équivalente à</p>
+                <mdn><mrow> (EE) \amp\amp(r(t)x' + s(t)x)' \amp = \psi(t)</mrow></mdn>
+                <p>où <m>\psi</m> est une fonction continue sur <m>I</m>. Si <m>r</m> et <m>s</m> existent, l'équation <m>(EE)</m> est dite une forme exacte de <m>(E)</m> sur <m>I</m>.</p>
+                <p>Une équation exacte peut être résolue par calcul de primitives. Il est donc prévisible que s'y ramener fasse intervenir d'autres équations qu'on ne peut résoudre complètement. En l'occurrence, l'équation <m>(H^*)</m> ci-dessus.</p>
+            </li>
+            <li>
+                <title>Existence d'une forme exacte, équation adjointe de <m>(H)</m></title>
+                <p>L'équation <m>(E)</m> admet une forme exacte sur <m>I</m> si l'<term>EDLS</term> homogène</p>
+                <mdn><mrow> (H^*) \amp\amp 
+                (a(t)y)'' - (b(t)y)' + c(t)y \amp= 0 </mrow></mdn>
+                <p>admet au moins une solution <m>\nu</m> qui ne s'annule pas sur <m>I</m>. Les fonctions <m>r</m>, <m>s</m> et <m>\psi</m> sont alors données par les relations</p>
+                <men>
+                    \begin{aligned}
+                    r \amp= a\nu \amp\amp\amp s \amp= b\nu - r' \amp\amp\amp \psi \amp= \varphi\nu
+                    \end{aligned}
+                </men>
+                <p>L'équation <m>(H^*)</m> est dite équation adjointe de <m>(H)</m>. Une solution de l'équation adjointe <m>(H^*)</m> qui ne s'annule pas sur <m>I</m> est dite un facteur intégrant de l'équation <m>(E)</m> sur <m>I</m>. Si on connaît une telle fonction, on peut effectivement résoudre complètement l'équation <m>(E)</m> par calcul de primitives.</p>
+                <proof>
+                    <p>Supposons pour l'instant que les fonctions <m>r</m> et <m>s</m> existent, on aura</p>
+                    <men>
+                        (E) \Longleftrightarrow r(t)x'' + \big(r'(t) + s(t)\big)x' + s'(t)x = \psi(t)
+                    </men>
+                    <p>D'un autre côté, si <m>\nu</m> est une fonction de classe <m>\mathcal C^2</m> qui ne s'annule pas sur <m>I</m>, alors</p>
+                    <men>
+                        (E) \Longleftrightarrow a(t)\nu(t)x'' + b(t)\nu(t)x' + c(t)\nu(t) = \varphi(t)\nu(t)
+                    </men>
+                    <p>Il suffit donc de déterminer des fonctions <m>\nu</m>, <m>r</m> et <m>s</m> telles que</p>
+                    <men>
+                        \begin{cases}
+                        r = a\nu \\
+                        r' + s = b\nu \\
+                        s' = c\nu
+                        \end{cases}
+                    </men>
+                    <p>Une condition nécessaire pour que de telles fonctions existent est que :</p>
+                    <men>
+                        c\nu = s' = (-r' + b\nu)' = -(a\nu)'' + (b\nu)'
+                    </men>
+                    <p>La fonction <m>\nu</m> devrait donc être une solution de l'<term>EDLS</term> homogène d'ordre <m>2</m> :</p>
+                    <men>
+                        (a(t)y)'' - (b(t)y)' + cy = 0 \quad (H^*)
+                    </men>
+                    <p>Maintenant si <m>(H^*)</m> admet une solution <m>\nu</m> qui ne s'annule pas sur <m>I</m>, il suffit selon les relations ci-dessus de poser <m>r = a\nu</m>, <m>s = -r' + b\nu</m> et <m>\psi = \varphi\nu</m> pour que <m>(E)</m> soit équivalente à l'équation <m>(EE)</m>.</p>
+                </proof>
+            </li>
+        </ol>
+        </paragraphs>
+    <paragraphs>
+        <title>L'équation adjointe <m>(H^*)</m></title>
+        <p>On rappelle l'écriture de <m>(H)</m> et de son équation adjointe <m>(H^*)</m> :</p>
+        <men>
+            \begin{aligned}
+            a(t)x'' + b(t)x' + c(t)x \amp= 0 \quad (H) \\
+            a(t)y'' + (2a'(t) - b(t))y' + (a''(t) - b'(t) + c(t))y \amp= 0 \quad (H^*)
+            \end{aligned}
+        </men>
+        <p>On vérifie que :</p>
+        <ol>
+            <li>
+                <p>L'équation adjointe de <m>(H^*)</m> est <m>(H)</m>.</p>
+            </li>
+            <li>
+                <p>Les équations <m>(H)</m> et <m>(H^*)</m> sont équivalentes si et seulement si <m>a' = b</m>. Ce qui ramène l'équation <m>(H)</m> à</p>
+                <men>(a(t)x')' + c(t)x = 0</men>
+                <p>D'où le titre d'équation auto-adjointe donné à ce genre d'équations.</p>
+            </li>
+
+        <li><title>Lien entre solutions de <m>(H)</m> et celles de son équation adjointe <m>(H^*)</m></title>
+        <p>Les solutions de <m>(H^*)</m> sont de la forme <m>g = \sigma f</m> où <m>f</m> est une solution quelconque de <m>(H)</m> et <m>\sigma</m> est l'une des solutions non nulles de l'<term>EDLS</term> homogène d'ordre <m>1</m> :</p>
+        <men>(a(t)\sigma)' = b(t)\sigma</men>
+        <p>Ce qui implique que si on peut résoudre <m>(H^*)</m>, alors on peut le faire pour <m>(H)</m> et vice versa.</p>
+        <explanation>
+            <p>Fixons une fonction non nulle <m>\sigma</m> telle que <m>(a\sigma)' = b\sigma</m> et considérons une fonction <m>x</m> de classe <m>\mathcal C^2</m> sur <m>I</m>. Posons <m>y = \sigma x</m>. Alors</p>
+            <men>
+                \begin{aligned}
+                (H^*) \amp \Longleftrightarrow (ay)'' - (by)' + cy = 0 \\
+                \amp\Longleftrightarrow (a\sigma x)'' - (b\sigma x)' + c\sigma x = 0 \\
+                \amp\Longleftrightarrow (a\sigma)x'' + 2(a\sigma)'x' + (a\sigma)''x - (b\sigma)x' - (b\sigma)'x + c\sigma x = 0 \\
+                \amp\Longleftrightarrow a\sigma x'' + b\sigma x' + c\sigma x = 0 \quad (\text{car } (a\sigma)' = b\sigma) \\
+                \amp\Longleftrightarrow ax'' + bx' + cx = 0
+                \end{aligned}
+            </men>
+        </explanation>
+        <p>En multipliant <m>(H)</m> par <m>\sigma(t)</m>, elle équivaut à l'équation auto-adjointe</p>
+        <men>(a(t)\sigma(t)x')' + c(t)\sigma(t)x = 0 \quad (HA)</men>
+    </li>
+    </ol>
+    </paragraphs>
+    </subsubsection>
+
+
+    <subsubsection>
+        <title>Problèmes aux limites</title>
+        <p>Soient deux éléments <m>\alpha\lt \beta</m> de <m>I</m>. On se donne deux scalaires <m>A</m> et <m>B</m> et deux formes linéaires <m>\ell_1</m> et <m>\ell_2</m> définies sur <m>\mathcal C^2(I,\K)</m> par</p>
+        <men>
+            \begin{aligned} 
+            \ell_1(f) \amp= a_0 f(\alpha) + a_1 f'(\alpha) + b_0f(\beta) + b_1 f'(\beta) \\
+            \ell_2(f) \amp= c_0 f(\alpha) + c_1 f'(\alpha) + d_0f(\beta) + d_1 f'(\beta)
+            \end{aligned}
+        </men>
+        <p>où <m>(a_0,a_1,b_0,b_1)</m> et <m>(c_0,c_1,d_0,d_1)</m> sont deux éléments donnés non colinéaires de <m>\K^4</m>.</p>
+        <p>Le système d'équations</p>
+        <men>
+             \begin{cases}  
+            a(t)x'' + b(t)x' + c(t)x = \varphi(t) \\
+            \ell_1(x) = A, \; \ell_2(x) = B
+             \end{cases}  
+        </men>
+        <p>est dit un problème aux limites de <m>(E)</m> en <m>\alpha</m> et <m>\beta</m>. Il peut avoir l'une des formes particulières suivantes :</p>
+        <ol>
+            <li>
+                <p>Problème aux limites de première espèce :</p>
+                <men>
+                     \begin{cases}  
+                    x(\alpha) = A \\
+                    x(\beta) = B
+                     \end{cases}  
+                </men>
+            </li>
+            <li>
+                <p>Problème aux limites de deuxième espèce :</p>
+                <men>
+                     \begin{cases}  
+                    x(\alpha) = A \\
+                    x'(\beta) = B
+                     \end{cases}  
+                </men>
+            </li>
+            <li>
+                <p>Problème aux limites périodique :</p>
+                <men>
+                     \begin{cases}  
+                    x(\alpha) = x(\beta) \\
+                    x'(\alpha) = x'(\beta)
+                     \end{cases}  
+                </men>
+            </li>
+            <li>
+                <p>Problème de Sturm-Liouville :</p>
+                <men>
+                     \begin{cases}  
+                    a_0x(\alpha) + a_1x'(\alpha) = A \\
+                    d_0x(\beta) + d_1x'(\beta) = B
+                     \end{cases}  
+                </men>
+            </li>
+        </ol>
+        <p>Contrairement aux problèmes de Cauchy, un problème aux limites peut avoir plusieurs solutions comme n'en avoir aucune.</p>
+           
+
+
+        <proposition>
+            <title>CNS d'existence et d'unicité</title>
+            <p>Considérons un système fondamental de solutions <m>(f_0,f_1)</m> de <m>(H)</m>. Alors le problème aux limites admet une solution unique si et seulement si</p>
+            <men>
+                \Delta(f_0,f_1) := \begin{vmatrix} \ell_1(f_0) \amp  \ell_1(f_1) \\ \ell_2(f_0) \amp  \ell_2(f_1)\end{vmatrix} \ne 0
+            </men>
+            <proof>
+                <p>Soit <m>g</m> une solution particulière de <m>(E)</m> et posons <m>f = g + \lambda_0 f_0 + \lambda_1 f_1</m>. On a alors</p>
+                <men>
+                    \begin{cases}
+                    \ell_1(f) = A \\
+                    \ell_2(f) = B
+                     \end{cases}  
+                    \Longleftrightarrow
+                     \begin{cases}  
+                    \lambda_0\ell_1(f_0) + \lambda_1\ell_1(f_1) = A - \ell_1(g) \\
+                    \lambda_0\ell_2(f_0) + \lambda_1\ell_2(f_1) = B - \ell_2(g)
+                    \end{cases}
+                </men>
+                <p>Ce dernier système d'équations, d'inconnues <m>\lambda_0</m> et <m>\lambda_1</m>, admet une solution unique si et seulement si <m>\Delta(f_0,f_1) \ne 0</m>.</p>
+            </proof>
+            </proposition>
+
+</subsubsection>
+    
+
+
+    <subsubsection xml:id="sec-zeros-des-solutions">
+        <title>Zéros des solutions d'une EDLS homogène du second ordre</title>
+
+        <introduction>
+        <p>Ce thème sera traité de façon assez exhaustive vu son intérêt. Il concerne la distribution des zéros des solutions d'une <term>EDLS</term> homogène d'ordre <m>2</m>.</p>
+        </introduction>
+
+        <subsubsubsection>
+            <title>Le cas général</title>
+            
+            
+        <paragraphs>
+                <title>Zéros communs</title>
+                <proposition>
+                    <statement>
+                <p>Deux solutions de <m>(H)</m> qui ont un zéro en commun sont nécessairement colinéaires.</p>
+                 </statement>
+                <proof>
+                    <p>Si <m>f</m> et <m>g</m> sont deux solutions de <m>(H)</m> sur <m>I</m> qui ont un zéro <m>t_0</m> en commun et <m>w</m> est leur wronksien, alors <m>w(t_0) = 0</m> et donc <m>f</m> et <m>g</m> sont colinéaires.</p>
+                </proof>
+                </proposition>
+            </paragraphs>
+            <paragraphs>
+                <title>Répartition des zéros des solutions de <m>(H)</m> dans le cas général</title>
+
+                <proposition xml:id="prop-nbrzerosfini">
+                    <statement>
+                <p>Soit <m>f</m> une solution non nulle de <m>(H)</m> sur <m>I</m>. Alors elle admet au plus un nombre fini de zéros dans chaque segment de <m>I</m>.</p>
+                            
+                    </statement>
+                
+                <proof>
+                    <p>Soit un segment <m>J \subset I</m>. Supposons par l'absurde que <m>f</m> admet une infinité de zéros dans <m>J</m> et considérons une suite injective <m>(t_n)_n</m> dont tous les termes sont des zéros de <m>f</m> dans <m>J</m>. <m>J</m> étant un segment, <m>(t_n)</m> admet une suite extraite qui converge, on peut donc supposer que <m>(t_n)</m> elle-même converge. Soit <m>t</m> sa limite. Puisque <m>f(t_n) = 0</m> pour tout <m>n \in \N</m>, alors par continuité de <m>f</m> on a <m>f(t) = 0</m>. Ensuite</p>
+                    <men>
+                        f'(t) = \lim \frac{f(t_n) - f(t)}{t_n - t} = 0
+                    </men>
+                    <p>Par unicité de la solution de <m>(H)</m> telle que <m>f(t) = 0</m> et <m>f'(t) = 0</m>, la fonction <m>f</m> serait donc nulle sur <m>I</m>. Ce qui contredit l'hypothèse faite sur <m>f</m>.</p>
+                    <p>Alors <m>f</m> admet au plus un nombre fini de zéros dans <m>J</m>.</p>
+                </proof>
+                </proposition>
+        </paragraphs>
+
+
+
+    <!-- Suite de la conversion -->Théorème de
+
+    
+    <paragraphs>
+        <title>Théorème principal</title>
+        
+    <theorem>
+        <title> de séparation de Sturm</title>
+        <statement>
+            <p>Soient <m>f</m> et <m>g</m> deux solutions non colinéaires de <m>(H)</m> sur <m>I</m>. On suppose que <m>f</m> admet au moins deux zéros dans <m>I</m>. Pour tout couple <m>(t_1, t_2)</m> de zéros successifs de <m>f</m> dans <m>I</m>, il y a exactement un zéro de <m>g</m> entre <m>t_1</m> et <m>t_2</m>.</p>
+        </statement>
+        
+        <proof>
+            <p>Les zéros <m>t_1</m> et <m>t_2</m> étant successifs, <m>f</m> ne s'annule pas sur l'intervalle <m>]t_1, t_2[</m>. Elle y garde donc un signe constant. Quitte à remplacer <m>f</m> par <m>-f</m>, on peut supposer que <m>f(t) \gt 0</m> pour tout <m>t \in ]t_1, t_2[</m>. Par ailleurs, <m>f'</m> ne peut s'annuler en <m>t_1</m> ou en <m>t_2</m> car sinon <m>f</m> serait partout nulle donc</p>
+            <men>
+                \begin{aligned}
+                f'(t_1) \amp = \lim_{t \to t_1^+} \frac{f(t)}{t - t_1} \gt 0 \amp \amp \amp 
+                f'(t_2) \amp = \lim_{t \to t_2^-} \frac{f(t)}{t - t_2} \lt 0
+                \end{aligned}
+            </men>
+            <p>Soit <m>w</m> le wronksien de <m>f</m> et <m>g</m>. On a</p>
+            <men>
+                \begin{aligned}
+                w(t_1) \amp = -f'(t_1)g(t_1) \amp \amp \amp 
+                w(t_2) \amp = -f'(t_2)g(t_2)
+                \end{aligned}
+            </men>
+            <p>Comme <m>w</m> ne s'annule pas sur <m>I</m>, elle y garde un signe constant et donc <m>g(t_1)g(t_2) \lt 0</m>. D'après le <term>TVI</term>, <m>g</m> admet au moins un zéro dans <m>]t_1, t_2[</m>. Ce zéro est nécessairement unique car sinon, le résultat qu'on vient de démontrer impliquera l'existence d'un zéro de <m>f</m> dans <m>]t_1, t_2[</m>.</p>
+        </proof>
+        </theorem>
+        <p>On en déduit que si <m>(H)</m> admet une solution non nulle qui admet une infinité de zéros dans <m>I</m> alors c'est le cas pour toutes les solutions de <m>H</m>.</p>
+    </paragraphs>
+
+    </subsubsubsection>
+
+    <subsubsubsection xml:id="subsubsec-equations-normales">
+        <title>Cas d'une équation normale</title>
+        <introduction>
+            <p>
+                <p>On considère dans la suite deux <term>EDLS</term> homogènes normales sur <m>I</m></p>
+        <men>
+            \begin{aligned}
+            x'' + p(t)x \amp = 0 \quad (H_p) \\
+            x'' + q(t)x \amp = 0 \quad (H_q)
+            \end{aligned}
+        </men>
+            </p>
+        </introduction>
+        
+        <proposition xml:id="prop-qneg">
+            <title>Cas où la fonction <m>q</m> est négative</title>
+            <statement>
+                <p>Si <m>q(t) \leq 0</m> sur <m>I</m> et <m>q</m> n'est identiquement nulle sur aucun segment de <m>I</m>, alors toute solution non nulle de <m>(H_q)</m> admet au plus un zéro dans <m>I</m>.</p>
+            </statement>
+            <proof>
+                    <p>Soit <m>f</m> une solution non nulle de <m>(H_q)</m> et supposons qu'elle admet au moins deux zéros dans <m>I</m>. Soient <m>t_1</m> et <m>t_2</m> deux zéros consécutifs de <m>f</m>. Si par exemple <m>f(t) \gt 0</m> sur <m>]t_1, t_2[</m>, alors <m>f''(t) = -q(t)f(t) \geq 0</m> et <m>f''</m> n'est partout nulle sur aucun un segment de <m>]t_1, t_2[</m>. La fonction <m>f'</m> est donc strictement croissante sur <m>I</m>. C'est impossible car on a forcément <m>f'(t_1) \gt 0</m> et <m>f'(t_2) \lt 0</m>.</p>
+                </proof>
+        </proposition>
+                
+                
+                
+            <proposition xml:id="prop-qpos">
+                <title>Cas où la fonction <m>p</m> est positive non intégrable</title>
+                <statement>
+                    <p>
+                        <p>On suppose que l'intervalle <m>I</m> est non majoré et que <m>p(t) \geq 0</m> sur <m>I</m> et <m>p</m> n'est identiquement nulle sur aucun segment de <m>I</m>. Soit <m>\alpha \in I</m>. Si <m>p</m> n'est pas intégrable sur <m>[\alpha, +\infty[</m>, alors toute solution de <m>(H_p)</m> admet une infinité de zéros dans <m>I</m>.</p>
+                    </p>
+                </statement>
+                <proof>
+                    <p>Soit <m>f</m> une solution non nulle de <m>(H_p)</m>. Supposons que <m>f</m> admet un nombre fini de zéros dans <m>I</m>. Il existe donc <m>t_0 \in I</m> tel que <m>f(t) \ne 0</m> sur <m>I_1 = [t_0, +\infty[</m>. Quitte à remplacer <m>f</m> par <m>-f</m>, on peut supposer que <m>f(t) \gt 0</m> sur <m>I_1</m>.</p>
+                    <p>Comme <m>f''(t) = -p(t)f(t) \leq 0</m>, alors <m>f</m> est concave sur <m>I_1</m> et donc pour tout <m>a \in I_1</m>, on a</p>
+                    <men>
+                        \forall t \geq t_0, f(t) \leq f(a) + f'(a)(t - a)
+                    </men>
+                    <p>Et on voit ainsi qu'il suffit qu'il existe <m>a \geq t_0</m> tel que <m>f'(a) \lt 0</m> pour avoir <m>\lim_{+\infty} f = -\infty</m>, contredisant ainsi la stricte positivité de <m>f</m> sur <m>I_1</m>.</p>
+                    <p>Introduisons maintenant la fonction <m>g</m> définie pour tout <m>t \in I_1</m> par</p>
+                    <men>
+                        g(t) = -\frac{f'(t)}{f(t)}
+                    </men>
+                    <p><m>g</m> est de classe <m>\mathcal C^1</m> sur <m>I_1</m> et pour tout <m>t \in I_1</m></p>
+                    <men>
+                        g'(t) = -\frac{f''(t)}{f(t)} + \frac{f'(t)^2}{f(t)^2} = p(t) + g(t)^2 \geq p(t)
+                    </men>
+                    <p>Par suite</p>
+                    <men>
+                        g(t) \geq g(t_0) + \int_{t_0}^t p(s) \mathrm{d} s
+                    </men>
+                    <p><m>p</m> est positive non intégrable sur <m>[t_0, +\infty[</m> donc <m>\lim_\beta g = +\infty</m>. Il existe donc <m>a \geq t_0</m> tel que <m>g(t) \gt 0</m> sur <m>[a, +\infty[</m>. On en déduit que <m>f'(t) \lt 0</m> sur <m>[a, +\infty[</m> tout entier. Ce qui achève la démonstration.</p>
+                </proof>
+            </proposition>
+                
+                
+
+
+    <!-- Suite de la conversion -->
+
+    <theorem>
+        <title>Théorème de comparaison de Sturm</title>
+        <statement>
+        <p>On suppose que <m>q \geq p</m> et <m>q - p</m> n'est partout nulle sur aucun segment de <m>I</m>. On suppose que <m>(H_p)</m> admet une solution <m>f</m> qui admet au moins deux zéros dans <m>I</m>. Alors toute solution <m>g</m> de <m>(H_q)</m> admet au moins un zéro entre chaque deux zéros consécutifs de <m>f</m>.</p>
+        </statement>
+        <proof>
+            <p>Soient <m>t_1, t_2</m> deux zéros successifs de <m>f</m> dans <m>I</m>. Soit <m>g</m> une solution de <m>(H_q)</m> sur <m>I</m>. Soit <m>w</m> le wronksien croisé de <m>f</m> et <m>g</m>. Alors</p>
+            <men>
+                w'(t) = \big(p(t) - q(t)\big)f(t)g(t)
+            </men>
+            <p>Comme <m>w(t_1) = -f'(t_1)g(t_1)</m> et <m>w(t_2) = -f'(t_2)g(t_2)</m>, en intégrant cette relation entre <m>t_1</m> et <m>t_2</m> on obtient</p>
+            <men>
+                f'(t_2)g(t_2) - f'(t_1)g(t_1) = \int_{t_1}^{t_2} \big(q(s) - p(s)\big)f(s)g(s) \mathrm{d} s
+            </men>
+            <p>Comme pour le résultat précédent, on peut supposer que <m>f(t) \gt 0</m> sur <m>]t_1, t_2[</m>, ce qui implique en outre que <m>f'(t_1) \gt 0</m> et <m>f'(t_2) \lt  0</m>. En analysant les signes des deux membres de l'égalité précédente on voit que <m>g</m> ne peut garder un signe constant sur <m>[t_1, t_2]</m>. Elle admet donc au moins un zéro dans <m>[t_1, t_2]</m>.</p>
+        </proof>
+        </theorem>
+        <p>On en déduit que si <m>(H_p)</m> admet une solution non nulle qui possède une infinité de zéros dans <m>I</m> alors c'est le cas de toutes les solutions de <m>(H_q)</m>.</p>
+    
+   
+
+    <example>
+        <title>Un exemple intéressant</title>
+        <statement>
+        <p>Soit <m>a \in \R</m>. Considérons l'<term>EDLS</term> d'ordre <m>2</m> à coefficients constants</p>
+        <men>x'' + a x = 0 \quad (HC)</men>
+        <p>Transformons la en une équation de Cauchy-Euler sur <m>]0, +\infty[</m> (<m>x(t) = y(\e^t)</m>) :</p>
+        <men>t^2 y'' + t y' + a y = 0</men>
+        <p>Et ramenons-nous à la forme normale de celle-ci sur <m>]0, +\infty[</m> (<m>y = \frac{z}{\sqrt t}</m>) :</p>
+        <men>z'' + \frac{1 + 4a}{4t^2} z = 0</men>
+        <p>ou encore, en posant <m>c = \frac{1}{4} + a</m>,</p>
+        <men>z'' + \frac{c}{t^2} z = 0 \quad (HN)</men>
+        <p>Au final on aurait effectué le changement mixte <m>x(t) = \e^{-t/2} z(\e^t)</m>.</p>
+        <p>On en déduit les résultats suivants :</p>
+        <ol>
+            <li>
+                <p>Si <m>c \gt \frac{1}{4}</m>, les solutions de <m>(HN)</m> ont toutes une infinité de zéros dans <m>]0, +\infty[</m>.</p>
+            </li>
+            <li>
+                <p>Si <m>c \leq \frac{1}{4}</m>, toute solution non nulle de <m>(HN)</m> admet au plus un zéro dans <m>]0, +\infty[</m>.</p>
+            </li>
+        </ol>
+       </statement>
+        <solution>
+            <p>Toute solution de <m>(HN)</m> sur <m>]0, +\infty[</m> s'écrit sous la forme <m>g(t) = \frac{f(\ln t)}{\sqrt t}</m> où <m>f</m> est une solution de <m>(HC)</m>. Les zéros de <m>g</m> dans <m>]0, +\infty[</m> sont donc les réels <m>\e^{t}</m> où <m>t</m> est un zéro de <m>f</m> dans <m>\R</m>.</p>
+            <p>Les solutions de <m>(HC)</m> sont de la forme <m>f(t) = A \sin(\sqrt a t + \varphi)</m> si <m>a \gt 0</m>, <m>f(t) = A \sinh(t \sqrt{-a} + \varphi)</m> si <m>a \lt 0</m> et <m>f(t) = A t + B</m> si <m>a = 0</m>. D'où le résultat.</p>
+        </solution>
+        </example>
+        <remark>
+                <p>Cet exemple montre en particulier que l'hypothèse de non intégrabilité de <m>p</m> dans 
+                <!-- <xref ref="unitheme:casp"/>  -->
+                n'est pas nécessaire pour que les solutions de l'équation normale <m>x'' + p(t)x = 0</m> admettent chacune une infinité de zéros.</p>
+        <p>Grâce au théorème de comparaison de Sturm, on en déduit aussi que si <m>I</m> est non majoré alors</p>
+        <ol>
+            <li>
+                <p>si <m>4t^2 p(t) \leq 1</m> au voisinage de <m>+\infty</m>, alors les solutions non nulles de <m>x'' + p(t)x = 0</m> ont chacune au plus un zéro dans <m>I</m>.</p>
+            </li>
+            <li>
+                <p>s'il existe <m>c \gt \frac{1}{4}</m> tel que <m>t^2 p(t) \geq c</m> au voisinage de <m>+\infty</m>, alors les solutions de <m>x'' + p(t)x = 0</m> ont chacune une infinité de zéros dans <m>I</m>.</p>
+            </li>
+        </ol>
+    </remark>
+    </subsubsubsection>
+    
+    <subsubsubsection xml:id="subsubsec-">
+        <title>Cas d'une équation auto-adjointe et déductions sur le cas général</title>
+
+        <introduction>
+        <p>Supposons que l'équation <m>(H)</m> est normalisée :</p>
+        <men>x'' + b(t)x' + c(t)x = 0 \quad (H)</men>
+        <p>On la transforme en une équation normale en posant <m>x = k(t)y</m> :</p>
+        <men>y'' + p(t)y = 0 \quad (HN)</men>
+        <p>où <m>k \gt 0</m> est une solution de <m>2k' + b(t)k = 0</m> et <m>p = c - \frac{b^2}{4} - \frac{b'}{2}</m>. On la transforme aussi en une équation auto-adjointe :</p>
+        <men>(\sigma(t)x')' + q(t)x = 0 \quad (HA)</men>
+        <p>où <m>\sigma \gt 0</m> est une solution de <m>\sigma' - b(t)\sigma = 0</m> et <m>q = c \sigma</m>.</p>
+        <p>Si <m>B</m> est une primitive de <m>b</m> sur <m>I</m>, on peut prendre</p>
+        <men>
+            \begin{aligned}
+            k(t) \amp= \e^{-B(t)/2} \amp \amp \amp  \sigma(t) \amp = \e^{B(t)}
+            \end{aligned}
+        </men>
+        <p>Puisque <m>x = k y</m>, alors les zéros de <m>x</m> sont exactement ceux de <m>y</m> et on pourrait donc exploiter les résultats énoncés pour les équations normales pour étudier les zéros des solutions de <m>(H)</m>. L'inconvénient est que les propriétés de la fonction <m>p</m>, son signe surtout, ne sont pas facilement déductibles de celles de <m>b</m> et de <m>c</m>. Par contre <m>(H)</m> et <m>(HA)</m> ont les mêmes solutions, la fonction <m>\sigma</m> est strictement positive et la fonction <m>q</m> a partout le même signe que la fonction <m>c</m>. Avoir des résultats spécifiques aux équations auto-adjointes présente donc un avantage certain.</p>
+    </introduction>
+    <theorem xml:id="thm-leigh">
+        <title>Théorème de Leighton</title>
+        <statement>
+        <p>Soit <m>\alpha \in I</m>. On suppose que <m>I</m> est non majoré, que <m>q</m> est positive non intégrable sur <m>[\alpha, +\infty[</m> et que <m>\frac{1}{\sigma}</m> est non intégrable sur <m>[\alpha, +\infty[</m>. Alors toutes les solutions de <m>(H)</m> ont une infinité de zéros dans <m>I</m>.</p>
+        <p>C'est une généralisation du théorème 
+        <!-- <xref ref="unitheme:casp"/>. -->
+        </p>
+        </statement>
+        <proof>
+            <p>Soit <m>f</m> une solution de <m>(H)</m>. Supposons par l'absurde qu'elle admet un nombre fini de zéros dans <m>I</m>. Il existe alors <m>t_0 \in I</m> tel que <m>f</m> ne s'annule pas sur <m>I_1 = [t_0, +\infty[</m> et on peut supposer que <m>f(t) \gt 0</m> sur <m>I_1</m>.</p>
+            <p>Comme pour le théorème 
+            <!-- <xref ref="unitheme:casp"/>,  -->
+            on introduit la fonction <m>g</m>, <m>\mathcal C^1</m> sur <m>I_1</m>, définie par :</p>
+            <men>
+                g(t) = -\sigma(t) \frac{f'(t)}{f(t)}
+            </men>
+            <p>On a alors</p>
+            <men>
+                g'(t) = -\frac{1}{f(t)} \frac{\mathrm d}{\mathrm{d} t} (\sigma'(t)f(t)) + \sigma(t) \frac{f'(t)^2}{f(t)^2} = q(t) + \frac{g(t)^2}{\sigma(t)}
+            </men>
+            <p>Par suite</p>
+            <men>
+                g(t) \geq g(t_0) + \int_{t_0}^t q(s) \mathrm{d} s + \int_{t_0}^t \frac{g(s)^2}{\sigma(s)} \mathrm{d} s
+            </men>
+            <p>Puisque <m>q</m> est non intégrable sur <m>I_1</m>, alors <m>g(t_0) + \int_{t_0}^t q(s) \mathrm{d} s \xrightarrow[t \to +\infty]{} +\infty</m> et donc il existe <m>a \geq t_0</m> tel que</p>
+            <men>
+                \forall t \geq a, \int_{t_0}^{t} \frac{g(s)^2}{\sigma(s)} \mathrm{d} s \leq g(t)
+            </men>
+            <p>Une situation à la Gromwall donc.</p>
+            <p>Si on pose maintenant <m>u(t) = \int_{t_0}^{t} \frac{g(s)^2}{\sigma(s)} \mathrm{d} s</m>, alors <m>u</m> est une fonction <m>\mathcal C^1</m> strictement positive et on a pour tout <m>t \geq a</m> :</p>
+            <men>
+                u'(t) = \frac{g(t)^2}{\sigma(t)} \geq \frac{u(t)^2}{\sigma(t)}
+            </men>
+            <p>et donc</p>
+            <men>
+                \frac{1}{\sigma(t)} \leq \frac{u'(t)}{u(t)^2}
+            </men>
+            <p>par suite</p>
+            <men>
+                \int_{a}^{t} \frac{\mathrm{d} s}{\sigma(s)} \leq \frac{1}{u(a)} - \frac{1}{u(t)} \leq \frac{1}{u(a)}
+            </men>
+            <p>Ce qui est impossible car cela impliquerait que la fonction <m>\frac{1}{\sigma}</m> est intégrable sur <m>[a, +\infty[</m> et donc sur <m>[\alpha, +\infty[</m>. Ainsi <m>f</m> admet une infinité de zéros dans <m>I</m>.</p>
+        </proof>
+        </theorem>
+
+        <remark>
+            <p>On peut alléger les conditions sur <m>q</m> en supposant que <m>\int_{\alpha}^t q(s) \mathrm{d} s \xrightarrow[t \to +\infty]{} +\infty</m> seulement, sans aucune obligation sur son signe.</p>
+        <p><m>\frac{1}{\sigma(t)} = \e^{-B(t)}</m> et <m>q(t) = c(t) \e^{-B(t)/2}</m> où <m>B</m> est une primitive de <m>b</m> sur <m>I</m>. Les hypothèses du théorème sont donc immédiatement vérifiables sur les coefficients <m>b</m> et <m>c</m> de l'équation originale <m>(H)</m>.</p>
+    </remark>
+    </subsubsubsection>
+</subsubsection>
+
+<subsubsection>
+    <title>Solutions périodique d'une EDLS du second ordre périodique</title>
+    <p>
+        Voir <xref ref="solutions-periodiques-scalar-2nd"/>
+    </p>
+    
+</subsubsection>
+</subsection> 
+</section>
+
+    <!-- Continuer la conversion des autres subsections ici -->
+
+
+    
+
+
+
+        
+        
+
+    <!-- Continuer la conversion des autres subsections ici -->
+

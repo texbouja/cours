@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This frontmatter division will contain all content before the -->
+<!-- first chapter. Fill in and comment/uncomment to see how this -->
+<!-- works. -->
+
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
+  <bibinfo>
+  
+    <author>
+      <personname>Sadik Boujaida</personname>
+      <department>Classe MP*</department>
+      <institution>CPGE Moulay Youssef</institution>
+    </author>
+    <date>
+      Février 2025
+    </date>
+
+    <!-- <website>
+      <url href="https://texbouja.github.io">cpgem.ma</url>
+    </website> -->
+
+    <copyright>
+      <year>2025</year>
+      <holder>Sadik Boujaida</holder>
+      <shortlicense> Ce travail est sous license Creative Commons Attribution-ShareAlike 4.0 International License. Pour consulter cette license aller sur <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+      </shortlicense>
+    </copyright>
+  
+  </bibinfo>
+
+  <titlepage>
+    <titlepage-items/>
+  </titlepage>
+
+  <colophon xml:id="front-colophon">
+    <colophon-items/>
+  </colophon>
+</frontmatter>
+

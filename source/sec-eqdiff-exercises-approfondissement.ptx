@@ -1,0 +1,1294 @@
+<exercises xml:id="sec-eqdiff-exercices-approfondissement" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Exercices d'approfondissement</title>
+
+<exercise xml:id="lemme-de-gronwall">
+        <title>Lemme de Gronwall</title>
+        <introduction><p>
+            Soit un intervalle <m>I</m> de <m>\R</m>. On fixe un point <m>t_0</m> de <m>I</m>.
+        </p></introduction>
+        <task><title>Version réelle</title>
+            <statement> 
+                    <p>Soit une application continue positive <m>\varphi : I\longmapsto \R</m>. On suppose qu'il existe <m>\alpha:I\longrightarrow \R</m> continue positive et <m>M\in\R</m> tels que
+                    <me>
+                        \forall t\in I,\; 
+                        \varphi(t)\leq M+\Big|\int_{t_0}^t \alpha(s)\varphi(s)\dt s\Big|
+                    </me>
+                    Montrer que
+                    <me>
+                        \forall t\in I,\;
+                        \varphi(t)\leq M\exp\bigg(\Big|\int_{t_0}^t \alpha(s)\dt s\Big|\bigg)
+                    </me></p>
+            </statement>
+            <solution>
+                <p>On introduit la fonction <m>\beta</m> définie sur <m>I</m> par
+                        <me>
+                            \beta(t)=\bigg(M+\int_{t_0}^t\alpha(s)\varphi(s)\dt s\bigg)
+                            \exp\bigg({-\!\!\int_{t_0}^t\alpha(s)\dt s}\bigg)
+                        </me>
+                        <m>\beta</m> est de classe <m>\mathcal C^1</m> et on a
+                        <md>
+                            <mrow>\beta'(t) \amp= \bigg(\alpha(t)\varphi(t)-\alpha(t)\Big(M+\int_{t_0}^t\alpha(s)\varphi(s)\dt s\Big)\bigg)\exp\bigg({-\!\!\int_{t_0}^t\alpha(s)\dt s}\bigg)
+                            </mrow>
+                            <mrow> \amp= \alpha(t)\bigg(\varphi(t)-\Big(M+\int_{t_0}^t\alpha(s)\varphi(s)\dt s\Big)\bigg)\exp\bigg({-\!\!\int_{t_0}^t\alpha(s)\dt s}\bigg) </mrow>
+                        </md>
+                        Si <m>t\geq t_0</m>, la fonction <m>\alpha</m> étant positive, on a <m>\int_{t_0}^t\alpha(s)\dt s=\Big|\int_{t_0}^t\alpha(s)\dt s\Big|</m> et donc <m>\beta'(t)\leq 0</m>. La fonction <m>\beta</m> est donc décroissante sur l'intervalle <m>I\cap[t_0,+\infty[</m>. Ce qui conduit à <m>\beta(t)\leq\beta(t_0)=M</m> pour tout <m>t\geq t_0</m> et ainsi
+                        <me>
+                            \forall t\geq t_0,\; M+\int_{t_0}^t\alpha(s)\varphi(s)\dt s\leq 
+                            M\exp\Big(\int_{t_0}^t\alpha(s)\dt s\Big)
+                        </me>
+                        Soit
+                        <me>
+                            \forall t\geq t_0,\; \varphi(t)\leq M\exp\Big(\int_{t_0}^t\alpha(s)\dt s\Big)
+                        </me></p>
+            </solution>
+        </task>
+                <task><title>Version vectorielle</title> 
+                <statement>
+                    <p>On considère une fonction continue <m>f:I\longrightarrow E</m>. On suppose qu'il existe <m>a:I\longrightarrow \mathcal L(E)</m> continue et <m>M\in\R</m> tels que
+                    <me>
+                        \forall t\in I,\; \nm{f(t)}\leq 
+                        M+\Big\Vert \int_{t_0}^t a(s)\cdot f(s)\dt s\Big\Vert
+                    </me>
+                    Montrer que
+                    <me>
+                        \forall t\in I,\;\nm{f(t)}\leq 
+                        M\exp\bigg(\Big|\int_{t_0}^t \nmm{a(s)}\dt s\Big|\bigg)
+                    </me></p>
+                </statement>
+                <solution>
+                    <p>
+                        Il suffit d'appliquer le résultat précédent aux fonctions continues positives <m>\varphi:t\longmapsto \nmm{a(t)}</m> et <m>\alpha:t\longmapsto \nm{f(t)}</m> en remarquant que
+                        <me>
+                            \forall t\in I,\;\bigg\Vert\int_{t_0}^t a(s)\cdot f(s)\dt s\bigg\Vert\leq
+                            \bigg|\int_{t_0}^t\nmm{a(s)}\nm{f(s)}\dt s\bigg|
+                        </me></p>
+                </solution>
+
+                </task>
+                
+                <task><title>Application</title> 
+                <statement>
+                    <p>Utiliser ce résultat pour montrer l'unicité de la solution d'un problème de Cauchy relatif à une <acro>EDL</acro> du premier ordre.</p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Voir exercices d'approfondissement
+                    </p>
+                </solution>
+
+                </task>
+    </exercise>
+
+    <exercise xml:id="expression-solutions-commutatives">
+        <title>Expression des solutions quand <m>a(t) \circ a(s) = a(s) \circ a(t)</m></title>            
+            
+            <task> 
+            <statement>
+            <p>On considère une <acro>EDL</acro> du premier ordre homogène
+                    <me>
+                        x' = a(t) \cdot x
+                    </me>
+                    et on suppose que <m>a(t) \circ a(s) = a(s) \circ a(t)</m> pour tous <m>t, s \in I</m>. On fixe <m>t_0 \in I</m>. Montrer que les solutions de <m>(H)</m> sont les fonctions
+                    <me>
+                        t \longmapsto \exp\bigg(\int_{t_0}^t a(s) \, ds\bigg) \cdot v
+                    </me>
+                    où <m>v</m> est un vecteur quelconque de <m>E</m>. Quel est l'unique solution de <m>(H)</m> telle que <m>f(t_0) = x_0</m> lorsque <m>x_0 \in E</m> est donnée ?</p>
+                </statement> 
+                <solution>
+                        <p>Soit <m>v \in E</m> et considérons les fonctions
+                        <me>
+                            A : t \longmapsto \int_{t_0}^t a(s) \, ds \quad \text{et} \quad f : t \longmapsto \e^{A(t)} \cdot v
+                        </me>
+                        <m>A</m> est dérivable de dérivée <m>a</m> et on a pour tout <m>(t, s) \in I^2</m>
+                        <me>
+                            A'(t) \circ A(t) = \int_{t_0}^t a(t) \circ a(s) \, ds = \int_{t_0}^t a(s) \circ a(t) \, ds = A(t) \circ A'(t)
+                        </me>
+                        Un résultat usuel affirme que dans ce cas, l'application <m>B : t \longmapsto \e^{A(t)}</m> est dérivable de dérivée <m>B'(t) = A'(t) \circ \e^{A(t)}</m>. Ensuite, cela implique que la fonction <m>f</m> est dérivable et que
+                        <me>
+                            f'(t) = A'(t) \circ \e^{A(t)} \cdot v = a(t) \cdot f(t)
+                        </me>
+                        La fonction <m>f</m> est donc une solution de <m>(H)</m>. C'est l'unique solution de <m>(H)</m> qui vérifie <m>f(t_0) = v</m>. Le vecteur <m>v</m> étant quelconque dans <m>E</m>, cela prouve que toutes les solutions de <m>(H)</m> sont de la forme de <m>f</m>.</p>
+                </solution>
+                </task>
+                <task> 
+                <statement>
+                    <p>
+                    Résoudre sur <m>\R</m> le système différentiel <m>X' = A(t)X</m> lorsque
+                    <me>
+                        A(t) = \begin{pmatrix} 0 \amp  1/2 \amp  0 \\ -1/2 \amp  0 \amp  0 \\ 0 \amp  0 \amp  1 + \sin t \end{pmatrix}
+                    </me></p>
+                </statement>
+                <solution>
+                    <p>La condition <m>A(t)A(s) = A(s)A(t)</m> est bien vérifiée et on a
+                        <me>
+                            \int_0^t A(s) \, ds = \begin{pmatrix}
+                            0 \amp  t/2 \amp  0 \\ -t/2 \amp  0 \amp  0 \\ 0 \amp  0 \amp  t - \cos t + 1
+                            \end{pmatrix}
+                        </me>
+                        et ensuite
+                        <me>
+                            \exp\bigg(\int_0^t A(s) \, ds\bigg) = 
+                            \begin{pmatrix}
+                            \cos(t/2) \amp  -\sin(t/2) \amp  0 \\ \sin(t/2) \amp  \cos(t/2) \amp  0 \\ 0 \amp  0 \amp  \e^{t - \cos t + 1}
+                            \end{pmatrix}
+                        </me>
+                        Alors les solutions du système différentiel sont les fonctions
+                        <me>
+                            t \longmapsto \lambda_1 \begin{pmatrix} \cos(t/2) \\ \sin(t/2) \\ 0 \end{pmatrix} +
+                            \lambda_2 \begin{pmatrix} -\sin(t/2) \\ \cos(t/2) \\ 0 \end{pmatrix} +
+                            \lambda_3 \begin{pmatrix} 0 \\ 0 \\ \e^{t - \cos t} \end{pmatrix}
+                        </me></p>
+        </solution>
+        </task>
+    </exercise>
+
+
+    <exercise xml:id="solutions-bornees">
+        <title>Solutions bornées d'une équation différentielle linéaire à coefficients constants</title>
+        <introduction>
+        <p>
+            Soit <m>A \in \mathcal M_d(\C)</m>. 
+        </p>
+        </introduction>
+
+            <task>
+                <statement> 
+                    <p>Montrer que l'application <m>t \longmapsto \e^{t A}</m> est bornée sur <m>\R</m> si et seulement si
+                    <ul>
+                        <li><m>\forall \lambda \in \OPN{Sp}(A),\; \re \lambda \leq 0</m></li>
+                        <li><m>\forall \lambda \in \OPN{Sp}(A),\; \re \lambda = 0 \Rightarrow \ker(A - \lambda I)^2 = \ker(A - \lambda I)</m></li>
+                    </ul>
+                </p>
+                </statement>
+
+                <solution>
+                    <p>Considérons une formule de trigonalisation <m>A = PTP^{-1}</m> où
+                        <me>
+                            T = \begin{pmatrix}
+                            \lambda_1 I_{\alpha_1} + N_1 \amp \amp \amp  \\ 
+                            \amp  \lambda_2 I_{\alpha_2} + N_2 \amp \amp  \\ 
+                            \amp \amp  \ddots \amp  \\ 
+                            \amp \amp \amp  \lambda_r I_{\alpha_r} + N_r
+                            \end{pmatrix}
+                        </me>
+                        où <m>\lambda_1, \ldots, \lambda_r</m> sont les valeurs propres distinctes de <m>A</m>, <m>\alpha_1, \ldots, \alpha_r</m> leurs multiplicités respectives et <m>N_1, \ldots, N_r</m> des matrices nilpotentes. Alors <m>\e^{tA} = P \e^{tT} P^{-1}</m> avec
+                        <me>
+                            \e^{tT} = \begin{pmatrix}
+                            \e^{\lambda_1 t} \e^{t N_1} \amp \amp \amp  \\ 
+                            \amp  \e^{\lambda_2 t} \e^{t N_2} \amp \amp  \\ 
+                            \amp \amp  \ddots \amp  \\ 
+                            \amp \amp \amp  \e^{\lambda_r t} \e^{t N_r}
+                            \end{pmatrix}
+                        </me>
+                        L'application <m>t \longmapsto \e^{tA}</m> est donc bornée sur <m>\R</m> si et seulement si toutes les applications <m>t \longmapsto \e^{\lambda_k t} \e^{t N_k}</m> le sont. Or si <m>\lambda \in \C</m> et <m>N</m> est une matrice nilpotente d'indice de nilpotence <m>p</m>, alors
+                        <me>
+                            \e^{\lambda t} \e^{t N} = \sum_{k=0}^{p-1} \frac{t^k \e^{\lambda t}}{k!} N^k
+                        </me>
+                        Puisque <m>|t^k \e^{\lambda t}| = t^k \e^{t \re \lambda}</m>, alors la fonction <m>t \longmapsto t^k \e^{\lambda t}</m> est bornée sur <m>\R</m> si et seulement si (<m>k \gt 0</m> et <m>\re \lambda \lt 0</m>) ou (<m>k = 0</m> et <m>\re \lambda \leq 0</m>). On en déduit que la fonction <m>t \longmapsto \e^{\lambda t} \e^{t N}</m> est bornée si et seulement si
+                        <me>
+                            (N = 0 \text{ et } \re \lambda \leqslant 0) \text{ ou } (N \ne 0 \text{ et } \re \lambda \lt 0)
+                        </me>
+                        Et finalement, l'application <m>t \longmapsto \e^{tA}</m> est bornée si et seulement si
+                        <me>
+                            \forall k \in \iic{1, r},\; 
+                            \begin{cases} \re \lambda_k \leq 0 \\ \re \lambda_k = 0 \Rightarrow N_k = 0
+                            \end{cases}
+                        </me>
+                        sachant que la condition <m>N_k=0</m> équivaut à <m>\ker(A-\lambda_kI)^{\alpha_k}=\ker(A-\lambda_kI)</m> ou encore que le sous-espace propre de <m>A</m> en <m>\lambda_k</m> est égal à son sous-espace caractéristique.
+                    </p>
+                </solution>
+                </task>
+
+                <task>  
+                <statement>
+                    <p>Quelles sont les solutions <m>t \longmapsto \e^{tA}V</m> du système différentiel <m>X' = AX</m> qui sont bornées ?</p>
+                </statement> 
+                <solution>
+                    <p>Soit <m>V \in \mathcal M_{n,1}(\C)</m> et considérons la solution <m>f : t \longmapsto \e^{tA} V</m>. Décomposons <m>V</m> sous la forme <m>V = V_1 + V_2 + \cdots + V_r</m> où pour tout <m>k \in \iic{1, r}</m>, <m>V_k \in \ker(A - \lambda_k I)^{\alpha_k}</m>. On peut poser pour tout <m>k \in \iic{1, r}</m>
+                        <me>
+                            V_k = P^{-1} \begin{pmatrix} 0 \\ \vdots \\ W_k \\ \vdots \\ 0 \end{pmatrix}
+                        </me>
+                        où <m>W_k\in\mathcal M_{\alpha_k,1}(\C)</m>. On a alors pour tout <m>t \in \R</m>,
+                        <me>
+                            f(t) = P \begin{pmatrix}
+                            \e^{\lambda_1 t} \e^{t N_1} W_1 \\
+                            \e^{\lambda_2 t} \e^{t N_2} W_2 \\
+                            \vdots \\
+                            \e^{\lambda_r t} \e^{t N_r} W_r
+                            \end{pmatrix}
+                        </me>
+                        et donc <m>f</m> est bornée si et seulement si les fonctions <m>g_k : t \longmapsto \e^{\lambda_k t} \e^{t N_k} W_k</m> sont toutes bornées.
+                        <ul>
+                            <li>Si <m>\re \lambda_k \lt 0</m>, alors la matrice <m>\e^{\lambda_k t} \e^{t N_k}</m> est bornée et donc <m>g_k</m> est bornée.</li>
+                            <li>Si <m>\re \lambda_k = 0</m>, on introduit l'entier <m>\beta = \max\{j \in \N \;|\; N_k^j W_k \ne 0\}</m>. On peut alors écrire
+                                <me>
+                                    g_k(t) = \sum_{j=0}^{\beta-1} \frac{t^j \e^{\lambda_k t}}{j!} N_k^j W_k
+                                </me>
+                                La fonction <m>g_k</m> est bornée si et seulement si les fonctions <m>t \longmapsto t^j \e^{\lambda_k t}</m> sont bornées. Alors <m>g_k</m> ne peut être bornée que si <m>\beta = 1</m>, c'est-à-dire si <m>N_k W_k = 0</m> ou encore <m>V_k \in E_{\lambda_k}(A)</m>.</li>
+                            <li>Si <m>\re \lambda_k \gt 0</m>, alors <m>t \longmapsto \e^{\lambda_k t}</m> n'est pas bornée et donc <m>g_k</m> ne peut être bornée que si <m>W_k = 0</m> ou encore <m>V_k = 0</m>.</li>
+                        </ul>
+                        Ainsi, la solution <m>f : t \longmapsto \e^{tA} V</m> de <m>(H)</m> est bornée si et seulement si
+                        <me>
+                            V \in \underset{k \in I}{\bigoplus} \ker(A - \lambda_k I)^{\alpha_k} \oplus \underset{k \in J}{\bigoplus} \ker(A - \lambda_k I)
+                        </me>
+                        où <m>I = \{k \in \iic{1, r} \;|\; \re \lambda_k \lt 0\}</m> et <m>J = \{k \in \iic{1, r} \;|\; \re \lambda_k = 0\}</m>.
+                        </p>
+                </solution>
+            </task>
+    </exercise>
+
+
+
+    <exercise xml:id="spectral-mapping-theorem">
+        <title>Théorème de l'application spectrale</title>
+        <statement>
+            <p>
+            Soit <m>\sum a_n z^n</m> une série entière de rayon de convergence infini. On note <m>f</m> sa somme sur <m>\C</m>.</p>
+            <ol>
+                <li><p>Montrer que pour toute matrice <m>M \in \mathcal M_d(\C)</m>, la série <m>\sum a_n M^n</m> converge. On note également <m>f(M)</m> sa somme.</p></li>
+                <li><p>Montrer que <m>\OPN{Sp}\big(f(M)\big) = f\big(\OPN{Sp}(M)\big)</m>.</p></li>
+                <li><p>Soit <m>\mu</m> une valeur propre de <m>f(M)</m>. On suppose que <m>f'(\lambda) \ne 0</m> pour toute valeur propre <m>\lambda</m> de <m>M</m> telle que <m>f(\lambda) = \mu</m>. Montrer que
+                    <me>
+                        E_\mu\big(f(M)\big) = \bigoplus_{\substack{\lambda \in \OPN{Sp}(M) \\ f(\lambda) = \mu}} E_\lambda(M)
+                    </me></p>
+                </li>
+                <li><p>On suppose que <m>f</m> induit une injection sur <m>\OPN{Sp}(M)</m>. Soit <m>\lambda \in \OPN{Sp}(M)</m>.</p>
+                    <ul>
+                        <li>Montrer que les valeurs propres <m>\lambda</m> de <m>M</m> et <m>f(\lambda)</m> de <m>f(M)</m> ont la même multiplicité.</li>
+                        <li>Montrer que si <m>f'(\lambda) \ne 0</m>, alors
+                            <me>
+                                \forall k \in \N^*,\; \ker (f(M) - f(\lambda)I)^k = \ker (M - \lambda I)^k
+                            </me>
+                       </li>
+                    </ul>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+                <ol>
+                    <li>Pour tout <m>n \in \N</m>, on a <m>\|a_n M^n\| \leq |a_n| \|M\|^n</m>. Puisque la série entière <m>\sum a_n z^n</m> a un rayon de convergence infini, la série <m>\sum |a_n| \|M\|^n</m> converge et donc la série <m>\sum a_n M^n</m> converge absolument.</li>
+                    <li>Écrivons une formule de trigonalisation de <m>M</m> : <m>M = PTP^{-1}</m> où
+                        <me>
+                            T = \begin{pmatrix}
+                            T_1 \amp \amp \amp  \\ \amp  T_2 \amp \amp  \\ \amp \amp  \ddots \amp  \\ \amp \amp \amp  T_r 
+                            \end{pmatrix}
+                        </me>
+                        chaque bloc <m>T_k</m> étant triangulaire supérieure avec une même valeur propre <m>\lambda_k</m> de <m>M</m> sur sa diagonale. On peut alors justifier que <m>f(M) = Pf(T)P^{-1}</m> avec
+                        <me>
+                            f(T) = \begin{pmatrix}
+                            f(T_1) \amp \amp \amp  \\ \amp  f(T_2) \amp \amp  \\ \amp \amp  \ddots \amp  \\ \amp \amp \amp  f(T_r) 
+                            \end{pmatrix}
+                        </me>
+                        et <m>f(T_k)</m> est triangulaire supérieure d'éléments diagonaux tous égaux à <m>f(\lambda_k)</m>. Ainsi,
+                        <me>
+                            \OPN{Sp}\big(f(M)\big) = f\big(\OPN{Sp}(M)\big)
+                        </me>
+                    </li>
+                    <li>Posons
+                        <me>
+                            F_\mu = \bigoplus_{\substack{\lambda \in \OPN{Sp}(M) \\ f(\lambda) = \mu}} E_\lambda(M)
+                        </me>
+                        Soit <m>\lambda</m> une valeur propre de <m>M</m> telle que <m>f(\lambda) = \mu</m>. On a alors pour tout <m>V \in E_\lambda(M)</m>
+                        <me>
+                            f(M)V = \sum_{n=0}^{+\infty} a_n M^n V = \sum_{n=0}^{+\infty} a_n \lambda^n V = f(\lambda)V
+                        </me>
+                        Ainsi, <m>E_\lambda(M) \subset E_\mu\big(f(M)\big)</m>. Par suite, <m>F_\mu \subset E_\mu\big(f(M)\big)</m>.
+
+                        La réciproque nécessite le recours à la réduction de Jordan. Examinons ce qui se passe avec une cellule de Jordan <m>J_p(\lambda) = \lambda I_p + N_p</m> dans la décomposition de <m>M</m>. Pour tout <m>n \in \N</m>, on peut écrire
+                        <me>
+                            J_p(\lambda)^n = \sum_{k=0}^{p-1} \lambda^{n-k} \binom{n}{k} N_p^k
+                        </me>
+                        Avec la convention <m>\binom{n}{k} = 0</m> si <m>k \gt n</m>. Pour chaque <m>k \lt p</m>, on a
+                        <me>
+                            \binom{n}{k} \lambda^{n-k} = \frac{n(n-1)\cdots(n-k+1)}{k!} \lambda^{n-k}
+                        </me>
+                        Donc la série <m>\sum \binom{n}{k} a_n \lambda^{n-k}</m> est convergente de somme <m>\frac{f^{(k)}(\lambda)}{k!}</m>. Par linéarité de la somme d'une série convergente, on a donc
+                        <me>
+                            f\big(J_p(\lambda)\big) = \sum_{n=0}^{+\infty} a_n J_p(\lambda)^n = \sum_{k=0}^{p-1} \frac{f^{(k)}(\lambda)}{k!} N_p^k
+                        </me>
+                        Concrètement, <m>f\big(J_p(\lambda)\big)</m> est de la forme
+                        <me>
+                            \left(\begin{array}{cccccc}
+                            f(\lambda) \amp  f^{\prime}(\lambda) \amp  * \amp  \cdots \amp  * \amp  * \\
+                            0 \amp  f(\lambda) \amp  f^{\prime}(\lambda) \amp  \cdots \amp  * \amp  * \\
+                            0 \amp  0 \amp  f(\lambda) \amp  \cdots \amp  * \amp  * \\
+                            \vdots \amp  \vdots \amp  \vdots \amp  \ddots \amp  \vdots \amp  \vdots \\
+                            0 \amp  0 \amp  0 \amp  \cdots \amp  f(\lambda) \amp  f^{\prime}(\lambda) \\
+                            0 \amp  0 \amp  0 \amp  \cdots \amp  0 \amp  f(\lambda)
+                            \end{array}\right)
+                        </me>
+                        Ainsi, <m>f\big(J_p(\lambda)\big) - \mu J_p</m> est triangulaire supérieure stricte et tous les coefficients sur sa deuxième diagonale supérieure valent <m>f'(\lambda) \ne 0</m>. Elle est donc échelonnée de rang <m>p-1</m>.
+
+                        Si on écrit maintenant <m>M = QTQ^{-1}</m> où <m>T</m> est la réduite de Jordan de <m>M</m>, alors <m>f(M) - \mu I_d = Q\big(f(T) - \mu I_d\big)Q^{-1}</m>. Soit <m>J_{p_1}(\lambda_1'), \ldots, J_{p_s}(\lambda_s')</m> la liste de toutes les cellules de Jordan de <m>T</m> qui correspondent à des valeurs propres de <m>M</m> telle que <m>f(\lambda_k') = \mu</m> et soit <m>J</m> le bloc diagonal qui regroupe toutes les autres cellules et dont la taille sera notée <m>q</m>, quitte à réordonner toutes les cellules de <m>T</m>, on peut écrire
+                        <me>
+                            f(T) - \mu I_d = \begin{pmatrix}
+                            f(J_{p_1}\big(\lambda_1')\big) - \mu I_{p_1} \amp \amp \amp  \\
+                            \amp  \ddots \amp \amp  \\
+                            \amp \amp  f(J_{p_s}\big(\lambda_s')\big) - \mu I_{p_s} \amp  \\
+                            \amp \amp \amp  f(J) - \mu I_{q}
+                            \end{pmatrix}
+                        </me>
+                        Le bloc <m>f(J) - \mu I_q</m> est inversible car <m>\mu</m> ne figure pas dans la diagonale de <m>f(J)</m>. Donc
+                        <me>
+                            \rg\big(f(M) - \mu I_d\big) = d - s
+                        </me>
+                        D'un autre côté, pour chaque valeur propre <m>\lambda</m> de <m>M</m>, le nombre de cellules de Jordan de <m>M</m> relative à <m>\lambda</m> est égal à <m>\dim E_{\lambda}(M)</m>. Ce qui prouve que <m>s = \dim F_\mu</m> et ainsi
+                        <me>
+                            \dim F_\mu = \dim E_\mu\big(f(M)\big)
+                        </me>
+                        En conclusion,
+                        <me>
+                            E_\mu\big(f(M)\big) = F_\mu = \bigoplus_{\substack{\lambda \in \OPN{Sp}(M) \\ f(\lambda) = \mu}} E_\lambda(M)
+                        </me>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>Reprenons l'expression de <m>\chi_{f(M)}</m> donnée précédemment
+                                <me>
+                                   \chi_{f(M)} = \prod_{k=1}^r (X - f(\lambda_k))^{\alpha_k}
+                                </me>
+                                où <m>\alpha_k</m> est la multiplicité de la valeur propre <m>\lambda_k</m> de <m>M</m>. Puisque on a supposé que <m>f</m> induit une injection sur <m>\OPN{Sp}(M)</m>, alors les nombres <m>f(\lambda_k)</m> sont distincts et donc <m>f(\lambda_k)</m> est une racine de multiplicité <m>\alpha_k</m> de <m>\chi_{f(M)}</m>.</li>
+                            <li>On suppose que <m>f'(\lambda) \ne 0</m>. Il va falloir passer encore par la réduction de Jordan de la matrice <m>M</m>.</li>
+                        </ul>
+                    </li>
+                </ol>
+        </solution>
+    </exercise>
+
+
+    <exercise xml:id="application-resolvante">
+        <title>Application résolvante d'une équation différentielle linéaire</title>
+        <p> On considère une EDL du premier ordre 
+            <md>
+                <mrow>(E) \amp\amp x'\amp=a(t).x+b(t) </mrow>
+            </md>
+            et on note <m>(H)</m> son équation homogène. On appelle équation résolvante de <m>(E)</m>, l'équation différentielle linéaire homogène d'ordre 1
+            <me>
+                u' = a(t) \circ u
+            </me>
+            l'inconnue <m>u</m> étant une application de classe <m>\mathcal C^1</m> de <m>I</m> dans <m>\mathcal L(E)</m>.
+            On appelle application résolvante de <m>(H)</m> l'application définie sur <m>I^2</m> par
+            <me>
+                \forall (t, s) \in I^2 \qquad R(t, s) = r_s(t)
+            </me>
+            où <m>r_s</m> est l'unique solution de <m>(RH)</m> qui vérifie <m>r_s(s) = \id_E</m>.
+            <ol>
+                <li>Montrer que pour tout <m>(t, s, \sigma) \in I^3</m>, <m>R(t, s) \circ R(s, \sigma) = R(t, \sigma)</m>. En déduire que <m>R(t, s)</m> est inversible et que <m>R(t, s)^{-1} = R(s, t)</m>.</li>
+                <li>Exprimer les solutions de <m>(RH)</m> et celles de <m>(H)</m> en fonction de <m>R</m>.</li>
+                <li>Donner l'expression de <m>R(t, s)</m> dans le cas où l'application <m>a</m> est constante.</li>
+                <li>Montrer que si <m>a(t) \circ a(s) = a(s) \circ a(t)</m> pour tout <m>t, s \in I</m>, alors
+                    <me>
+                        R(t, s) = \exp\bigg(\int_s^t a(\theta) \, d\theta\bigg)
+                    </me>
+                </li>
+                <li>On fixe <m>t_0 \in I</m> et on considère l'application <m>r : t \longmapsto R(t, t_0)</m>. Vérifier que pour tout <m>(t, s) \in I^2</m>, <m>R(t, s) = r(t) \circ r(s)^{-1}</m> et en déduire que <m>R</m> est de classe <m>\mathcal C^1</m> sur <m>I^2</m> avec
+                    <me>
+                        \frac{\partial R}{\partial t}(t, s) = a(t) \circ R(t, s) \quad \text{et} \quad \frac{\partial R}{\partial s}(t, s) = -R(t, s) \circ a(s)
+                    </me>
+                </li>
+                <li>On suppose que <m>a</m> est bornée et on pose <m>M = \sup\limits_{s \in I} \|a(s)\|</m>. Montrer que
+                    <me>
+                        \forall t \in I,\; \|R(t, t_0) - \id_E\| \leq \e^{M|t - t_0|} - 1
+                    </me>
+                    En déduire que pour toute solution <m>f</m> de l'équation homogène <m>(H)</m>
+                    <me>
+                        \|f(t) - f(t_0)\| \leq \big(\e^{M|t - t_0|} - 1\big) \|f(t_0)\|
+                    </me>
+                </li>
+                <li>Soit <m>x_0 \in E</m>. Montrer que l'unique solution <m>g</m> de l'équation complète <m>(E)</m> telle que <m>g(t_0) = x_0</m> est donnée par la <alert>formule de Duhamel</alert> :
+                    <me>
+                        \forall t \in I \quad g(t) = R(t, t_0) x_0 + \int_{t_0}^t R(t, s) \cdot b(s) \, ds
+                    </me>
+                </li>
+            </ol>
+        </p>
+        <solution>
+        <ol>
+            <li>Pour <m>s \in I</m> fixé, la fonction <m>t \longmapsto R(t, s)</m> est par définition l'unique solution de <m>(RH)</m> qui prend la valeur <m>\id_E</m> en <m>t = s</m>. Si on fixe <m>s</m> et <m>\sigma</m> dans <m>I</m>, les fonctions <m>u : t \longmapsto R(t, s) \circ R(s, \sigma)</m> et <m>v : t \longmapsto R(t, \sigma)</m> sont des solutions de <m>(RH)</m> et on a <m>u(s) = v(s) = R(s, \sigma)</m>. On a donc <m>u = v</m> d'après le théorème de Cauchy-Lipschitz, soit <m>R(t, s) \circ R(s, \sigma) = R(t, \sigma)</m> pour tout <m>t \in I</m>. En particulier lorsque <m>\sigma = t</m>, on obtient <m>R(t, s) \circ R(s, t) = R(t, t) = \id_E</m> donc <m>R(t, s)</m> est inversible d'inverse <m>R(s, t)</m>.</li>
+            <li>Fixons <m>t_0 \in I</m>. Pour tout <m>u_0 \in \mathcal L(E)</m>, l'unique solution <m>u</m> de <m>(RH)</m> telle que <m>u(t_0) = u_0</m> est donnée par <m>u(t) = R(t, t_0) \circ u_0</m>. Pour tout <m>x_0 \in E</m>, l'unique solution <m>f</m> de <m>(H)</m> telle que <m>f(t_0) = x_0</m> est donnée par <m>f(t) = R(t, t_0) \cdot x_0</m>.</li>
+            <li>On suppose que <m>a</m> est constante. Pour tout <m>s \in I</m>, l'unique solution <m>f</m> de <m>(H)</m> telle que <m>f(s) = x_0</m> est donnée par <m>f(t) = \e^{(t - s)a} \cdot x_0</m>. On a donc
+                <me>
+                    \forall (t, s) \in I,\; \forall x_0 \in E,\; R(t, s) \cdot x_0 = \e^{(t - s)a} \cdot x_0
+                </me>
+                Ce qui implique que <m>R(t, s) = \e^{(t - s)a}</m>.</li>
+            <li>On suppose donc que <m>a(t)</m> et <m>a(s)</m> commutent pour tout <m>t, s \in I</m>. Posons alors
+                <me>
+                    U(t, s) = \exp\bigg(\int_s^t a(\theta) \, d\theta\bigg)
+                </me>
+                Fixons <m>s \in I</m> et considérons la fonction <m>r : t \longmapsto U(t, s)</m>. L'application <m>r</m> est dérivable sur <m>I</m> et on a
+                <me>
+                    r'(t) = a(t) \circ \exp\bigg(\int_s^t a(\theta) \, d\theta\bigg) = a(t) \circ r(t)
+                </me>
+                <m>r</m> est donc une solution de <m>(RH)</m> sur <m>I</m>. Notons par ailleurs que <m>r(s) = \id_E</m>. Donc par définition de <m>R</m>, on a
+                <me>
+                    \forall t \in I,\; U(t, s) = R(t, s)
+                </me>
+                Ces égalités sont valables pour tout <m>s \in I</m> donc <m>R = U</m>.</li>
+            <li><m>r</m> est l'unique solution de <m>(RH)</m> telle que <m>r(t_0) = \id_E</m>. Soient <m>r, s \in I</m>. On a <m>R(t, s) = R(t, t_0) \circ R(s, t_0)^{-1} = r(t) \circ r(s)^{-1}</m>. Les fonctions <m>t \longmapsto R(t, s)</m> et <m>s \longmapsto R(t, s)</m> sont donc dérivables et on a
+                <me>
+                    \frac{\partial R}{\partial t}(t, s) = r'(t) \circ r(s)^{-1} = a(t) \circ r(t) \circ r(s)^{-1} = a(t) \circ R(t, s)
+                </me>
+                <me>
+                    \frac{\partial R}{\partial s}(t, s) = r(t) \circ \frac{d}{ds} r(s)^{-1} = -r(t) \circ \big(r(s)^{-1} \circ r'(s) \circ r(s)^{-1}\big) = -R(t, s) \circ a(s)
+                </me>
+            </li>
+            <li>On a
+                <me>
+                    R(t, t_0) - \id_E = r(t) - r(t_0) = \int_{t_0}^t a(s) \circ r(s) \, ds
+                </me>
+                <me>
+                    r(t) - r(t_0) = \int_{t_0}^t a(s) \circ \big(\id_E + (r(s) - r(t_0))\big) \, ds
+                </me>
+                <me>
+                    \|r(t) - r(t_0)\| \leq M \bigg|\int_{t_0}^t \big(1 + \|r(s) - r(t_0)\|\big) \, ds\bigg|
+                </me>
+                On introduit maintenant la fonction réelle continue <m>\varphi</m> définie par
+                <me>
+                    \forall t \in I,\; \varphi(t) = 1 + \|r(t) - r(t_0)\|
+                </me>
+                Si <m>t \gt t_0</m>, on a d'après l'inégalité précédente
+                <me>
+                    \varphi(t) \leq 1 + M \int_{t_0}^t \varphi(s) \, ds
+                </me>
+                En posant
+                <me>
+                    \psi(t) = \e^{-M(t - t_0)} \bigg(\frac{1}{M} + \int_{t_0}^t \varphi(s) \, ds\bigg)
+                </me>
+                on a
+                <me>
+                    \psi'(t) = \bigg(\varphi(t) - 1 - M \int_{t_0}^t \varphi(s) \, ds\bigg) \e^{-M(t - t_0)} \leq 0
+                </me>
+                Et donc <m>\psi</m> est décroissante sur <m>I \cap [t_0, +\infty[</m>. Comme <m>\psi(t_0) = \frac{1}{M}</m>, alors <m>\psi(t) \leq \frac{1}{M}</m> sur <m>I \cap [t_0, +\infty[</m>. Ainsi
+                <me>
+                    \forall t \in I \cap [t_0, +\infty[,\; \varphi(t) \leq \e^{M(t - t_0)}
+                </me>
+                et donc
+                <me>
+                    \forall t \in I \cap [t_0, +\infty[,\; \|r(t) - r(t_0)\| \leq \e^{M(t - t_0)} - 1
+                </me>
+                Si <m>f</m> est une solution de <m>(H)</m>, alors <m>f(t) = r(t) \cdot f(t_0)</m> et donc
+                <me>
+                    \|f(t) - f(t_0)\| = \|(r(t) - r(t_0)) \cdot f(t_0)\| \leq \big(\e^{M|t - t_0|} - 1\big) \|f(t_0)\|
+                </me>
+            </li>
+            <li>Les solutions de l'équation homogène s'écrivent sous la forme <m>f(t) = R(t, t_0) \cdot v</m> où <m>v</m> est un vecteur quelconque de <m>E</m>. La variation des constantes revient donc à faire varier le vecteur <m>v</m>. Posons donc <m>x(t) = R(t, t_0) \cdot v(t)</m>. On a alors
+                <me>
+                    (E) \Longleftrightarrow R(t, t_0) \cdot v'(t) = b(t) \Longleftrightarrow v'(t) = R(t_0, t) \cdot b(t)
+                </me>
+                <me>
+                    \exists v_0 \in E \;;\; v(t) = v_0 + \int_{t_0}^t R(t_0, s) \cdot b(s) \, ds
+                </me>
+                <me>
+                    \exists v_0 \in E \;;\; x(t) = R(t, t_0) \cdot v_0 + \int_{t_0}^t R(t, s) \cdot b(s) \, ds
+                </me>
+                Dans cette dernière expression de <m>x(t)</m>, on a <m>x(t_0) = v_0</m> donc
+                    L'unique solution <m>f</m> de <m>(E)</m> qui vérifie 
+                    <m>f(t_0) = x_0</m> est donnée par la  :
+                    <me>
+                    \forall t \in I,\; f(t) = R(t, t_0) \cdot x_0 + \int_{t_0}^t R(t, s) \cdot b(s) \, ds
+                    </me>
+                    c'est <alert>la formule de Duhamel</alert>. Elle généralise l'expression de la solution du problème de Cauchy d'une équation à coefficients constants donnée dans <xref ref="expression-solution-cauchy"/>
+            </li>
+        </ol>
+        </solution>
+        </exercise>
+
+        
+
+
+    <exercise xml:id="determinant-resolvante">
+        <title>Déterminant de l'application résolvante</title>
+        <p>
+            On reprend les notations de l'exercice précédent.
+            <ul>
+                <li>Montrer que
+                    <me>
+                        \forall (t, s) \in I^2,\; \det\big(R(t, s)\big) = \exp\bigg(\int_s^t \tr\big(a(\theta)\big) \, d\theta\bigg)
+                    </me>
+                </li>
+                <li>On suppose que <m>I = \R</m> et que l'application <m>t \longmapsto \|a(t)\|</m> est intégrable sur <m>\R</m>. Montrer qu'il existe <m>\delta \gt 0</m> tel que
+                    <me>
+                        \forall (t, s) \in \R^2,\; \det\big(R(t, s)\big) \geq \delta
+                    </me>
+                </li>
+            </ul>
+        </p>
+        <solution>
+            <p>
+                <ul>
+                    <li>Fixons <m>s \in I</m>. Soit <m>\mathcal B = (e_1, e_2, \ldots, e_n)</m> la base qu'on a fixée dans <m>E</m>. Les fonctions <m>f_k : t \longmapsto R(t, s) \cdot e_k</m> sont des solutions de <m>(H)</m> et leur wronksien est
+                        <me>
+                            W(t) = \det_{\mathcal B}(R(t, s) \cdot e_1, \ldots, R(t, s) \cdot e_n) = \det\big(R(t, s)\big)
+                        </me>
+                        L'équation du wronksien donne ainsi
+                        <me>
+                            \frac{d}{dt} \det\big(R(t, s)\big) = \tr\big(a(t)\big) \det \big(R(t, s)\big)
+                        </me>
+                        Il existe donc un scalaire qui dépend de <m>s</m> qu'on va noter <m>\lambda(s)</m> tel que
+                        <me>
+                            \forall t \in I,\; \det\big(R(t, s)\big) = \lambda(s) \exp\bigg(\int_s^t \tr\big(a(\theta)\big) \, d\theta\bigg)
+                        </me>
+                        Mais comme <m>\det\big(R(s, s)\big) = \det(\id_E) = 1</m>, alors <m>\lambda(s) = 1</m> et ainsi
+                        <me>
+                            \forall (t, s) \in I^2,\; \det\big(R(t, s)\big) = \exp\bigg(\int_s^t \tr\big(a(\theta)\big) \, d\theta\bigg)
+                        </me>
+                    </li>
+                    <li>La trace est une forme linéaire continue de <m>\mathcal L(E)</m> donc il existe une constante <m>c \gt 0</m> telle que
+                        <me>
+                            \forall u \in \mathcal L(E),\; |\tr u| \leq c \|u\|
+                        </me>
+                        On a donc
+                        <me>
+                            \forall t \in \R,\; |\tr a(t)| \leq c \|a(t)\|
+                        </me>
+                        Ce qui montre que l'application <m>t \longmapsto \tr a(t)</m> est intégrable sur <m>\R</m>. Posons alors
+                        <me>
+                            T = \int_{-\infty}^{+\infty} \tr a(\theta) \, d\theta
+                        </me>
+                        Soit un réel <m>\alpha \gt 0</m>. Il existe un réel <m>A \gt 0</m> tel que
+                        <me>
+                            \forall (s, t) \in \R^2,\; |t| \gt A \text{ et } |s| \gt A \longrightarrow \bigg|\,T - \int_s^t \tr\big(a(\theta)\big) \, d\theta\,\bigg| \leq \alpha
+                        </me>
+                        et donc
+                        <me>
+                            \forall (t, s) \in \big(\R \setminus [-A, A]\big)^2,\; \int_s^t \tr\big(a(\theta)\big) \, d\theta \geq T - \alpha
+                        </me>
+                        Ce qui implique que pour tout <m>(t, s)</m> en dehors du compact <m>[-A, A]^2</m>, on a
+                        <me>
+                            \det\big(R(t, s)\big) \geq \e^{T - \alpha} \gt 0
+                        </me>
+                        Sur le compact <m>[-A, A]^2</m>, l'application continue <m>(t, s) \longmapsto \det\big(R(t, s)\big)</m> est bornée et atteint ses bornes. Comme elle ne s'annule pas sur <m>[-A, A]^2</m>, alors sa borne inférieure est strictement positive. D'où l'existence d'un réel <m>\delta \gt 0</m> tel que
+                        <me>
+                            \forall (t, s) \in \R^2,\; \det\big(R(t, s)\big) \geq \delta
+                        </me>
+                    </li>
+                </ul>
+            </p>
+        </solution>
+    </exercise>
+
+    <exercise xml:id="a-antisymetrique">
+        <title>cas où <m>a(t)</m> est un endomorphisme antisymétrique</title>
+        <p>
+            On suppose que <m>E</m> est un espace euclidien. On considère une équation différentielle linéaire homogène
+            <me>
+                x' = a(t) \cdot x
+            </me>
+            On suppose que pour tout <m>t \in I</m>, <m>a(t)</m> est un endomorphisme antisymétrique.
+            <ul>
+                <li>Montrer que si <m>f</m> est une solution de <m>(H)</m>, alors <m>t \longmapsto \|f(t)\|</m> est constante.</li>
+                <li>Soit <m>r</m> une solution sur <m>I</m> de l'équation résolvante de <m>(H)</m> :
+                    <me>
+                        u' = a(t) \circ u
+                    </me>
+                    Montrer que s'il existe <m>t_0 \in I</m> tel que <m>r(t_0)</m> soit inversible, alors pour tout <m>(t, s) \in \R^2</m>, <m>r(t) \circ \big(r(s)\big)^{-1}</m> est une isométrie de <m>E</m>.</li>
+            </ul>
+        </p>
+        <solution>
+            <p>
+                <ul>
+                    <li>Soit <m>f</m> une solution de <m>(H)</m> sur <m>I</m>. La fonction <m>\rho : t \longmapsto \|f(t)\|^2</m> est alors de classe <m>\mathcal C^1</m> sur <m>I</m> et on a
+                        <me>
+                            \rho'(t) = 2 \langle f(t), f'(t) \rangle = 2 \langle f(t), a(t) \cdot f(t) \rangle = 0
+                        </me>
+                        Donc <m>\rho</m> est constante sur <m>I</m>. Ce qui implique que la fonction <m>t \longmapsto \|f(t)\|</m> est constante sur <m>I</m>.</li>
+                    <li>Posons pour tout <m>v \in E</m>, <m>f_v(t) = r(t) \cdot v</m>. La fonction <m>f_v</m> est dérivable et
+                        <me>
+                            f_v'(t) = r'(t) \cdot v = a(t) \circ r(t) \cdot v = a(t) \cdot f_v(t)
+                        </me>
+                        Donc <m>f_v</m> est une solution de <m>x' = a(t) \cdot v</m>. Soit maintenant <m>(v_1, v_2, \ldots, v_d)</m> une base de <m>E</m>. Pour tout <m>k \in \iic{1, d}</m>, on a <m>f_{v_k}(t_0) = r(t_0) \cdot v_k</m> et comme <m>r(t_0)</m> est inversible, alors <m>(f_{v_1}(t_0), \ldots, f_{v_d}(t_0))</m> est une base de <m>E</m>. La famille <m>(f_{v_1}, \ldots, f_{v_d})</m> est donc un système fondamental de solutions de <m>(H)</m>. La famille <m>(r(t) \cdot v_1, \ldots, r(t) \cdot v_d)</m> est ainsi une base de <m>E</m> pour tout <m>t \in I</m>. Ce qui implique que <m>r(t)</m> est inversible pour tout <m>t \in I</m>.
+
+                        Par ailleurs, pour tout <m>s \in I</m> fixé, il est immédiat que la fonction <m>t \longmapsto r(t) \circ r(s)^{-1}</m> est une solution de <m>(RH)</m>. Donc pour tout <m>v \in E</m>, la fonction
+                        <me>
+                            t \longmapsto r(t) \circ r(s)^{-1} \cdot v
+                        </me>
+                        est une solution de <m>(H)</m>. La fonction <m>t \longmapsto \|r(t) \circ r(s)^{-1} \cdot v\|</m> est donc constante. Pour <m>t = s</m>, elle prend la valeur <m>\|v\|</m> donc
+                        <me>
+                            \forall t \in I,\; \|r(t) \circ r(s)^{-1} \cdot v\| = \|v\|
+                        </me>
+                        Ceci pour tout <m>v \in E</m>. Alors <m>r(t) \circ r(s)^{-1}</m> est une isométrie de <m>E</m> pour tous <m>t, s \in I</m>.</li>
+                </ul>
+            </p>
+        </solution>
+    </exercise>
+
+
+    <exercise xml:id="sysdiff-solutions-periodiques">
+    <title> Solutions périodiques d'un système différentiel périodique </title>
+        <statement>
+            <p>Soient des applications continues <m>A:\R\longrightarrow\mathcal M_d(\C)</m> et <m>B:\R\longrightarrow
+                \mathcal M_{d,1}(\C)</m>. On suppose que <m>A</m> et <m>B</m> sont <m>T</m>-périodiques.
+                On considère le système différentiel</p>
+            <me>X'=A(t)X +B(t) \qquad (E)</me>
+            <p>et note <m>(H)</m> son système homogène.</p>
+            <ol>
+                <li>
+                    <p>Soit <m>\alpha</m> une fonction réelle continue <m>T</m>-périodique. Donner
+                        une <textsc>cns</textsc> pour que l'<textsc>edls</textsc> <m>x'=\alpha(t)x</m>
+                        admette des solutions <m>T</m>-périodiques non nulle.</p>
+                </li>
+                <li>
+                    <p>Soit <m>G</m> une solution du système <m>(E)</m>. Montrer que <m>G</m> est <m>
+                        T</m>-périodique si et seulement si <m>G(T)=G(0)</m>.</p>
+                </li>
+                <li>
+                    <p>On suppose que l'application <m>A</m> est constante.</p>
+                    <ol>
+                        <li>
+                            <p>Montrer que <m>H</m> admet une solution <m>T</m>-périodique si et
+                                seulement si <m>A</m> admet au moins une <acro>VAP</acro> <m>\lambda\in\mathbf
+                                i\frac{2\pi}T\Z</m>.</p>
+                        </li>
+                        <li>
+                            <p>On suppose que <m>B</m> est <m>T</m>-périodique. Soit <m>G</m> une
+                                solution de <m>(E)</m>. Montrer que <m>G</m> est <m>T</m>-périodique
+                                si et seulement si</p>
+                            <me>(I_d-\e^{-TA})G(0)=\int_0^T\e^{-sA}B(s)\dt s</me>
+                            <p>Montrer que si <m>(H)</m> n'admet aucune solution périodique alors <m>
+                                (E)</m> admet une unique solution <m>T</m>-périodique.</p>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <p>On note <m>R</m> l'application résolvante de <m>(H)</m>. Montrer que</p>
+                    <me>\forall (t,s)\in \R^2,\; R(t+T,s+T)=R(t,s)</me>
+                </li>
+                <li>
+                    <p>Montrer que <m>(H)</m> admet une solution <m>T</m>-périodique non nulle si et
+                        seulement si <m>1</m> est une <acro>VAP</acro> de la matrice <m>R(T,0)</m>
+                        .</p>
+                </li>
+                <li>
+                    <p>Soit <m>p\in\N^*</m>. Montrer que <m>(H)</m> admet une solution <m>pT</m>-périodique
+                        non nulle si et seulement si <m>R(T,0)</m> admet une <acro>VAP</acro> <m>
+                        \lambda</m> telle que <m>\lambda^p=1</m>.</p>
+                </li>
+                <li>
+                    <p>Montrer que si <m>R(T,0)</m> admet au moins une <acro>VAP</acro> <m>\lambda</m>
+                        telle que <m>\lambda^p=1</m> et <m>\lambda\ne 1</m> alors <m>(H)</m> admet
+                        au moins une solution <m>pT</m>-périodique non constante.</p>
+                </li>
+                <li>
+                    <p>On suppose que <m>A</m> est l'application <m>2\pi</m>-périodique :</p>
+                    <me>A:t\longmapsto \begin{pmatrix} 0\amp 1/2\amp 0 \\ -1/2\amp 0\amp 0 \\ 0\amp 0\amp  1+\sin
+                        t\end{pmatrix}</me>
+                    <p>Montrer que</p>
+                    <me>R(t,0)=\begin{pmatrix} \cos(t/2)\amp -\sin(t/2)\amp 0 \\ \sin(t/2)\amp \cos(t/2)\amp 0 \\
+                        0\amp 0\amp  \e^{1-\cos t+t} \end{pmatrix}</me>
+                    <p>En déduire que <m>(H)</m> admet des solutions <m>\pi</m>-périodiques non
+                        constantes.</p>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    <p>Les solutions de l'équation différentielle <m>x'=\alpha(t)x</m> sont les
+                        fonctions <m>f:t\longmapsto \lambda \e^{A(t)}</m> où <m>A</m> est une
+                        primitive de <m>\alpha</m>. Si <m>\lambda\ne0</m> alors <m>f</m> est <m>T</m>-périodique
+                        si et seulement si pour tout <m>t\in\R</m>, <m>\e^{A(t+T)-A(t)}=1</m>, ce
+                        qui équivaut à</p>
+                    <me>\forall t\in\R,\int_t^{t+T}\alpha(s)\mathrm{d}s\in2\mathbf i\pi\Z</me>
+                    <p>Puisque <m>\alpha</m> est <m>T</m>-périodique, ceci équivaut à
+                    <me>\int_0^T\alpha(s)\mathrm{d}s\in 2\mathbf i\pi\Z</me></p>
+                    <aside><p>Avec <m>\alpha(t)=\cos^2t</m>, l'équation <m>x'=\alpha(t)x</m> n'aurait
+                        par exemple aucune solution <m>\pi</m>-périodique non nulle bien que <m>
+                        \alpha</m> est <m>\pi</m>-périodique.</p></aside>
+                </li>
+                <li>
+                    <p>Si <m>G</m> est <m>T</m>-périodique alors <m>G(T)=G(0)</m>.</p>
+                    <p>Réciproquement supposons que <m>G(T)=G(0)</m> et considérons <m>H:t\longmapsto
+                        G(t+T)</m>. Pour tout <m>t\in\R</m> on a</p>
+                    <me>H'(t)=G'(t+T)=A(t+T)G(t+T)+B(t+T)=A(t)H(t)+B(t)</me>
+                    <p>donc <m>H</m> est une solution de <m>(E)</m>. En outre on a <m>H(0)=G(T)=G(0)</m>
+                        donc selon le théorème de Cauchy-Lipschitz, <m>F=G</m>. Ce qui signifie que <m>
+                        G</m> est <m>T</m>-périodique.</p>
+                </li>
+                <li>
+                    <ol>
+                        <li>
+                            <p>Soit <m>F</m> une solution non nulle de <m>(H)</m>. On a alors <m>
+                                F(t)=\e^{tA}F(0)</m> pour tout <m>t\in\R</m>. La fonction constante <m>
+                                A</m> est <m>T</m>-périodique donc selon la question précédente <m>F</m>
+                                est <m>T</m>-périodique si et seulement si <m>F(T)=F(0)</m>. Ce qui
+                                équivaut à</p>
+                            <me>\e^{TA}F(0)=F(0)</me>
+                            <p>Comme <m>F</m> est non nulle alors <m>F(0)\ne0</m> et donc <m>F</m>
+                                est <m>T</m>-périodique si et seulement si <m>1</m> est une <acro>VAP</acro>
+                                de <m>\e^{TA}</m> et <m>F(0)\in E_{1}(\e^{TA})</m>.</p>
+                            <p>D'après l'exercice 
+                            <!-- <xref ref="exer:smt" /> -->
+                            , les <acro>VAP</acro> de <m>
+                                \e^{TA}</m> sont les nombres de la forme <m>\e^{T\lambda}</m> où <m>
+                                \lambda</m> est une <acro>VAP</acro> de <m>A</m> donc <m>1</m> est une 
+                                <acro>VAP</acro> de <m>\e^{TA}</m> si et seulement s'il existe <m>
+                                \lambda\in\OPN{Sp}(A)</m> tel que <m>\e^{\lambda T}=1</m>. Ce qui
+                                équivaut à <m>\lambda\in\mathbf i\frac{2\pi}{T}\Z</m>.</p>
+                        </li>
+                        <li>
+                            <p><m>G</m> est une solution de l'équation complète. Son expression
+                                intégrale est</p>
+                            <me>G(t)=\e^{tA}G(0)+\int_0^t\e^{(t-s)A}B(s)\mathrm{d}s=
+                                \e^{tA}\bigg(G(0)+\int_0^t\e^{-sA}B(s)\mathrm{d}s\bigg)</me>
+                            <p>Elle est <m>T</m>-périodique si et seulement si <m>G(T)=G(0)</m>, ce
+                                qui équivaut à</p>
+                            <me>(I_d-\e^{-TA})G(0)=\int_0^T\e^{-sA}B(s)\mathrm{d}s</me>
+                            <p>Supposons que <m>(H)</m> n'a aucune solution périodique. Selon la
+                                question précédente <m>1</m> n'est pas une <acro>VAP</acro> de <m>\e^{TA}</m>
+                                et donc de son inverse <m>\e^{-TA}</m>. La matrice <m>I_d-\e^{-TA}</m>
+                                est alors inversible et il existe donc un vecteur <m>V\in\mathcal
+                                M_{d,1}(\C)</m> unique tel que</p>
+                            <me>(I_d-\e^{-TA})V=\int_0^T\e^{-sA}B(s)\mathrm{d}s</me>
+                            <p>L'unique solution <m>G</m> de <m>(E)</m> qui est alors <m>T</m>-périodique
+                                est celle qui vérifie la condition initiale <m>G(0)=V</m>.</p>
+                            <p>Si <m>(H)</m> admet des solutions <m>T</m>-périodiques alors <m>1</m>
+                                est une <acro>VAP</acro> de <m>\e^{-tA}</m>. L'existence de vecteurs <m>V</m>
+                                qui vérifient <m>(I_d-\e^{-TA})V=\int_0^T\e^{-sA}B(s)\mathrm{d}s</m> dépend
+                                alors de la condition</p>
+                        <me>\int_0^T\e^{-sA}B(s)\d
+                                s\in\im\big(I_d-\e^{-TA}\big)</me>
+                        <p>Si cette condition se réalise
+                                alors une solution <m>G</m> de <m>(E)</m> sera <m>T</m>-périodique
+                                si et seulement si</p>
+                        <me>G(0)\in
+                                V_0+\ker\big(I_d-\e^{-TA}\big)=V_0+\ker\big(I_d-\e^{TA}\big)</me>
+                        <p>
+                                où <m>V_0</m> est une solution quelconque de l'équation <m>(I_d-\e^{-TA})V=\int_0^T\e^{-sA}B(s)\d
+                                s</m>.</p>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <p>Considérons l'équation résolvante de <m>(H)</m> :</p>
+                    <me>U'=A(t)\circ U \qquad (RH)</me>
+                    <p>et rappelons que pour un <m>s</m> fixé la fonction <m>U : t\longmapsto R(t,s)</m>
+                        est l'unique solution de <m>(RH)</m> qui vérifie <m>U(s)=I_d</m>.</p>
+                    <p>Fixons maintenant <m>s\in \R</m> et considérons la fonction <m>r:t\longmapsto
+                        R(t+T,s+T)</m>.</p>
+                    <me>r'(t)=\frac{\partial R}{\partial t}(r+T,s+T)=A(t+T)R(t+T,s+T)= A(t)r(t)</me>
+                    <p>Donc <m>r</m> est une solution de <m>(RH)</m> et elle vérifie <m>
+                        r(s)=R(s+T,s+T)=I_d</m>. Alors par définition de <m>R</m></p>
+                    <me>\forall t\in\R,\;R(t+T,s+T)=R(t,s)</me>
+                    <p>ceci pour tout <m>s\in \R</m>.</p>
+                    <p>Ensuite pour tout <m>t\in\R</m>, on a selon les résultats de l'exercice 
+                    <!-- <xref ref="exer:resol" />  -->
+                    et la relation précédente</p>
+                    <me>R(t+T,t) = R(t+T,T)R(T,0)R(0,t) = R(t,0)R(T,0)R(t,0)^{-1}</me>
+                    <p><m>R(t+T,t)</m> est donc semblable à <m>R(T,0)</m>.</p>
+                </li>
+                <li>
+                    <p>Considérons une solution non nulle <m>F</m> de <m>(H)</m>. Alors pour tout <m>
+                        t\in\R</m> on a <m>F(t)=R(t,0)F(0)</m>. <m>F</m> est <m>T</m>-périodique si
+                        et seulement si <m>F(T)=F(0)</m> ou encore</p>
+                    <me>R(T,0)F(0)=F(0)</me>
+                    <p>Sachant que <m>F(0)\ne0</m>, ceci équivaut à ce que <m>1</m> soit une <acro>VAP</acro>
+                        de <m>R(T,0)</m> et que <m>F(0)\in E_1\big(R(T,0)\big)</m>. Ainsi <m>(H)</m>
+                        admet des solutions non nulles <m>T</m>-périodiques si et seulement si <m>1</m>
+                        est une <acro>VAP</acro> de <m>R(T,0)</m> et dans ce cas ces solutions sont les
+                        fonctions <m>t\longmapsto R(t,0)V</m> où <m>V\in E_1(R(T,0))\setminus\{0\}</m>
+                        .</p>
+                </li>
+                <li>
+                    <p><m>A</m> est <m>T</m>-périodique donc elle est <m>pT</m>-périodique. La
+                        question précédente implique que <m>(H)</m> admet une solution <m>pT</m>-périodique
+                        non nulle si et seulement si <m>1</m> est une <acro>VAP</acro> de <m>R(pT,0)</m>.
+                        En s'appuyant sur les propriétés de <m>R</m> on s'aperçoit par ailleurs que
+                        pour tout <m>n\in\N</m></p>
+                    <me>R\big((n+1)T,0\big)=R\big((n+1)T,T)R(T,0)=R(nT,0)R(T,0)</me>
+                    <p>Et donc <m>R(nT,0)=R(T,0)^n</m> pour tout <m>n\in\N</m>. D'après l'exercice 
+                    <!-- <xref ref="exer:smt" />,  -->
+                    <m>1</m> est donc une <acro>VAP</acro> de <m>R(pT,0)</m>
+                        si et seulement s'il existe une <acro>VAP</acro> <m>\lambda</m> de <m>R(T,0)</m>
+                        telle que <m>\lambda^p=1</m>. Dans ce cas ces solutions sont les fonctions <m>t\longmapsto
+                        R(t,0)V</m> où <m>V</m> est un vecteur non nul quelconque de <m>
+                        E_1(R(T,0)^p)</m>.</p>
+                </li>
+                <li>
+                    <p>Soit <m>V\in E_\lambda(R(T,0))\setminus\{0\}</m>. Puisque <m>\lambda^p=1</m>
+                        alors la fonction <m>F:t\longmapsto R(t,0)V</m> est une solution <m>pT</m>-périodique
+                        non nulle de <m>(H)</m>. Supposons qu'elle est constante. On aura alors <m>
+                        R(T,0)V=R(0,0)V=V</m>. Le vecteur <m>V</m> serait donc associé à <m>1</m>,
+                        ce qui est contradictoire puisqu'on a supposé que <m>\lambda\ne1</m>.</p>
+                </li>
+                <li>
+                    <p>On suppose que <m>A</m> est l'application <m>2\pi</m>-périodique :</p>
+                    <me>A:t\longmapsto \begin{pmatrix} 0\amp 1/2\amp 0 \\ -1/2\amp 0\amp 0 \\ 0\amp 0\amp  1+\sin
+                        t\end{pmatrix}</me>
+                    <p>Montrer que</p>
+                    <me>R(t,0)=\begin{pmatrix} \cos(t/2)\amp -\sin(t/2)\amp 0 \\ \sin(t/2)\amp \cos(t/2)\amp 0 \\
+                        0\amp 0\amp  \e^{1-\cos t+t} \end{pmatrix}</me>
+                    <p>En déduire que <m>(H)</m> admet des solutions <m>\pi</m>-périodiques non
+                        constantes.</p>
+                </li>
+            </ol>
+        </solution>
+    </exercise>
+
+    <exercise><title>Équations différentielles linéaires scalaires à coefficients constants </title> 
+        <p>Dans cet exercice, on résume les connaissances de base sur la résolution d'une équation
+            différentielle linéaire scalaire à coefficients constants.</p>
+        <p>Soit <m>E = \mathcal{C}^\infty(\R, \C)</m>. On note <m>D</m> l'opérateur de dérivation de <m>
+            E</m> et pour tout <m>\lambda \in \C</m>, <m>T_\lambda</m> l'endomorphisme de <m>E</m>
+            défini par</p>
+        <me>
+            \forall f \in E, \forall t \in \R, \; T_\lambda f(t) = f(t) \e^{\lambda t}
+        </me>
+        <p>On considère dans la suite un polynôme non constant <m>P \in \C[X]</m>.</p>
+        <ol>
+            <li>
+                <p>Montrer que pour tout <m>\lambda \in \C</m>,</p>
+                <me>
+                    P(D - \lambda \id) = T_\lambda \circ P(D) \circ T_{-\lambda}
+                </me>
+            </li>
+            <li>
+                <p>Montrer que pour tous <m>\lambda \in \C</m> et <m>p \in \N^*</m>,</p>
+                <me>
+                    \ker (D - \lambda \id)^p = \big\{ t \mapsto Q(t) \e^{\lambda t} \mid Q \in
+                    \C_{p-1}[X] \big\}
+                </me>
+            </li>
+            <li>
+                <p>Décrire les solutions de l'EDLS :</p>
+                <me>
+                    P(D) \cdot x = 0
+                </me>
+            </li>
+            <li>
+                <p>Soit <m>n \in \N</m>. Montrer que <m>P(D)</m> induit un endomorphisme inversible
+                    sur <m>\C_n[X]</m> si et seulement si <m>P(0) \neq 0</m>.</p>
+            </li>
+            <li>
+                <p>Soient <m>R \in \C[X]</m> et <m>\lambda \in \C</m>. Montrer que l'EDLS</p>
+                <me>
+                    P(D) \cdot x = R(t) \e^{\lambda t}
+                </me>
+                <p>admet une solution unique de la forme <m>t \mapsto t^\beta Q(t) \e^{\lambda t}</m>
+                    où <m>Q</m> est un polynôme de même degré que <m>R</m> et <m>\beta</m> est la
+                    multiplicité de <m>\lambda</m> en tant que racine de <m>P</m> (avec <m>\beta = 0</m>
+                    si <m>\lambda</m> n'est pas une racine de <m>P</m>). Décrire les solutions de <m>
+                    (E)</m>.</p>
+            </li>
+        </ol>
+    </exercise>
+
+    <exercise xml:id="act-eqdse">
+        <title>Solutions DSE d'une EDLS normalisable</title>
+        <introduction>
+        <p>
+    On considère une EDLS normalisée d'ordre <m>2</m>
+    <md> <mrow> (H) \amp\amp 
+    x''(t)+p(t)x'+q(t)x=0
+    </mrow> </md>
+    et on suppose que <m>p</m> et <m>q</m> sont <acro>DSE</acro> en <m>0</m> sur un intervalle <m>]-r,r[</m> :
+    <me> 
+    \forall t\in]-r,r[\qquad p(t)=\sum_{n=0}^{+\infty} p_nt^n\qquad q(t)=\sum_{n=0}^{+\infty}q_n t^n
+    </me>
+    On considère une fonction <m>f</m> <acro>DSE</acro> en <m>0</m> qu'on écrit sous la forme <m>f(t)=\sum\limits_{n=0}^{+\infty}a_n t^n</m>.</p>
+    </introduction>
+    <task>  
+    <statement>
+        <p> Montrer que si <m>f</m> est une solution de <m>(E)</m>  alors </p>
+    <md> <mrow> (ER) \amp\amp 
+    \forall n\in\N,\; a_{n+2}=\frac{-1}{(n+1)(n+2)}
+    \sum_{k=0}^n\big((k+1)a_{k+1}p_{n-k}+a_kq_{n-k}\big)
+    </mrow> </md>
+    </statement>
+    <solution>
+            <p> En injectant l'expression <m>f(t)=\sum_{n=0}^{+\infty}a_nt^n</m> dans l'équation <m>(H)</m> on obtient
+    <me> 
+    \sum_{n=0}^{+\infty}(n+2)(n+1)a_{n+2}t^n+\sum_{n=0}^{+\infty}\sum_{k=0}^n((k+1)a_{k+1}p_{n-k})t^n+\sum_{n=0}^{+\infty}\sum_{k=0}^na_kq_{n-k}t^k=0
+    </me></p>
+    <aside>
+    <p> Cette relation implique que la suite <m>(a_n)_n</m> est entièrement déterminée par ses deux premiers termes <m>a_0</m> et <m>a_1</m>. L'ensemble de ces suites est un <m>\K</m>-ev de dimension <m>\leq 2</m>.
+    </p>
+    </aside>
+    <p>De quoi on déduit que
+    <me> 
+    \forall n\in\N,\; (n+2)(n+1)a_{n+2}+\sum_{k=0}^n\big((k+1)a_kp_{n-k}+a_kq_{n-k}\big)=0
+    </me>
+        </p>
+    </solution>
+    </task>
+    <task>  
+    <statement>
+    <p>Réciproquement, soit une suite non nulle <m>(a_n)_n</m> qui vérifie la relation <m>(ER)</m>. On considère  <m>\rho \in{}]0,r[</m> et <m>M\gt0</m> tels que <m>|p_n|\rho^n\leq M</m> et <m>|q_n|\rho^n\leq M</m> pour tout <m>n\in\N</m>. On pose <m>b_0=|a_0|,\; b_1=|a_1|</m> et 
+    <me> 
+    \forall n\in\N,\; b_{n+2}=\frac{M}{(n+1)(n+2)}\Big(
+    \sum_{k=0}^n\frac{(k+1)b_{k+1}+b_k}{\rho^{n-k}}+ \rho b_{n+1}\Big) 
+    </me></p>
+
+    <ol> 
+        <li> <p> Montrer que <m>|a_n|\leq b_n</m>, pour tout <m>n\in\N</m>.</p>
+        </li>
+        <li> <p>Montrer que <m>b_{n+1}=\ds b_n\frac{n(n-1)+nM\rho+M\rho^2}{\rho n(n+1)}</m>.</p>
+        </li>
+        <li> <p>En déduire que <m>\sum a_nt^n</m> a un <acro>RC</acro> <m>\geq r</m>.</p>
+        </li> 
+    </ol>  
+    </statement> 
+
+    <solution>
+        <p>L'existence de <m>M</m> tel que <m>|p_n|\rho^n\leq M</m> et <m>|q_n|\rho ^n</m> découle du fait que <m>\rho</m> est plue petit que les rayons de convergence des séries entières <m>\sum p_nt^n</m> et <m>\sum q_n t^n</m>.</p> 
+
+    <p>Ensuite la relation précédente sur les termes <m>a_n</m> implique que pour tout <m>n\in\N</m>
+    <me> 
+    |a_{n+1}|\leq\frac M{(n+2)(n+1)}
+    \sum_{k=0}^n\frac{1}{\rho^{n-k}}\big((k+1)|a_{k+1}|+|a_k|\big)
+    </me></p>
+    <ol> 
+        <li> <p>Une récurrence évidente établit donc que <m>|a_n|\leq b_n</m> pour tout <m>n\in\N</m>.</p>
+    <aside><p>
+    le rôle du terme <m>\rho b_{n+1}</m> dans la définition de <m>b_{n+2}</m> deviendra claire dans la suite.
+    </p> 
+    </aside>
+    </li>
+
+        <li><p> Simplifions l'écriture de <m>b_{n+1}</m>. Pour tout <m>n\geq 2</m></p>
+    <aside><p> C'est l'ajout du terme <m>\rho b_n</m> dans la définition de <m>b_{n+2}</m> qui a permis l'obtention d'une relation aussi simple entre <m>b_{n+1}</m> et <m>b_n</m>.
+    </p></aside>
+    <md>
+    <mrow>b_{n+1}\amp=
+    \frac{M}{n(n+1)}\Big(\sum_{k=0}^{n-1}
+    \frac{(k+1)b_{k+1}+b_k}{\rho^{n-1-k}}+ \rho b_{n}\Big)
+    </mrow> 
+    <mrow> \amp=
+    \frac{M}{n(n+1)}\bigg(\frac1\rho\Big(\sum_{k=0}^{n-2}
+    \frac{(k+1)b_{k+1}+b_k}{\rho^{n-2-k}}+\rho b_{n-1}\Big)+(nb_n+b_{n-1}) +\rho b_{n}- b_{n-1}\bigg) </mrow> 
+    <mrow> \amp=
+    \frac{M}{n(n+1)}\Big(\frac{(n-1)n}{\rho M}b_n+nb_n+\rho b_{n}\Big) 
+    </mrow> 
+    <mrow> \amp=
+    \frac{b_n}{\rho n(n+1)}\big(n(n-1)+n\rho M+\rho^2 M\big)
+    </mrow>
+    <mrow> 
+    b_{n+1}\amp=\alpha_nb_n 
+    \qquad \text{avec}\;\alpha_n=\frac{n(n-1)+n\rho M+\rho^2M}{\rho n(n+1)}
+    </mrow> 
+    </md>
+    </li>
+
+    <li> <p> La suite <m>(a_n)</m> est non nulle donc <m>(b_n)</m> est non nulle, et comme <m>\alpha_n>0</m> alors <m>b_n>0</m> pour tout <m>n\geq n_0</m> dès que <m>b_{n_0}\ne 0</m> pour un certain <m>n_0</m>. Par suite 
+    <me> 
+    \forall t\ne0,\; \Big|\frac{b_{n+1}t^{n+1}}{b_nt^n}\Big|=\alpha_n|t|\longrightarrow \frac{|t|}\rho
+    </me>
+    La série entière <m>\sum b_nt^n</m> a donc un <acro>RC</acro> qui vaut <m>\rho</m>. Notons <m>R</m> le <acro>RC</acro> de <m>\sum a_n t^n</m>. Comme <m>|a_n|\leq b_n</m> alors <m>R\geq \rho</m> pour tout <m>\rho \in]0,r[</m>. Donc <m>R\geq r</m>.</p>
+    </li>
+    </ol>
+    </solution> 
+    </task>
+    <task>  
+    <statement>
+    <p>Montrer que pour tous <m>a_0,a_1\in \K</m>, il existe une unique solution <m>f</m> de <m>(H)</m> <acro>DSE</acro> sur <m>]-r,r[</m> telle que <m>f(0)=a_0</m> et <m>f'(0)=a_1</m>.</p>
+    </statement>
+
+    <solution>
+        <p>En compilant les résultats de la question précédente, on voit que <m>f</m> est une solution de <m>(H)</m> sur <m>]-r,r[</m> si et seulement si la suite <m>(a_n)</m> vérifie la relation <m>(ER)</m>.</p> 
+        <aside><p> Reformulons : si les fonctions <m>p</m> et <m>q</m> sont continues sur un intervalle <m>I</m> et sont <acro>DSE</acro> en <m>0</m> sur <m>]-r,r[\subset I</m> alors toutes les solutions de <m>(H)</m> sur <m>I</m> sont <acro>DSE</acro> en <m>0</m> sur <m>]-r,r[</m>.
+    </p></aside> 
+       <p> La suite <m>(a_n)_n</m> elle même est entièrement déterminée par les termes <m>a_0</m> et <m>a_1</m>. Comme <m>a_0=f(0)</m> et <m>a_1=f'(0)</m> alors pour tout <m>a_0,a_1\in \R</m> il existe une unique solution <m>f</m> de <m>(H)</m> <acro>DSE</acro> en <m>0</m> telle que <m>f(0)=a_0</m> et <m>f'(0)=a_0</m>.</p> 
+    </solution> 
+    </task>
+    
+</exercise>
+
+    <exercise xml:id="act-eqdsen"> 
+    <title>Solutions pseudo-DSE d'une EDLS non normalisable</title>  
+        <statement>
+            <p>On considère une <textsc>edls</textsc> homogène d'ordre 2 de la forme</p>
+            <me>t^2x''+tp(t)x'+ q(t)x=0 \qquad (H)</me>
+            <p>et on suppose que les fonctions <m>p</m> et <m>q</m> sont <textsc>dse</textsc> en <m>
+                0</m> sur un intervalle <m>]-r,r[</m> :</p>
+            <me>\forall t\in]-r,r[\qquad  p(t)=\sum_{n=0}^{+\infty} p_nt^n\qquad 
+                q(t)=\sum_{n=0}^{+\infty}q_n t^n</me>
+            <p>On cherche les solutions de <m>(H)</m> qui se prolongent sur <m>]-r,r[</m> sous la
+                forme</p>
+            <me>f(t)=|t|^z\sum_{n=0}^{+\infty}a_n t^n</me>
+            <p>où <m>a_0\ne0</m> et <m>z\in \K</m> qui reste à déterminer. On note <m>R</m> le <textsc>
+                rc</textsc> de <m>\sum a_n t^n</m>.</p>
+            <ol>
+                <li>
+                    <p>Montrer que si <m>f</m> induit une solution de <m>(H)</m> sur <m>]0,r[</m>
+                        alors</p>
+                    <me>P(z)=0</me>
+                    <me>\forall n\in\N^*,\;
+                        P(n+z)a_n=-\sum_{k=0}^{n-1}\big((k+z)p_{n-k}+q_{n-k}\big)a_k</me>
+                    <p>où <m>P</m> est le polynôme donné par <m>P(X)=X(X-1)+p_0X+q_0</m>.</p>
+                </li>
+                <li>
+                    <p>Réciproquement soit <m>z</m> la racine de <m>P</m> qui a la plus grande
+                        partie réelle. On suppose que la suite <m>(a_n)</m> vérifie la relation de
+                        récurrence <m>(ER)</m>.</p>
+                    <p>Montrer que <m>R\geq r</m> et que <m>f</m> induit une solution de <m>(H)</m>
+                        sur <m>]0,r[</m>.</p>
+                </li>
+                <li>
+                    <p>Étudier la possibilité de prolonger <m>f</m> en une solution de <m>(H)</m>
+                        sur <m>]-r,r[</m>.</p>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    <p>Supposons que <m>f</m> soit une solution de <m>(H)</m> sur <m>]0,r[</m>.</p>
+                    <aside><p><m>f</m> est continue sur <m>]-r,r[</m> si <m>\re z\geq0</m>, mais Il
+                        faudra que <m>\re z\gt2</m> pour qu'elle soit deux fois dérivable sur <m>
+                        ]-r,r[</m>.</p></aside>
+                    <p>On peut dériver terme à terme la somme de la série de fonctions <m>\sum
+                        a_nt^{n+z}</m> pour les mêmes raisons que pour une série entière, à savoir
+                        une <textsc>cvu</textsc> sur tout segment de <m>]0,r[</m> de cette série et
+                        de ses séries dérivées.</p>
+                    <p>En remplaçant <m>x</m> par <m>f(t)</m> dans <m>(H)</m>, on obtient</p>
+                    <me>\sum_{n=0}^{+\infty}\bigg(
+                        (z+n)(z+n-1)a_n+\sum_{k=0}^n(z+k)a_kp_{n-k}+\sum_{k=0}^na_kq_{n-k}
+                        \bigg)t^{n+z}=0</me>
+                    <p>Maintenant en multipliant par <m>t^{-z}</m> on fait apparaitre la somme d'une
+                        série entière nulle. Ces coefficients sont donc tous nuls.</p>
+                    <me>\forall n\in\N,\;
+                        (n+z)(n+z-1)a_n+\sum_{k=0}^n\Big((z+k)p_{n-k}+q_{n-k}\Big)a_k=0</me>
+                    <p>Sachant qu'on a supposé que <m>a_0\ne0</m>, on peut donc écrire
+                    <me>(ER)\qquad  \left\{\;\begin{aligned} \amp P(z)=0 \\ \amp \forall n\geq 1,\;P(z+n)a_n
+                        =-\sum_{k=0}^{n-1}\Big((z+k)p_{n-k}+q_{n-k}\Big)a_k \end{aligned}\right.</me></p>
+                    <aside><p>Soit <m>z</m> est une racine de <m>P</m>. Si <m>P(z+n)\ne0</m> pour tout <m>n\geq
+                        1</m> alors la suite <m>(a_n)_n</m> est bien définie et elle est entièrement
+                        déterminée par son premier terme <m>a_0</m>.
+                        </p></aside>
+                </li>
+                <li>
+                    <p>Soit <m>z</m> la racine de <m>P</m> ayant la plus grande partie réelle. Alors
+                        pour tout <m>n\in\N^*</m>, on ne peut avoir <m>P(z+n)=0</m> et donc les
+                        relations <m>(ER)</m> définissent complètement la suite <m>(a_n)_n</m> à
+                        partir de son premier terme <m>a_0</m>. Il reste à justifier que le <textsc>
+                        rc</textsc> <m>R</m> de la série entière <m>\sum a_n t^n</m> vérifie <m>R\geq
+                        r</m>. Pour cela, comme dans l'exercice précédent, en prenant <m>
+                        \rho\in]0,r[</m> et <m>M\gt0</m> tel que <m>|p_n|\rho^n\leq M</m> et <m>|q_n|\rho^n\leq
+                        M</m> pour tout <m>n\in\N</m>, on a</p>
+                    <me>\forall n\in\N^*,\; |a_n|\leq \frac M{|P(z+n)|}
+                        \sum_{k=0}^{n-1}\frac{|z+k|+1}{\rho^{n-k}}|a_k|</me>
+                    <p>En introduisant maintenant la suite <m>(b_n)_n</m> définie par <m>b_0=|a_0|</m>
+                        et</p>
+                    <me>\forall n\in\N^*, b_{n}=\frac
+                        M{\rho^n|P(z+n)|}\sum_{k=0}^{n-1}\big(|z+k|+1\big)\rho^k b_k</me>
+                    <p>On aura pour tout <m>n\in\N</m></p>
+                    <me>b_{n+1} = \frac M{\rho^{n+1}|P(z+n+1)|}\bigg(
+                        \frac{\rho^{n}|P(z+n)|}{M}b_n+\big(|z+n|+1\big)\rho^n b_n \bigg) =
+                        \frac{|P(z+n)|+M|z+n|+M}{\rho |P(z+n+1)|}b_n</me>
+                    <p>Ici <m>b_0\gt0</m> donc la relation <m>(ER)</m> implique que <m>b_n\gt0</m> pour
+                        tout <m>n\in\N^*</m>. Par suite pour tout réel <m>t\ne 0</m></p>
+                    <me>\Big|\frac{b_{n+1}t^{n+1}}{b_nt^n}\Big|=\frac{|P(z+n)|+M|z+n|+M}{\rho
+                        |P(z+n+1)|}|t|</me>
+                    <p><m>P</m> est unitaire de degré <m>2</m> donc <m>|P(z+n)|\sim |P(z+n+1)|\sim
+                        n^2</m> et donc</p>
+                    <me>\Big|\frac{b_{n+1}t^{n+1}}{b_nt^n}\Big|\longrightarrow \frac{|t|}\rho</me>
+                    <p>La série entière <m>\sum b_n t^n</m> a donc pour <textsc>rc</textsc> <m>\rho</m>.
+                        Comme par construction <m>|a_n|\leq b_n</m> alors <m>R\geq \rho</m>, ceci
+                        pour tout <m>\rho\in]0,r[</m>. Ainsi <m>R\geq r</m>.</p>
+                    <p>La fonction <m>f</m> est donc bien définie et de classe <m>\mathcal C^\infty</m>
+                        sur <m>]0,r[</m>. La suite <m>(a_n)</m> vérifiant la relation <m>(ER)</m>,
+                        la fonction <m>f</m> induit une solution sur <m>]0,r[</m> de <m>(H)</m>.</p>
+                    <aside><p>La condition imposée à la racine <m>z</m> de <m>P</m> n'a servi qu'à
+                        assurer que <m>P(z+n)\ne0</m> pour tout <m>n\in\N^*</m>. Si les deux racines <m>
+                        z_1</m> et <m>z_2</m> de <m>P</m> sont distinctes et vérifient <m>
+                        z_1-z_2\notin\Z</m> alors cette dernière condition est remplie à la fois
+                        pour <m>z_1</m> et pour <m>z_2</m>. Ce qui permet de déterminer deux
+                        solutions linéairement indépendantes de <m>(H)</m> sur <m>]0,r[</m>.</p></aside>
+                    <p>Si les nombres
+                    <m>p(0)</m> et
+                    <m>q(0)</m> sont réels alors le polynôme
+                    <m>P</m> est à coefficients réels. S'il admet deux racines complexes non réelles
+                    <m>z</m> et
+                    <m>\overline z</m> alors
+                    <m>z-\overline z</m> est imaginaire pure et ne peut donc être un élément de
+                    <m>\Z</m>. En revenant aux équations
+                    <m>(ER)</m>, on peut observer que si
+                    <m>(a_n)_n</m> est la suite associée à
+                    <m>z</m> alors
+                    <m>(\overline{a_n})_n</m> est la suite associée à
+                    <m>\overline z</m>. On obtient ainsi les deux solutions indépendantes de
+                    <m>(H)</m> sur
+                    <m>]0,r[</m> :
+                    </p>
+                    <me>\begin{aligned} f_1(t)\amp =t^{z}\sum_{n=0}^{+\infty}a_nt^n \amp \amp \amp  f_2(t)\amp =t^{\overline
+                        z}\sum_{n=0}^{+\infty}\overline{a_n}t^n \end{aligned}</me>
+                </li>
+                <li>
+                    <p>Par ailleurs en posant <m>a_n=\delta_n a_0</m>, les relations <m>(ER)</m> se
+                        traduisent par</p>
+                    <me>\delta_0=1 \qquad  \forall n\in\N^*,\; \delta_n=
+                        -\frac1{P(z+n)}\sum_{k=0}^{n-1}\Big((z+k)p_{n-k}+q_{n-k}\Big)\delta_k</me>
+                    <p>La suite <m>(\delta_n)_n</m> est donc unique et on a</p>
+                    <me>\forall t\in{}]-r,r[,\; f(t)=a_0|t|^z\sum_{n=0}^{+\infty}\delta_n
+                        t^n=a_0|t|^zg(t)</me>
+                    <p>La fonction <m>g</m> ainsi introduite est de classe <m>\mathcal C^\infty</m>
+                        sur <m>]-r,r[</m> et vérifie <m>g(0)=1</m>. La fonction <m>f</m> est donc
+                        deux fois dérivable en <m>0</m> si et seulement c'est la cas de la fonction <m>t\longmapsto
+                        |t|^z</m>. Ce qui n'est possible que si <m>z=2</m> ou <m>\re z>2</m>.</p>
+                    <aside><p><m>z</m> ne dépend que de <m>p_0=p(0)</m> et <m>q_0=q(0)</m>.</p></aside>
+                </li>
+            </ol>
+        </solution>
+    </exercise>
+
+    <exercise><title> Zéros des solutions d'une EDLS du second ordre</title>
+        <statement>
+            <p>On considère une <textsc>edls</textsc> homogène normalisée</p>
+            <me>x''+p(t)x'+q(t)x=0 \qquad (H)</me>
+            <ol>
+                <li>
+                    <p>Montrer toute solution non nulle de <m>(H)</m> admet au plus un nombre fini
+                        de zéros dans tout segment de <m>I</m>. En déduire que l'ensemble de ces
+                        zéros dans <m>I</m> est au plus dénombrable.</p>
+                </li>
+                <li>
+                    <p>On suppose que <m>f</m> est une solution non nulle de <m>(H)</m> qui admet au
+                        moins deux zéros dans <m>I</m> et on considère <m>t_1,t_2</m> deux zéros
+                        successifs de <m>f</m>. Montrer que toute solution <m>g</m> de <m>(H)</m>
+                        non colinéaire à <m>f</m> admet exactement un zéro entre <m>t_1</m> et <m>
+                        t_2</m>.</p>
+                </li>
+            </ol>
+            <p>
+                Voir la section <xref ref="sec-zeros-des-solutions" text="title"/> pour plus de résulats sur ce thème.
+            </p>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    <p>Soit <m>f</m> une solution non nulle de <m>(H)</m> et considérons un segment <m>J\subset
+                        I</m>. Supposons que <m>f</m> admet une infinité de zéros dans <m>J</m>. Il
+                        est alors possible de construire une suite injective formée de zéros de <m>f</m>
+                        dans <m>J</m>. Le segment <m>J</m> étant un compact, cette suite aurait au
+                        moins une suite extraite qui converge. Notons <m>(t_n)_n</m> cette
+                        sous-suite et <m>\ell</m> sa limite.</p>
+                    <p>On a <m>f(t_n)=0</m> pour tout <m>n\in\N</m> et <m>f</m> est continue donc <m>
+                        f(\ell)=0</m>. Ensuite, la suite <m>(t_n)_n</m> étant injective, au plus un
+                        terme <m>t_n</m> peut prendre la valeurs <m>\ell</m>, il existe donc un rang
+                        à partir duquel <m>t_n\ne\ell</m>. On a alors</p>
+                    <me>\frac{f(t_n)-f(\ell)}{t_n-\ell}\xrightarrow[n\to\infty]{}f'(\ell)</me>
+                    <p>et donc <m>f'(l)=0</m>. Pour résumer, <m>f</m> est une solution de <m>(H)</m>
+                        et il existe <m>\ell\in I</m> tel que <m>f(\ell)=0</m> et <m>f'(\ell)=0</m>.
+                        La fonction nulle étant une solution de <m>(H)</m> qui vérifie aussi ces
+                        conditions on a donc <m>f\equiv0</m>. Ce qui contredit l'hypothèse faite sur <m>
+                        f</m>.
+                    <me>Pour tout segment <m>J</m> de <m>I</m>, <m>f</m> admet au plus un nombre
+                        fini de zéros dans <m>J</m>.</me></p>
+                    <aside><p>Ce résultat permet de justifier que si <m>t_1</m> est un zéro de <m>f</m>
+                        alors il existe un segment <m>J</m> de <m>I</m> tel que <m>f(t)\ne0</m> pour
+                        tout <m>t\in J\setminus\{t_1\}</m>. On dit que les zéros de <m>f</m> sont
+                        isolés. De plus si <m>f</m> admet au moins un zéro <m>\gt t_1</m>, alors il
+                        existe un zéro <m>t_2\gt t_1</m> de <m>f</m> tel que <m>]t_1,t_2[</m> ne
+                        contienne aucun zéro de <m>f</m>. On dira que les zéros <m>t_1</m> et <m>t_2</m>
+                        de <m>f</m> sont successifs.</p></aside>
+                    <p>Ensuite, tout intervalle de <m>\R</m> peut être écrit comme une réunion
+                        dénombrable de segments, donc l'ensemble des zéros de <m>f</m> dans <m>I</m>
+                        est au plus dénombrable.</p>
+                </li>
+                <li>
+                    <p>Soit <m>g</m> une solution de <m>(H)</m> non colinéaire à <m>(H)</m>. La
+                        famille <m>(f,g)</m> est donc un <textsc>sfs</textsc> de <m>(H)</m>. Son
+                        wronksien <m>w</m> garde un signe constant sur <m>I</m>. Quitte à remplacer <m>
+                        f</m> par <m>-f</m> on peut supposer que <m>w(t)\gt0</m> partout sur <m>I</m>.
+                        On a alors</p>
+                    <me>\begin{aligned} w(t_1)\amp =-f'(t_1)g(t_1)\gt0 \amp \amp \amp  w(t_2)=-f'(t_2)g(t_2)\gt0 \end{aligned}</me>
+                    <p>Par ailleurs <m>f</m> ne s'annule pas sur <m>]t_1,t_2[</m> donc elle y garde
+                        un signe constant donc les fonctions <m>  t\longmapsto \frac{f(t)}{t-t_1}</m>
+                        et <m>  t\longmapsto \frac{f(t)}{t-t_2}</m> ont des signes contraires dans <m>
+                        ]t_1,t_2[</m>. Leurs limites respectives en <m>t_1^+</m> et en <m>t_2^-</m>
+                        sont <m>f'(t_1)</m> et <m>f'(t_2)</m> donc <m>f'(t_1)</m> et <m>f'(t_2)</m>
+                        ont des signes contraires. Les inégalités <m>(ER)</m> montrent alors que <m>
+                        g(t_1)g(t_2)\lt0</m>. Selon le <textsc>tvi</textsc>, <m>g</m> admet au moins un
+                        zéro dans <m>]t_1,t_2[</m>. Ce zéro ne peut être qu'unique car sinon selon
+                        cette même propriété qu'on vient de démontrer, <m>f</m> aurait au moins un
+                        zéro entre <m>t_1</m> et <m>t_2</m>.</p>
+                    <aside><p>Une conséquence de ce résultat et que si <m>f</m> admet une solution non
+                        nulle qui admet une infinité de zéros dans <m>I</m> alors toutes les
+                        solutions de <m>(H)</m> ont une infinité de zéros. Deux solutions non nulles
+                        ont les mêmes zéros si elles sont colinéaires, des zéros entrelacés sinon.</p></aside>
+                </li>
+            </ol>
+        </solution>
+    </exercise>
+
+    <exercise xml:id="solutions-periodiques-scalar-2nd"><title> Solutions périodiques d'une EDLS du second ordre </title>
+    <statement>
+        <p>Soit <m>p</m> une fonction continue <m>T</m>-périodique sur <m>\R</m>. On considère
+            l'équation</p>
+        <me>x''+p(t)x=0</me>
+        <p>Soit <m>(f_1,f_2)</m> le <textsc>sfs</textsc> canonique de <m>(H)</m> en <m>0</m>. On
+            note <m>w</m> son wronksien.</p>
+        <ol>
+            <li>
+                <p>Montrer que <m>w\equiv 1</m>.</p>
+            </li>
+            <li>
+                <p>Montrer que <m>(H)</m> admet au moins une solution <m>T</m>-périodique non nulle
+                    si et seulement si <m>f_1(T)+f_2'(T)=2</m>.</p>
+            </li>
+            <li>
+                <p>Montrer que <m>(H)</m> admet au moins une solution non nulle <m>f</m> telle que <m>
+                    f(t+T)=-f(t)</m> si et seulement si <m>f_1(T)+f_2'(T)=-2</m>.</p>
+            </li>
+        </ol>
+    </statement>
+    <solution>
+        <ol>
+            <li>
+                <p>Puisque l'équation est normale tous ses wronksiens sont constants (<m>w'=0</m>).
+                    Les solutions <m>f_1</m> et <m>f_2</m> sont définies par les conditions <m>
+                    f_1(0)=f_2'(0)=1</m> et <m>f_1'(0)=f_2(0)=0</m> donc leurs wronksien <m>w</m>
+                    vérifie <m>w(0)=f_1(0)f_2'(0)-f_1(0)f_2'(0)=1</m>. Alors <m>w\equiv1</m>.</p>
+            </li>
+            <li>
+                <p>Soit <m>f</m> une solution de <m>(H)</m>. Posons</p>
+                <me>f=\lambda f_1+\mu f_2</me>
+                <p>On considère la fonction <m>g:t\longmapsto f(t+T)</m>. Puisque <m>p</m> est <m>T</m>-périodique
+                    alors <m>g</m> est aussi une solution de <m>(H)</m>. Elle est égale à <m>f</m>
+                    si et seulement si <m>f(0)=g(0)</m> et <m>f'(0)=g'(0)</m>. Ce qui équivaut à <m>\lambda
+                    =\lambda f_1(T)+\mu f_2(T)</m> et <m>\mu =\lambda f_1'(T)+\mu f_2'(T)</m>. Ainsi <m>
+                    (H)</m> admet une solution <m>T</m>-périodique non nulle si et seulement si le
+                    système linéaire d'inconnues <m>\lambda</m> et <m>\mu</m></p>
+                <me> \begin{cases} (f_1(T)-1)\lambda +f_2(T)\mu=0 \\ f_1'(T)\lambda+(f_2'(T)-1)\mu=0  \end{cases}</me>
+                <p>admet au moins une solution non nulle. Ce qui équivaut à dire que le déterminant <m>
+                    \Delta</m> de ce système est nul. Comme</p>
+                <me>\Delta=(f_1(T)-1)(f_2'(T)-1)-f_1'(T)f_2(T)=
+                    w(T)-f_1(T)-f_2'(T)+1=2-f_1(T)-f_2'(T)</me>
+                <p>alors
+                <m>(H)</m> admet au moins une solution <m>T</m>-périodique non nulle si et
+                    seulement si <m>f_1(T)+f_2'(T)=2</m>. Dans ce cas toute solution <m>f</m> de <m>
+                    (H)</m> qui vérifie <m>f(0)=\lambda</m> et <m>f'(0)=\mu</m> où <m>(\lambda,\mu)</m>
+                    est une solution de <m>(ER)</m> est <m>T</m>-péridodique.</p>
+                <p>Pour faire le lien avec les résultats déjà démontrés en exercice concernant
+                les solutions périodique d'un système différentiel linéaire du premier ordre
+                observons que :
+                </p>
+                <ol>
+                    <li>
+                        <p>La condition donnée équivaut à ce que <m>1</m> soit une <acro>VAP</acro> de la
+                            matrice <m>r(T)=\smash[b]{\left(\begin{smallmatrix} f_1(T) \amp  f_2(T) \\
+                            f_1'(T) \amp  f_2'(T)\end{smallmatrix}\right)}</m></p>
+                    </li>
+                    <li>
+
+
+                        <p>Si <m>A(t)=\left(\begin{smallmatrix}0\amp 1\\-q(t)\amp 0\end{smallmatrix}\right)</m> alors
+                            l'application <m>r:t\longmapsto \left(\begin{smallmatrix} f_1(t) \amp  f_2(t) \\
+                            f_1'(t) \amp  f_2'(t)\end{smallmatrix}\right)</m> est l'unique solution de l'<textsc>
+                            edl</textsc> <m>U'=A(t)U</m> telle que <m>U(0)=I_2</m>.</p>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>Une solution <m>f</m> non nulle de <m>(H)</m> vérifiera <m>f(t+T)=-f(t)</m> si et
+                    seulement si <m>f(T)=-f(0)</m> et <m>f'(T)=-f(0)</m>. En posant <m>f=\lambda
+                    f_0+\mu f_1</m>, ces conditions équivalent à</p>
+                <me> \begin{cases} (f_1(T)+1)\lambda +f_2(T)\mu=0 \\ f_1'(T)\lambda+(f_2'(T)+1)\mu=0  \end{cases}</me>
+                <p>Ce qui équivaut cette fois à <m>f_1(T)+f_2'(T)=-2</m>.</p>
+            </li>
+        </ol>
+    </solution>
+    </exercise>
+</exercises>
+
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is the publication file for a newly generated PreTeXt book.     -->
+<!-- By changing the values of attributes here, you can change how        -->
+<!-- the output looks and functions.  For the complete documentation      -->
+<!-- of publication-file options, see                                     -->
+<!-- https://pretextbook.org/doc/guide/html/publisher-file-reference.html -->
+
+<!-- Commented settings below illustrate some possible changes you can    -->
+<!-- make from the default values.                                        -->
+
+<publication>
+  <common>
+    <!-- Level at which are html files generated (chapter/section/etc): -->
+      <!--<chunking level="1" />-->
+
+    <!-- Depth for table of contents.  0 means no TOC -->
+      <!--<tableofcontents level="1" />-->
+
+    <!-- Visibility of exercise components where they first appear.          -->
+    <!-- There are four components (statement/hint/answer/solution) for each -->
+    <!-- of five exercise types (inline/divisional/worksheet/reading/        -->
+    <!-- project).                                                           -->
+      <!--<exercise-inline statement="yes" hint="yes" answer="no" solution="no" />-->
+      <!--<exercise-divisional statement="yes" hint="yes" answer="no" solution="yes" />-->
+      <!--<exercise-worksheet statement="yes" hint="yes" answer="no" solution="no" />-->
+      <!--<exercise-reading statement="yes" hint="yes" answer="no" solution="no" />-->
+      <!--<exercise-project statement="yes" hint="yes" answer="yes" solution="yes" />-->
+
+    <!-- Style of fill-in-the-blanks: -->
+      <!--<fillin textstyle="underline" mathstyle="shade" />-->
+
+    <!-- You can set a watermark: -->
+      <!-- <watermark scale="0.5">DRAFT</watermark> -->
+
+    <!-- Mermaid diagram themes -->
+      <!-- <mermaid theme="default" /> -->  
+
+    <!-- QR code image: set path to an image to put in center of QR codes -->
+      <!-- <qrcode image="image.png" /> -->
+  </common>
+
+
+  <!-- Set where external assets and generated assets will be   -->
+  <!-- stored or created.  Directories are relative to the main -->
+  <!-- source PreTeXt file                                      -->
+  <source>
+    <!-- Paths to folders containing external assets and generated assets -->
+    <!-- relative to your main source file.                               -->
+    <directories external="../assets" generated="../generated-assets" />
+
+    <!-- Set which marked elements are included in this version: -->
+    <!-- See
+    https://pretextbook.org/doc/guide/html/publication-file-source.html#publication-file-source-version -->
+      <!-- <version include="videos labs"/> -->
+
+  </source>
+
+  <numbering>
+        <!-- the divisions element describes the numbering of divisions.  -->
+        <!-- @part-structure should be "decorative" or "structural",      -->
+        <!-- were the latter would restart numbering chapters within each -->
+        <!-- part (this only matters if your book has parts).             -->
+        <!-- The attribute @chapter-start give the number of the first    -->
+        <!-- chapter.  @level says how deep (chapter->section->subsection)-->
+        <!-- numbering should appear.                                     -->
+        <!-- For use with a book organized by parts                       -->
+        <divisions chapter-start="1" level="3"/>
+        <!-- The next elements say how the levels deep to break up the    -->
+        <!-- numbering of the respective elements. Can't be more than the -->
+        <!-- @level on divisions above.                                   -->
+        <blocks level="1"/>
+        <projects level="1"/>
+        <equations level="1"/>
+        <footnotes level="1"/>
+    </numbering>
+
+<common>
+        <chunking level="2"/>
+        <tableofcontents level="3"/>
+        <exercise-reading hint="yes" answer="yes" solution="yes"/>
+        <exercise-inline hint="yes" answer="no" solution="no"/>
+        <exercise-divisional hint="yes" answer="yes" solution="yes"/>
+        <exercise-worksheet hint="yes" answer="yes" solution="yes"/>
+        <exercise-project hint="yes" answer="no" solution="no"/>
+        <activity hint="yes" answer="yes" solution="yes"/>
+</common>
+  <!-- LaTeX specific options: set @print="yes" to get pdf set up   -->
+  <!-- for printing; set @sides="two" if the printing would be two- -->
+  <!-- sided.  @pageref="yes/no" controls whether page number are   -->
+  <!-- included in cross-references                                 -->
+  <latex print="yes" sides="two" font-size="10" pageref="no">
+        <!-- <cover front="images/front" back="images/back" /> -->
+        <asymptote links="no"/>
+        <worksheet formatted="no"/>
+        <page>
+            <geometry>paper=a5paper, inner=1cm, outer=.5cm, top=1cm, bottom=1cm,</geometry>
+        </page> 
+    </latex>
+
+   <html short-answer-responses="always">
+        <!-- Set platform; @host="web" is default, @host="runestone" also possible -->
+        <platform host="web"/>
+        <!-- Whether to knowl a particular elements is set here    -->
+        <!-- Lots of elements have this possibility; see the guide -->
+        <knowl 
+            theorem="no" 
+            definition="no" 
+            remark="no" 
+            example="no"
+            figure="no"
+            table="no"
+            listing="no"
+            exercise-inline="no"
+            exercise-divisional="no"
+            project="no" 
+            proof="yes"
+            solution="yes"
+        />
+        <webwork reading="dynamic" divisional="dynamic" inline="dynamic" worksheet="dynamic" />
+
+        <!-- specify the style of the html by giving names to      -->
+        <!-- override defaults.  Ex: to use "style_oscarlevin.css" -->
+        <!-- put <css style="oscarlevin"/>                         -->
+        <!-- @colors currently unimplementd.                       -->
+        <css theme="denver" color-main="#2e1657" color-do="#163c57" color-fact="#162957" color-meta="#571657" primary-color-dark="#9482b3"/>
+        <!-- Magic IDs identify HTML pages to analytics services   -->
+        <!-- Presence implies relevant Javascript will be added    -->
+        <!-- <analytics google-gst="UA-66485406-1"/> -->
+        <tableofcontents focused="yes" preexpanded-levels="1"/>
+        <search variant="default"/>
+        <feedback href="mailto:ibouja@gmail.com" />
+    </html>
+
+  <epub>
+    <!-- The cover tag can have a @front attribute to specify a cover image. -->
+      <!-- <cover front="cover.jpg"> -->
+  </epub>
+
+
+  <!-- To use WeBWorK, you need a server.  -->
+    <!-- <webwork server="https://webwork-ptx.aimath.org" /> -->
+    <!-- @course, @coursepassword, @user, and @userpassword can also be set. -->
+    <!-- You can also set how tasks are revealed for webwork problems using the @task-reveal attribute on the above-->
+
+</publication>

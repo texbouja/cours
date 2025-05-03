@@ -1,0 +1,302 @@
+<section xml:id="sec-eqdiff-equations-differentielles-lineaires-scalaires" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Équations différentielles linéaires scalaires, étude générale</title>
+
+    <subsection>
+        <title>Le cadre général</title>
+
+        <convention>
+            <p><m>p</m> désignera un entier strictement positif.</p>
+            <p>On considère des fonctions continues <m>a_0, a_1, \ldots, a_{p-1}, \varphi</m> de <m>I</m> dans <m>\K</m>.</p>
+            <p><ol>
+                <li>
+                    <p>L'équation différentielle</p>
+                    <md><mrow> (E)\amp\amp
+                    x^{(p)} + a_{p-1}(t)x^{(p-1)} + \cdots + a_1(t)x' + a_0(t)x = \varphi(t)
+                    </mrow></md>
+                    <p>est dite une équation différentielle linéaire scalaire d'ordre <m>p</m>. Une solution de <m>(E)</m> sur <m>I</m> est par définition une fonction <m>f: I \to \K</m> de classe <m>\mathcal{C}^p</m> telle que</p>
+                    <me>
+                    \forall t \in I, \; f^{(p)}(t) + a_{p-1}(t)f^{(p-1)}(t) + \cdots + a_1(t)f'(t) + a_0(t)f(t) = \varphi(t)
+                    </me>
+                    <p>On notera <m>S_I(E)</m> l'ensemble de ces solutions.</p>
+                </li>
+                <li>
+                    <p>L'équation homogène de <m>(E)</m> est l'équation différentielle</p>
+                    <md>
+                        <mrow> (H)\amp\amp
+                    x^{(p)} + a_{p-1}(t)x^{(p-1)} + \cdots + a_1(t)x' + a_0(t)x = 0
+                    </mrow> 
+                    </md>
+                </li>
+                <li>
+                    <p>Soient <m>t_0 \in I</m> et <m>x_0, x_1, \ldots, x_{p-1} \in \K</m>. Une fonction <m>f: I \to \K</m> est dite une solution sur <m>I</m> du problème de Cauchy :</p>
+                    <me>
+                    \begin{cases}
+                    x^{(p)} + a_{p-1}(t)x^{(p-1)} + \cdots + a_1(t)x' + a_0(t)x = \varphi(t) \\
+                    x(t_0) = x_0, \; x'(t_0) = x_1, \; \ldots, \; x^{(p-1)}(t_0) = x_{p-1}
+                    \end{cases}
+                    </me>
+                    <p>si c'est une solution de <m>(E)</m> sur <m>I</m> qui vérifie</p>
+                    <me>
+                    f(t_0) = x_0, \; f'(t_0) = x_1, \; \ldots, \; f^{(p-1)}(t_0) = x_{p-1}
+                    </me>
+                </li>
+                <li>
+                    <p>En posant <m>X = {}^t\big(x \; x' \; \cdots \; x^{(p-1)}\big)</m>, l'équation <m>(E)</m> se ramène au système différentiel linéaire du premier ordre :
+                    <md>
+                    <mrow> (SE) \amp\amp X' \amp= A(t)X + \Phi(t)</mrow>
+                    </md></p> 
+                    <aside>
+                        <p><m>A(t)</m> est une matrice compagne pour tout <m>t \in I</m>.</p>
+                    </aside>
+                    <p>avec
+                    <md> 
+                    <mrow> A(t) \amp = \begin{pmatrix} 
+                    0\amp 1\amp 0\amp \cdots\amp 0 \\
+                    \vdots\amp \ddots\amp \ddots\amp \ddots\amp \vdots \\
+                    \vdots\amp \amp \ddots\amp \ddots\amp 0 \\
+                    0\amp \cdots\amp \amp 0\amp 1 \\
+                    -a_0(t)\amp -a_1(t)\amp \cdots\amp \amp -a_{p-1}(t)
+                    \end{pmatrix}
+                    </mrow> 
+                    <mrow> 
+                    \Phi(t) \amp = \begin{pmatrix} 0 \\ \vdots \\ 0 \\ \varphi(t) \end{pmatrix}
+                    </mrow></md></p>
+                    
+                    <p>On notera <m>(SH)</m> le système homogène de <m>(S)</m>.</p>
+                </li>
+            </ol></p>
+        </convention>
+
+        <proposition>
+            <p>Une fonction <m>f: I \to \K</m> de classe <m>\mathcal{C}^p</m> est une solution de <m>(E)</m> (resp. de <m>(H)</m>) sur <m>I</m> si et seulement si la fonction <m>\mathbf V f: I \to \mathcal{M}_{p,1}(\K)</m> définie par</p>
+            <me>
+            \forall t \in I, \; \mathbf V f(t) = {}^t\big(f(t) \; f'(t) \; \cdots \; f^{(p-1)}(t)\big)
+            </me>
+            <p>est une solution du système différentiel <m>(SE)</m> (resp. de <m>(SH)</m>) sur <m>I</m>.</p>
+            <p>En outre, l'application</p>
+            <me>
+            \mathbf V: \mathcal{C}^p(I, \K) \to \mathcal{C}^1(I, \mathcal{M}_{p,1}(\K)), \quad f \mapsto \mathbf V f
+            </me>
+            <p>induit une bijection de <m>S_I(E)</m> sur <m>S_I(SE)</m> (resp. de <m>S_I(H)</m> sur <m>S_I(SH)</m>).</p>
+            <aside>
+                <p><m>\mathbf V</m> induit un isomorphisme entre les <m>\K</m>-espaces vectoriels <m>S_I(H)</m> et <m>S_I(SH)</m>.</p>
+            </aside>
+        </proposition>
+
+        <theorem xml:id="theo-cauchy-lipschitz">
+            <title>Cauchy-Lipschitz</title>
+            <p>Pour tout <m>(t_0, x_0, \ldots, x_{p-1}) \in I \times \K^p</m>, il existe une unique solution <m>f</m> de <m>(E)</m> sur <m>I</m> telle que</p>
+            <me>
+            f(t_0) = x_0, \; f'(t_0) = x_1, \; \ldots, \; f^{(p-1)}(t_0) = x_{p-1}
+            </me>
+        </theorem>
+
+        <corollary>
+            <ol>
+                <li><m>S_I(H)</m> est un <m>\K</m>-espace vectoriel de dimension <m>p</m>.</li>
+                <li><m>S_I(E) = f_0 + S_I(H)</m> pour toute solution <m>f_0</m> de <m>(E)</m> sur <m>I</m>.</li>
+            </ol>
+        </corollary>
+
+        <insight>
+            <p>Soient <m>f_1, f_2, \ldots, f_p</m> des solutions de l'équation homogène <m>(H)</m>. Nous dirons que <m>(f_1, f_2, \ldots, f_p)</m> est un système fondamental de solutions de <m>(H)</m> si c'est une base de <m>S_I(H)</m>. Nous appellerons wronskien des solutions <m>f_1, f_2, \ldots, f_p</m>, le wronskien <m>W</m> de <m>(\mathbf V f_1, \mathbf V f_2, \ldots, \mathbf V f_p)</m> dans la base canonique de <m>\mathcal{M}_{p,1}(\K)</m> :</p>
+            <me>
+            \forall t \in I, \; W(t) = \begin{vmatrix}
+            f_1(t)\amp f_2(t)\amp \cdots\amp f_p(t) \\
+            f_1'(t)\amp f_2'(t)\amp \cdots\amp f_p'(t) \\
+            \vdots\amp \vdots\amp \amp \vdots \\
+            f_1^{(p-1)}(t)\amp f_2^{(p-1)}(t)\amp \cdots\amp f_p^{(p-1)}(t)
+            \end{vmatrix}
+            </me>
+        </insight>
+
+        <proposition>
+            <p>Soient <m>f_1, f_2, \ldots, f_p</m> des solutions de l'équation homogène <m>(H)</m>. Soit <m>W</m> leur wronskien. Grâce à l'isomorphisme induit par <m>\mathbf V</m>, les assertions suivantes sont équivalentes :</p>
+            <ol>
+                <li><m>(f_1, f_2, \ldots, f_p)</m> est un système fondamental de solutions de <m>(H)</m> ;</li>
+                <li><m>(\mathbf V f_1, \mathbf V f_2, \ldots, \mathbf V f_p)</m> est un système fondamental de solutions de <m>(SH)</m> ;</li>
+                <li><m>\forall t \in I, \; W(t) \neq 0</m> ;</li>
+                <li><m>\exists t_0 \in I \; ; \; W(t_0) \neq 0</m>.</li>
+            </ol>
+        </proposition>
+
+        <proposition><title>Équation du wronksien</title>
+            <p>Rappelons l'écriture de l'équation homogène <m>(H)</m> :
+            <me>
+            x^{(p)} + a_{p-1}(t)x^{(p-1)} + \cdots + a_1(t)x' + a_0(t)x = 0
+            </me></p> 
+            <aside>
+                <p>Les wronskiens des solutions de <m>(H)</m> ne dépendent que de la fonction <m>a_{p-1}</m>.</p>
+            </aside>
+            <p>Avec les notations de la proposition précédente, l'équation du wronskien donne ici :</p>
+            <me>
+            \forall t \in I, \; W'(t) + a_{p-1}(t)W(t) = 0
+            </me>
+        </proposition>
+
+        <proposition>
+            <title>Variation des constantes</title>
+            <p>Rappelons l'écriture de l'équation complète <m>(E)</m> :</p>
+            <me>
+            x^{(p)} + a_{p-1}(t)x^{(p-1)} + \cdots + a_1(t)x' + a_0(t)x = \varphi(t)
+            </me>
+            <p>On suppose qu'on connaît un système fondamental <m>(f_1, f_2, \ldots, f_p)</m> de solutions de l'équation homogène <m>(H)</m>. En posant</p>
+            <me>
+            \mathbf V f(t) = \lambda_1 \mathbf V f_1(t) + \lambda_2 \mathbf V f_2(t) + \cdots + \lambda_p \mathbf V f_p(t)
+            </me>
+            <p>on a</p>
+            <me>
+            (E) \Longleftrightarrow \begin{cases}
+            f_1(t)\lambda_1'(t) + f_2(t)\lambda_2'(t) + \cdots + f_p(t)\lambda_p'(t) = 0 \\
+            f_1'(t)\lambda_1'(t) + f_2'(t)\lambda_2'(t) + \cdots + f_p'(t)\lambda_p'(t) = 0 \\
+            \vdots \\
+            f_1^{(p-2)}(t)\lambda_1'(t) + f_2^{(p-2)}(t)\lambda_2'(t) + \cdots + f_p^{(p-2)}(t)\lambda_p'(t) = 0 \\
+            f_1^{(p-1)}(t)\lambda_1'(t) + f_2^{(p-1)}(t)\lambda_2'(t) + \cdots + f_p^{(p-1)}(t)\lambda_p'(t) = \varphi(t)
+            \end{cases}
+            </me>
+        </proposition>
+    </subsection>
+
+    <subsection>
+        <title>Le cas d'une équation à coefficients constants</title>
+
+        <theorem xml:id="theo-eqscal">
+            <title>Solution d'une EDLS homogène à coefficients constants</title>
+            <p>Soient des scalaires <m>b_0, b_1, \ldots, b_{p-1} \in \K</m>. On considère l'équation différentielle linéaire scalaire homogène d'ordre <m>p</m> dite à coefficients constants :</p>
+            <me>
+            x^{(p)} + b_{p-1}x^{(p-1)} + \cdots + b_1 x' + b_0 x = 0
+            </me>
+            <p>On appelle polynôme caractéristique de <m>(H)</m> le polynôme :
+            <me>
+            P = X^p + b_{p-1}X^{p-1} + \cdots + b_1 X + b_0
+            </me></p>
+            <aside>
+                <p>Les solutions de <m>(H)</m> sont en fait de classe <m>\mathcal{C}^\infty</m> sur <m>\R</m>.</p>
+            </aside>
+            <ol>
+                <li>
+                    <p>Si <m>P</m> est scindé sur <m>\K</m>, <m>P = \prod_{k=1}^r (X - \lambda_k)^{\alpha_k}</m> où <m>\lambda_1, \lambda_2, \ldots, \lambda_r</m> sont les racines distinctes de <m>P</m>, alors</p>
+                    <me>
+                    S_\R(H) = \biggl\{ t \mapsto \sum_{k=1}^r Q_k(t) \e^{\lambda_k t} \giv[\Big] \forall k \in \iic{1, r}, \; Q_k \in \K_{\alpha_k-1}[X] \biggr\}
+                    </me>
+                </li>
+                <li>
+                    <p>Si <m>\K = \R</m> mais <m>P</m> n'est pas scindé sur <m>\R</m> :</p>
+                    <me>
+                    P = \prod_{k=1}^s (X - \mu_k)^{\beta_k} \prod_{k=1}^r (X - \lambda_k)^{\alpha_k} (X - \overline{\lambda_k})^{\alpha_k}
+                    </me>
+                    <p>où <m>\mu_1, \ldots, \mu_s</m> sont les racines réelles éventuelles de <m>P</m> et <m>\lambda_1, \ldots, \lambda_r</m> ses racines complexes non réelles, alors les solutions réelles de <m>(H)</m> sur <m>\R</m> sont les fonctions</p> 
+                    <me>
+                    t \mapsto \sum_{k=1}^s Q_k(t) \e^{\mu_k t} + \sum_{k=1}^r \big( U_k(t) \cos(t \im \lambda_k) + V_k(t) \sin(t \im \lambda_k) \big) \e^{t \re \lambda_k}
+                    </me> 
+                    <aside>
+                        <p>Les solutions réelles de <m>(H)</m> sont les parties réelles de ses solutions complexes.</p>
+                    </aside>
+                    <p>où <m>Q_k \in \R_{\beta_k-1}[X]</m> et <m>U_k, V_k \in \R_{\alpha_k-1}[X]</m> sont des polynômes quelconques.</p>
+                </li>
+            </ol>
+        </theorem>
+
+        <assemblage>
+            <title>Commentaires sur la démonstration du théorème
+            <!-- <xref ref="theo-eqscal"/> -->
+            </title>
+            <p>Quelques aspects qui sont à la base de la démonstration du théorème précédent mais qui ont un intérêt intrinsèque</p>. 
+            <p>On introduit l'opérateur
+            <me>
+            D: \mathcal{C}^{\infty}(\R, \C) \to \mathcal{C}^{\infty}(\R, \C), \quad f \mapsto f'
+            </me></p>
+            <p><ol>
+                <li>
+                    <p>Soit <m>\lambda \in \C</m>. La famille formée des fonctions <m>f_n: t \mapsto t^n \e^{\lambda t}</m> est libre.</p>
+                    <explanation>
+                        <p>Il suffit de remarquer que si <m>Q(t) \e^{\lambda t} = 0</m> pour tout <m>t \in \C</m>, <m>Q</m> étant un polynôme de <m>\C[X]</m>, alors <m>Q(t) = 0</m> pour tout <m>t \in \R</m>, soit <m>Q = 0</m>.</p>
+                    </explanation>
+                </li>
+                <li>
+                    <p>Soit un polynôme <m>P = \sum_{k=0}^p a_k X^k \in \C[X]</m> de degré <m>p</m> donné. Considérons l'EDLS homogène d'ordre <m>p</m> :</p>
+                    <me>
+                    a_p x^{(p)} + a_{p-1} x^{(p-1)} + \cdots + a_1 x' + a_0 x = 0
+                    </me>
+                    <p>Alors <m>P</m> est un polynôme associé au polynôme caractéristique de <m>(H)</m> et on a</p>
+                    <me>
+                    S_\R(H) = \ker P(D)
+                    </me>
+                    <p>En particulier, <m>\dim \ker P(D) = \deg P</m>.</p>
+                </li>
+                <li>
+                    <p>Si <m>P = (X - \lambda)^\alpha</m> où <m>\lambda \in \C</m> et <m>\alpha \in \N^*</m>, alors</p>
+                    <me>
+                    \ker P(D) = \big\{ t \mapsto Q(t) \e^{\lambda t} \mid Q \in \C_{\alpha-1}[X] \big\}
+                    </me>
+                    <explanation>
+                        <p>Observons que si <m>Q \in \C[X]</m> et <m>f: t \mapsto Q(t) \e^{\lambda t}</m>, alors</p>
+                        <me>
+                        (D - \lambda \id) \cdot f(t) = \big( Q'(t) + \lambda Q(t) - \lambda Q(t) \big) \e^{\lambda t} = Q'(t) \e^{\lambda t}
+                        </me>
+                        <p>Et donc pour tout <m>k \in \N</m>,</p>
+                        <me>
+                        (D - \lambda \id)^k \cdot f(t) = Q^{(k)}(t) \e^{\lambda t}
+                        </me>
+                        <p>Si <m>\deg Q \lt \alpha</m>, alors <m>(D - \lambda \id)^\alpha \cdot f = 0</m>.</p>
+                        <p><m>\ker (D - \lambda)^\alpha</m> est de dimension <m>\alpha</m> et il contient les <m>\alpha</m> fonctions <m>t \mapsto t^k \e^{\lambda t}</m>, <m>k \in \iic{0, \alpha-1}</m>, qui forment une famille libre. Elles en constituent donc une base. D'où le résultat.</p>
+                    </explanation>
+                </li>
+                <li>
+                    <p>Si <m>P</m> est scindé sous la forme <m>P = a \prod_{k=1}^r (X - \lambda_k)^{\alpha_k}</m>, où <m>\lambda_1, \ldots, \lambda_r</m> sont deux à deux distincts, alors le résultat précédent et le théorème de décomposition des noyaux impliquent que</p>
+                    <me>
+                    \ker P(D) = \Big\{ t \mapsto \sum_{k=1}^r Q_k(t) \e^{\lambda_k t} \mid \forall k \in \iic{1, r}, \; Q_k \in \K_{\alpha_k-1}[X] \Big\}
+                    </me>
+                </li>
+                <li>
+                    <p>Une conséquence de ce qui précède : si <m>\lambda_1, \lambda_2, \ldots, \lambda_r</m> sont des scalaires deux à deux distincts et <m>Q_1, Q_2, \ldots, Q_r</m> des polynômes quelconques, alors</p>
+                    <me>
+                    \Big( \forall t \in \R, \; \sum_{k=1}^r Q_k(t) \e^{\lambda_k t} = 0 \Big) \Longrightarrow \forall k \in \iic{1, r}, \; Q_k = 0
+                    </me>
+                </li>
+            </ol></p>
+        </assemblage>
+
+        <proposition>
+            <title>Solution particulière quand <m>\varphi(t) = R(t) \e^{\lambda t}</m></title>
+            <p>Soient <m>P, R \in \C[X]</m> et <m>\lambda \in \C</m>. Considérons l'EDLS à coefficients constants :
+            <me>
+            P(D) \cdot x = R(t) \e^{\lambda t}
+            </me></p>
+            <aside>
+                <p>Une fonction de la forme plus générale <m>h: t \mapsto U(t) \e^{\lambda t}</m> avec <m>U \in \C[X]</m> est une solution de <m>(E)</m> si et seulement si <m>h - f</m> est une solution de l'équation homogène <m>(H)</m>. Comme <m>h(t) - f(t) = \big( U(t) - t^\beta Q(t) \big) \e^{\lambda t}</m>, alors ceci n'est possible que si <m>U - X^k Q</m> est un polynôme de degré <m>\beta</m>.</p>
+            </aside>
+            <p>Alors <m>(E)</m> admet une solution unique de la forme <m>f: t \mapsto t^\beta Q(t) \e^{\lambda t}</m>, où <m>Q</m> est un polynôme de même degré que <m>R</m> et <m>\beta</m> est la multiplicité de <m>\lambda</m> en tant que racine de <m>P</m> (avec <m>\beta = 0</m> si <m>\lambda</m> n'est pas une racine de <m>P</m>).</p>
+            <proof>
+                <p>En posant pour l'instant <m>f(t) = Q(t) \e^{\lambda t}</m>, alors selon la remarque 
+                <!-- <xref ref="remas:remess"/>,  -->
+                <m>f</m> est une solution de <m>(E)</m> si et seulement si</p>
+                <me>
+                \sum_{k=0}^p \frac{P^{(k)}(\lambda)}{k!} Q^{(k)} = R
+                </me>
+                <p>Par définition de <m>\beta</m>, on a <m>P(\lambda) = \cdots = P^{(\beta-1)}(\lambda) = 0</m> et <m>P^{(\beta)}(\lambda) \neq 0</m>, donc cela équivaut à</p>
+                <me>
+                \sum_{k=\beta}^p \frac{P^{(k)}(\lambda)}{k!} Q^{(k)} = R
+                </me>
+                <p>Le polynôme à gauche de cette égalité a le même degré que <m>Q^{(\beta)}</m>, soit <m>\deg Q - \beta</m>, d'où l'idée de remplacer <m>Q</m> par <m>X^\beta Q</m>. Dans ce cas, <m>Q</m> serait de même degré que <m>R</m> et l'égalité précédente équivaudrait à</p>
+                <me>
+                \sum_{k=\beta}^p \frac{P^{(k)}(\lambda)}{k!} (X^\beta Q)^{(k)} = R
+                </me>
+                <p>En posant <m>r = \deg R</m>, il suffit maintenant de remarquer que l'application</p>
+                <me>
+                \phi: \C_r[X] \to \C_r[X], \quad Q \mapsto \sum_{k=\beta}^p \frac{P^{(k)}(\lambda)}{k!} (X^\beta Q)^{(k)}
+                </me>
+                <p>est un endomorphisme de <m>\C_r[X]</m> qui est injectif car il conserve le degré. C'est donc un isomorphisme de <m>\C_r[X]</m>. Il existe donc un unique polynôme <m>Q</m> de degré <m>\leq r</m> (et donc <m>\deg Q = r</m>) qui vérifie l'égalité précédente. La fonction <m>f: t \mapsto t^\beta Q(t) \e^{\lambda t}</m> est une solution de <m>(E)</m>.</p>
+            </proof>
+            
+        </proposition>
+
+        <example>
+            <ol>
+                <li>Trouver les solutions complexes de l'EDLS : <m>x''' - 3x' + 2x = 0</m>.</li>
+                <li>Trouver les solutions réelles de l'EDLS : <m>x^{(4)} - 2x''' + 3x'' + x = 0</m>.</li>
+            </ol>
+        </example>
+    </subsection> 
+
+</section>

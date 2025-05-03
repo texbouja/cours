@@ -1,0 +1,1701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-espvaralea" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Espérance et moments d'une variable aléatoire discrète</title>
+
+    <introduction>
+        <p>
+            On se donne une espace probabilisé <m>(\Omega,\mathscr T,\PP</m>.
+        </p>
+    </introduction>
+
+    <subsection xml:id="subsec-esperance">
+        <title>Espérance d'une variable aléatoire discrète</title>
+
+        <subsubsection xml:id="subsubsec-defprop">
+            <title>Définition et propriétés</title>
+
+            <definition xml:id="def-esperance">
+            <notation>
+                <usage><m>\EE(X)</m></usage>
+              <description>espérance de la <acro>VADR</acro> <m>X</m></description>
+            </notation>
+                <statement>
+                    <p>
+                        Soit <m>X</m> une variable aléatoire discrète réelle définie sur <m>(\Omega,\mathscr T)</m>.
+                    </p>
+
+                    <p>
+                        On dit que <m>X</m> est sommable, ou que <m>X</m> admet une espérance, si la famille <m>\bigl(x\Pr{X=x}\bigr)_{x\in X(\Omega)}</m> est sommable.
+                        On appelle alors espérance de <m>X</m> le réel
+                        <me>
+                            \EE(X):=\sum_{x\in X(\Omega)}x\Pr{X=x}
+                        </me>
+                        On notera <m>L^1(\Omega)</m> l'ensemble des <acro>VADR</acro> sommables définies sur <m>(\Omega,\mathscr T,\PP</m>
+                    </p>
+                </statement>
+            </definition>
+
+            <remark><p>
+                <ol>
+                    <li>
+                        <p>
+                            Quand elle définie, <m>\EE(X)</m> est le barycentre de la famille de points pondérés <m>\bigl(x,\Pr{X=x}\bigr)_{x\in X(\Omega)}</m>.
+                            Pour cette raison on l'appelle aussi valeur moyenne de <m>X</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Dans le cas d'une <acro>VADR</acro> <m>X</m> à valeurs positives ou nulles, si <m>X</m> n'est pas sommable alors on pose par convention
+                            <me>
+                                \EE(X)=\sum_{x\in X(\Omega)}x\Pr{X=x}=+\infty
+                            </me>
+                            <m>X</m> est alors sommable si et seulement si <m>\EE(X)\lt+\infty</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            En conséquence, pour une <acro>VADR</acro> <m>X</m> quelconque
+                            <me>
+                                X \text{ est sommable } \Longleftrightarrow \EE(|X|)\lt +\infty
+                            </me>
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            La définition a un inconvénient : la somme utilisée est indexée par un ensemble qui dépend de <m>X</m>.
+                            Ce qui pose un problème lorsqu'on combine entre plusieurs variables aléatoire.
+                            Comme lorsque on s'intéresse à <m>E(X+Y)</m> par exemple.
+                        </p>
+
+                        <p>
+                            La formule de transfert énoncée ci-après résout ce problème.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            La définition de <m>\EE(X)</m> dépend seulement de la loi de <m>X</m>.
+                            Dans ce sens deux variables qui ont la même loi ont la même espérance.
+                            Nous parlerons souvent de l'espérance d'une loi de probabilité pour désigner l'espérance des variables qui suivent cette loi.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            La définition se limite aux variables aléatoires discrète <term>réelles</term>, mais elle est tout à fait valable sans aucune modification pour les variables aléatoires discrètes à valeurs <em>complexes</em>.
+                            La notion de base utilisée étant celle de familles sommables et celle-ci a été étudiée dans le cadre des familles de nombres réels ou complexes.
+                        </p>
+                    </li>
+                </ol></p>
+            </remark>
+
+            <exploration><p>
+                <ol>
+                    <li xml:id="item-vecteur">
+                        <p>
+                            On peut généraliser la notion d'espérance à des vecteurs aléatoires discrets en utilisant les «variables composantes» : si <m>X</m> est un vecteur aléatoire discret à valeurs dans un <m>\K</m>-ev de dimension finie <m>E</m> qui s'écrit sous la forme
+                            <me>
+                                \forall \omega\in\Omega,\; X(\omega)=\sum_{k=1}^dX_k(\omega)e_k
+                            </me>
+                            où  <m>(e_1,e_2,\ldots,e_d)</m> est une base fixée de <m>E</m>, alors, par définition, <m>X</m> est sommable si et seulement si les variables <m>X_1,X_2,\ldots,X_d</m> sont sommables et dans ce cas
+                            <me>
+                                \EE(X):=\sum_{k=1}^d\EE(X_k)e_k
+                            </me>
+                            Cela pose toutefois le problème de la dépendance de cette définition par rapport à la base <m>(e_1,e_2,\ldots,e_d)</m> utilisée.
+                            (Voir remarque <xref ref="item-espvect"/>)
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Dans le cas d'une matrice aléatoire <m>X=(X_{i,j})_{\substack{1\leqslant i\leqslant p\\1\leqslant j\leqslant q}}</m> par exemple, <m>X</m> est sommable si et seulement si <m>X_{i,j}</m> est sommable pout <m>(i,j)</m> et dans ce cas, par définition
+                            <me>
+                                \EE(X):=\bigl(\EE(X_{i,j})\bigr)_{\substack{1\leqslant i\leqslant p\\1\leqslant j\leqslant q}}
+                            </me>
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Attention toutefois : les familles sommables de vecteurs ne sont pas au programme.
+                            Donc l'écriture
+                            <me>
+                                \EE(X)=\sum_{x\in X(\Omega)}x\Pr{X=x}
+                            </me>
+                            déborde du cadre limité par celui-ci.
+                        </p>
+                    </li>
+                </ol></p>
+            </exploration>
+
+
+            <proposition xml:id="prop-casdenom">
+                <statement>
+                    <p>
+                        On suppose que <m>\Omega</m> est au plus dénombrable.
+                        Une <acro>VADR</acro> <m>X</m> définie sur <m>(\Omega,\mathscr T)</m> est sommable si et seulement si la famille <m>\bigl(X(\omega)\Pr{\{\omega\}}\bigr)_{\omega\in\Omega}</m> est sommable et dans ce cas
+                        <me>
+                            \EE(X)=\sum_{\omega\in \Omega}X(\omega)\Pr{\{\omega\}}
+                        </me>
+                    </p>
+                </statement>
+
+
+                <proof>
+                    <p>
+                        La famille d'événemnts <m>\bigl((X=x)\bigr)_{x\in X(\Omega)}</m> est une partition de <m>\Omega</m> et pour tout <m>x\in X(\Omega)</m> on a
+                        <me>
+                            \sum_{\omega\in(X=x)}|X(\omega)|\Pr{\{\omega\}}= |x|\sum_{\omega\in(X=x)}\Pr{\{\omega\}}= |x|\Pr{X=x}\lt+\infty
+                        </me>
+                        Donc selon le théorème de sommation par paquets
+                        <me>
+                            \bigl(X(\omega)\Pr{\{\omega\}}\bigr)_{\omega\in\Omega} \text{ est sommable} \Longleftrightarrow \bigl(x\Pr{X=x})_{x\in X(\Omega)} \text{ est sommable}
+                        </me>
+                        et dans ce cas
+                        <me>
+                            \sum_{\omega\in \Omega}X(\omega)\Pr{\{\omega\}}=\sum_{x\in X(\Omega)}x\Pr{X=x}=\EE(X)
+                        </me>
+                    </p>
+                </proof>
+            </proposition>
+
+            <remark>
+                <p>
+                    Apparement ce dernier résultat résout le problème de l'ecriture de <m>\EE(X)</m> en fonction de l'ensemble <m>X(\Omega)</m> (qui dépend de <m>X</m>).
+                    L'intérêt est toutefois relatif car dans la pratique on ne contrôle pas l'univers <m>\Omega</m> lui même et il n'est pas nécessairement au plus dénombrable.
+                </p>
+            </remark>
+
+            <theorem xml:id="thm-transfert">
+                <title> formule de transfert</title>
+
+                <statement>
+                    <p>
+                        Soit <m>X</m> une VAD définie sur <m>(\Omega,\mathscr T)</m> (possiblement à valeurs vectorielles).
+                        Soit <m>f</m> une application définie sur <m>X(\Omega)</m>.
+                    </p>
+
+                    <p>
+                        La variable <m>f(X)</m> est sommable si et seulement si la famille <m>\bigl(f(x)\Pr{X=x}\bigr)_{x\in X(\Omega)}</m> est sommable et dans ce cas
+                        <me>
+                            \EE\bigl(f(X)\bigr)=\sum_{x\in X(\Omega)}f(x)\Pr{X=x}
+                        </me>
+                    </p>
+                </statement>
+
+
+                <proof>
+                    <p>
+                        On pose <m>Z=f(X)</m> et on imite la démonstration de la proposition précédente en observant cette fois que <m>\bigl(f^{-1}(\{z\})\bigr)_{z\in Z(\Omega)}</m> est une partition de <m>X(\Omega)</m>.
+                        Selon le théorème de sommation par paquets, <m>\bigl(f(x)\Pr{X=x}\bigr)_{x\in X(\Omega)}</m> est sommable si et seulement si
+                        <me>
+                            \begin{cases} \displaystyle\forall z\in Z(\Omega),\; \Bigl(|f(x)|\Pr{X=x}\Bigr)_{x\in f^{-1}(\{z\}) }\text{ est sommable ;} \\ \displaystyle\biggl(\sum_{x\in f^{-1}(\{z\})}|f(x)|\Pr{X=x}\biggr)_{z\in Z(\Omega)} \text{ est sommable.} \end{cases}
+                        </me>
+                        Or pour tout <m>z\in Z(\Omega)</m>
+                        <me>
+                            \sum_{x\in f^{-1}(\{z\})}|f(x)|\Pr{X=x}= |z|\Pr{X\in f^{-1}(\{z\})}= |z|\Pr{f(X)=z}\lt +\infty
+                        </me>
+                        Ce qui ramène l'équivalence à juste la deuxième condition, elle même équivalente à la sommabilité de la variable <m>Z=f(X)</m>.
+                        D'où l'équivalence énoncée dans le théorème et la validité de la formule :
+                        <me>
+                            \EE(f(X))=\sum_{x\in X(\Omega)}f(x)\Pr{X=x}
+                        </me>
+                        par sommation par paquets.
+                    </p>
+                </proof>
+            </theorem>
+
+            <corollary xml:id="cor-transfert">
+                <statement>
+                    <p>
+                        Soient <m>X</m> et <m>Y</m> deux <acro>VADR</acro>.
+                        Soit <m>g</m> une application définie sur <m>X(\Omega)\times Y(\Omega)</m>.
+                        La variable <m>g(X,Y)</m> est sommable si et seulement si la famille <m>\bigl(g(x,y)\Pr{X=x,Y=y}\bigr)_{(x,y)\in X(\Omega)\times Y(\Omega)}</m> est sommable est dans ce cas
+                        <me>
+                            \EE\bigl(g(X,Y)\bigr)= \sum_{(x,y)\in X(\Omega)\times Y(\Omega)}g(x,y)\Pr{X=x,Y=y}
+                        </me>
+                    </p>
+                </statement>
+
+
+                <proof>
+                    <p>
+                        Il suffit d'appliquer la formule de transfert au couple <m>C=(X,Y)</m>.
+                    </p>
+                </proof>
+            </corollary>
+
+            <remark><p>
+                <ol>
+                    <li>
+                        <p>
+                            La formule de transfert permet donc de combiner les résultats de deux variables <m>X</m> et <m>Y</m> en utilisant la loi conjointe du couple <m>(X,Y)</m>.
+                            Ce qui résout le problème de la dépendance de l'expression de <m>\EE(X)</m> de l'ensemble <m>X(\Omega)</m>.
+                        </p>
+
+                        <p>
+                            Par exemple la variable <m>X+Y</m> est sommable si et seulement si la famille <m>\bigl((x+y)\Pr{X=x,Y=y}\bigr)_{(x,y)\in X(\Omega)\times Y(\Omega)} </m> est sommable et dans ce cas
+                            <me>
+                                E(X+Y)=\sum_{(x,y)\in X(\Omega)\times Y(\Omega)}(x+y)\Pr{X=x,Y=y}
+                            </me>
+                            Noter qu'en considérant les application <m>f_1:(x,y)\mapsto x</m> et <m>f_2:(x,y)\mapsto y</m>, alors selon ce même résultat, les variables <m>X</m> et <m>Y</m> sont respectivement sommables si et seulement si les familles <m>\bigl(x\Pr{X=x,Y=y}\bigr)_{(x,y)\in X(\Omega)\times Y(\Omega)} </m> et <m>\bigl(y\Pr{X=x,Y=y}\bigr)_{(x,y)\in X(\Omega)\times Y(\Omega)} </m> sont sommables et dans ce cas
+                            <md>
+                                <mrow>\EE(X) \amp= \sum_{(x,y)\in X(\Omega)\times Y(\Omega)}x\Pr{X=x,Y=y} </mrow>
+                                <mrow>\EE(Y) \amp= \sum_{(x,y)\in X(\Omega)\times Y(\Omega)}y\Pr{X=x,Y=y} </mrow>
+                            </md>
+                            Expressions qui utilisent notablement le même ensemble des indices pour les deux sommes.
+                        </p>
+                    </li>
+                </ol></p>
+            </remark>
+
+
+            <proposition xml:id="prop-proprietes">
+                <statement>
+                    <p>
+                        Toutes les variables aléatoires introduites dans la suite sont supposées définies sur l'espace <m>(\Omega,\mathscr T)</m>.
+                    </p>
+
+                    <ol>
+                        <li>
+                            <title>Espérance d'une variable presque partout constante</title>
+
+                            <p>
+                                Une <acro>VADR</acro> <m>X</m> presque partout constante de valeur <m>c</m> est sommable et <m>\EE(X)=c</m>.
+                            </p>
+                        </li>
+
+                        <li>
+                            <title>Linéarité de l'espérance</title>
+
+                            <p>
+                                Si <m>X</m> et <m>Y</m> sont deux <acro>VADR</acro> sommables de <m>(\Omega,\mathscr T)</m> alors pour tout <m>\lambda\in \R</m>, <m>X+\lambda Y</m> est sommable et
+                                <me>
+                                    \EE(X+\lambda Y)=\EE(X)+\lambda \EE(Y)
+                                </me>
+                                Ce qui signifie que <m>L^1(\Omega)</m> est un <m>\R</m>-ev et que <m>\EE</m> est une forme linéaire de <m>L^1(\Omega)</m>.
+                            </p>
+                        </li>
+
+                        <li>
+                            <title>Positivité de l'espérance</title>
+
+                            <p>
+                                Si <m>X</m> est une <acro>VADR</acro> positive alors <m>\EE(X)\geqslant 0</m>.
+                                De plus <m>E(X)=0</m> si et seulement si <m>X</m> est presque partout nulle sur <m>\Omega</m>.
+                            </p>
+                        </li>
+
+                        <li>
+                            <title>Croissance et domination</title>
+
+                            <p>
+                                Soient <m>X</m> et <m>Y</m> deux <acro>VADR</acro>.
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Si <m>X</m> et <m>Y</m> sont sommables et <m>X\leqslant Y</m> alors <m>\EE(X)\leqslant \EE(Y)</m>.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <p>
+                                            Si <m>|X|\leqslant Y</m> et <m>Y</m> est sommable alors <m>X</m> est sommable et <m>\bigl|\EE(X)\bigr|\leqslant \EE(Y)</m>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </li>
+
+                        <li>
+                            <title>Effet de l'indépendance</title>
+
+                            <p>
+                                Si <m>X</m> et <m>Y</m> sont deux <acro>VADR</acro> indépendantes sommables alors <m>XY</m> est sommable et <m>\EE(XY)=\EE(X)\EE(Y)</m>.
+                            </p>
+                        </li>
+
+                        <li>
+                            <title>Inégalité de Cauchy-Schwarz</title>
+
+                            <p>
+                                Soient <m>X</m> et <m>Y</m> deux <acro>VADR</acro>.
+                                Si <m>X^2</m> et <m>Y^2</m> sont sommables alors <m>XY</m> est sommable et on a
+                                <me>
+                                    \bigl|\EE(XY)\bigr|\leqslant \EE(X^2)^{1/2}\EE(Y^2)^{1/2}
+                                </me>
+                                avec égalité si et seulement si <m>Y</m> est presque partout nulle ou s'il existe une constante <m>\lambda</m> telle que <m>X=\lambda Y</m>  presque partout sur <m>\Omega</m> (ie <m>\Pr{X=\lambda Y}=1</m>)
+                            </p>
+                        </li>
+                    </ol>
+                </statement>
+            </proposition>
+
+            <remark><p>
+                <ol>
+                    <li>
+                        <p>
+                            toute <acro>VADR</acro> <m>X</m> bornée est sommable.
+                            De plus
+                            <me>
+                                \forall m\in\R_+,\; |X|\leqslant m\Longrightarrow \bigl|\EE(X)\bigr|\leqslant m
+                            </me>
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Si <m>X,Y</m> sont des <acro>VADR</acro> sommables alors <m>\max(X,Y)</m> et <m>\min(X,Y)</m> sont sommables.
+                        </p>
+                        <explanation>
+                        <p>
+                            La sommabilité de <m>\max(X,Y)</m> et <m>\min(X,Y)</m> découle de la linéarité de l'espérance et des relation
+                            <md>
+                                <mrow>\max(X,Y) \amp=\frac12\bigl(X+Y+|X-Y|\bigr) </mrow>
+                                <mrow>\min(X,Y) \amp=\frac12\bigl(X+Y-|X-Y|\bigr) </mrow>
+                            </md>
+                        </p>
+                        </explanation>
+                    </li>
+                </ol></p>
+            </remark>
+
+            <exploration>
+                <ol>
+                    <li xml:id="item-espvect">
+                        <p>
+                            Soit <m>X</m> un vecteur aléatoire sommable au sens de la remarque <xref ref="item-vecteur"/> alors <m>\EE(X)</m> ne dépend pas de la base choisie dans <m>E</m>.
+                        </p>
+                        <explanation>
+                        <p>
+                            Considérons une autre base <m>(e_1',e_2',\ldots,e_d')</m> de <m>E</m>.
+                            Posons pour tout <m>i\in[\![1,d]\!]</m>, <m>e_j=a_{1,j}e_1'+a_{2,j}e_2'+\cdots+a_{d,j}e_d'</m> alors pour tout <m>\omega\in\Omega</m>
+                            <md>
+                                <mrow> X(\omega) \amp= \sum_{j=1}^dX_j(\omega)\sum_{i=1}^da_{i,j}e_i' </mrow>
+                                <mrow> \amp= \sum_{i=1}^d\biggl(\sum_{j=1}^da_{i,j}X_j(\omega)\biggr)e_i' </mrow>
+                                <mrow> \amp=\sum_{i=1}^d Y_i(\omega)e_i' </mrow>
+                            </md>
+                            En appliquant la même recette au vecteur <m>\EE(X):=\sum_{j=1}^d\EE(X_j)e_j'</m>  on aboutit à
+                            <me>
+                                \EE(X)=\sum_{i=1}^d\biggl(\sum_{j=1}^da_{i,j}\EE(X_j)\biggr)e_i'
+                            </me>
+                            Maintenant, puisque les variables <m>X_1,X_2,\ldots,X_d</m> sont par défintion sommabales alors les variables <m>Y_1,Y_2,\ldots,Y_d</m> sont sommables par linéarité et
+                            <me>
+                                \forall i\in[\![1,d]\!],\; \EE(Y_i)=\sum_{j=1}^d a_{i,j}\EE(X_j)
+                            </me>
+                            et ainsi  <m>\EE(X)=\sum_{i=1}^d\EE(Y_i)e_i'</m>.
+                            Expression qui prouve que <m>\EE(X)</m> ne dépend pas de la base utilisée.
+                        </p>
+                        </explanation>
+                    </li>
+
+                    <li><title>Linéarité de l'espérance d'un vecteur aléatoire</title>
+                        
+                        <p>
+                            Si <m>X</m> et <m>Y</m> sont des vecteurs aléatoires sommables à valeurs dans un même espace vectoriel de dimension finie alors pour tout <m>\lambda\in\R</m>, le vecteur <m>X+\lambda Y</m> est sommable et  
+                            <me>
+                                \EE(X+\lambda Y)=\EE(X)+\lambda\EE(Y)
+                            </me>
+                            
+                        </p>
+                        <p>
+                            D'un autre coté si <m>V</m> est un vecteur constant non nul de <m>E</m> et <m>\lambda</m> est une <acro>VADR</acro> alors le vecteur <m>\lambda V</m> est sommable si et seulement si <m>\lambda</m> est sommable et dans ce cas 
+                            <me>\EE(\lambda V)=\EE(\lambda)V</me>.
+                        </p>
+                    </li>
+
+                
+
+                    <li><title>Formule de transfert linéaire</title>
+                        
+                        <p>
+                            Soit <m>X</m> un vecteur aléatoire à valeurs dans un espace vectoriel de dimension finie <m>E</m>.
+                            Si <m>X</m> est sommable alors pour toute application linéaire <m>u</m> définie sur <m>E</m>, la variable <m>u(X)</m> est sommable et
+                            <me>
+                                \EE(u(X))=u(\EE(X))
+                            </me>
+                        </p>
+                        <explanation>
+                            <p>
+                                Si <m>X_1,X_2,\ldots,X_n</m> sont les composantes de <m>X</m> dans une base <m>(e_1,e_2,\ldots,e_n)</m> de <m>E</m>, alors <m>u(X)=\sum_{i=1}^n X_iu(e_i)</m>. Les variables <m>X_i</m> sont sommables donc <m>X</m> est sommable et par linéarité de l'espérance  
+                                <me>
+                                    \EE(u(X))=\sum_{i=1}^n\EE(X_i)u(e_i)
+                                </me>
+                                Puisque par définition, <m>\EE(X)=\sum_{i=1}^n\EE(X_i)e_i</m>, alors on a aussi 
+                                <me>
+                                    u(\EE(X))=\sum_{i=1}^n\EE(X_i)u(e_i)
+                                </me>
+                                
+                                
+                            </p>
+                        </explanation>
+                    </li>
+                </ol>
+            </exploration>
+        </subsubsection>
+
+
+        <subsubsection xml:id="subsubsec-exemple-esperance">
+            <title>Exemples usuels</title>
+
+            <list>
+                <title>Espérances des lois usuelles</title>
+
+                <introduction>
+                    <p>
+                        <m>X</m> désignera une <acro>VADR</acro>.
+                    </p>
+                </introduction>
+                <dl>
+                <li>
+                    <title>Loi uniforme</title>
+                    <statement>
+                        <p>
+                            Si <m>X\sim \mathscr U(\{x_1,x_2,\ldots,x_n\})</m> alors <m> \EE(X)=\displaystyle\frac1n\sum_{k=1}^nx_k </m>. 
+                        </p>
+                        <p>
+                            En particulier si <m>X\sim \mathscr U(\iic{1,n})</m> alors <m>\EE(X)=(n+1)/2</m>
+                        </p>
+                    </statement>
+                </li>
+
+                <li>
+                    <title>Loi de Bernouilli</title>
+
+                    <statement>
+                        <p>
+                            Si <m>X\sim\mathscr B(p)</m> alors <m>\EE(X)=p</m>.
+                        </p>
+                    </statement>
+                </li>
+
+                <li>
+                    <title>Loi binomiale</title>
+
+                    <statement>
+                        <p>
+                            Si <m>X\sim\mathscr B(n,p)</m> alors <m>\EE(X)=np</m>.
+                        </p>
+                    </statement>
+                </li>
+
+                <li>
+                    <title>Loi géométrique</title>
+
+                    <statement>
+                        <p>
+                            Si <m>X\sim\mathscr G(p)</m> alors <m>\EE(X)=\displaystyle\frac1p</m>.
+                        </p>
+                    </statement>
+                </li>
+
+                <li>
+                    <title>Loi de Poisson</title>
+
+                    <statement>
+                        <p>
+                            Si <m>X\sim\mathscr P(\lambda)</m> alors <m>\EE(X)=\lambda</m>.
+                        </p>
+                    </statement>
+                </li>
+                </dl>
+            </list>
+        </subsubsection>
+
+
+        <subsubsection xml:id="subsubsec-activites">
+            <title>Activités </title>
+
+            <activity>
+                <title>Loi hypergéométrique</title>
+
+                <statement>
+                    <p>
+                        Si <m>X\sim \mathscr H(N,n,p)</m> alors <m>\EE(X)=np</m>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Rappelons que <m>X\sim \mathscr H(N,n,p)</m> signifie
+                        <me>
+                            X(\Omega)\subset [\![0,n]\!]\text{ et } \forall k\in X(\Omega),\; \Pr{X=k}=\frac{\binom{pN}{k}\binom{(1-p)N}{n-k}}{\binom Nn}
+                        </me>
+                        Donc
+                        <md>
+                            <mrow>\EE(X) \amp= \sum_{k=0}^{n}k\frac{\binom{pN}{k}\binom{(1-p)N}{n-k}}{\binom Nn} </mrow>
+                            <mrow> \amp= \sum_{k=1}^{n}\frac{pN\binom{pN-1}{k-1}\binom{(1-p)N}{n-k}}{\binom Nn} </mrow>
+                            <mrow> \amp= \frac{pN}{\binom Nn}\sum_{h=0}^{n-1}\binom{pN-1}{h}\binom{(1-p)N}{n-1-h} </mrow>
+                            <mrow> \amp= \frac{pN}{\binom Nn}\binom{N-1}{n-1} </mrow>
+                            <mrow> \EE(X)\amp= pn </mrow>
+                        </md>
+                    </p>
+                </solution>
+            </activity>
+
+            <activity>
+                <title>Temps d'attente du <m>k^\text{e}</m> succès </title>
+
+                <statement>
+                    <p>
+                        Si <m>X_k</m> est le temps d'attente du <m>k^{\text{e}}</m> succès quand on répète indéfiniment et de façon indépendante un test de Bernouilli de paramètre <m>p</m> alors <m>\EE(X_k)=\dfrac kp</m>
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        On peut écrire <m>X_k=\sum_{i=1}^k Y_i</m> avec <m>Y_1=X_1</m> et <m>Y_i=X_i-X_{i-1}</m> si <m>i\geqslant 2</m>.
+                        Les variables <m>Y_i</m> sont mutuellement indépendantes et suivent toute la loi <m>\mathscr G(p)</m>, donc
+                        <me>
+                            \EE(X_k)=\sum_{i=1}^k\EE(Y_i)=k\EE(X_1)=\frac kp
+                        </me>
+                    </p>
+
+                    <p>
+                        Par calcul direct : on a déjà calculé la loi de <m>X_k</m>
+                        <me>
+                            \forall n\geqslant k,\; \Pr{X=n}=\binom{n-1}{k-1}p^k(1-p)^{n-k}
+                        </me>
+                        donc
+                        <md>
+                            <mrow>\EE(X_k) \amp= \sum_{n=k}^{\infty}n\binom{n-1}{k-1}p^k(1-p)^{n-k} </mrow>
+                            <mrow> \amp= \sum_{n=k}^{\infty}k\binom{n}{k}p^k(1-p)^{n-k} </mrow>
+                            <mrow> \amp= k\cdot \frac{p^k}{k!}\sum_{n=k}^{\infty} n(n-1)\cdots(n-k+1)(1-p)^{n-k} </mrow>
+                            <mrow> \amp= k\frac{p^k}{k!}\cdot \frac{\mathrm d^k}{\mathrm dt^k}\left.\Bigl(\frac1{1-t}\Bigr)\right|_{t=1-p} </mrow>
+                            <mrow> \amp= k\frac{p^k}{k!}\cdot \left.\Bigl(\frac{k!}{(1-t)^{k+1}}\Bigr)\right|_{t=1-p} </mrow>
+                            <mrow> \amp= \frac kp </mrow>
+                        </md>
+                    </p>
+                </solution>
+            </activity>
+
+            <activity xml:id="act-essomme">
+                <title>Espérance d'une variable à valeurs dans <m>\N</m></title>
+
+                <statement>
+                    <p>
+                        Une <acro>VADR</acro> <m>X</m> à valeurs dans <m>\N</m> est sommable si et seulement si la suite <m>(\Pr{X \gt n})_{n\in \N}</m> est sommable et dans ce cas
+                        <me>
+                            \EE(X)=\sum_{n\in \N}\Pr{X\gt n}
+                        </me>
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        La famille <m>(\Pr{X\gt n})_{n\in\N^*}</m> est à termes réels positifs, ce qui legitime le calcul suivant, y compris pour l'interversion des sommes :
+                        <md>
+                            <mrow>\sum_{n\in\N}\Pr{X\gt n} \amp= \sum_{n=0}^{+\infty}\sum_{k=n+1}^{+\infty} \Pr{X=k} </mrow>
+                            <mrow> \amp= \sum_{k=1}^{+\infty}\sum_{n=0}^{k-1}\Pr{X=k} </mrow>
+                            <mrow> \amp= \sum_{k=1}^{+\infty} k\Pr{X=k} </mrow>
+                            <mrow> \amp= \EE(X) </mrow>
+                        </md>
+                    </p>
+                </solution>
+            </activity>
+
+            <activity>
+                <title>Espérance du min </title>
+
+                <statement>
+                    <p>
+                        On considère deux VAD <m>X,Y</m> à valeurs dans <m>\N</m>, indépendantes et de même loi.
+                        Exprimer <m>\EE(\min(X,Y))</m> en fonction des probabilités <m>\Pr{X\gt n}</m>.
+                        Appliquer au cas où <m>X\sim\mathscr G(p)</m> et expliquer le résultat obtenu.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Selon l'activité précédente
+                        <md>
+                            <mrow>\EE(\min(X,Y)) \amp= \sum_{n\in\N}\Pr{\min(X,Y)\gt n} </mrow>
+                            <mrow> \amp= \sum_{n\in\N} \Pr{X\gt n, Y\gt n} </mrow>
+                            <mrow> \amp= \sum_{n\in\N}\Pr{X\gt n}\Pr{Y\gt n} </mrow>
+                            <mrow> \amp= \sum_{n\in\N} \Pr{X\gt n}^2 </mrow>
+                        </md>
+                        Si <m>X\sim \mathscr G(p)</m> alors pour tout <m>n\in\N</m>
+                        <md>
+                            <mrow> \Pr{X\gt n} \amp = \sum_{k=n+1}^\infty \Pr{X=k} </mrow>
+                            <mrow> \amp =  \sum_{k=n+1}^\infty p(1-p)^{k-1} </mrow>
+                            <mrow> \amp = p\cdot \frac{(1-p)^n}{1-(1-p)}=(1-p)^n </mrow>
+                        </md>
+                        et finalement
+                        <me>
+                            \EE(\min(X,Y))=\sum_{n\in\N}(1-p)^{2n}=\frac1{1-(1-p)^2}
+                        </me>
+                        <m>\min(X,Y)</m> est le temps d'attente d'au moins un succés quand on exécute simultanement deux instances indépendantes d'un même test de Bernouilli de paramètre <m>p</m>. Si on note respectivement <m>A</m> et <m>B</m> les événements succés  pour le premier et le deuxième test, le paramètre de notre expérience de Bernouilli est
+                        <me>
+                            q=\Pr{A\cup B}=1-\Pr{A^c\cap B^c}=1-(1-p)^2
+                        </me>
+                        Ce qui montre qu'en fait <m>\min(X,Y)\sim\mathscr G(1-(1-p)^2)</m>
+                    </p>
+
+                    <p>
+                        Noter que si <m>X</m> et <m>Y</m> sont indépendantes mais <m>X\sim\mathscr G(p)</m> et <m>X\sim\mathscr G(q)</m> alors un calcul similaire aboutit à
+                        <md> 
+                        <mrow>\min(X,Y) \amp\sim \mathcal G\bigl(1-(1-p)(1-q)\bigr) </mrow>
+                        <mrow>\EE(\min(X,Y)) \amp= \frac{1}{1-(1-p)(1-q)} </mrow>
+                        </md>
+                    </p>
+                </solution>
+            </activity>
+
+            <activity>
+                <title>Une composition de lois</title>
+
+                <statement>
+                    <p>
+                        <m>N</m> est une variable qui suit la loi <m>\mathscr P(\lambda)</m>. <m>(X_n)_{n\in\N^*}</m> est une suite de variables de Bernouilli  de même paramètre <m>p</m>. On suppose que <m>N</m> et toutes les variables <m>X_n</m> sont mutuellement indépendantes. Déterminer la loi de la variable <m>S=X_1+X_2+\cdots+X_N</m> et calculer son espérance. Décrire une expérience aléatoire qu'on peut modéliser avec <m>S</m>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        <md>
+                            <mrow> \Pr{S=n} \amp= \sum_{k=n}^\infty\Pr{S=n \giv  N=k}\Pr{N=k} </mrow>
+                            <mrow> \amp= \sum_{k=n}^\infty\Pr{X_1+X_2+\cdots+X_k=n}\Pr{N=k} </mrow>
+                            <mrow> \amp= \sum_{k=n}^{+\infty} \binom kn p^n(1-p)^{k-n}\cdot \frac{\lambda^k}{k!}e^{-\lambda} </mrow>
+                            <mrow> \amp= e^{-\lambda}\frac{(\lambda p)^n}{n!}\sum_{k=n}^\infty \frac{(\lambda(1-p))^{k-n}}{(k-n)!} </mrow>
+                            <mrow> \amp= e^{-\lambda}\frac{(\lambda p)^n}{n!}\cdot e^{\lambda(1-p)} </mrow>
+                            <mrow> \amp= \frac{(\lambda p)^n}{n!}e^{-\lambda p} </mrow>
+                        </md>
+                        Donc <m>S\sim\mathscr P(\lambda p)</m> et par suite <m>\EE(S)=\lambda p</m>.
+                    </p>
+                </solution>
+            </activity>
+        </subsubsection>
+    </subsection>
+
+    <subsection xml:id="subsec-varcovar">
+        <title>Variance et covariance</title>
+
+        <subsubsection xml:id="subsubsec-varcovar">
+            <title>Définition et propriétés</title>
+
+            <definition xml:id="def-carre-sommable">
+                <statement>
+                    <p>
+                        Une <acro>VADR</acro> <m>X</m> est dite de carré sommable si <m>X^2</m> est sommable.
+                    </p>
+
+                    <p>
+                        On notera <m>L^2(\Omega)</m> l'ensemble des <acro>VADR</acro> de carrés sommables définies sur  <m>(\Omega,\mathscr T,P)</m>.
+                    </p>
+                </statement>
+            </definition>
+
+
+            <proposition xml:id="prop-ltwo">
+                <statement>
+                    <p>
+                        <m>L^2(\Omega)</m> est un <m>\R</m>-espace vectoriel et le produit de deux <acro>VADR</acro> de carrés sommables est une variable sommable.
+                    </p>
+                </statement>
+
+
+                <proof>
+                    <p>
+                        Découle du fait que si <m>X,Y\in L^2(\Omega)</m> alors <m>|XY|\leq \frac12(X^2+Y^2)</m> et donc <m>XY\in L^1(\Omega)</m> par domination.
+                        Ensuite pour tout <m>\lambda\in \R</m>
+                        <md>
+                            <mrow> (X+\lambda Y)^1=X^2+\lambda^2Y^2+2\lambda XY \amp\leqslant X^2+\lambda^2Y^2+\lambda(X^2+Y^2) </mrow>
+                        </md>
+                        et donc, par domination, <m>X+\lambda Y\in L^2(\Omega)</m>.
+                        Sachant que la variable nulle est dans <m>L^2(\Omega)</m>, ceci prouve que <m>L^2(\Omega)</m> est un sous-espace vectoriel de <m>\R^\Omega</m>.
+                    </p>
+                </proof>
+            </proposition>
+
+            <definition xml:id="def-varcovar">
+            <notation>
+            <usage><m>\VV(X)</m></usage>
+          <description>variance de la <acro>VADR</acro> <m>X</m></description>
+        </notation>
+        <notation>
+            <usage><m>\Cov(X,Y)</m></usage>
+          <description>covariance des <acro>VADR</acro> <m>X</m> et <m>T</m></description>
+        </notation>
+                <statement>
+                    <ol>
+                        <li>
+                            <p>
+                                Soit <m>X\in L^2(\Omega)</m>.
+                                La variable <m>(X-E(X))^2</m> est sommable et son espérance est appelée variance de <m>X</m>.
+                                On la note <m>\VV(X)</m>
+                                <me>
+                                    \VV(X):=\EE\bigl((X-\EE(X))^2\bigr)
+                                </me>
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                Soient <m>X,Y\in L^2(\Omega)</m>.
+                                La variable <m>(X-\EE(X))(Y-\EE(Y))</m> est sommable et son espérance est appelée covariance des variables <m>X</m> et <m>Y</m>.
+                                On la note <m>\Cov(X,Y)</m>.
+                                <me>
+                                    \Cov(X,Y):=\EE\bigl((X-\EE(X))(Y-\EE(Y))\bigr)
+                                </me>
+                            </p>
+                        </li>
+                    </ol>
+                </statement>
+                <explanation>
+                <p>
+                    <m>V(X)</m> est la moyenne «quadratique» de <m>X-\EE(X)</m>. Elle mésure la moyenne de l'écart que peut prendre <m>X</m> avec sa moyenne <m>\EE(X)</m>.
+                </p>
+
+                <p>
+                    <m>\Cov(X,Y)</m> mésure le degré de corélation entre <m>X</m> et <m>Y</m>, c'est à dire à quels points les résultats obtenus par <m>X</m> et par <m>Y</m> s'influencent les uns les autres. On notera par exemple que si <m>X</m> et <m>Y</m> sont indépendantes (aucune corélation) alors <m>X-\EE(X)</m> et <m>Y-\EE(Y)</m> sont indépendantes et donc
+                    <me>
+                        \Cov(X,Y)=\EE(X-\EE(X))\EE(Y-\EE(Y))=0
+                    </me>
+                </p>
+                </explanation>
+            </definition>
+
+            <remark>
+                <ol>
+                    <li>
+                        <p>
+                            Noter que si <m>X\in L^2(\Omega)</m> alors <m>\VV(X)=\Cov(X,X)</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                        </p>
+                    </li>
+                </ol>
+            </remark>
+
+
+            <proposition xml:id="prop-var-identite">
+                <statement>
+                    <p>
+                        Soient <m>X,Y\in L^2(\Omega)</m>
+                        <ol>
+                            <li>
+                                <p>
+                                    <m>\VV(X)\geqslant 0</m> avec égalité si et seulement si <m>X</m> est presque partout constante.
+                                </p>
+                            </li>
+
+                            <li>
+                                <p>
+                                    <m>\VV(X)=\EE(X^2)-\EE(X)^2=\EE\bigl(X(X-1)\bigr)-\EE(X)\bigl(\EE(X)-1\bigr)</m>
+                                </p>
+                            </li>
+
+                            <li>
+                                <p>
+                                    <m>\Cov(X,Y)=\EE(XY)-\EE(X)\EE(Y)</m>
+                                </p>
+                            </li>
+
+                            <li>
+                                <p>
+                                    Si <m>X</m> et <m>Y</m> sont indépendantes alors <m>\Cov(X,Y)=0</m>.
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+            </proposition>
+
+            <theorem xml:id="thm-varcovar">
+                <statement>
+                    <p>
+                        <m>\Cov</m> est une forme bilinéaire symétrique positive de <m>L^2(\Omega)</m>. L'inégalité de Cauchy-Schwarz pour cette forme s'écrit :
+                        <me>
+                            \forall X,Y\in L^2(\Omega),\; \Cov(X,Y)^2\leqslant V(X)V(Y)
+                        </me>
+                        avec égalité si et seulement si <m>Y</m> est presque partout constante ou s'il existe des réels <m>\lambda</m> et <m>\mu</m> tels que <m>X=\lambda Y+\mu</m>  presque partout.
+                    </p>
+                </statement>
+            </theorem>
+
+
+            <proposition xml:id="prop-varcovar">
+                <statement>
+                    <p>
+                        Soient <m>X_1,X_2,\ldots,X_n</m> des variables aleátoires discrètes de carrés sommables.
+                        <me>
+                            \VV\left(\sum_{k=1}^n X_k\right)=\sum_{k=1}^n \VV(X_k)+2\sum_{1\leqslant i\lt j\leqslant n}\Cov\left(X_i,X_j\right)
+                        </me>
+                        Si <m>X_1,X_2,\ldots,X_n</m> sont <em> deux à deux indépendantes</em> alors en particulier
+                        <me>
+                            \VV\left(\sum_{k=1}^n X_k\right)=\sum_{k=1}^n \VV(X_k)
+                        </me>
+                    </p>
+                </statement>
+            </proposition>
+
+            <definition xml:id="def-ecarttype-covariance">
+            <notation>
+                <usage><m>\sigma(X)</m></usage>
+              <description>écart-type de la <acro>VADR</acro> <m>X</m> </description>
+            </notation>
+            <notation>
+                <usage><m>\rho(X,Y)</m></usage>
+              <description>coefficient de corrélation des <acro>VADR</acro> <m>X</m> et <m>Y</m> </description>
+            </notation>
+                <statement>
+                    <p>
+                        Soiente <m>X</m> et <m>Y</m> des variables aléatoires de carrés sommables.
+                        <ol>
+                            <li>
+                                <p>
+                                    On appelle <term>écart-type</term> de <m>X</m> le réel <m>\sigma(X)=\sqrt{\VV(X)}</m>.
+                                </p>
+                            </li>
+
+                            <li>
+                                <p>
+                                    On suppose que <m>X</m> et <m>Y</m> ne sont pas presque partout constantes.
+                                    On appelle <term>coefficient de corrélation</term> de <m>X</m> et <m>Y</m> le réel
+                                    <me>
+                                        \rho(X,Y)=\frac{\Cov(X,Y)}{\sigma(X)\sigma(Y)}
+                                    </me>
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+            </definition>
+
+            <remark>
+                <ol>
+                    <li>
+                        <p>
+                            <m>\sigma</m> est une semi-norme de <m>L^2(\Omega)</m>. Pour tout <m>X\in L^2(\Omega)</m>, <m>\sigma(X)=0</m> si et seulement si <m>X</m> est presque partout constante.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Si <m>\rho(X,Y)=0</m> on dit que les variables aléatoires <m>X</m> et <m>Y</m> sont <em>non corrélées</em>.
+                            C'est le cas par exemple si elles sont indépendantes.
+                        </p>
+
+                        <p>
+                            La non corrélation est une sorte «d'orthogonalité» pour la forme bilinéaire symétrique <m>\Cov</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Si <m>X</m> et <m>Y</m> ne sont pas presque partout constantes, selon l'inégalité de Cauchy-Schwarz, on a
+                            <me>
+                                |\rho(X,Y)|\leqslant 1
+                            </me>
+                            avec égalité si et seulement s'il existe des réels  <m>a\ne0</m> et <m>b</m> tels que <m>X=aY+b</m> presque partout avec <m>a\gt 0</m> si <m>\rho(X,Y)=1</m> et <m>a\lt 0</m> si <m>\rho(X,Y)=-1</m>.
+                            On dit que <m>X</m> et <m>Y</m> sont linéairement corrélées (positivément ou négativement selon le signe de <m>\rho(X,Y)</m>).
+                        </p>
+
+                        <p>
+                            Plus <m>\sigma(X,Y)</m> est voisin de <m>1</m> plus les variables <m>X</m> et <m>Y</m> sont «positivement» corrélées.
+                            Plus il est voisin de <m>-1</m> plus elles sont «négativement» corrélées.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Une <acro>VADR</acro> <m>X</m> est dite centrée si <m>\EE(X)=0</m>.
+                            Elle est dite centrée réduite si elle est centrée et <m>\sigma(X)=1</m>.
+                        </p>
+
+                        <p>
+                            Pour toute <acro>VADR</acro> <m>X</m> non partout constante, la <acro>VADR</acro> <m>\frac{X-\EE(X)}{\sigma(X)}</m> est centrée réduite.
+                        </p>
+                    </li>
+
+                    
+                </ol>
+
+                <p>
+                </p>
+            </remark>
+
+            <exploration><title>Matrice des covariances d'un vecteur aléatoire</title>
+            <notation>
+                <usage><m>\Sigma(X)</m></usage>
+              <description>matrice des covariances du vecteur aléatoire <m>X</m></description>
+            </notation>
+                        <p>
+                            On considère des <acro>VADR</acro> <m>X_1,X_2,\ldots,X_n</m>.
+                            On appelle matrice des covariances du vecteur <m>X=(X_1,X_2,\ldots,X_n)</m> la matrice carrée <m>\Sigma(X)</m> de taille <m>n\times n</m> dont les coefficients sont <m>\Cov(X_i,X_j)</m>.
+                            <m>\Sigma(X)</m> est la matrice de Gram de la famille <m>(X_1,X_2,\ldots,X_n)</m> pour la forme bilinéaire symétrique <m>\Cov</m>.
+                        </p>
+
+                        <p>
+                            Pour tout <m>(\lambda_1,\lambda_2,\ldots,\lambda_n)\in\R^n</m>, on a
+                            <me>
+                                \VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)={}^t\!\Lambda \Sigma(X)\Lambda
+                            </me>
+                            où <m>\Lambda={}^t\!\begin{pmatrix}\lambda_1\amp \lambda_2\amp \cdots\amp \lambda_n\end{pmatrix}</m> (voir l'activité <xref ref="task-sympos"/>).
+                            On en déduit par exemple que <m>\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n</m> est presque partout constante  si et seulement si <m>\Lambda\in\ker\Sigma(X)</m>.
+                        </p>
+
+                        <p>
+                            <m>\Sigma(X)</m> est une matrice symétrique positive. Elle est en particulier orthogonalemnt diagonalisable et ses valeurs propres sont positives ou nulles. Une base orthonormale de vecteurs propres peut servir à construire une base de l'espace vectoriel engendré par <m>X_1,X_2,\ldots,X_n</m> formée de <acro>VADR</acro> <em>deux à deux non corrélées</em>. En outre les vecteurs dans cette base qui sont associés à la valeur propre nulle sont des <acro>VADR</acro> presque partout constantes. Ce qui permet de représenter tout élément de <m>\mathrm{Vect}\{X_1,X_2,\ldots,X_n\}</m> à une <acro>VADR</acro> presque partout constante près comme une combinaison linéaire de <m>r=\operatorname{rg}\Sigma(X)</m> <acro>VADR</acro> non partout constantes et deux à deux non corrélées. Ces observations sont essentielles dans ce qu'on appelle Analyse en Composantes Principales (ACP). Voir pour cela :
+                             <ul>
+                                <li>
+                                    <p>
+                                        la définition sur <url href="https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales"> Wikipedia </url>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                       un document plus technique est plus détaillé sur <url href="http://www.mderouich.ma/web/Enseignements%202020/chapitreIII.pdf"> le web </url> 
+                                    </p>
+                                </li>
+                             </ul>
+
+                             D'autre propriétés de la matrices de covariances seront en outre explorées dans les activités <xref ref="matrice-covariance-vecteur-aleatoire"/> et <xref ref="esperance-forme-quadratique"/>
+                               </p>
+
+                
+            </exploration>
+        </subsubsection>
+
+
+        <subsubsection xml:id="subsubsec-exemples-varcovar">
+            <title>Exemples usuels</title>
+
+            <list xml:id="list-var">
+                <title>Variances des lois usuelles.</title>
+
+                <introduction>
+                    <p>
+                        On considère une <acro>VADR</acro> <m>X</m>.
+                    </p>
+                </introduction>
+                <dl>
+                <li>
+                    <title>Loi uniforme</title>
+
+                    <p>
+                        Si <m>X\sim \mathscr U(\iic{1,n})</m> à valeurs dans <m>[\![1,n]\!]</m> alors <m>\VV(X)=\ds \frac{n^2-1}{12}</m>.
+                    </p>
+
+                    <p>
+                        En général si <m>X</m> suit une loi uniforme à valeurs dans <m>\{x_1,x_2,\ldots,x_n\}</m> alors <m>\VV(X)=\ds\frac1n\sum_{k=1}^nx_k^2-\frac1{n^2}\biggl(\sum_{k=1}^nx_k\biggr)^2</m>
+                    </p>
+                </li>
+
+                <li>
+                    <title>Loi de Bernouilli</title>
+
+                    <p>
+                        Si <m>X\sim\mathscr B(p)</m> alors <m>\VV(X)=p(1-p)</m>
+                    </p>
+                </li>
+
+                <li>
+                    <title>Loi binomiale</title>
+
+                    <p>
+                        Si <m>X\sim\mathscr B(n,p)</m> alors <m>\VV(X)=np(1-p)</m>
+                    </p>
+                </li>
+
+                <li>
+                    <title>Loi géometrique</title>
+
+                    <p>
+                        Si <m>X\sim \mathscr G(p)</m> alors <m>\VV(X)=\ds\frac{1-p^2}{p}</m>
+                    </p>
+                </li>
+
+                <li>
+                    <title>Loi de Poisson</title>
+
+                    <p>
+                        Si <m>X\sim\mathscr P(\lambda)</m> alors <m>\VV(X)=\lambda</m>.
+                    </p>
+                </li>
+                </dl>
+            </list>
+        </subsubsection>
+
+
+        <subsubsection xml:id="subsubsec-activites-varcovar">
+            <title>Activités</title>
+
+            <activity xml:id="matrice-covariance-vecteur-aleatoire">
+                <title>Matrice des covariances d'un vecteur aléatoire</title>
+
+                <introduction>
+                    <p>
+                        Dans cette activité, nous étudions la matrice des covariances d'un vecteur aléatoire discret <m> X = {}^t(X_1, X_2, \dots, X_n) </m> à valeurs dans <m> \mathcal{M}_{n,1}(\mathbb{R}) </m>.
+                        Nous allons explorer les propriétés de cette matrice et en donner une application.
+                    </p>
+
+                    <p>
+                        On dit que <m>X</m> admet un moment d'ordre <m>k</m> si ses composantes <m>X_1,X_2,\cdots,X_n</m> en admettent.
+                        On suppose que <m>X</m> admet un moment d'ordre <m>2</m> et on pose par définition
+                        <ul>
+                            <li>
+                                <p>
+                                    <m>\EE(X)={}^t(\EE(X_1)\; \EE(X_2)\;\cdots\; \EE(X_n))</m>
+                                </p>
+                            </li>
+
+                            <li>
+                                <p>
+                                    <m>\mathbf\Sigma(X)=\big(\Cov(X_i,X_j)\big)_{i,j}</m>
+                                </p>
+                            </li>
+                        </ul>
+                        <m>\mathbf\Sigma(X)</m> est une matrice symétrique réelle d'ordre <m>n</m> appelée matrice des covariances du vecteur <m>X</m>.
+                    </p>
+                </introduction>
+
+
+                <task xml:id="task-sympos">
+                    <title>Symétrie et positivité</title>
+
+                    <statement>
+                        <p>
+                            Soit <m>\Lambda={}^t\begin{pmatrix}\lambda_1 \amp \lambda_2 \amp\cdots\amp\lambda_n\end{pmatrix}\in\mathcal M_{n,1}(\R)</m>.
+                            Montrer que :
+                            <me>
+                                \VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)=\Lambda^\top\mathbf\Sigma(X)\Lambda.
+                            </me>
+                            et en déduire que <m>\Sigma(X)</m> est une matrice symétrique positive.
+                        </p>
+                    </statement>
+
+                    <solution>
+                        <p>
+                            Par bilinéarité de la covariance on a le développement :
+                            <me>
+                                \VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)=\sum_{i,j}\lambda_i\lambda_j\Cov(X_i,X_j).
+                            </me>
+                            Un résultat usuel d'un autre côte donne
+                            <me>
+                                \sum_{i,j}\lambda_i\lambda_j\Cov(X_i,X_j)=\Lambda^\top\mathbf\Sigma(X)\Lambda.
+                            </me>
+                            donc <m>\VV(\lambda_1X_1+\lambda_2X_2+\cdots+\lambda_nX_n)=\Lambda^\top\mathbf\Sigma(X)\Lambda</m>.
+                            La matrice <m>\Sigma(X)</m> qui est naturellement symétrique est donc positive puisque cette dernière égalité prouve que
+                            <me>
+                                \forall \Lambda\in\mathcal M_{n,1}(\R),\quad \Lambda^\top\mathbf\Sigma(X)\Lambda\geq0
+                            </me>
+                        </p>
+                    </solution>
+                </task>
+
+
+                <task>
+                    <title>Une expression de la matrice des covariances</title>
+
+                    <statement>
+                        <p>
+                            Montrer que :
+                            <me>
+                                \mathbf\Sigma(X)=\EE\Bigl(\bigl(X-\EE(X)\bigr)\bigl(X-\EE(X)\bigr)^\top\Bigr).
+                            </me>
+                            En déduire que si <m>b\in\mathcal M_{n,1}(\R)</m> alors <m>\Sigma(X+b)=\Sigma(X)</m> et qu'en particulier <m>\Sigma(X-\EE(X))=\Sigma(X)</m>
+                        </p>
+                    </statement>
+
+                    <solution>
+                        <p>
+                            On observe que
+                            <me>
+                                (X-\EE(X))(X-\EE(X))^\top= \Bigl(\bigl(X_i-\EE(X_i)\bigr)\bigl(X_j-\EE(X_j)\bigr)\Bigr)_{i,j}
+                            </me>
+                            Donc :
+                            <md>
+                                <mrow>\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr) \amp= \Bigl(\EE\bigl[\bigl(X_i-\EE(X_i)\bigr)\bigl(X_j-\EE(X_j)\bigr)\bigr]\Bigr)_{i,j} </mrow>
+                                <mrow> \amp=\bigl(\Cov(X_i,Y_j)\bigr)_{i,j} </mrow>
+                                <mrow> \amp=\Sigma(X) </mrow>
+                            </md>
+                            Si <m>Y=X+b</m> alors <m>Y-\EE(Y)=X-\EE(X)</m> et donc <m>\Sigma(Y)=\Sigma(X)</m>.
+                        </p>
+                    </solution>
+                </task>
+                <!-- Task 1 : Transformation linéaire d'un vecteur aléatoire -->
+                <task>
+                    <title>Transformation linéaire d'un vecteur aléatoire</title>
+
+                    <statement>
+                        <p>
+                            Soient <m> A \in \mathcal{M}_{n,m}(\mathbb{R}) </m> une matrice  et <m> b \in \mathcal{M}_{m,1}(\mathbb{R}) </m> un vecteur colonne.
+                            On considère le vecteur aléatoire <m> Y = AX + b </m>.
+                            <ol>
+                                <li>
+                                    Montrer que <m> Y </m> admet des moments d'ordre 2.
+                                </li>
+
+                                <li>
+                                    Montrer que :
+                                    <me>
+                                        \EE(Y) = A \EE(X) + b.
+                                    </me>
+                                    dans cette relation on peut remplacer <m>X</m> par un vecteur aléatoire à valeurs dans un <m>\R</m>-ev de dimension finie quelconque <m>E</m> et <m>A</m> par une application linéaire <m>u</m> définie sur cet espace et à valeurs dans un autre espace <m>E'</m>, le vecteur <m>b</m> éant pris dans <m>E'</m>.
+                                    Elle s'écrit alors
+                                    <me>
+                                        \EE(u(X) + b) = u(\EE(X)) + b.
+                                    </me>
+                                    On admet cette dernière propriété.
+                                </li>
+
+                                <li>
+                                    Montrer que la matrice des covariances de <m> Y </m> est donnée par :
+                                    <me>
+                                        \mathbf{\Sigma}(Y) = A \mathbf{\Sigma}(X) {}^t\!A.
+                                    </me>
+                                </li>
+                            </ol>
+                        </p>
+                    </statement>
+
+                    <solution>
+                        <p>
+                            <ol>
+                                <li>
+                                    Comme <m> X </m> admet des moments d'ordre 2, chaque composante <m> X_i </m> admet une variance finie.
+                                    Chaque composante du vecteur <m> Y = AX + b </m> est une combinaison linéaire des <m> X_i </m>, donc <m> Y </m> admet également des moments d'ordre 2.
+                                </li>
+
+                                <li>
+                                    Par linéarité de l'espérance, on a :
+                                    <md>
+                                        <mrow>\EE(AX+b) \amp= \EE\biggl(\Bigl(\sum_{j=1}^nA_{i,j}X_j+b_i\Bigr)_{i,j}\biggr) </mrow>
+                                        <mrow> \amp:= \biggl(\EE\Bigl(\sum_{j=1}^nA_{i,j}X_j+b_i\Bigr)\biggr)_{i,j} </mrow>
+                                        <mrow> \amp= \biggl(\sum_{j=1}^nA_{i,j}\EE(X_j)+b_i\biggr)_{i,j} </mrow>
+                                        <mrow> \amp= A\EE(X)+b </mrow>
+                                    </md>
+                                </li>
+
+                                <li>
+                                    La matrice des covariances de <m> Y </m> est donnée par :
+                                    <me>
+                                        \mathbf{\Sigma}(Y) = \Sigma(AX) = \EE\bigl(A(X-\EE(X))(X-\EE(X))^\top A^\top\bigr)
+                                    </me>
+                                    Donc d'après la relation précédente sur l'espérance
+                                    <md>
+                                        <mrow> \Sigma(Y)\amp=A\EE\bigl((X-\EE(X))(X-\EE(X))^\top A^\top\bigr) </mrow>
+                                        <mrow> \amp=A\Bigl(\EE\bigl(A(X-\EE(X))(X-\EE(X))^\top\bigr)\Bigr)^\top </mrow>
+                                        <mrow> \amp= A\Bigl(A\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr)\Bigr)^\top </mrow>
+                                        <mrow> \amp=A\Bigl(\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr)\Bigr)^\top A^\top </mrow>
+                                        <mrow> \amp=A\EE\bigl((X-\EE(X))(X-\EE(X))^\top\bigr) A^\top </mrow>
+                                        <mrow> \amp= A\Sigma(X)A^\top </mrow>
+                                    </md>
+                                </li>
+                            </ol>
+                        </p>
+                    </solution>
+                </task>
+                <!-- Task 2 : Matrice des covariances d'un vecteur centré --> <!-- Task 3 : Espérance d'une forme quadratique --> <!-- Task 4 : Existence d'un vecteur aléatoire pour une matrice donnée -->
+                <task>
+                    <title>Toute matrice symétrique positive est une matrice de covariances</title>
+
+                    <statement>
+                        <p>
+                            Soit <m> S \in \mathcal{M}_n(\mathbb{R}) </m> une matrice symétrique positive.
+                            Montrer qu'il existe un vecteur aléatoire <m> Y </m> tel que <m> S = \mathbf{\Sigma}(Y) </m>.
+                        </p>
+                    </statement>
+
+                    <solution>
+                        <p>
+                            Comme <m> S </m> est symétrique positive, il existe une matrice symétrique positive <m>R</m> telle que : <m> S = R^2 </m>.
+                            Soit <m> Z </m> un vecteur aléatoire dont les composantes sont des variables aléatoires indépendantes de variance 1.
+                            On a <m>\Sigma(Z)=I_n</m> et donc le vecteur <m> Y = RZ </m> a pour matrice des covariances :
+                            <me>
+                                \mathbf{\Sigma}(Y) = R \mathbf{\Sigma}(Z) R^\top = R^2 = S.
+                            </me>
+                        </p>
+                    </solution>
+                </task>
+                <!-- Task 5 : Produit d'Hadamard et indépendance -->
+                <task>
+                    <title>Produit d'Hadamard et indépendance</title>
+
+                    <statement>
+                        <p>
+                            Soient <m> X </m> et <m> Y </m> deux vecteurs aléatoires de carrés sommables, centrés et indépendants.
+                            On définit le produit d'Hadamard de deux matrices de même tailles <m>A,B\in\mathcal M_{n,m}(\R)</m> par
+                            <me>
+                                A\circ B=\bigl(A_{i,j}B_{i,j}\bigr)_{i,j}
+                            </me>
+                            Montrer que :
+                            <me>
+                                \mathbf{\Sigma}(X \circ Y) = \mathbf{\Sigma}(X) \circ \mathbf{\Sigma}(Y).
+                            </me>
+                        </p>
+                    </statement>
+
+                    <solution>
+                        <p>
+                            Comme <m> X </m> et <m> Y </m> sont indépendants alors pour tout couple d'indices <m>(i,j)</m>, <m>X_i</m> et indépendant de <m>Y_j</m> et donc <m>\EE(X_iY_j)=\EE(X_i)\EE(Y_j)=0</m>.
+                            En outre, <m>X_iX_j</m> est indépendant de  <m>Y_iY_j</m> par coalition.
+                            On a alors :
+                            <md>
+                                <mrow>\Cov(X_iY_i,X_jY_j) \amp= \EE\bigl((X_iY_i-\EE(X_iY_i))(X_jY_j-\EE(X_jY_j))\bigr) </mrow>
+                                <mrow> \amp= \EE\bigl((X_iY_i-\EE(X_i)\EE(Y_i))(X_jY_j-\EE(X_j)\EE(Y_j))\bigr) </mrow>
+                                <mrow> \amp= \EE\bigl((X_iY_i)(X_jY_j)\bigr) </mrow>
+                                <mrow> \amp= \EE(X_iX_j)\EE(Y_iY_j) </mrow>
+                                <mrow> \amp=\Cov(X_i,X_j)\Cov(Y_i,Y_j) </mrow>
+                            </md>
+                            Ce qui montre que <m>\Sigma(X\circ Y) = \Sigma(X) \circ \Sigma(Y)</m>.
+                        </p>
+                    </solution>
+                </task>
+                <!-- Task 6 : Produit d'Hadamard de matrices symétriques positives -->
+                <task>
+                    <title>Produit d'Hadamard de matrices symétriques positives</title>
+
+                    <statement>
+                        <p>
+                            En déduire que le produit d'Hadamard de deux matrices symétriques positives est une matrice symétrique positive.
+                        </p>
+                    </statement>
+
+                    <solution>
+                        <p>
+                            Soient <m> A </m> et <m> B </m> deux matrices symétriques positives.
+                            D'après la question précédente, il existe des vecteurs aléatoires <m> X </m> et <m> Y </m> tels que <m> A = \mathbf{\Sigma}(X) </m> et <m> B = \mathbf{\Sigma}(Y) </m>.
+                            Alors, <m> A \circ B = \mathbf{\Sigma}(X \circ Y) </m>, qui est une matrice des covariances, donc symétrique positive.
+                        </p>
+                    </solution>
+                </task>
+            </activity>
+
+            <activity xml:id="esperance-forme-quadratique">
+                <title>Espérance d'une forme quadratique</title>
+
+                <introduction>
+                    <p>
+                        Soit <m> X </m> un vecteur aléatoire de <m> \mathbb{R}^n </m> ayant un moment d'ordre <m>2</m>.
+                        On note <m> \mathbf{\Sigma}(X) </m> la matrice des covariances de <m> X </m> et <m>\mu</m> son espérance.
+                    </p>
+
+                    <p>
+                        L'activité propose de montrer la formule <xref ref="formquad"/> dite formule des formes quadratiques
+                        et  quelques exemples d'application ensuite.
+                    </p>
+                </introduction>
+
+
+                <task>
+                    <title> Formule des formes quadratiques</title>
+
+                    <instructions>
+                    <p>
+                        Soit <m>A</m> une matrice carrée constante.
+                        Démontrer la formule :
+                    </p>
+                    <men xml:id="formquad" >
+                        \EE({}^tX A X) = \text{tr}(A \mathbf{\Sigma}(X)) + {}^t\mu A \mu.
+                    </men>
+                    </instructions>
+
+                    <solution>
+                        <p>
+                            Soit <m>X</m> un vecteur aléatoire de dimension <m>n</m>, de moyenne <m>\mu = \EE(X)</m> et de matrice de covariance <m>\mathbf{\Sigma}(X) = \EE((X - \mu)(X - \mu)^\top)</m>.
+                            Soit <m>A</m> une matrice carrée de taille <m>n \times n</m>.
+                        </p>
+
+                        <p>
+                            Nous voulons calculer <m>\EE({}^tX A X)</m>.
+                            Pour cela, décomposons <m>X</m> en sa moyenne <m>\mu</m> et son écart par rapport à la moyenne <m>Y = X - \mu</m>.
+                            Ainsi, <m>X = \mu + Y</m>, où <m>\EE(Y) = 0</m> et <m>\mathbf{\Sigma}(X) = \EE(Y Y^\top)</m>.
+                        </p>
+
+                        <p>
+                            En substituant <m>X = \mu + Y</m> dans la forme quadratique, nous obtenons :
+                        </p>
+                        <me>
+                            {}^tX A X = (\mu + Y)^\top A (\mu + Y).
+                        </me>
+
+                        <p>
+                            Développons cette expression :
+                        </p>
+                        <me>
+                            {}^tX A X = \mu^\top A \mu + \mu^\top A Y + Y^\top A \mu + Y^\top A Y.
+                        </me>
+
+                        <p>
+                            Prenons l'espérance des deux côtés.
+                            Comme <m>\EE(Y) = 0</m>, les termes linéaires en <m>Y</m> disparaissent :
+                        </p>
+                        <me>
+                            \EE({}^tX A X) = \mu^\top A \mu + \EE(Y^\top A Y).
+                        </me>
+
+                        <p>
+                            Il reste à calculer <m>\EE(Y^\top A Y)</m>.
+                            Notons que <m>Y^\top A Y</m> est un scalaire, donc égal à sa trace :
+                        </p>
+                        <me>
+                            Y^\top A Y = \text{tr}(Y^\top A Y).
+                        </me>
+
+                        <p>
+                            En utilisant la propriété de cyclicité de la trace (<m>\text{tr}(ABC) = \text{tr}(CAB)</m>), nous avons :
+                        </p>
+                        <me>
+                            Y^\top A Y = \text{tr}(A Y Y^\top).
+                        </me>
+
+                        <p>
+                            En prenant l'espérance, nous obtenons :
+                        </p>
+                        <me>
+                            \EE(Y^\top A Y) = \EE(\text{tr}(A Y Y^\top)) = \text{tr}(A \EE(Y Y^\top)).
+                        </me>
+
+                        <p>
+                            Or, <m>\EE(Y Y^\top) = \mathbf{\Sigma}(X)</m>, donc :
+                        </p>
+                        <me>
+                            \EE(Y^\top A Y) = \text{tr}(A \mathbf{\Sigma}(X)).
+                        </me>
+
+                        <p>
+                            En combinant ce résultat avec l'expression précédente, nous obtenons finalement :
+                        </p>
+                        <me>
+                            \EE({}^tX A X) = \mu^\top A \mu + \text{tr}(A \mathbf{\Sigma}(X)).
+                        </me>
+
+                        <p>
+                            Ce qui conclut la démonstration.
+                        </p>
+                    </solution>
+                </task>
+                <!-- Activité 1 : Modèle de portefeuille binaire -->
+                <task>
+                    <title>Modèle de portefeuille binaire</title>
+
+                    <objective> <em>Objectif :</em> Comprendre comment les formes quadratiques peuvent modéliser les interactions entre actifs dans un portefeuille binaire. </objective> <instructions>
+                    <p>
+                        Vous gérez un portefeuille de 3 actifs binaires.
+                        Chaque actif <m>X_i</m> peut être actif (<m>X_i = 1</m>) avec une probabilité <m>p_i</m> ou inactif (<m>X_i = 0</m>) avec une probabilité <m>1-p_i</m>.
+                        Les actifs peuvent être corrélés.
+                    </p>
+
+                    <p>
+                        <em>Données :</em>
+                    </p>
+
+                    <ul>
+                        <li>
+                            <m>X_1 \sim \mathscr B(0.5)</m>,
+                        </li>
+
+                        <li>
+                            <m>X_2 \sim \mathscr B(0.6)</m>,
+                        </li>
+
+                        <li>
+                            <m>X_3 \sim \mathscr B(0.7)</m>.
+                        </li>
+
+                        <li>
+                            La corrélation entre <m>X_1</m> et <m>X_2</m> est <m>\rho = 0.3</m>, et <m>X_3</m> est indépendant des deux autres.
+                        </li>
+
+                        <li>
+                            La matrice de pondération <m>A = \begin{pmatrix} 1 \amp 0.5 \amp 0 \\ 0.5 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}</m>.
+                        </li>
+                    </ul>
+                    <explanation>
+                    <title>Rôle de la matrice de pondération </title>
+
+                    <p>
+                        La matrice <m>A</m> représente les interactions entre les actifs du portefeuille.
+                        Chaque élément <m>A_{ij}</m> quantifie l'influence de l'actif <m>j</m> sur l'actif <m>i</m>.
+                        Par exemple, <m>A_{12} = 0.5</m> signifie que l'actif 2 influence l'actif 1 avec un poids de 0.5.
+                        Les éléments diagonaux <m>A_{ii}</m> représentent l'importance intrinsèque de chaque actif.
+                    </p>
+                    </explanation>
+
+                    <p>
+                        <em>Tâches :</em>
+                    </p>
+
+                    <ol>
+                        <li>
+                            Calculez la matrice de covariance <m>\Sigma</m>.
+                        </li>
+
+                        <li>
+                            Calculez <m>\mathbb{E}(X^\top A X)</m> en utilisant la formule <m>\text{Tr}(A \Sigma) + \mu^\top A \mu</m>.
+                        </li>
+
+                        <li>
+                            Interprétez le résultat en termes de risque du portefeuille.
+                        </li>
+                    </ol>
+                    </instructions>
+
+                    <solution>
+                        <p>
+                            <em>Solution :</em>
+                        </p>
+
+                        <ol>
+                            <li>
+                                <em>Matrice de covariance :</em> <m> \Sigma = \begin{pmatrix} 0.25 \amp 0.09 \amp 0 \\ 0.09 \amp 0.24 \amp 0 \\ 0 \amp 0 \amp 0.21 \end{pmatrix}. </m>
+                            </li>
+
+                            <li>
+                                <em>Calcul de <m>\mathbb{E}(X^\top A X)</m> :</em>
+                                <ul>
+                                    <li>
+                                        <m>\text{Tr}(A \Sigma) = 0.79</m>,
+                                    </li>
+
+                                    <li>
+                                        <m>\mu^\top A \mu = 1.47</m>,
+                                    </li>
+
+                                    <li>
+                                        <m>\mathbb{E}(X^\top A X) = 0.79 + 1.47 = 2.26</m>.
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <em>Interprétation :</em> Une espérance plus élevée indique un portefeuille plus risqué.
+                            </li>
+                        </ol>
+                    </solution>
+                </task>
+                <!-- Activité 2 : Réseau aléatoire avec interactions binaires -->
+                <task>
+                    <title>Réseau aléatoire avec interactions binaires</title>
+
+                    <objective> <em>Objectif :</em> Explorer comment les formes quadratiques peuvent modéliser les connexions dans un réseau aléatoire. </objective> <instructions>
+                    <p>
+                        Vous étudiez un réseau de 4 nœuds, où chaque nœud <m>X_i</m> est actif (<m>X_i = 1</m>) avec une probabilité <m>p_i</m> ou inactif (<m>X_i = 0</m>) avec une probabilité <m>1-p_i</m>.
+                        La matrice <m>A</m> représente les connexions entre les nœuds.
+                    </p>
+
+                    <p>
+                        <em>Données :</em>
+                    </p>
+
+                    <ul>
+                        <li>
+                            <m>X_1 \sim \mathscr B(0.5)</m>,
+                        </li>
+
+                        <li>
+                            <m>X_2 \sim \mathscr B(0.6)</m>,
+                        </li>
+
+                        <li>
+                            <m>X_3 \sim \mathscr B(0.7)</m>,
+                        </li>
+
+                        <li>
+                            <m>X_4 \sim \mathscr B(0.8)</m>.
+                        </li>
+
+                        <li>
+                            <p>
+                                les variables <m>X_1,X_2,X_3,X_4</m> sont supposés inépendantes.
+                            </p>
+                        </li>
+
+                        <li>
+                            La matrice de connexion <m>A = \begin{pmatrix} 0 \amp 1 \amp 0 \amp 1 \\ 1 \amp 0 \amp 1 \amp 0 \\ 0 \amp 1 \amp 0 \amp 1 \\ 1 \amp 0 \amp 1 \amp 0 \end{pmatrix}</m>.
+                        </li>
+                    </ul>
+                    <explanation>
+                    <title>Rôle de la matrice de connexion </title>
+
+                    <p>
+                        La matrice <m>A</m> représente les connexions entre les nœuds du réseau.
+                        Chaque élément <m>A_{ij}</m> vaut 1 si les nœuds <m>i</m> et <m>j</m> sont connectés, et 0 sinon.
+                        Par exemple, <m>A_{12} = 1</m> signifie que les nœuds 1 et 2 sont connectés.
+                        Les éléments diagonaux <m>A_{ii}</m> sont fixés à 0 pour indiquer qu'un nœud n'est pas connecté à lui-même.
+                    </p>
+
+                    <figure xml:id="fig-network">
+                        <caption>Representation du réseaux étudié</caption>
+                            <image width="33%" source="images/network"/>
+                    </figure>
+                    </explanation>
+
+                    <p>
+                        <em>Tâches :</em>
+                    </p>
+
+                    <ol>
+                        <li>
+                            Calculez <m>\mathbb{E}(X^\top A X)</m> en utilisant la formule <m>\text{Tr}(A \Sigma) + \mu^\top A \mu</m>.
+                        </li>
+
+                        <li>
+                            Interprétez le résultat en termes de nombre attendu de paires de nœuds actifs connectés.
+                        </li>
+                    </ol>
+                    </instructions>
+
+                    <solution>
+                        <p>
+                            <em>Solution :</em>
+                        </p>
+
+                        <ol>
+                            <li>
+                                <em>Calcul de <m>\mathbb{E}(X^\top A X)</m> :</em>
+                                <ul>
+                                    <li>
+                                            La matrice de covariance <m>\mathbf{\Sigma}(X)</m> est diagonale car les variables sont indépendantes :
+                                            <me>
+                                                \mathbf{\Sigma}(X) = \begin{pmatrix} 0.25 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0.24 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0.21 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0.16 \end{pmatrix}.
+                                            </me>
+                                    </li>
+
+                                    <li>
+                                        <m>\text{Tr}(A \Sigma) = 0</m> (car <m>A\Sigma</m> a des zéros sur la diagonale),
+                                    </li>
+
+                                    <li>
+                                        <m>\mu^\top A \mu = 3.42</m>,
+                                    </li>
+
+                                    <li>
+                                        <m>\mathbb{E}(X^\top A X) = 0 + 3.42 = 3.42</m>.
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <em>Interprétation :</em> En moyenne, 3.42 paires de nœuds actifs sont connectées dans le réseau.
+                            </li>
+                        </ol>
+                    </solution>
+                </task>
+                <!-- Activité 3 : Modèle de vote avec dépendances -->
+                <task>
+                    <title>Modèle de vote avec dépendances</title>
+
+                    <objective> <em>Objectif :</em> Analyser comment les formes quadratiques peuvent modéliser les influences entre électeurs dans un système de vote. </objective> <instructions>
+                    <p>
+                        Vous étudiez un système de vote avec 3 électeurs.
+                        Chaque électeur <m>X_i</m> vote pour un candidat (<m>X_i = 1</m>) avec une probabilité <m>p_i</m> ou s'abstient (<m>X_i = 0</m>) avec une probabilité <m>1-p_i</m>.
+                        Les votes peuvent être corrélés.
+                    </p>
+
+                    <p>
+                        <em>Données :</em>
+                    </p>
+
+                    <ul>
+                        <li>
+                            <m>X_1 \sim \mathscr B(0.6)</m>,
+                        </li>
+
+                        <li>
+                            <m>X_2 \sim \mathscr B(0.7)</m>,
+                        </li>
+
+                        <li>
+                            <m>X_3 \sim \mathscr B(0.8)</m>.
+                        </li>
+
+                        <li>
+                            La corrélation entre <m>X_1</m> et <m>X_2</m> est <m>\rho = 0.4</m>, et <m>X_3</m> est indépendant des deux autres.
+                        </li>
+
+                        <li>
+                            La matrice de pondération <m>A = \begin{pmatrix} 1 \amp 0.5 \amp 0 \\ 0.5 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}</m>.
+                        </li>
+                    </ul>
+                    <explanation>
+                    <title> Rôle de la matrice de pondération</title>
+
+                    <p>
+                        La matrice <m>A</m> représente les influences entre les électeurs.
+                        Chaque élément <m>A_{ij}</m> quantifie l'influence de l'électeur <m>j</m> sur l'électeur <m>i</m>.
+                        Par exemple, <m>A_{12} = 0.5</m> signifie que l'électeur 2 influence l'électeur 1 avec un poids de 0.5.
+                        Les éléments diagonaux <m>A_{ii}</m> représentent l'importance intrinsèque de chaque électeur.
+                    </p>
+                    </explanation>
+
+                    <p>
+                        <em>Tâches :</em>
+                    </p>
+
+                    <ol>
+                        <li>
+                            Calculez la matrice de covariance <m>\Sigma</m>.
+                        </li>
+
+                        <li>
+                            Calculez <m>\mathbb{E}(X^\top A X)</m> en utilisant la formule <m>\text{Tr}(A \Sigma) + \mu^\top A \mu</m>.
+                        </li>
+
+                        <li>
+                            Interprétez le résultat en termes d'influence des électeurs sur le résultat du vote.
+                        </li>
+                    </ol>
+                    </instructions>
+
+                    <solution>
+                        <p>
+                            <em>Solution :</em>
+                        </p>
+
+                        <ol>
+                            <li>
+                                <em>Matrice de covariance :</em> <m> \Sigma = \begin{pmatrix} 0.24 \amp 0.112 \amp 0 \\ 0.112 \amp 0.21 \amp 0 \\ 0 \amp 0 \amp 0.16 \end{pmatrix}. </m>
+                            </li>
+
+                            <li>
+                                <em>Calcul de <m>\mathbb{E}(X^\top A X)</m> :</em>
+                                <ul>
+                                    <li>
+                                        <m>\text{Tr}(A \Sigma) = 0.722</m>,
+                                    </li>
+
+                                    <li>
+                                        <m>\mu^\top A \mu = 1.97</m>,
+                                    </li>
+
+                                    <li>
+                                        <m>\mathbb{E}(X^\top A X) = 0.722 + 1.97 = 2.692</m>.
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <em>Interprétation :</em> L'espérance élevée reflète une forte influence des électeurs corrélés sur le résultat du vote.
+                            </li>
+                        </ol>
+                    </solution>
+                </task>
+            </activity>
+        </subsubsection>
+    </subsection>
+
+<subsection xml:id="subsec-moment">
+        <title>Moments d'ordre supérieurs</title>
+        <definition xml:id="def-moments">
+            <statement>
+                <p>
+                    Soient <m>X</m> une <acro>VADR</acro> et <m>p\in\N^*</m>. On dit que <m>X</m> est <m>p</m>-sommable si la variable <m>X^p</m> est sommable. L'espéance <m>\EE(X^p)</m> est alors appelée moment d'ordre <m>p</m> de <m>X</m>. 
+                </p>
+                <p>
+                    On notera <m>L^p(\Omega)</m> l'ensemble des <acro>VADR</acro> <m>p</m>-sommables de <m>(\Omega,\mathscr T,\PP</m>.
+                </p>
+            </statement>
+        </definition>
+        
+    </subsection>
+</section>

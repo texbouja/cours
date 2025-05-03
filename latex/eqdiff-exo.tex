@@ -1,0 +1,545 @@
+\begin{exer}
+On reprend les notations de l'exercice précédent.
+\xit+ Montrer que
+\< 
+\forall (t,s)\in I^2,\; \det\big(R(t,s)\big)=\exp\smash{\bigg(\int_s^t \tr\big(a(\theta)\big)\dt\theta\bigg)}
+\>
+\xit On suppose que $I=\R$ et que l'application $t\longmapsto \nmm{a(t)}$ est intégrable sur $\R$. Montrer qu'il existe $\delta>0$ tel que
+\< 
+\forall (t,s)\in\R^2,\;\det\big(R(t,s)\big)\geq \delta
+\>
+\exit
+
+\solution
+\xit+ Fixons $s\in I$. Soit  $\mathcal B=(e_1,e_2,\ldots,e_n)$ la base qu'on a fixé dans $E$. Les fonctions $f_k:t\longmapsto R(t,s)\cdot e_k$ sont des solutions de $(H)$ et leur wronksien  est
+\< 
+W(t)=\det_{\mathcal B}(R(t,s)\cdot e_1,\ldots,R(t,s)\cdot e_n)=
+\det\big(R(t,s)\big)
+\>
+L'équation du wronksien donne ainsi
+\< 
+\frac{\d}{\d t}\det\big( R(t,s)\big)=\tr\big(a(t)\big)\det \big(R(t,s)\big)
+\>
+Il existe donc un scalaire qui dépend de $s$ qu'on va noter $\lambda(s)$ tel que
+\< 
+\forall t\in I,\;
+\det\big(R(t,s)\big)=\lambda(s)\exp\bigg(\int_s^t\tr\big(a(\theta)\big)\d\theta\bigg)
+\>
+Mais comme $\det\big(R(s,s)\big)=\det(\id_E)=1$ alors $\lambda(s)=1$ et ainsi
+\<\r
+\forall (t,s)\in I^2,\;
+\det\big(R(t,s)\big)=\exp\bigg(\int_s^t\tr\big(a(\theta)\big)\d\theta\bigg)
+$\>
+\nb Pour tout $(t,s)\in I^2$ on a donc $\det\big(R(t,s)\big)>0$. \endnb
+\xit La trace est une forme linéaire continue de $\mathcal L(E)$ donc il existe une constante $c>0$ telle que
+\< 
+\forall u\in\mathcal L(E),\; |\tr u|\leq c\nmm{u}
+\>
+on a donc
+\< 
+\forall t\in\R,\; |\tr a(t)|\leq c\nmm{a(t)}
+\>
+Ce qui montre que l'application $t\longmapsto \tr a(t)$ est intégrable sur $\R$. Posons alors
+\< 
+T=\int_{-\infty}^{+\infty}\tr a(\theta)\d \theta
+\>
+Soit un réel $\alpha>0$. Il existe un réel $A>0$ tel que
+\< 
+\forall (s,t)\in\R^2,\; |t|>A\text{ et } |s|>A\Lra  \biggl|\,T-\int_s^t\tr\big(a(\theta)\big)\d\theta\,\biggr|\leq \alpha
+\>
+et donc
+\< 
+\forall (t,s)\in\big(\R\setminus[-A,A]\big)^2,\;  \int_s^t\tr\big(a(\theta)\big)\d\theta\geq T-\alpha
+\>
+Ce qui implique que pour tout $(t,s)$ en dehors du compact $[-A,A]^2$ on a
+\< 
+\det\big(R(t,s)\big)\geq \e^{T-\alpha}>0
+\>
+Sur le compact $[-A,A]^2$, l'application continue $(t,s)\longmapsto \det\big(R(t,s)\big)$ est bornée et atteint ses bornes. Comme elle ne s'annule pas sur $[-A,A]^2$ alors sa borne inférieure est strictement positive. D'où l'existence d'un réel $\delta>0$ tel que
+\<\r
+\forall (t,s)\in\R^2,\; \det\big(R(t,s)\big)\geq \delta
+\>
+\exit
+\end{exer}
+
+\begin{exer}
+On suppose que $E$ est un espace euclidien. On considère une \textsc{edl} homogène
+\< x'=a(t)\cdot x \qqaud (H)\>
+On suppose que pour tout $t\in I$, $a(t)$ est un endomorphisme antisymétrique.
+\xit+ Montrer que si $f$ est une solution de $(H)$ alors $t\longmapsto \nm{f(t)}$ est constante.
+\xit Soit  $r$ est une solution sur $I$ de l'équation dite résolvante de $(H)$ :
+\< 
+u'=a(t)\circ u
+ \qquad (RH)\>
+Montrer que s'il existe $t_0\in I$ tel que $r(t_0)$ soit inversible alors pour tout $(t,s)\in\R^2$, $r(t)\circ \big(r(s)\big)^{-1}$ est une isométrie de $E$.
+\exit
+
+\solution
+\xit+ Soit $f$ une solution de $(H)$ sur $I$. La fonction $\rho:t\longmapsto \nm{f(t)}^1$ est alors de classe $\mathcal C^1$ sur $I$ et on a
+\< 
+\rho'(t)=2\langle f(t),f'(t)\rangle =2\langle f(t),a(t)\cdot f(t)\rangle=0
+\>
+Donc $\rho$ est constante sur $I$. Ce qui implique que la fonction $t\longmapsto \nm{f(t)}$ est constante sur $I$.
+
+\xit Posons pour tout $v\in E$, $f_v(t)=r(t)\cdot v$. La fonction $f_v$ est dérivable et
+\< 
+f_v'(t)=r'(t)\cdot v=a(t)\circ r(t)\cdot v=a(t)\cdot f_v(t)
+\>
+Donc $f_v$ est une solution de $x'=a(t)\cdot v$. Soit maintenant $(v_1,v_2,\ldots,v_d)$ une base de $E$. Pour tout $k\in\iic{1,d}$ on a $f_{v_k}(t_0)=r(t_0)\cdot v_k$ et comme $r(t_0)$ est inversible alors $(f_{v_1}(t_0),\ldots,f_{v_d}(t_0))$ est une base de $E$. La famille $(f_{v_1},\cdots,f_{v_d})$ est donc un \textsc{sfs} de $(H)$. La famille $(r(t)\cdot v_1,\ldots,r(t)\cdot v_d)$ est ainsi une base de $E$ pour tout $t\in I$. Ce qui implique que $r(t)$ est inversible pour tout $t\in I$.
+
+Par ailleurs pour tout $s\in I$ fixé, il est immédiat que la fonction $t\longmapsto r(t)\circ r(s)^{-1}$ est une solution de $(RH)$. Donc pour tout $v\in E$ la fonction
+\< 
+t\longmapsto r(t)\circ r(s)^{-1}\cdot v
+\>
+est une solution de $(H)$. La fonction $t\longmapsto \nm{r(t)\circ r(s)^{-1}\cdot v}$ est donc constante. Pour $t=s$ elle prend la valeur $\nm{v}$ donc
+\< 
+\forall t\in I,\; \nm{r(t)\circ r(s)^{-1}\cdot v}=\nm{v}
+\>
+Ceci pour tout $v\in E$. Alors $r(t)\circ r(s)^{-1}$ est une isométrie de $E$ pour tous $t,s\in I$.
+
+\exit
+\end{exer}
+
+
+\begin{exer}(Solutions périodiques d'une \textsc{edl} d'ordre $1$)
+Soient des applications continues  $A:\R\lra\mathcal M_d(\C)$ et $B:\R\lra \mathcal M_{d,1}(\C)$. On suppose que $A$ et $B$ sont $T$-périodiques. On considère le système différentiel
+\< 
+X'=A(t)X +B(t)
+ \qquad (E)\>
+et note $(H)$ son système homogène.
+\xit+ Soit $\alpha$ une fonction réelle continue $T$-périodique. Donner une \textsc{cns} pour que l'\textsc{edls} $x'=\alpha(t)x$ admette des solutions $T$-périodiques non nulle.
+\xit Soit $G$ une solution du système $(E)$. Montrer que $G$ est $T$-périodique si et seulement si $G(T)=G(0)$.
+\xitt{Cas d'une équation à coefficients constants :}
+
+On suppose que l'application $A$ est constante.
+\xit+ Montrer que $H$ admet une solution $T$-périodique si et seulement si $A$ admet au moins une \vap $\lambda\in\mathbf i\frac{2\pi}T\Z$
+% telle que $F(0)\in E_\lambda(A)$.
+\xit On suppose que $B$ est $T$-périodique. Soit $G$ une solution de $(E)$. Montrer que $G$ est $T$-périodique si et seulement si
+\< (I_d-\e^{-TA})G(0)=\int_0^T\e^{-sA}B(s)\dt s\>
+Montrer que si $(H)$ n'admet aucune solution périodique alors $(E)$ admet une unique solution $T$-périodique.
+\xit- On note $R$ l'application résolvante de $(H)$. Montrer que
+\< 
+\forall (t,s)\in \R^2,\; R(t+T,s+T)=R(t,s)
+\>
+%En déduire que les matrices $R(t+T,t)$ sont toutes semblables à $R(T,0)$.
+\xitt{Solutions périodiques de l'équation homogène}
+\xit+  Montrer que $(H)$ admet une solution $T$-périodique non nulle si et seulement si $1$ est une \textsc{vap} de la matrice $R(T,0)$.
+\xit Soit $p\in\N^*$. Montrer que $(H)$ admet une solution $pT$-périodique non nulle si et seulement si $R(T,0)$ admet une \textsc{vap} $\lambda$ telle que $\lambda^p=1$.
+\xit Montrer que si $R(T,0)$ admet au moins une \vap $\lambda$ telle que $\lambda^p=1$ et $\lambda\ne 1$ alors $(H)$ admet au moins une solution $pT$-périodique non constante.
+\xitt-{Un exemple :} On suppose que $A$ est l'application $2\pi$-périodique :
+\< 
+A:t\longmapsto \begin{pmatrix} 0&1/2&0 \\ -1/2&0&0 \\ 0&0& 1+\sin t\end{pmatrix}
+\>
+Montrer que
+\< 
+R(t,0)=\begin{pmatrix}
+\cos(t/2)&-\sin(t/2)&0 \\ \sin(t/2)&\cos(t/2)&0 \\ 0&0& \e^{1-\cos t+t}
+\end{pmatrix}
+\>
+En déduire que $(H)$ admet des solutions $\pi$-périodiques non constantes.
+\exit
+
+\solution
+
+\xit+ Les solutions de l'équation différentielle $x'=\alpha(t)x$ sont les fonctions $f:t\longmapsto \lambda \e^{A(t)}$ où $A$ est une primitive de $\alpha$. Si $\lambda\ne0$ alors $f$ est $T$-périodique si et seulement si pour tout $t\in\R$, $\e^{A(t+T)-A(t)}=1$, ce qui équivaut à
+\< 
+\forall t\in\R,\int_t^{t+T}\alpha(s)\d s\in2\mathbf i\pi\Z
+\>
+Puisque $\alpha$ est $T$-périodique, ceci équivaut à
+\< \int_0^T\alpha(s)\d s\in 2\mathbf i\pi\Z\>
+\nb Avec $\alpha(t)=\cos^2t$, l'équation $x'=\alpha(t)x$ n'aurait par exemple aucune solution $\pi$-périodique non nulle bien que $\alpha$ est $\pi$-périodique.
+\endnb
+
+\xit Si $G$ est $T$-périodique alors $G(T)=G(0)$.
+
+Réciproquement supposons que $G(T)=G(0)$ et considérons
+$H:t\longmapsto G(t+T)$.
+Pour tout $t\in\R$ on a
+\< H'(t)=G'(t+T)=A(t+T)G(t+T)+B(t+T)=A(t)H(t)+B(t)\>
+donc $H$ est une solution de $(E)$. En outre on a $H(0)=G(T)=G(0)$ donc selon le théorème de Cauchy-Lipschitz, $F=G$. Ce qui signifie que $G$ est $T$-périodique.
+
+\xit\xit+ Soit $F$ une solution non nulle de $(H)$. On a alors  $F(t)=\e^{tA}F(0)$ pour tout $t\in\R$.  La fonction constante $A$ est $T$-périodique donc selon la question précédente $F$ est $T$-périodique si et seulement si $F(T)=F(0)$. Ce qui équivaut~à
+\< 
+\e^{TA}F(0)=F(0)
+\>
+Comme $F$ est non nulle alors $F(0)\ne0$ et donc $F$ est $T$-périodique si et seulement si $1$ est une \vap de $\e^{TA}$ et $F(0)\in E_{1}(\e^{TA})$.
+
+D'après l'exercice \ref{exer:smt}, les \vap de $\e^{TA}$ sont les nombres de la forme $\e^{T\lambda}$ où $\lambda$ est une \vap de $A$ donc $1$ est une \vap de $\e^{TA}$ si et seulement s'il existe $\lambda\in\OPN{Sp}(A)$ tel que $\e^{\lambda T}=1$. Ce qui équivaut à $\lambda\in\mathbf i\frac{2\pi}{T}\Z$.
+
+\xit $G$ est une solution de l'équation complète. Son expression intégrale est
+\< 
+G(t)=\e^{tA}G(0)+\int_0^t\e^{(t-s)A}B(s)\d s=
+\e^{tA}\bigg(G(0)+\int_0^t\e^{-sA}B(s)\d s\bigg)
+\>
+Elle est $T$-périodique si et seulement si $G(T)=G(0)$, ce qui équivaut à
+\< 
+(I_d-\e^{-TA})G(0)=\int_0^T\e^{-sA}B(s)\d s
+\>
+Supposons que $(H)$ n'a aucune solution périodique. Selon la question précédente $1$ n'est pas une \vap de $\e^{TA}$ et donc de son inverse $\e^{-TA}$. La matrice $I_d-\e^{-TA}$ est alors inversible et il existe donc un vecteur $V\in\mathcal M_{d,1}(\C)$ unique tel que
+\<\n\lb{condv} 
+(I_d-\e^{-TA})V=\int_0^T\e^{-sA}B(s)\d s
+ \>
+L'unique solution $G$ de $(E)$ qui est alors $T$-périodique est celle qui vérifie la condition initiale $G(0)=V$.
+\nb
+Si $(H)$ admet des solutions $T$-périodiques alors $1$ est une \vap de $\e^{-tA}$.
+L'existence de vecteurs $V$ qui vérifient \eqref{condv} dépend alors de la condition
+\< 
+\int_0^T\e^{-sA}B(s)\d s\in\im\big(I_d-\e^{-TA}\big)
+\>
+Si cette condition se réalise alors une solution $G$ de $(E)$ sera $T$-périodique si et~seulement~si
+\< 
+G(0)\in V_0+\ker\big(I_d-\e^{-TA}\big)=V_0+\ker\big(I_d-\e^{TA}\big)
+\>
+où $V_0$ est une solution quelconque de l'équation \eqref{condv}.
+\endnb
+\mini(synthèse)
+Un système différentiel à coefficient constants
+\< X'=AX+B(t)\>
+où $B$ est $T$-périodique et $1$ n'est pas une \vap de $\e^{TA}$ admet une solution $T$-périodique non nulle et une seule. C'est la solution $G$ telle que
+\< 
+(I_d-\e^{-TA})G(0)=\int_0^T\e^{-sA}B(s)\d s
+\>
+\endmini
+
+\xit- Considérons l'équation résolvante de $(H)$ :
+\< 
+U'=A(t)\circ U
+ \qquad (RH)\>
+et rappelons que pour un $s$ fixé la fonction $U : t\longmapsto R(t,s)$ est l'unique solution de $(RH)$ qui vérifie $U(s)=I_d$.
+
+Fixons maintenant $s\in \R$ et considérons la fonction $r:t\longmapsto R(t+T,s+T)$.
+\< 
+r'(t)=\frac{\partial R}{\partial t}(r+T,s+T)=A(t+T)R(t+T,s+T)=
+A(t)r(t)
+\>
+Donc $r$ est une solution de $(RH)$ et elle vérifie $r(s)=R(s+T,s+T)=I_d$. Alors par définition de $R$
+\< 
+\forall t\in\R,\;R(t+T,s+T)=R(t,s)
+\>
+ceci pour tout $s\in \R$.
+Ensuite pour tout $t\in\R$, on a selon  les résultats de l'exercice \ref{exer:resol} et la relation précédente
+\< \aligned
+R(t+T,t) &= R(t+T,T)R(T,0)R(0,t) \\ &=
+R(t,0)R(T,0)R(t,0)^{-1}
+\endaligned\>
+$R(t+T,t)$ est donc semblable à $R(T,0)$.
+
+\xit\xit+ Considérons une solution non nulle $F$ de $(H)$. Alors pour tout $t\in\R$ on a $F(t)=R(t,0)F(0)$. $F$ est $T$-périodique si et seulement si $F(T)=F(0)$ ou encore
+\< 
+R(T,0)F(0)=F(0)
+\>
+Sachant que $F(0)\ne0$, ceci équivaut équivaut à ce que $1$ soit une \vap de $R(T,0)$ et que $F(0)\in E_1\big(R(T,0)\big)$. Ainsi $(H)$ admet des solutions non nulles $T$-périodiques si et seulement si $1$ est une \vap de $R(T,0)$ et dans ce cas ces solutions sont les fonctions $t\longmapsto R(t,0)V$ où $V\in E_1(R(T,0))\setminus\{0\}$.
+
+
+\xit $A$ est $T$-périodique donc elle est $pT$-périodique. La question précédente implique que $(H)$ admet une solution $pT$-périodique non nulle si et seulement si $1$ est une \vap de $R(pT,0)$. En s'appuyant sur les propriétés de $R$ on s'aperçoit par ailleurs que pour tout $n\in\N$
+\< 
+R\big((n+1)T,0\big)=R\big((n+1)T,T)R(T,0)=R(nT,0)R(T,0)
+\>
+Et donc $R(nT,0)=R(T,0)^n$ pour tout $n\in\N$. D'après l'exercice \ref{exer:smt}, $1$ est donc une \vap de $R(pT,0)$ si et seulement s'il existe une \vap $\lambda$ de $R(T,0)$ telle que $\lambda^p=1$. Dans ce cas ces solutions sont les fonctions $t\longmapsto R(t,0)V$ où $V$ est un vecteur non nul quelconque de $E_1(R(T,0)^p)$.
+
+\xit Soit $V\in E_\lambda(R(T,0))\setminus\{0\}$. Puisque $\lambda^p=1$ alors la fonction $F:t\longmapsto R(t,0)V$ est une solution $pT$-périodique non nulle de $(H)$. Supposons qu'elle est constante. On aura alors $R(T,0)V=R(0,0)V=V$. Le vecteur $V$ serait donc associé à $1$, ce qui est contradictoire puisqu'on a supposé que $\lambda\ne1$.
+
+\exit
+\end{exer}
+
+
+\begin{exer}(Différentielle de l'exponentielle)
+\nb Cet exercice exige des connaissances de calcul différentiel. Il figure dans ce document parcequ'il utilise essentiellement les outils mis en place dans le présent chapitre.
+\endnb
+
+On admet que l'application $\exp$ est de classe $\mathcal C^1$ sur $\mathcal M_d(\R)$ (voir cours sur le calcul différentiel, exercice 1.11).
+
+Pour toute matrice $M\in\mathcal M_d(\R)$ on note $\OPN{Ad}_M$ l'endomorphisme de $\mathcal M_d(\R)$ défini par
+\< 
+\forall H\in\mathcal M_d(\R),\; \OPN{Ad}_M(H)=[M,H]=MH-HM
+\>
+
+\xit+ Soient $M,H\in\mathcal M_d(\R)$. Montrer que $\e^MH\e^{-M}=\e^{\OPN{Ad}_M}\cdot H$.
+\ind Introduire l'application $t\longmapsto \e^{tM}H\e^{-tM}$ et montrer qu'elle est la solution d'une \textsc{edl} d'ordre $1$ à coefficients constants.
+\endind
+On introduit les applications
+\< \aligned
+\forall (t,s)\in\R^2,\; \phi(t,s)&=\e^{-tM}\e^{t(M+sH)} \\
+\forall t\in\R,\; g(t)&=\dd \phi s(t,0)
+\endaligned\>
+\mini(attention) La dérivé partielle $\dd \phi s$ n'est pas du tout triviale.
+\endmini
+
+\xit Montrer en utilisant le théorème de Schwarz que $g'(t)=\e^{-tM}H\e^{tM}$ et en déduire que $g(t)=\e^{-t\OPN{Ad}_M}\cdot H$.
+\xit Calculer $g(t)$ en utilisant la différentielle de l'application $\exp$.
+\xit En déduire que
+\< 
+\forall (M,H)\in\mathcal M_d(\R)^2,\; \dt(\exp)(M)\cdot H=
+\e^M\sum_{n=0}^{+\infty}\frac{(-1)^n}{(n+1)!}(\OPN{Ad}_M)^n\cdot H
+\>
+Que devient cette expression lorsque $MH=HM$~?
+\exit
+\end{exer}
+
+
+
+\begin{exer}(solutions \dse, cas d'une équation normalisée)<eqdse>
+On considère une \textsc{edls} normalisée d'ordre $2$
+\< 
+x''(t)+p(t)x'+q(t)x=0
+ \qquad (H)\>
+et on suppose que $p$ et $q$ sont \dse en $0$ sur un intervalle $]-r,r[$ :
+\< 
+\forall t\in]-r,r[\xituad p(t)=\sum_{n=0}^{+\infty} p_nt^n\xituad q(t)=\sum_{n=0}^{+\infty}q_n t^n
+\>
+On considère une fonction $f$ \dse en $0$ qu'on écrit sous la forme $f(t)=\sum\limits_{n=0}^{+\infty}a_n t^n$.
+\xit+ Montrer que si $f$ est une solution de $(E)$  alors
+\< 
+\forall n\in\N,\; a_{n+2}=\frac{-1}{(n+1)(n+2)}
+\sum_{k=0}^n\big((k+1)a_{k+1}p_{n-k}+a_kq_{n-k}\big)
+\>[$(ER)$]
+\xit Réciproquement, soit une suite non nulle $(a_n)_n$ qui vérifie la relation $(ER)$. On considère  $\rho \in{}]0,r[$ et $M>0$ tels que $|p_n|\rho^n\leq M$ et $|q_n|\rho^n\leq M$ pour tout $n\in\N$. On pose $b_0=|a_0|,\; b_1=|a_1|$ et
+\< 
+\forall n\in\N,\; b_{n+2}=\frac{M}{(n+1)(n+2)}\Big(
+\sum_{k=0}^n\frac{(k+1)b_{k+1}+b_k}{\rho^{n-k}}+ \rho b_{n+1}\Big)
+\>
+\xit+ Montrer que $|a_n|\leq b_n$, pour tout $n\in\N$.
+\xit  Montrer que $b_{n+1}=\ds b_n\frac{n(n-1)+nM\rho+M\rho^2}{\rho n(n+1)}$.
+\xit  En déduire que $\sum a_nt^n$ a un \textsc{rc} $\geq r$.
+\xit- Montrer que pour tous $a_0,a_1\in \K$, il existe une unique solution $f$ de $(H)$ \dse sur $]-r,r[$ telle que $f(0)=a_0$ et $f'(0)=a_1$.
+\exit
+
+\solution
+\xit+ En injectant l'expression $f(t)=\sum_{n=0}^{+\infty}a_nt^n$ dans l'équation $(H)$ on obtient
+\< 
+\sum_{n=0}^{+\infty}(n+2)(n+1)a_{n+2}t^n+\sum_{n=0}^{+\infty}\sum_{k=0}^n((k+1)a_{k+1}p_{n-k})t^n+\sum_{n=0}^{+\infty}\sum_{k=0}^na_kq_{n-k}t^k=0
+\>
+De quoi on déduit que
+\< 
+\forall n\in\N,\; (n+2)(n+1)a_{n+2}+\sum_{k=0}^n\big((k+1)a_kp_{n-k}+a_kq_{n-k}\big)=0
+\>
+\nb Cette relation implique que la suite $(a_n)_n$ est entièrement déterminée par ses deux premiers termes $a_0$ et $a_1$. L'ensemble de ces suites est un $\K$-ev de dimension $\leq 2$.
+\endnb
+
+\xit L'existence de $M$ tel que $|p_n|\rho^n\leq M$ et $|q_n|\rho ^n$ découle du fait que $\rho$ est plue petit que les rayons de convergence des séries entières $\sum p_nt^n$ et $\sum q_n t^n$.
+
+Ensuite la relation précédente sur les termes $a_n$ implique que pour tout $n\in\N$
+\< 
+|a_{n+1}|\leq\frac M{(n+2)(n+1)}
+\sum_{k=0}^n\frac{1}{\rho^{n-k}}\big((k+1)|a_{k+1}|+|a_k|\big)
+\>
+\xit+ Une récurrence évidente établit donc que $|a_n|\leq b_n$ pour tout $n\in\N$.
+\nb le rôle du terme $\rho b_{n+1}$ dans la définition de $b_{n+2}$ deviendra claire dans la suite.
+\endnb
+
+\xit Simplifions l'écriture de $b_{n+1}$. Pour tout $n\geq 2$
+\begin{align*}
+b_{n+1}&=
+\frac{M}{n(n+1)}\Big(\sum_{k=0}^{n-1}
+\frac{(k+1)b_{k+1}+b_k}{\rho^{n-1-k}}+ \rho b_{n}\Big)  \\ &=
+\frac{M}{n(n+1)}\bigg(\frac1\rho\Big(\sum_{k=0}^{n-2}
+\frac{(k+1)b_{k+1}+b_k}{\rho^{n-2-k}}+\rho b_{n-1}\Big)+(nb_n+b_{n-1}) +\rho b_{n}- b_{n-1}\bigg) \\ &=
+\frac{M}{n(n+1)}\Big(\frac{(n-1)n}{\rho M}b_n+nb_n+\rho b_{n}\Big) \\ &=
+\frac{b_n}{\rho n(n+1)}\big(n(n-1)+n\rho M+\rho^2 M\big) \\
+\igboxed{b_{n+1}&=\alpha_nb_n} \xituad \text{avec}\;\alpha_n=\frac{n(n-1)+n\rho M+\rho^2M}{\rho n(n+1)}
+\end{align*}
+\nb C'est l'ajout du terme $\rho b_n$ dans la définition de $b_{n+2}$ qui a permis l'obtention d'une relation aussi simple entre $b_{n+1}$ et $b_n$.
+\endnb
+
+\xit La suite $(a_n)$ est non nulle donc $(b_n)$ est non nulle, et comme $\alpha_n>0$ alors $b_n>0$ pour tout $n\geq n_0$ dès que $b_{n_0}\ne 0$ pour un certain $n_0$. Par suite
+\< 
+\forall t\ne0,\; \Big|\frac{b_{n+1}t^{n+1}}{b_nt^n}\Big|=\alpha_n|t|\lra \frac{|t|}\rho
+\>
+La série entière $\sum b_nt^n$ a donc un \textsc{rc} qui vaut $\rho$. Notons $R$ le \textsc{rc} de $\sum a_n t^n$. Comme $|a_n|\leq b_n$ alors $R\geq \rho$ pour tout $\rho \in]0,r[$. Donc $R\geq r$.
+
+\xit- En compilant les résultats de la question précédente, on voit que $f$ est une solution de $(H)$ sur $]-r,r[$ si et seulement si la suite $(a_n)$ vérifie la relation $(ER)$. La suite $(a_n)_n$ elle même est entièrement déterminée par les termes $a_0$ et $a_1$. Comme $a_0=f(0)$ et $a_1=f'(0)$ alors pour tout $a_0,a_1\in \R$ il existe une unique solution $f$ de $(H)$ \dse en $0$ telle que $f(0)=a_0$ et $f'(0)=a_0$.
+\nb Reformulons : si les fonctions $p$ et $q$ sont continues sur un intervalle $I$ et sont \dse en $0$ sur $]-r,r[\subset I$ alors toutes les solutions de $(H)$ sur $I$ sont \dse en $0$ sur $]-r,r[$.
+\endnb
+\exit
+\end{exer}
+
+\begin{exer}(solutions \dse, cas d'une équation non normalisable en $0$)<eqdsen>
+On considère une \textsc{edls} homogène d'ordre 2 de la forme
+\< 
+t^2x''+tp(t)x'+ q(t)x=0
+ \qquad (H)\>
+et on suppose que les fonctions $p$ et $q$ sont \dse en $0$ sur un intervalle $]-r,r[$ :
+\< 
+\forall t\in]-r,r[\xituad p(t)=\sum_{n=0}^{+\infty} p_nt^n\xituad q(t)=\sum_{n=0}^{+\infty}q_n t^n
+\>
+On cherche les solutions de $(H)$ qui se prolongent sur $]-r,r[$ sous la forme
+\<\n\lb{solform} 
+f(t)=|t|^z\sum_{n=0}^{+\infty}a_n t^n
+ \>
+où $a_0\ne0$ et $z\in \K$ qui reste à déterminer. On note $R$ le \textsc{rc} de $\sum a_n t^n$.
+\xit+ Montrer que si $f$ induit une solution de $(H)$ sur $]0,r[$ alors
+\begin{cond}[24pt][lr]
+& $P(z)=0$ &\\
+& $\ds\forall n\in\N^*,\;
+P(n+z)a_n=-\sum_{k=0}^{n-1}\big((k+z)p_{n-k}+q_{n-k}\big)a_k$ & $(ER)$
+\end{cond}
+où $P$ est le polynôme donné par  $P(X)=X(X-1)+p_0X+q_0$.
+\xit Réciproquement soit $z$ la racine de $P$ qui a la plus grande partie réelle. On suppose que la suite $(a_n)$ vérifie la relation de récurrence $(ER)$.
+
+Montrer que $R\geq r$ et que $f$ induit une solution de $(H)$ sur $]0,r[$.
+\xit Étudier la possibilité de prolonger $f$ en une solution de $(H)$ sur $]-r,r[$.
+\exit
+
+\solution
+\xit+ Supposons que $f$ soit une solution de $(H)$ sur $]0,r[$.
+\nb $f$ est continue sur $]-r,r[$ si $\re z\geq0$, mais Il faudra que $\re z>2$ pour qu'elle soit deux fois dérivable sur $]-r,r[$.
+\endnb
+On peut dériver terme à terme la somme de la série de fonctions $\sum a_nt^{n+z}$ pour les mêmes raisons que pour une série entière, à savoir une \cvu sur tout segment de $]0,r[$ de cette série et de ses séries dérivées.
+En remplaçant $x$ par $f(t)$ dans $(H)$,  on obtient
+\< 
+\sum_{n=0}^{+\infty}\bigg(
+(z+n)(z+n-1)a_n+\sum_{k=0}^n(z+k)a_kp_{n-k}+\sum_{k=0}^na_kq_{n-k}
+\bigg)t^{n+z}=0
+\>
+Maintenant en multipliant par $t^{-z}$ on fait apparaitre la somme d'une série entière nulle. Ces coefficients sont donc tous nuls.
+\< 
+\forall n\in\N,\; (n+z)(n+z-1)a_n+\sum_{k=0}^n\Big((z+k)p_{n-k}+q_{n-k}\Big)a_k=0
+\>
+Sachant qu'on a supposé que $a_0\ne0$, on peut donc écrire
+\< (ER)\xituad \left\{\;\aligned
+&P(z)=0 \\
+&\forall n\geq 1,\;P(z+n)a_n =-\sum_{k=0}^{n-1}\Big((z+k)p_{n-k}+q_{n-k}\Big)a_k
+\endaligned\right.\>
+\nb
+Soit $z$ est une racine de $P$.  Si $P(z+n)\ne0$ pour tout $n\geq 1$ alors la suite $(a_n)_n$ est bien définie et elle est entièrement déterminée par son premier terme $a_0$.
+\endnb
+
+\xit Soit $z$ la racine de $P$ ayant la plus grande partie réelle. Alors pour tout $n\in\N^*$, on ne peut avoir $P(z+n)=0$ et donc les relations $(ER)$ définissent complètement la suite $(a_n)_n$ à partir de son premier terme $a_0$. Il reste à justifier que le \textsc{rc} $R$ de la série entière $\sum a_n t^n$ vérifie $R\geq r$. Pour cela, comme dans l'exercice précédent, en prenant $\rho\in]0,r[$ et $M>0$ tel que $|p_n|\rho^n\leq M$ et $|q_n|\rho^n\leq M$ pour tout $n\in\N$, on a
+\< 
+\forall n\in\N^*,\; |a_n|\leq \frac M{|P(z+n)|}
+\sum_{k=0}^{n-1}\frac{|z+k|+1}{\rho^{n-k}}|a_k|
+\>
+En introduisant maintenant la suite $(b_n)_n$ définie par $b_0=|a_0|$ et
+\<\n\lb{recbn} 
+\forall n\in\N^*, b_{n}=\frac M{\rho^n|P(z+n)|}\sum_{k=0}^{n-1}\big(|z+k|+1\big)\rho^k b_k
+ \>
+On aura pour tout $n\in\N$
+\begin{align*}
+b_{n+1} &= \frac M{\rho^{n+1}|P(z+n+1)|}\bigg(
+\frac{\rho^{n}|P(z+n)|}{M}b_n+\big(|z+n|+1\big)\rho^n b_n
+\bigg) \\ &=
+\frac{|P(z+n)|+M|z+n|+M}{\rho |P(z+n+1)|}b_n
+\end{align*}
+Ici $b_0>0$ donc la relation \eqref{recbn} implique que $b_n>0$ pour tout $n\in\N^*$. Par suite pour tout réel $t\ne 0$
+\< 
+\Big|\frac{b_{n+1}t^{n+1}}{b_nt^n}\Big|=\frac{|P(z+n)|+M|z+n|+M}{\rho |P(z+n+1)|}|t|
+\>
+$P$ est unitaire de degré $2$ donc $|P(z+n)|\sim |P(z+n+1)|\sim n^2$ et donc
+\< 
+\Big|\frac{b_{n+1}t^{n+1}}{b_nt^n}\Big|\lra \frac{|t|}\rho
+\>
+La série entière $\sum b_n t^n$ a donc pour \textsc{rc} $\rho$. Comme par construction $|a_n|\leq b_n$ alors $R\geq \rho$, ceci pour tout $\rho\in]0,r[$. Ainsi $R\geq r$.
+
+La fonction $f$ est donc bien définie et de classe $\mathcal C^\infty$ sur $]0,r[$. La suite $(a_n)$ vérifiant la relation $(ER)$, la fonction $f$ induit une solution sur $]0,r[$ de $(H)$.
+
+\nb La condition imposée à la racine $z$ de $P$ n'a servi qu'à assurer que
+$P(z+n)\ne0$ pour tout $n\in\N^*$. Si les deux racines $z_1$ et $z_2$ de $P$ sont distinctes et vérifient $z_1-z_2\notin\Z$ alors cette dernière condition est remplie à la fois pour $z_1$ et pour $z_2$. Ce qui permet de déterminer deux solutions linéairement indépendantes de $(H)$ sur $]0,r[$.
+\endnb
+\nb Si les nombres $p(0)$ et $q(0)$ sont réels alors le polynôme $P$ est à coefficients réels. S'il admet deux racines complexes non réelles $z$ et $\OV z$ alors $z-\OV z$ est imaginaire pure et ne peut donc être un élément de $\Z$. En revenant aux équations $(ER)$,  on peut observer que si $(a_n)_n$ est la suite associée à $z$ alors $(\OV{a_n})_n$ est la suite associée à $\OV z$. On obtient ainsi les deux solutions indépendantes de $(H)$ sur $]0,r[$ :
+\< \aligned
+f_1(t)&=t^{z}\sum_{n=0}^{+\infty}a_nt^n &&&
+f_2(t)&=t^{\OV z}\sum_{n=0}^{+\infty}\OV{a_n}t^n
+\endaligned\>
+
+\endnb
+
+\xit Par ailleurs en posant $a_n=\delta_n a_0$ , les relations $(ER)$ se traduisent par
+\< 
+\delta_0=1 \xituad \forall n\in\N^*,\;
+\delta_n=
+-\frac1{P(z+n)}\sum_{k=0}^{n-1}\Big((z+k)p_{n-k}+q_{n-k}\Big)\delta_k
+\>
+La suite $(\delta_n)_n$ est donc unique et on a
+\< 
+\forall t\in{}]-r,r[,\; f(t)=a_0|t|^z\sum_{n=0}^{+\infty}\delta_n t^n=a_0|t|^zg(t)
+\>
+La fonction $g$ ainsi introduite est de classe $\mathcal C^\infty$ sur $]-r,r[$ et vérifie $g(0)=1$. La fonction $f$ est donc deux fois dérivable en $0$ si et seulement c'est la cas de la fonction $t\longmapsto |t|^z$. Ce qui n'est possible que si $z=2$ ou $\re z>2$.
+\nb $z$ ne dépend que de $p_0=p(0)$ et $q_0=q(0)$.\endnb
+
+\exit
+\end{exer}
+
+\begin{exer}
+On considère une \textsc{edls} homogène normalisée
+\< x''+p(t)x'+q(t)x=0 \qquad (H)\>
+\xit+ Montrer toute solution non nulle de $(H)$ admet au plus un nombre fini de zéros dans tout segment de $I$.
+En déduire que l'ensemble de ces zéros dans $I$ est au plus dénombrable.
+\xit On suppose que $f$ est une solution non nulle de $(H)$ qui admet au moins deux zéros dans $I$ et on considère $t_1,t_2$ deux zéros \og successifs\fg{} de $f$. Montrer que toute solution $g$ de $(H)$ non colinéaire à $f$ admet exactement un zéro entre $t_1$ et $t_2$.
+\exit
+
+\solution
+\xit+ Soit $f$ une solution non nulle de $(H)$ et considérons un segment $J\subset I$. Supposons que $f$ admet une infinité de zéros dans $J$. Il est alors possible de construire une suite injective formée de zéros de $f$ dans $J$. Le segment $J$ étant un compact, cette suite aurait au moins une suite extraite qui converge. Notons $(t_n)_n$ cette sous-suite et $\ell$ sa limite.
+
+On a $f(t_n)=0$ pour tout $n\in\N$ et $f$ est continue donc $f(\ell)=0$. Ensuite, la suite $(t_n)_n$ étant injective, au plus un terme $t_n$ peut prendre la valeurs $\ell$, il existe donc un rang à partir duquel $t_n\ne\ell$. On a alors
+\< 
+\frac{f(t_n)-f(\ell)}{t_n-\ell}\xrightarrow[n\to\infty]{}f'(\ell)
+\>
+et donc $f'(l)=0$. Pour résumer, $f$ est une solution de $(H)$ et il existe $\ell\in I$ tel que $f(\ell)=0$ et $f'(\ell)=0$. La fonction nulle étant une solution de $(H)$ qui vérifie aussi ces conditions on a donc $f\equiv0$. Ce qui contredit l'hypothèse faite sur $f$.
+
+\<\r
+Pour tout segment $J$ de $I$, $f$ admet au plus un nombre fini de zéros dans $J$.
+\>
+\nb
+Ce résultat permet de justifier que si $t_1$ est un zéro de $f$ alors il existe un segment $J$ de $I$ tel que $f(t)\ne0$ pour tout $t\in J\setminus\{t_1\}$. On dit que les zéros de $f$ sont isolés. De plus si $f$ admet au moins un zéro $>t_1$, alors il existe un zéro $t_2>t_1$ de $f$ tel que $]t_1,t_2[$ ne contienne aucun zéro de $f$. On dira que les zéros $t_1$ et $t_2$ de $f$ sont successifs.
+\endnb
+
+Ensuite, tout intervalle de $\R$ peut être écrit comme une réunion dénombrable de segments, donc l'ensemble des zéros de $f$ dans $I$ est au plus dénombrable.
+
+\xit
+Soit $g$ une solution de $(H)$ non colinéaire à $(H)$. La famille $(f,g)$ est donc un \textsc{sfs} de $(H)$. Son wronksien $w$ garde un signe constant sur $I$. Quitte à remplacer $f$ par $-f$ on peut supposer que $w(t)>0$ partout sur $I$. On a alors
+\<\n\lb{vssign} \aligned
+w(t_1)&=-f'(t_1)g(t_1)>0 &&& w(t_2)=-f'(t_2)g(t_2)>0
+\endaligned$\>
+Par ailleurs $f$ ne s'annule pas sur $]t_1,t_2[$ donc elle y garde un signe constant donc les fonctions $\ts t\longmapsto \frac{f(t)}{t-t_1}$ et $\ts t\longmapsto \frac{f(t)}{t-t_2}$ ont des signes contraires dans $]t_1,t_2[$. Leurs limites respectives en $t_1^+$ et en $t_2^-$ sont $f'(t_1)$ et $f'(t_2)$ donc $f'(t_1)$ et $f'(t_2)$ ont des signes contraires. Les inégalités \eqref{vssign} montrent alors que $g(t_1)g(t_2)<0$. Selon le \textsc{tvi}, $g$ admet au moins un zéro dans $]t_1,t_2[$. Ce zéro ne peut être qu'unique car sinon selon cette même propriété qu'on vient de démontrer, $f$ aurait au moins un zéro entre $t_1$ et $t_2$.
+\nb
+Une conséquence de ce résultat et que si $f$ admet une solution non nulle qui admet une infinité de zéros dans $I$ alors toutes les solutions de $(H)$ ont une infinité de zéros. Deux solutions non nulles ont les mêmes zéros si elles sont colinéaires, des zéros entrelacés sinon.
+\endnb
+\exit
+\end{exer}
+
+
+\begin{exer}(Solutions périodique d'une équation normale homogène)
+Soit $p$ une fonction continue $T$-périodique sur $\R$. On considère l'équation
+\< x''+p(t)x=0\>
+Soit $(f_1,f_2)$ le \textsc{sfs} canonique de $(H)$ en $0$. On note $w$ son wronksien.
+\xit+ Montrer que $w\equiv 1$.
+\xit Montrer que $(H)$ admet au moins une solution $T$-périodique non nulle si et seulement si $f_1(T)+f_2'(T)=2$.
+\xit Montrer que $(H)$ admet au moins une solution non nulle $f$ telle que $f(t+T)=-f(t)$ si et seulement si $f_1(T)+f_2'(t)=-2$.
+\exit
+
+\solution
+\xit+ Puisque l'équation est normale tous ses wronksiens sont constants ($w'=0$). Les solutions $f_1$ et $f_2$ sont définies par les conditions $f_1(0)=f_2'(0)=1$ et $f_1'(0)=f_2(0)=0$ donc leurs wronksien $w$  vérifie $w(0)=f_1(0)f_2'(0)-f_1(0)f_2'(0)=1$. Alors $w\equiv1$.
+
+\xit Soit $f$ une solution de  $(H)$. Posons
+\< 
+ f=\lambda f_1+\mu f_2
+\>
+On considère la fonction $g:t\longmapsto f(t+T)$. Puisque $p$ est $T$-périodique alors $g$ est aussi une solution de $(H)$. Elle est égale à $f$ si et seulement si $f(0)=g(0)$ et $f'(0)=g'(0)$. Ce qui équivaut à
+$\lambda =\lambda f_1(T)+\mu f_2(T)$ et $\mu =\lambda f_1'(T)+\mu f_2'(T)$.
+Ainsi $(H)$ admet une solution $T$-périodique non nulle si et seulement si le système linéaire d'inconnues $\lambda$ et $\mu$
+\<\n\lb{VP} \bca
+(f_1(T)-1)\lambda +f_2(T)\mu=0 \\
+f_1'(T)\lambda+(f_2'(T)-1)\mu=0
+\eca  \>
+admet au moins une solution non nulle. Ce qui équivaut à dire que le déterminant $\Delta$ de ce système est nul. Comme
+\< \aligned
+\Delta&=(f_1(T)-1)(f_2'(T)-1)-f_1'(T)f_2(T)\\&=
+w(T)-f_1(T)-f_2'(T)+1\\&=
+2-f_1(T)-f_2'(T)
+\endaligned\>
+alors
+\<\r $(H)$ admet au moins une solution $T$-périodique non nulle si et seulement si $f_1(T)+f_2'(T)=2$. Dans ce cas toute solution $f$ de $(H)$ qui vérifie $f(0)=\lambda$ et $f'(0)=\mu$ où $(\lambda,\mu)$ est une solution de \eqref{VP} est $T$-péridodique\>
+\nb Pour faire le lien avec les résultats déjà démontrés en exercice concernant les solutions périodique d'un système différentiel linéaire du premier ordre observons que :
+\xit+ La condition donnée équivaut à ce que $1$ soit une \vap de la matrice $r(T)=\smash[b]{\begin{psmallmatrix} f_1(T) & f_2(T) \\ f_1'(T) & f_2'(T)\end{psmallmatrix}}$
+\xit Si $A(t)=\begin{psmallmatrix}0&1\\-q(t)&0\end{psmallmatrix}$ alors l'application
+$r:t\longmapsto \begin{psmallmatrix} f_1(t) & f_2(t) \\ f_1'(t) & f_2'(t)\end{psmallmatrix}$ est l'unique solution de l'\textsc{edl} $U'=A(t)U$ telle que $U(0)=I_2$.
+\exit-
+\endnb
+\xit Une solution $f$ non nulle de $(H)$ vérifiera $f(t+T)=-f(t)$ si et seulement si $f(T)=-f(0)$ et $f'(T)=-f(0)$. En posant $f=\lambda f_0+\mu f_1$, ces conditions équivalent à
+\< \bca
+(f_1(T)+1)\lambda +f_2(T)\mu=0 \\
+f_1'(T)\lambda+(f_2'(T)+1)\mu=0
+\eca \>
+Ce qui équivaut cette fois à $f_1(T)+f_2'(T)=-2$.
+\exit
+\end{exer}

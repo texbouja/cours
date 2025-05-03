@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pretext xml:lang="fr-FR" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <xi:include href="./docinfo.ptx"/>
+
+  <book xml:id="cours-mp">
+    <title>Cours de mathématiques</title>
+    <subtitle>pour les classes MP/MP*</subtitle>
+    <creator>Sadik Boujaida</creator>
+
+    <xi:include href="frontmatter.ptx" />
+
+    <chapter xml:id="ch-eqdiff-cours">
+      <title>Équations différentielles linéaires</title>
+    
+      <xi:include href="sec-eqdiff-firstorder.ptx" />
+      <xi:include href="sec-eqdiff-scalar.ptx" />
+      <xi:include href="sec-eqdiff-scalar-2nd.ptx" />
+      <xi:include href="sec-eqdiff-exercises-approfondissement.ptx" />
+      <xi:include href="sec-eqdiff-exercices.ptx" />
+      <xi:include href="sec-eqdiff-themes-classiques.ptx" />
+    </chapter>
+
+    <chapter xml:id="ch-probabiltes-discretes">
+      <title>Probabilité discrètes</title>
+
+      <objectives>
+        <title>objectifs d'apprentissage</title>
+        <introduction>
+          <p>
+            À la fin de ce chapitre, vous devriez être capable de :
+          </p>
+        </introduction>
+        <ul>
+          <li>
+            <p>
+              construire un modèle mathématique qui décrit une expérience aléatoire ;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              exprimer un événement dans l'espace construit et calculer sa probabilité ;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              utiliser des variables aléatoires pour modéliser les résultats d'une expérience aléatoire ;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              utiliser le langage des probabilités pour traiter des problèmes dans d'autres sections du programme
+            </p>
+          </li>
+        </ul>
+      </objectives>
+
+      <xi:include href="sec-probas-generalites.ptx" />
+      <xi:include href="sec-probas-variables_aleatoires.ptx" />
+      <xi:include href="sec-probas-esperance_et_moments.ptx" />
+      <xi:include href="sec-probas-fonctions_generatrices.ptx" />
+      <xi:include href="sec-probas-actinum.ptx" />
+      <xi:include href="sec-probas-exercices.ptx" />
+      
+    </chapter>
+
+    <!-- Include backmatter -->
+    <xi:include href="./backmatter.ptx" />
+  </book>
+</pretext>

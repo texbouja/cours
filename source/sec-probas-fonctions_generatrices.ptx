@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-fctgen" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Fonctions génératrices</title>
+
+    <subsection xml:id="subsec-defprop">
+        <title>Définition et propriétés</title>
+
+        <definition xml:id="def-fctgen">
+            <title>Fonction génératrice</title>
+            <notation>
+                <usage><m>G_X</m></usage>
+              <description>fonction génératrice de la <acro>VADR</acro> <m>X</m></description>
+            </notation>
+
+            <p>
+                La fonction génératrice d'une variable aléatoire <m>X</m> à valeurs dans <m>\N</m> est définie par
+                <me>             
+                    G_X(t) = \mathbb E\left(t^X\right)=\sum_{n=0}^{\infty}\mathbb \Pr{X=n} t^n.
+                </me>
+                On notera <m>R_X</m> le rayon de convergence de la série entière <m>\sum \Pr{X=n}t^n</m>
+            </p>
+            </definition>
+
+            <remark>
+            <p>Soit <m>X</m> une variable aléatoire à valeurs dans <m>\N</m>.</p>
+                <ol>
+                    <li>
+                        <p>
+                            Puisque la série <m>\sum \Pr{X=n}</m> est convergente de somme <m>1</m> alors <m>R_X\geqslant 1</m> et <m>G_X(1)=1</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            La loi de <m>X</m> est entièrement déterminée par sa fonction génératrice <m>G_X</m>, dans le sens où si <m>X</m> et <m>Y</m> sont des VAD à valeurs dans <m>\N</m> alors 
+                            <me>
+                            X\sim Y\Longleftrightarrow G_X=G_Y
+                            </me>
+                            Noter aussi que dans ce cas <m>X</m> et <m>Y</m> ont les mêmes moments, en particulier la même espérance.
+                         </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Si <m>X(\Omega)</m> est fini alors <m>G_X</m> est polynomiale de degré <m>\leqslant \max X(\Omega)</m>.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Si <m>R_X\gt 1</m> alors <m>X</m> admet des moments à tout ordre et pour tout <m>k\in\N^*</m>
+                            <me>
+                                \EE\bigl(X(X-1)\cdots(X-k+1)\bigr)=G_X^{(k)}(1)
+                            </me>
+                            Noter donc que l'hypothèse <m>R_X\gt 1</m> simplifie considérablement la justificiation du <xref ref="theo-momfact"/> enoncé ci-dessus.
+                        </p>
+                        <explanation>
+                            <p>
+                               Si <m>R_X\gt 1</m> alors <m>G_X</m> est infiniment dérivable en <m>1</m> et pour tout <m>k\in\N^*</m>
+                            <me> G_X^{(k)}(1)=\sum_{n\geqslant k}n(n-1)\cdots(n-k+1)\Pr{X=n} </me>
+                            La série <m>\sum n(n-1)\cdots(n-k+1)\Pr{X=n}</m> est donc convergente ce qui signifie par théorème de transfert que la variable <m>X(X-1)\cdots(X-k+1)</m> est sommable et que 
+                            <me>
+                                \EE\bigl(X(X-1)\cdots(X-k+1)\bigr)=G_X^{(k)}(1)
+                            </me>.
+                            Comme <m>X^k</m> est une combinaison linéaire de variables de la forme <m>X(X-1)\cdots(X-i+1)</m> alors <m>X^k</m> est sommable et <m>\EE(X^k)</m> s'exprime en fonction des dérivées <m>G_X^{(i)}(1)</m> pour <m>i\leqslant k</m>.
+                             </p>
+                        </explanation>
+                            
+                    </li>
+                </ol>
+            </remark>
+
+            <lemma xml:id="lem-abel"><title> du à Abel</title>
+                <statement>
+                    <p>
+                        Soit <m>\sum a_n t^n</m> une série entière à coefficients réels positifs qu'on suppose de rayon de convergence <m>1</m>. On note <m>g</m> sa somme. Alors pour tout <m>p\in\N^*</m> <m>g</m> est <m>p</m>-fois dérivable en <m>1</m> si et seulement si la série <m>\sum n^pa_n</m> converge et dans ce cas 
+                        <me>
+                            \forall k\in\iic{1,p},\;
+                            g^{(k)}(1)=\sum_{n=k}^{+\infty} n(n-1)\cdots(n-k+1)a_n
+                        </me>
+                         
+                        
+                    </p>
+                </statement>
+            </lemma>
+
+
+            <theorem><title>Fonction génératrice de la somme de deux variables indépendantes</title>
+                <statement>
+                    <p>
+                        Soient <m>X</m> et <m>Y</m> deux variables aléatoires à valeurs dans <m>\N</m>.
+                        Si <m>X</m> et <m>Y</m> sont indépendantes alors <m>G_{X+Y}=G_XG_Y</m>.
+                    </p>
+            </statement>
+            </theorem>
+
+        <corollary>
+            <statement>
+                <p>
+                    Si <m>X_1,X_2,\ldots,X_k</m> sont des variables aléatoires mutuellement indépendantes à valeurs dans <m>\N</m> alors
+                    <me>
+                        G_{X_1+X_2+\cdots+X_k}=G_{X_1}G_{X_2}\cdots G_{X_k}
+                    </me>
+                </p>
+            </statement>
+        </corollary>
+
+        <theorem><title>Expression de l'espérance et de la variance à l'aide la fonction génératrice</title>
+        
+        
+            <statement>
+                <p>
+                    Soit <m>X</m> une variable aléatoire à valeurs dans <m>\N</m>.
+                    <ol>
+                        <li>
+                            <p>
+                                <m>X</m> est sommable si et seulement si <m>G_X</m> est dérivable en <m>1</m> et dans ce cas <me>\EE(X)=G_X'(1)</me>.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                <m>X</m> est de carré sommable si et seulement si <m>G_X</m> est deux fois dérivable en <m>1</m> et dans ce cas <me>\VV(X)=G_X''(1)-G_X'(1)\left(G_X'(1)-1\right)</me>.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+        </theorem>
+
+        <theorem xml:id="theo-momfact">
+            <title>des moments factoriels</title>
+            
+            <statement>
+                <p> Soit <m>X</m> une VAD à valeurs dans <m>\N</m>. Pour tout <m>p\in\N^*</m>, <m>X</m> est <m>p</m>-sommable si et seulement si <m>G_X</m> est <m>p</m>-fois dérivable en <m>1</m> et dans ce cas 
+                <me>
+                    \forall k\in\iic{1,p},\;
+                    G_X^{(k)}=\EE\bigl(X(X-1)\cdots(X-k+1)\bigr)
+                </me>
+                L'espérance <m>\EE\bigl(X(X-1)\cdots(X-k+1)\bigr)</m> est appelée moment factoriel d'ordre <m>k</m> de <m>X</m>.
+                    
+                </p>
+            </statement>
+        </theorem>
+
+    </subsection>
+
+    <subsection xml:id="subsec-generatrices-usuelles">
+        <title>Fonctions génératrices des lois usuelles</title>
+        <list>
+            <dl>
+                <li><title>Loi uniforme</title>
+                    
+                    <p>
+                        Si <m>X\sim \mathscr U(\iic{1,n})</m> à valeurs dans <m>\iic{1,n}</m> alors 
+                        <m>G_X(t)=\ds\frac{1}{n}\frac{t-t^{n+1}}{1-t}</m>.
+                    </p>
+                </li>
+                <li><title>Loi de Bernouilli</title>
+                    
+                    <p>
+                        Si <m>X\sim\mathscr B(p)</m> alors <m>G_X(t)=1-p+pt</m>
+                    </p>
+                </li>
+                <li><title>Loi binomiale</title>
+                    
+                    <p>
+                        Si <m>X\sim\mathscr B(n,p)</m> alors <m>G_X(t)=(1-p+pt)^n</m>.
+                    </p>
+                </li>
+                <li><title>Loi géométrique</title>
+                    
+                    <p>
+                        Si <m>X\sim\mathscr G(p)</m> alors <m>G_X(t)=\ds\frac{pt}{1-(1-p)t}</m>.
+                    </p>
+                </li>
+                <li><title>Loi de Poisson</title>
+                    
+                    <p>
+                        Si <m>X\sim\mathscr P(\lambda)</m> alors <m>G_X(t)=e^{\lambda(t-1)}</m>.
+                    </p>
+                </li>
+            </dl>
+            
+        </list>
+        
+    </subsection>
+
+    <subsection xml:id="subsec-generatrice">
+        <title>Concept de fonction génératrice</title>
+
+        <exploration>
+            <title>Fonction génératrice d'une suite</title>
+            <p> Pour toute suite <m>(a_n)_n</m> réelle ou complexe on appelle série génératrice de <m>(a_n)_n</m>, la série entière <m>\sum a_nt^n</m>. Si le rayon de convergence de celle-ci est non nul, on appelle sa somme fonction génératrice de la suite <m>(a_n)_n</m>. 
+            </p>
+
+            <p>On appelle aussi, série génératrice exponentielle de <m>(a_n)_n</m>, la série entière <m>\sum\frac{a_n}{n!}t^n</m>. Celle-ci a plus de chance d'avoir un rayon de convergence non nul que <m>\sum a_nt^n</m>
+            </p>
+
+            <p>
+                Si on connaît la fonction génératrice <m>g</m> d'une suite alors on peut retrouver la suite en calculant le développement de Taylor de <m>g</m>. D'où l'utilité des fonctions génératrices : si une suite est définie par une relation de récurrence alors on traduit, dans certains cas, cette relation en une équation fonctionnelle ou différentielle de la fonction génératrice. Résoudre cette équation nous permet ensuite d'identifier l'expression explicite des termes de la suite.  
+            </p>
+
+            
+
+            <p>
+                La fonction génératrice d'une VAD à valeurs dans <m>\N</m> est ainsi la fonction génératrice de la suite <m>(\Pr{X=n})_n</m>, ie de la loi de <m>X</m>.
+            </p>
+        </exploration>
+
+        <example><title>Fonction génératrice des coefficients binomiaux</title>
+            <p>
+                On sait que pour tout réels <m>\alpha</m>
+                <me>
+                    \forall t\in]-1,1[,\; (1+t)^\alpha=\sum_{n=0}^{+\infty}\binom \alpha nt^n
+                </me>
+                La fonction <m>t\longmapsto (1+t)^\alpha</m> est donc la fonction génératrice des coefficients binomiaux <m>\binom \alpha n</m>. 
+            </p>
+            <p>
+            Comme application, on peut écrire pour tous <m>\alpha, \beta\in\R</m>, <m>(1+t)^{\alpha+\beta}=(1+t)^\alpha(1+t)^\beta</m> et en identifiant les coefficients des développements en séries de Taylor des deux membres de cette égalité on obtient 
+            <me>
+                \forall n\in\N,\; \sum_{k=0}^n\binom \alpha  k\binom{\beta}{n-k}=\binom{\alpha+\beta}n 
+            </me>
+            C'est la formule de Vandermonde. 
+            </p>
+            <p>
+                Dans le même ordre d'idée on sait que pour tout entier <m>p</m>
+                <me>
+                \frac{p!}{(1-t)^{p+1}}=\sum_{n=p}^{+\infty}\binom {p+n}pt^n
+                </me>
+                donc en identifiant les développements des deux côtés dans l'égalité suivante 
+                <me>
+                    \frac{1}{(1-t)^{p+q+2}}=\frac{1}{(1-t)^{p+1}}\frac{1}{(1-t)^{q+1}}
+                </me>
+                on obtient pour tout <m>n\in\N</m>
+                <md>
+                <mrow> \sum_{k=0}^n\frac{\binom{p+k}{p}}{p!}\frac{\binom{q+n-k}{q}}{q!}\amp=\frac{\binom{p+q+n+1}{p+q+1}}{(p+q+1)!} 
+                </mrow>                    
+                </md>
+                Cette dernière formule est antagoniste avec la formule de Vandermonde dans le sens où ce sont les indices supérieurs des coefficients binomaux qui changent en fonction de l'indice de sommation.
+                
+                
+                
+                </p>
+            </example>
+
+            <example>
+                <title>Somme de variables de Poisson MI</title>
+                <p> Soient <m>X_1,X_2,\ldots,X_p</m> des variables aléatoires MI suivant des lois de Poissons de paramètre respectifs <m>
+                    \lambda_1,\lambda_2,\ldots,\lambda_k</m>. On note <m>S=X_1+X_2+\cdots+X_k</m>. On veut déterminer la loi de <m>S</m>.
+                </p>
+                <p> On a pour tout <m>t\in\R</m> 
+                    <me>
+                    G_S(t)=\prod_{i=1}^kG_{X_i}(t)=\exp\bigg((t-1)\sum_{i=1}^k\lambda_i\biggr)
+                    </me>
+                    On en déduit que <m>S</m> suit la loi de poisson <m>\mathscr P(\lambda)</m> où <m>\lambda=\sum_{i=1}^k\lambda_i</m>.    
+                    </p>
+                    <p>
+                        Ce résultat s'interprète par le fait que le nombre de clients servi par unité de temps dans une file d'attente qui comporte <m>k</m> guichets indépendants est une variable aléatoire suivant une loi de Poisson de paramètre <m>\lambda=\sum_{i=1}^k\lambda_i</m>.
+                    </p>
+                    
+            </example>
+
+            <example><title>Une formule d'inversion</title>
+             <p>
+                Soit <m>X</m> une VAD à valeurs dans <m>\N</m>. On suppose que <m>R_X\gt 1</m>. Alors <m>G_X</m> est développable en série de taylor en <m>1</m>, ie  
+                <me>
+                    G_X(t)=\sum_{n=0}^\infty \frac{G_X^{(n)}(1)}{n!}(t-1)^n=\sum_{n=0}^\infty\EE\left(\binom Xn\right)(t-1)^n
+                </me>
+                où <m>\binom Xn</m> désigne la variable aléatoire définie par
+                <me>
+                    \binom Xn=\frac{X(X-1)\cdots(X-n+1)}{n!}
+                </me>
+                Grâce à la convergence absolue de la série à droite dans l'égalité précédente pour <m>t</m> voisin de <m>1</m>, on peut appliquer la formule de Fubini pour transformer l'expression de <m>G_X(t)</m>
+                <md>
+                    <mrow>G_X(t) \amp=
+                    \sum_{n=0}^{+\infty}\EE\left(\binom Xn\right)\sum_{k=0}^n(-1)^{n-k}\binom nk t^k </mrow>
+                    <mrow> \amp=
+                    \sum_{k=0}^{+\infty}(-1)^k\left[\sum_{n=k}^{+\infty}(-1)^{n}\binom nk\EE\left(\binom Xn\right)\right] t^k  </mrow>
+                </md>
+                et par identification de ce développement avec celui par défaut de <m>G_X</m> on obtient 
+                <me>\forall k\in\N,\;
+                    \Pr{X=k}=(-1)^k\sum_{n=k}^{+\infty}(-1)^{n}\binom nk\EE\left(\binom Xn\right)
+                </me>
+                Théoriquement, ces formules permettent donc de calculer la loi de <m>X</m> connaissant les moyennes de toutes les variables <m>X(X-1)\cdots(X-n+1)</m>.Par exemple 
+                <md>
+                    <mrow>\Pr{X=0} \amp=\sum_{n=0}^{+\infty}(-1)^{n}\EE\left(\binom Xn\right)  </mrow>
+                    <mrow>\Pr{X=1} \amp =
+                    \sum_{n=1}^{+\infty}(-1)^{n+1}n\EE\left(\binom Xn\right) </mrow>
+                </md>
+                
+             </p>
+             <p>
+                Noter que si <m>X(\Omega)</m> est fini alors la variable <m>\binom Xn</m> et nulle pour tout <m>n</m> supérieur à <m>N=\max X(\Omega)</m> et donc que 
+                <me>
+                \forall k\in X(\Omega),\; \Pr{X=k}=\sum_{n=k}^{N}(-1)^{n-k}\binom nk\EE\left(\binom Xn\right)
+                </me>
+                qu'on peut lier aux relations obtenues par formule de transfert
+                <me>
+                    \forall k\in X(\Omega),\;
+                    \EE\left(\binom Xk\right)=\sum_{n=k}^{N}\binom nk\Pr{X=n}
+                </me>
+                
+              </p>
+                
+            </example>
+        
+    </subsection>
+
+    <subsection xml:id="subsec-defprop-activite">
+        <title>Activités</title>
+
+        <activity xml:id="fonction-generatrice-xsup">
+            <title>Fonction génératrice de la suite <m>(\Pr{X\geq n})_n</m></title>
+            <introduction>
+                <p>
+                    
+                    On considère une VAD <m>X</m> à valeurs dans <m>\N</m> et on pose pour tout <m>t\in]-1,1[</m>
+                    <me>
+                        F_X(t)=\sum_{n=0}^{+\infty}\Pr{X\geq n}t^n
+                    </me>
+                </p>
+            </introduction>
+                
+                <task><title>Expression de <m>F_X</m></title>
+                    <statement>
+                        
+                        <p> Justifier que <m>F_X</m> est bien définie et montrer que 
+                        <me>
+                            F_X(t)=\frac{G_X(t)-1}{t-1}
+                        </me>
+                        
+                            
+                        </p>
+                    </statement>
+                </task>
+                <task> <title>Expression de l'espérance de <m>X</m></title>
+                    
+                    <statement> 
+                        <p>
+                            En déduire que <m>X</m> est sommable si et seulement si <m>F_X</m> admet une limite finie en <m>1</m> et que dans ce cas
+                             <me>\EE(X)=\sum_{n\in\N}\Pr{X\geq n}</me>
+                        </p>
+                    </statement>
+                </task>
+                <task><title>Loi du <m>\min</m></title>
+                    
+                    <statement>
+                        <p>
+                            Soient <m>X</m> et <m>Y</m> deux VAD sommables et indépendantes à valeurs dans <m>\N</m> et soit <m>Z=\min(X,Y)</m>. Exprimer <m>\Pr{Z\geq n}</m> en fonction de <m>\Pr{X\geq n}</m> et de <m>\Pr{Y\geq n}</m>. En déduire que pour tout <m>t\in[0,1[</m>
+                            <me>
+                                F_Z(t)=\frac1{2\pi}\int_0^{2\pi}F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta})\mathrm d\theta   
+                            </me>
+                            Simplifier cette expression dans le cas où <m>X</m> et <m>Y</m> suivent la même loi.
+                            
+                        </p>
+                    </statement>
+                    <solution>
+                        <p> Pour tout <m>n\in\N</m>
+                            <me>
+                                \Pr{Z\gt n}=\Pr{X\gt n,Y\gt n}=\Pr{X\gt n}\Pr{Y\gt n}
+                            </me>
+                        D'autre part, par produit de Cauchy de deux séries absolument convergentes,  pour un <m>t\in[0,1[</m> fixé et un <m>\theta\in{}[0,2\pi]</m> quelconque
+                        <md>
+                        <mrow> F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta}) \amp =
+                            \sum_{n\in\N}
+                            \sum_{k=0}^n\bigl(\Pr{X\gt k}t^{k/2}e^{ik\theta}\bigr)\bigl(\Pr{Y\gt n-k}t^{(n-k)/2}e^{i(k-n)\theta}\bigr) </mrow>
+                            <mrow> \amp=
+                            \sum_{n\in\N} u_n(\theta)
+                             </mrow>
+                             <mrow>
+                             \text{avec}\quad u_n(\theta)\amp=
+                             t^{n/2}\sum_{k=0}^n
+                            \Pr{X\gt k}\Pr{Y\gt n-k}e^{i(2k-n)\theta} </mrow>
+                        </md>
+                        Comme <m>\bigcup\limits_{k=0}^{n}(X\gt k,Y\gt n-k)\subset (X+Y\gt n)</m> alors pour tout <m>\theta\in[0,2\pi]</m>
+                        <md> 
+                            <mrow> \left|u_n(\theta)\right| \amp\leq
+                             t^{n/2}\sum_{k=0}^n\Pr{X\gt k,Y\gt n-k} </mrow>
+                             <mrow> \amp\leq t^{n/2}\Pr{X+Y\gt n}\leq t^{n/2} </mrow>
+                            
+                        </md>
+                        Puisque <m>\sqrt t \lt 1 </m>, la série <m>\sum t^{n/2}</m> est convergente alors la série de fonctions continues <m>\sum u_n</m>  converge normalement sur le ségment <m>[0,2\pi]</m>. On peut donc intégrer terme à terme l'égalité précédente. Ce qui donne.  
+                        <me>
+                            \int_0^{2\pi}F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta})\mathrm d\theta =
+                            \sum_{n\in\N}t^{n/2}
+                            \sum_{k=0}^n\Pr{X\gt k}\Pr{Y\gt n-k}\int_0^{2\pi}e^{i(2k-n)\theta}\mathrm d\theta
+                        </me>
+                        et comme <m>\int_{0}^{2\pi}e^{ih\theta}\mathrm d\theta=2\delta_{0h}\pi</m> pour tout <m>h\in\Z</m> alors <m>\int_0^{2\pi}e^{i(2k-n)\theta}\mathrm d\theta</m> est nulle sauf lorsque <m>n</m> est paire et <m>k=n/2</m>. Alors
+                        <me>
+                            \int_0^{2\pi}F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta})\mathrm d\theta =
+                            2\pi\sum_{n\in\N}t^{n}\Pr{X\gt n}\Pr{Y\gt n}
+                        </me>
+                        et finalement 
+                        <me>
+                            \frac1{2\pi}\int_0^{2\pi}F_X(t^{1/2}e^{i\theta})F_Y(t^{1/2}e^{-i\theta})\mathrm d\theta = F_Z(t)
+                        </me>
+                        Dans le cas où <m>X</m> et <m>Y</m> suivent la même loi alors <m>F_Y(t^{1/2}e^{-i\theta})=\overline{F_X(t^{1/2}e^{i\theta})}</m> et donc 
+                        <me>
+                            F_Z(t)=\frac1{2\pi}\int_0^{2\pi}\bigl|F_X(t^{1/2}e^{i\theta})\bigr|^2\mathrm d\theta
+                        </me>
+                        
+                        
+
+                        
+                        
+                        
+                        
+                        
+                            
+                            
+                        </p>
+                    </solution>
+                </task>
+            
+            
+        </activity>
+
+        <activity xml:id="fonction-generatrice-premier-retour">
+            <title>Fonction génératrice du premier retour à l'origine</title>
+ 
+            <introduction>
+                <p>
+                    Dans cette activité, nous étudions une marche aléatoire biaisée sur une droite.
+                    À chaque pas, l'objet avance d'un pas avec une probabilité <m>p</m> ou recule d'un pas avec une probabilité <m>q = 1 - p</m>.
+                    Sachant qu'à l'instant <m>0</m> l'objet est à l'origine, on note <m>N</m> le temps d'attente du premier retour à l'origine et <m> X_n </m> la position de l'objet à l'instant <m> n </m>.
+                </p>
+
+                <p>
+                    L'objectif est de trouver une relation entre  les fonctions génératrices
+                    <me>
+                        F(t) = \sum_{n=1}^{+\infty} \Pr{N = n} t^n \qtext{et} U(t) = \sum_{n=0}^{+\infty} \Pr{X_n = 0} t^n
+                    </me>
+                    et de calculer ensuite <m>F(t)</m>. On notera que <m>F</m> n'est pas la fonction génératrice de la variable <m>N</m> puisque celle-ci peut potentiellement prendre la valeur <m>+\infty</m>.
+                </p>
+            </introduction> 
+            <!-- Task 1 : Définition des fonctions génératrices -->
+            <task>
+                <title>Définition des fonctions génératrices</title>
+
+                <statement>
+                    <p>
+                        Expliquer pourquoi <m> F(t) </m> et <m> U(t) </m> sont bien définies pour <m> t \in [0, 1) </m>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Les fonctions génératrices <m> F(t) </m> et <m> U(t) </m> sont les sommes de séries entières dont les coefficients sont des probabilités (donc compris entre 0 et 1).
+                        Par conséquents leurs rayons de convergences sont supérieurs ou égaux à <m>1</m>.
+                    </p>
+                </solution>
+            </task>
+            <!-- Task 2 : Relation entre <m> F(t) </m> et <m> U(t) </m> -->
+            <task>
+                <title>Relation entre <m> F(t) </m> et <m> U(t) </m></title>
+
+                <statement>
+                    <p>
+                        Montrer que les fonctions génératrices <m> F(t) </m> et <m> U(t) </m> sont liées par la relation :
+                        <me>
+                            U(t) = F(t) U(t) + 1.
+                        </me>
+                        En déduire une expression de <m> F(t) </m> en fonction de <m> U(t) </m>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        On peut écrire pour tout <m>n\gt0</m> :
+                        <me>
+                            \Pr{X_n = 0} = \sum_{k=1}^n  \Pr{X_{n} = 0\giv N=k} \Pr{N = k}.
+                        </me>
+                        «Intuitivement» : <m>\Pr{X_n=0 \giv  N=k}=\Pr{X_{n-k}=0}</m> car il s'agit de revenir à l'origine en <m>n-k</m> pas une fois le retour à l'origine s'est produit pour la première fois à l'instant <m>k</m>.
+                        Donc
+                        <men xml:id="eq-probatota">
+                            \Pr{X_n = 0} = \sum_{k=1}^n  \Pr{N=k}\Pr{X_{n-k}=0}.
+                        </men>
+                        Plus rigoureusement, on peut écrire
+                        <md>
+                            <mrow>(X_n=0,N=k) \amp= (X_1X_2\cdots X_{k-1}\ne0, X_k=0, X_n=0) </mrow>
+                            <mrow> \amp= (X_1X_2\cdots X_{k-1}\ne0, X_k=0, X_n-X_k=0) </mrow>
+                        </md>
+                        Maintenant si note <m>B_n</m> le déplacement de l'objet à l'instant <m>n</m> alors le couple <m>(X_1X_2\ldots X_{k-1},X_k)</m> est une fonction des variables <m>B_1,B_2,\ldots,B_k</m> et <m>X_n-X_k</m> est une fonction des variables <m>B_{k+1},\ldots,B_{n}</m>.
+                        Donc <m>(X_1X_2\ldots X_{k-1},X_k)</m> et <m>X_n-X_k</m> sont indépendants par coalition.
+                        En outre <m>X_n-X_k=B_{k+1}+\cdots+B_{n}</m> suit la même loi que <m>B_1+B_2+\cdots+B_{n-k}=X_{n-k}</m>.
+                        Ainsi
+                        <md>
+                            <mrow> \Pr{X_n=0,N=k} \amp= \Pr{X_1X_2\cdots X_{k-1}\ne0, X_k=0}\Pr{X_n-X_k=0} </mrow>
+                            <mrow>\amp= \Pr{N=k}\Pr{X_{n-k}=0} </mrow>
+                        </md>
+                        En multipliant <xref ref="eq-probatota"/> par <m> t^n </m> et en sommant sur <m> n </m>, on obtient :
+                        <me>
+                            U(t) = F(t) U(t) + 1.
+                        </me>
+                        En résolvant pour <m> F(t) </m>, on trouve :
+                        <me>
+                            F(t) = \frac{U(t) - 1}{U(t)}.
+                        </me>
+                    </p>
+                </solution>
+            </task>
+            <!-- Task 3 : Calcul de <m> U(t) </m> -->
+            <task>
+                <title>Calcul de <m> U(t) </m></title>
+
+                <statement>
+                    <p>
+                        Calculer la fonction génératrice <m> U(t) </m> en utilisant la loi de <m> X_n </m>.
+                        On rappelle que <m> X_n </m> suit une loi binomiale décalée :
+                        <me>
+                            X_n = 2S_n - n,
+                        </me>
+                        où <m> S_n </m> suit une loi binomiale <m> \mathscr{B}(n, p) </m>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        La probabilité que <m> X_n = 0 </m> est donnée par :
+                        <me>
+                            \Pr{X_n = 0} = \Pr{2S_n - n = 0} = \Pr{S_n = n/2}.
+                        </me>
+                        Comme <m> S_n </m> suit une loi binomiale <m> \mathscr{B}(n, p) </m>, on a :
+                        <me>
+                            \Pr{S_n = k} = \binom{n}{k} p^k q^{n - k}.
+                        </me>
+                        Ainsi, pour <m> n </m> pair, <m> \Pr{X_n = 0} = \binom{n}{n/2} p^{n/2} q^{n/2} </m>, et pour <m> n </m> impair, <m> \Pr{X_n = 0} = 0 </m>.
+                        La fonction génératrice <m> U(t) </m> est donc :
+                        <me>
+                            U(t) = \sum_{n=0}^{+\infty} \binom{2n}{n} (p q)^n t^{2n}.
+                        </me>
+                        On pose <m>r=2\sqrt{pq}</m>, de telle sorte qu'on puisse écrire
+                        <me>
+                            U(t)=\sum_{n=0}^{+\infty} \frac{\binom{2n}{n}}{2^{2n}} (rt)^{2n}.
+                        </me>
+                        et en utilisant le développement en série entière de <m>1/\sqrt{1-t^2}</m>
+                        <me>
+                            U(t)=\frac{1}{\sqrt{1-(rt)^2}}=\frac{1}{\sqrt{1-4pqt^2}}.
+                        </me>
+                    </p>
+                </solution>
+            </task>
+            <!-- Task 4 : Expression de <m> F(t) </m> -->
+            <task>
+                <title>Expression de <m> F(t) </m></title>
+
+                <statement>
+                    <p>
+                        En utilisant les résultats des questions précédentes, donner une expression explicite de la fonction génératrice <m> F(t) </m>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        D'après la question 2, on a :
+                        <me>
+                            F(t) = \frac{U(t) - 1}{U(t)}.
+                        </me>
+                        En utilisant l'expression de <m> U(t) </m> obtenue à la question 3, on trouve :
+                        <me>
+                            F(t) = \frac{\frac{1}{\sqrt{1-4pqt^2}}-1}{\frac{1}{\sqrt{1-4pqt^2}}} = 1 - \sqrt{1-4pqt^2}.
+                        </me>
+                    </p>
+                </solution>
+            </task>
+            <!-- Task 5 : Cas particulier <m> p = q = 1/2 </m> -->
+            <task>
+                <title>Calcul de la probabilité du retour vers l'origine</title>
+
+                <statement>
+                    <p>
+                        Calculer la probabilité du retour vers l'origine.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        La probabilité du retour vers l'origine est
+                        <me>
+                            \Pr{N\lt\infty}= \sum_{n=1}^{+\infty}\Pr{N=n}=F(1)=1-\sqrt{1-4pq}
+                        </me>.
+                    </p>
+                </solution>
+            </task>
+        </activity>
+
+        
+
+        <activity xml:id="fonction-caracteristique-conversion">
+            <title>Fonction caractéristique d'une variable aléatoire à valeurs dans <m>\Z</m></title>
+            <notation>
+                <usage><m>\phi_X</m></usage>
+              <description>fonction caractéristique de la <acro>VADR</acro> <m>X</m></description>
+            </notation>
+
+            <introduction>
+                <p>
+                    Dans cette activité, nous étudions la fonction caractéristique d'une variable aléatoire <m> X </m> à valeurs dans <m>\Z</m>.
+                    La fonction caractéristique est un outil puissant en probabilités, permettant de caractériser la loi d'une variable aléatoire et de simplifier certains calculs.
+                    Nous allons définir cette fonction, explorer ses propriétés, et l'utiliser pour calculer des moments et des probabilités.
+                </p>
+            </introduction>
+            <!-- Task 1 : Définition de la fonction caractéristique -->
+            <task>
+                <title>Définition de la fonction caractéristique</title>
+
+                <statement>
+                    <p>
+                        Soit <m> X </m> une variable aléatoire à valeurs dans <m>\Z</m>.
+                        On définit sa fonction caractéristique <m> \phi_X </m> par :
+                        <me>
+                            \phi_X(t) = \EE\left[e^{itX}\right] = \sum_{n\in\Z} \Pr{X = n} e^{int},
+                        </me>
+                        où <m> t \in \R </m>.
+                    </p>
+
+                    <p>
+                        <ol>
+                            <li>
+                                Montrer que <m> \phi_X(t) </m> est bien définie pour tout <m> t \in \R </m>.
+                            </li>
+
+                            <li>
+                                Montrer que <m> \phi_X(t) </m> est <m> 2\pi </m>-périodique et continue sur <m>\R</m>.
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        <ol>
+                            <li>
+                                La fonction caractéristique <m> \phi_X(t) </m> est bien définie pour tout <m> t \in \R </m>, car <m>|e^{itX}|=1</m> et donc <m>e^{itX}</m> est sommable.
+                            </li>
+
+                            <li>
+                                Les fonctions <m>t\mapsto e^{int} </m> sont <m> 2\pi </m>-périodiques, donc <m> \phi_X </m> est également <m> 2\pi </m>-périodique.
+                                En outre, on peut écrire 
+                                <me>
+                                    \phi_X(t)=\sum_{n=0}^{+\infty}\Pr{X=n}e^{int}+\sum_{n=1}^{+\infty}\Pr{X=-n}e^{-int}.
+                                </me>
+                                Les sommes des deux séries dans cette expression sont continues par convergence normale sur <m>\R</m>. D'où la continuité de <m> \phi_X </m> sur <m>\R</m>.
+                                
+                            </li>
+                        </ol>
+                    </p>
+                </solution>
+            </task>
+            <!-- Task 2 : Exemples de fonctions caractéristiques -->
+            <task>
+                <title>Exemples de fonctions caractéristiques</title>
+
+                <statement>
+                    <p>
+                        Calculer la fonction caractéristique pour les lois suivantes :
+                        <ol>
+                            <li>
+                                Si <m> X \sim \mathcal{B}(n, p) </m> (loi binomiale), montrer que :
+                                <me>
+                                    \phi_X(t) = \left(1 - p + p e^{it}\right)^n.
+                                </me>
+                            </li>
+
+                            <li>
+                                Si <m> X \sim \mathcal{G}(p) </m> (loi géométrique), montrer que :
+                                <me>
+                                    \phi_X(t) = \frac{p e^{it}}{1 - (1 - p) e^{it}}.
+                                </me>
+                            </li>
+
+                            <li>
+                                Si <m> X \sim \mathcal{P}(\lambda) </m> (loi de Poisson), montrer que :
+                                <me>
+                                    \phi_X(t) = e^{\lambda (e^{it} - 1)}.
+                                </me>
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        <ol>
+                            <li>
+                                Pour <m> X \sim \mathcal{B}(n, p) </m>, la fonction caractéristique est :
+                                <me>
+                                    \phi_X(t) = \sum_{k=0}^n \binom{n}{k} p^k (1 - p)^{n - k} e^{itk} = \left(1 - p + p e^{it}\right)^n.
+                                </me>
+                            </li>
+
+                            <li>
+                                Pour <m> X \sim \mathcal{G}(p) </m>, la fonction caractéristique est :
+                                <me>
+                                    \phi_X(t) = \sum_{k=1}^{+\infty} p (1 - p)^{k - 1} e^{itk} = \frac{p e^{it}}{1 - (1 - p) e^{it}}.
+                                </me>
+                            </li>
+
+                            <li>
+                                Pour <m> X \sim \mathcal{P}(\lambda) </m>, la fonction caractéristique est :
+                                <me>
+                                    \phi_X(t) = \sum_{k=0}^{+\infty} \frac{\lambda^k e^{-\lambda}}{k!} e^{itk} = e^{\lambda (e^{it} - 1)}.
+                                </me>
+                            </li>
+                        </ol>
+                    </p>
+                </solution>
+            </task>
+            <!-- Task 3 : Dérivation et moments -->
+            <task>
+                <title>Dérivation et moments</title>
+
+                <statement>
+                    <p>
+                        <ol>
+                            <li>
+                                Montrer que si <m> X </m> admet un moment d'ordre <m> p </m>, alors <m> \phi_X </m> est de classe <m> \mathcal{C}^p </m> et :
+                                <me>
+                                    \phi_X^{(k)}(0) = i^k \EE(X^k) \quad \text{pour tout } k \in \{1, \dots, p\}.
+                                </me>
+                            </li>
+
+                            <li>
+                                Montrer que si <m>X</m> admet des moments à tout ordre et s'il existe des constantes <m>c,r\gt 0</m> telles que 
+                                <me>
+                                    \forall n\in\N,\; \EE(|X|^n)\leq cr^n
+                                </me>
+                                alors <m>\phi_X</m> est développable en série entière sur <m>\R</m> et  
+                                <me>
+                                    \phi_X(t)=\sum_{n=0}^{+\infty}\frac{i^n}{n!}\EE(X^n)t^n
+                                </me>
+                                
+                                
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        <ol>
+                            <li>
+                                Si <m> X </m> admet un moment d'ordre <m> p </m>, alors la série <m> \sum_{n=-\infty}^{+\infty} n^k \Pr{X = n} </m> converge pour tout <m> k \leq p </m>.
+                                Par le théorème de dérivation terme à terme, <m> \phi_X </m> est de classe <m> \mathcal{C}^p </m>, et :
+                                <me>
+                                    \phi_X^{(k)}(0) = i^k \sum_{n=-\infty}^{+\infty} n^k \Pr{X = n} = i^k \EE(X^k).
+                                </me>
+                            </li>
+
+                            <li>
+                                Si <m> X </m> admet des moments à tout ordre et que la série génératrice converge, alors par l'inégalité de Taylor-Lagrange appliquée à <m> e^{iu} </m>, on a :
+                                <me>
+                                    \left| e^{int} - \sum_{k=0}^p \frac{i^k n^k}{k!} t^k \right| \leq \frac{|n t|^{p+1}}{(p+1)!}.
+                                </me>
+                                En multipliant par <m> \Pr{X = n} </m> et en sommant sur <m> \Z </m>, on obtient :
+                                <me>
+                                    \left| \EE(e^{itX}) - \sum_{k=0}^p \frac{i^k}{k!} \EE(X^k) t^k \right| \leq \frac{\EE\left(|X|^{p+1}\right)}{(p+1)!} |t|^{p+1}.
+                                </me>
+                                Ainsi, <m> \phi_X(t) = \sum_{p=0}^{+\infty} \frac{i^p}{p!} \EE(X^p) t^p </m>.
+                            </li>
+                        </ol>
+                    </p>
+                </solution>
+            </task>
+        </activity>
+    </subsection>
+</section>

@@ -1,0 +1,1371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-generalites" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Espaces de probabilité</title>
+
+  <introduction>
+
+    <p>
+      Dans tout le chapitre <m>\Omega</m> désignera un ensemble non vide. <m>I</m> est une ensemble non vide qui sera souvent utilisé comme ensemble d'indices.
+    </p>
+
+    <p>
+      On notera <m>\mathscr P(\Omega)</m>, resp. <m>\mathscr F(I)</m>, l'ensemble de toutes les parties de <m>\Omega</m>, resp. l'ensemble de toutes les parties finies de <m>I</m>.
+    </p>
+    <p>
+      Si <m>A</m> est une partie de <m>\Omega</m> on notera <m>A^c</m> son complémentaire dans <m>\Omega</m>. 
+    </p>
+    </introduction>
+
+  <subsection xml:id="subsec-tribu">
+    <title>Tribus</title>
+
+    
+
+    <definition xml:id="def-tribu">
+      <statement>
+        <p>
+          On appelle tribu (ou <m>\sigma</m>-algèbre) de <m>\Omega</m> tout ensemble <m>\mathscr T</m> de parties de <m>\Omega</m> tel que :
+          <ul>
+            <li>
+              <m>\Omega \in \mathscr T</m> ;
+            </li>
+
+            <li>
+              si <m>A \in \mathscr T</m> alors <m>A^c \in \mathscr T</m> ;
+            </li>
+
+            <li>
+              si <m>(A_n)_{n\in\N}</m> est une suite d'éléments de <m>\mathscr T</m> alors <m>\bigcup\limits_{n=1}^\infty A_n \in \mathscr T</m> ;
+            </li>
+          </ul>
+          Si <m>\mathscr T</m> est une tribu de <m>\Omega</m> alors le couple <m>(\Omega,\mathscr T)</m> est dit un espace probabilisable.
+          Tout élément de <m>\mathscr T</m> est dit un événement de l'espace <m>(\Omega,\mathscr T)</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <remark>
+      <p>
+        Si <m>\mathscr T</m> est une tribu de <m>\Omega</m> alors
+        <ul>
+          <li>
+            <p>
+              <m>\emptyset \in\mathscr T</m>;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              si <m>(A_n)_{\in \N}</m> est une suite d'éléments de <m>\mathscr T</m> alors <m>\bigcap\limits_{n=1}^\infty A_n \in \mathscr T</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </remark>
+
+    <example>
+      <p>
+        <ol>
+          <li>
+            <p>
+              <m>\mathscr T = \{\emptyset,\Omega\}</m> est une tribu de <m>\Omega</m>. C'est la plus petite tribu de <m>\Omega</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\mathscr P(\Omega)</m> est une tribu de <m>\Omega</m>. C'est la plus grande tribu de <m>\Omega</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Si <m>A</m> est une partie de <m>\Omega</m> alors <m>\{\emptyset,A,A^c,\Omega\}</m> est une tribu de <m>\Omega</m>.
+              C'est la plus petite tribu de <m>\Omega</m> contenant <m>A</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </example>
+
+
+    <proposition>
+      <notation>
+        <usage><m>\sigma(\mathcal A)</m></usage>
+        <description>tribu engéndrée par <m>\mathcal A</m></description>
+      </notation>
+      <p>
+        <ol>
+          <li>
+            <p>
+              Si <m>(\mathscr T_i)_{i\in I}</m> est une famille quelconque  de tribus de <m>\Omega</m> alors <m>\bigcap\limits_{i\in I} \mathscr T_i</m> est une tribu de <m>\Omega</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Soit <m>\mathcal A</m> un ensemble de parties de <m>\Omega</m>.
+              L'intersection de toutes les tribus de <m>\Omega</m> contenant <m>\mathcal A</m> est une tribu de <m>\Omega</m>.
+              Elle est appelée la tribu engendrée par <m>\mathcal A</m>.
+              On la note <m>\sigma(\mathcal A)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </proposition>
+
+    <definition xml:id="def-tborel">
+    <title>Tribue de Borel de <m>\R</m></title>
+    <notation>
+      <usage><m>\mathscr B(\R)</m></usage>
+      <description>tribu de Borel de <m>\R</m></description>
+    </notation>
+      <statement>
+        <p>
+          La tribu engendrée par l'ensemble des segments de <m>\R</m> est appelée la tribu de Borel de <m>\R</m> et tout élément de cette tribu est dit un borélien de <m>\R</m>
+          On la note <m>\mathscr B(\R)</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <remark>
+      <p>
+        <ol>
+          <li>
+            <p>
+              Soient <m>\mathcal A</m> et <m>\mathcal B</m> deux ensembles de parties de <m>\Omega</m>.
+              Si <m>\mathcal A\subset \mathcal B\subset \sigma(A)</m> alors <m>\sigma(\mathcal A)=\sigma(\mathcal B)</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Tout intervalle de <m>\R</m> peut être écrit comme la réunion d'une suite de segments.
+              Donc tout intervalle de <m>\R</m> est un borélien.
+            </p></li>
+            <li><p> 
+              Tout ouvert de <m>\R</m> est une réunion au plus dénombrable d'intervalles ouverts<fn>ses composantes connexes par arcs par exemple</fn>. Donc tout ouvert de <m>\R</m> et un borélien et par stabilité d'une tribu par complémentarité, tout fermé de <m>\R</m> est un borélien.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              En général si <m>E</m> est un espace vectoriel normé de dimension finie alors la tribu de Borel de <m>E</m>, notée <m>\mathscr B(E),</m> est par définition la tribu engendrée par les boules fermées de <m>E</m>.
+              Elle contient alors tous les ouverts et tous les fermés de <m>E</m> et est de ce fait indépendante de la norme choisie sur <m>E</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+    <warning>
+              <p> Il n'y a aucun critère gloal qui reste simple permettant de décider si une partie de <m>\R</m> est un borélien. Cela peut même être un problème très compliqué.</p>
+            </warning>
+
+
+    <proposition xml:id="prop-sigmatrib"><title>Un cas intéressant</title>
+      <statement>
+        <p>
+          Soit <m>\mathcal A=\{A_i\mid i\in I\}</m> un ensemble au plus dénombrable de parties de <m>\Omega</m> qui  <em> forment une partition </em> de <m>\Omega</m>.
+          Alors
+          <me>
+            \sigma(\mathcal A)=\Bigl\{\bigcup\limits_{i\in I'} A_i\mid I'\subset I \Bigr\}
+          </me>
+        </p>
+      </statement>
+
+
+      <proof>
+        <p>
+          Posons <m>\mathscr T=\Bigl\{\bigcup\limits_{i\in I'} A_i\mid I'\subset I \Bigr\}</m> et montrons que <m>\mathscr T</m> est une tribu de <m>\Omega</m>.
+          <ul>
+            <li>
+              <p>
+                Comme  <m>\Omega=\bigcup\limits_{i\in I} A_i</m> alors <m>\emptyset,\Omega\in\mathscr T</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Si <m>A=\bigcup\limits_{i\in I'} A_i\in\mathscr T</m> alors <m>A^c=\bigcup\limits_{i\in I\setminus I'} A_i\in\mathscr T</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Soit <m>(B_n)_{n\in\N}</m> est une suite d'éléments de <m>\mathscr T</m> et posons pour tout <m>n\in\N</m>, <m>B_n=\bigcup\limits_{i\in I_n}A_i</m> alors
+                <me>
+                  \bigcup\limits_{n\in\N} B_n=\bigcup_{i\in\bigcup_{n\in\N}I_n}A_i\in\mathscr T
+                </me>.
+              </p>
+            </li>
+          </ul>
+          <m>\mathscr T</m> est donc bien une tribu de <m>\Omega</m>. Elle contient <m>\mathcal A</m> et toute tribu qui contient tous les ensembles <m>A_i</m> contient tous les éléments de <m>\mathscr T</m>. C'est donc la plus petite tribu de <m>\Omega</m> contenant <m>\mathcal A</m>. Soit <m>\sigma(\mathcal A)=\mathscr T</m>.
+        </p>
+      </proof>
+    </proposition>
+
+    <corollary xml:id="prop-tribdisc">
+      <statement>
+        <p>
+          Si l'ensemble <m>\Omega</m> est au plus dénombrable alors
+          <me>
+            \sigma\Bigl(\bigl\{\{\omega\}\mid \omega\in\Omega\bigr\}\Bigr)=\mathscr P(\Omega)
+          </me>
+          Autrement dit la seule tribu de <m>\Omega</m> qui contient tous les singletons de <m>\Omega</m> est <m>\mathscr P(\Omega)</m>.
+        </p>
+      </statement>
+    </corollary>
+
+    <remark>
+    <ol>
+      <li>
+        <p>Si <m>\Omega</m> est infini non dénombrable alors la tribu <m>\mathscr D(\Omega)</m> engendrée par les  singletons de <m>\Omega</m> est définie par la condition
+        <me>
+          \forall A\in\mathscr P(\Omega),\; A\in\mathscr D(\Omega)\Longleftrightarrow\; \begin{array}{r|l} \amp  A \text{ est au plus dénombrable} \\ \text{ou} \amp A^c \text{ est au plus dénombrable} \end{array}
+        </me>
+        En particulier toute tribu <m>\mathscr T</m> de <m>\Omega</m> qui contient tous les singletons de <m>\Omega</m> contient <m>\mathscr D(\Omega)</m> et donc contient toutes la parties dénombrables de <m>\Omega</m>.
+      </p>
+
+      <p>
+        C'est le cas par exemple de la tribu de Borel de tout espace vectoriel normé de dimension finie (les singletons sont des boules fermées).
+      </p>
+      </li>
+      <li>
+        <p>
+          La <xref ref="prop-sigmatrib"/> permet de construire de manière simple une tribu de <m>\Omega</m> en partant d'une famille au plus dénombrable d'événement deux à deux disjoints. Cette tribu est d'autant plus intéressante qu'il est très simple d'y construire une probabilité (voir la remarque <xref ref="rem-progsigmatrib"/>). 
+        </p>
+      </li>
+    </ol>
+        
+    </remark>
+
+
+    <proposition>
+      <title> tribu induite</title>
+
+      <statement>
+        <p>
+          Soit <m>\mathscr T</m> une tribu de <m>\Omega</m>.
+          Pour toute élément <m>B</m> de <m>\mathscr T</m>, l'ensemble
+          <me>
+            \mathscr  T_B=\{B\cap A\mid A\in\mathscr T\}
+          </me>
+          est une tribu de <m>B</m>.
+          On l'appelle la tribu induite par <m>\mathscr T</m> sur <m>B</m>.
+        </p>
+      </statement>
+    </proposition>
+  </subsection>
+
+  <subsection xml:id="subsec-probabilite">
+    <title>Probabilités</title>
+
+    <note>
+      <p>
+        Dans toute cette subsection, <m>(\Omega,\mathscr T)</m> désignera un espace probabilisable.
+      </p>
+    </note>
+
+    <definition xml:id="def-probabilite">
+    <notation>
+      <usage><m>\Pr{A}</m></usage>
+      <description>probabilité de l'événement <m>A</m></description>
+    </notation>
+      <statement>
+        <p>
+          On appelle probabilité de l'espace <m>(\Omega,\mathscr T)</m> toute application <m>\PP:\mathscr T\to[0,1]</m> telle que :
+          <ul>
+            <li>
+              <p>
+                <m>\Pr{\Omega}=1</m> ;
+              </p>
+            </li>
+
+            <li>
+              <p>
+                si <m>(A_n)_{n\in\N}</m> est une suite d'éléments de <m>\mathscr T</m> deux à deux disjoints alors
+                <me>
+                  \Pr{\bigcup\limits_{n=0}^\infty A_n}=\sum\limits_{n=0}^\infty \Pr{A_n}
+                </me>.
+              </p>
+            </li>
+          </ul>
+          Si <m>\PP</m> est un probabilité de <m>(\Omega,\mathscr T)</m> alors le triplet <m>(\Omega,\mathscr T,\PP</m> est dit un espace probabilisé.
+        </p>
+      </statement>
+    </definition>
+    <explanation>
+    <p>
+      Expérimentalement, <m>\Pr{A}</m> est une approximation de la fréquence de réalisation de l'événement <m>A</m> quand on répète l'expérience un grand nombre de fois :
+      <me>
+        \Pr{A}\approx\frac{k_N(A)}{N}
+      </me>
+      <m>k_N(A)</m> étant le nombre de fois où l'événement <m>A</m> se réalise quand on répète l'expérience aléatoire <m>N</m> fois, pour <m>N</m> très grand.
+    </p>
+    </explanation>
+
+    <remark>
+      <p>
+        Dans la définition précédente, on a utilisé la notation <m>\sum\limits_{n=0}^\infty \Pr{A_n}</m> pour désigner la somme de la série <m>\sum\limits \Pr{A_n}</m> que celle-ci soit convergente ou non avec la convention que la somme d'une série divergente à termes positifs est <m>+\infty</m>.
+        Ce qui pose évidemment un problème de consistence puisque <m>\Pr{\bigcup\limits_{n\in\N}A_n}</m> est sensé être dans l'intervalle <m>[0,1]</m>.
+      </p>
+
+      <p>
+        En fait avec les deux axiomes de la définition, la famille <m>(\Pr{A_n})_{n\in\N}</m> est toujours sommable et sa somme est dans <m>[0,1]</m>.
+        Voilà comment le justifier :
+        <ul>
+          <li>
+            <p>
+              En posant <m>A_n=\emptyset</m> pour tout <m>n\in\N</m>, le deuxième axiome aboutit à <m>\Pr{\emptyset}=0</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Si <m>A_0,A_1,\ldots,A_m</m> sont des événements deux à deux disjoints en posant <m>A_n=\emptyset</m> pour tout <m>n\gt m</m>, le deuxième axiome fournit
+              <me>
+                \Pr{\bigcup\limits_{n=0}^m A_n}=\sum\limits_{n=0}^m \Pr{A_n}
+              </me>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Soit <m>(A_n)_{n\in\N}</m> une suite d'éléments de <m>\mathscr T</m> deux à deux disjoints.
+              On a alors pour tout <m>n\in\N</m>
+              <me>
+                \sum\limits_{k=0}^n \Pr{A_k}=\Pr{\bigcup\limits_{k=0}^n A_n}\leqslant 1
+              </me>
+              La série à termes réels positifs <m>\sum \Pr{A_n}</m> est donc convergente et sa somme est dans <m>[0,1]</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </remark>
+
+
+    <proposition>
+      <statement>
+        <p>
+          Soit <m>\PP</m> une probabilité sur <m>(\Omega,\mathscr T)</m>.
+          Alors :
+          <ol>
+            <li>
+              <p>
+                <m>\Pr{\emptyset}=0</m> ;
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\Pr{A^c}=1-\Pr{A}</m> pour tout <m>A\in\mathscr T</m> ;
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Si <m>A\subset B</m> alors <m>\Pr{A}\leqslant \Pr{B}</m> et <m>\Pr{B\setminus A}=\Pr{B}-\Pr{A}</m> pour tout <m>A,B\in\mathscr T</m> ;
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\Pr{A\cup B}=\Pr{A}+\Pr{B}-\Pr{A\cap B}</m> pour tout <m>A,B\in\mathscr T</m> ;
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\Pr{\bigcup\limits_{n=0}^\infty A_n}\leqslant \sum\limits_{n=0}^\infty \Pr{A_n}</m> pour toute suite <m>(A_n)_{n\in\N}</m> d'éléments de <m>\mathscr T</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\Pr{\bigcup\limits_{i\in I}^\infty A_i}= \sum\limits_{i\in I}^\infty \Pr{A_i}</m> si <m>(A_i)_{i\in I}</m> est une famille au plus dénombrable d'éléments deux à deux disjoints de <m>\mathscr T</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+
+
+      <proof>
+        <p>
+          Les propriétés 1, 2 et 3 sont des conséquences immédiates des axiomes de la définition de probabilité et de la remarque précédente.
+          <ol>
+            <li>
+              <p>
+                Soit <m>(A_n)_{n\in\N}</m> une suite d'éléments de <m>\mathscr T</m> et posons <m>B_0=A_0</m> et <m>B_n=A_n\setminus\left(\bigcup\limits_{k=0}^{n-1} A_k\right)</m> pour tout <m>n\in\N</m>.
+                Les <m>(B_n)_{n\in\N}</m> sont deux à deux disjoints et <m>\bigcup\limits_{n=0}^\infty A_n=\bigcup\limits_{n=0}^\infty B_n</m> avec <m>B_n\subset A_n</m> pour tout <m>n\in\N</m>.
+                On a donc
+                <me>
+                  \Pr{\bigcup\limits_{n=0}^\infty A_n}=\sum\limits_{n=0}^\infty \Pr{B_n}\leqslant \sum\limits_{n=0}^\infty \Pr{A_n}
+                </me>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Soit <m>(A_i)_{i\in I}</m> une famille au plus dénombrable d'éléments de <m>\mathscr T</m> deux à deux disjoints.
+                Si <m>I</m> est fini alors c'est une conséquance de la remarque précédente.
+                Si <m>I</m> est infini alors il existe une bijection <m>\sigma</m> entre <m>\N</m> et <m>I</m> et il suffit de poser <m>B_n=A_{\sigma(n)}</m> pour tout <m>n\in\N</m> pour conclure grâce au théorème de permutation des termes pour les familles sommables.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </proof>
+    </proposition>
+
+    <theorem xml:id="thm-contmono">
+      <title> de continuité monotone </title>
+
+      <statement>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Soit <m>(A_n)_{n\in\N}</m> une suite croissante d'éléments de <m>\mathscr T</m>.
+                Alors
+                <me>
+                  \Pr{\bigcup\limits_{n=0}^\infty A_n}=\lim\limits_{n\to\infty} \Pr{A_n}
+                </me>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Soit <m>(A_n)_{n\in\N}</m> une suite décroissante d'éléments de <m>\mathscr T</m>.
+                Alors
+                <me>
+                  \Pr{\bigcap\limits_{n=0}^\infty A_n}=\lim\limits_{n\to\infty} \Pr{A_n}
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+
+
+      <proof>
+        <p>
+          <ol>
+            <li>
+              <p>
+                On pose <m>B_0=A_0</m> et <m>B_n=A_n\setminus A_{n-1}</m> pour tout <m>n\in\N^*</m>.
+                Les événements <m>B_n</m> sont deux à deux disjoints et <m>\bigcup\limits_{n=0}^\infty A_n=\bigcup\limits_{n=0}^\infty B_n</m>.
+                On a donc
+                <md>
+                  <mrow> \Pr{\bigcup\limits_{n=0}^\infty A_n} \amp= \sum\limits_{n=0}^\infty \Pr{B_n} </mrow>
+                  <mrow> \amp= \Pr{A_0}+ \sum\limits_{n=1}^{\infty}\bigl(\Pr{A_n}-\Pr{A_{n-1}}\bigr) </mrow>
+                  <mrow> \amp= \Pr{A_0}+\lim \Pr{A_n}-\Pr{A_0} </mrow>
+                  <mrow> \amp= \lim_{n\to\infty} \Pr{A_n} </mrow>
+                </md>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                On suppose que <m>(A_n)_n</m> est décroissante.
+                Alors <m>(A_n^c)_n</m> est croissante et on peut ainsi écrire
+                <md>
+                  <mrow>\Pr{\bigcap_{n\in\N}A_n} \amp=1-\Pr{\bigcup_{n\in\N}A_n^c} </mrow>
+                  <mrow> \amp= 1-\lim \Pr{A_n^c} </mrow>
+                  <mrow> \amp= \lim \Pr{A_n} </mrow>
+                </md>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </proof>
+    </theorem>
+
+    <corollary xml:id="cor-contmono">
+      <statement>
+        <p>
+          Soit <m>(A_n)_{n\in\N}</m> une suite quelconque d'éléments de <m>\mathscr T</m>.
+          Alors
+          <ol>
+            <li>
+              <m>\Pr{\bigcup\limits_{n=0}^\infty A_n}=\lim_{n\to\infty} \Pr{\bigcup\limits_{k=0}^nA_k}. </m>
+            </li>
+
+            <li>
+              <m>\Pr{\bigcap\limits_{n=0}^\infty A_n}=\lim_{n\to\infty}\Pr{\bigcap\limits_{k=0}^nA_k}.</m>
+            </li>
+          </ol>
+        </p>
+      </statement>
+
+
+      <proof>
+        <p>
+          Pour le premier point on pose <m>B_n=\bigcup_{k=0}^n A_k</m> pour tout <m>n\in\N</m>.La suite <m>(B_n)_n</m> et croissante et <m>\bigcup_{n\in\N} A_n=\bigcup_{n\in\N} B_n</m>.
+          On applique alors la formule des probabilites continues.
+        </p>
+
+        <p>
+          Pour le second on pose <m>C_n=\bigcap_{k=0}^nA_k</m>.
+          La suite <m>(C_n)_n</m> est décroissante et on peut appliquer le théorème de continuité monotone sachant que <m>\bigcap_{n\in\N}A_n=\bigcap_{n\in\N}C_n</m>.
+        </p>
+      </proof>
+    </corollary>
+
+    <definition xml:id="def-sce">
+      <statement>
+        <p>
+          On appelle système complet d'événements (SCE) de <m>(\Omega,\mathscr T)</m> toute famille <m>(B_i)_{i\in I}</m> au plus dénombrables d'éléments <m>\mathscr T</m> qui forme une partition de <m>\Omega</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <title> exemples courants de SCE </title>
+
+      <statement>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Pour tout événement <m>A</m>, <m>(A,A^c)</m> est un SCE de <m>(\Omega,\mathscr T)</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Si <m>\Omega</m> est au plus dénombrable, alors <m>(\{\omega\})_{\omega\in\Omega}</m> est un SCE de <m>(\Omega,\mathscr P(\Omega))</m>.
+              </p>
+            </li>
+
+            <li>
+              <title>SCE généré par une variable aléatoire discrète (important) </title>
+
+              <p>
+                si <m>X</m> est une application définie sur <m>\Omega</m> telle que <m>X(\Omega)</m> soit au plus dénombrable et <m>X^{-1}\bigl(\{x\}\bigr)\in\mathscr T</m> pour tout <m>x\in X(\Omega)</m> alors <m>\bigl(X^{-1}\bigl(\{x\}\bigr)\bigr)_{x\in X(\Omega)}</m> est un SCE de <m>(\Omega,\mathscr T)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+
+    <theorem xml:id="prop-probatotale">
+      <title> Formule des probabilités totales </title>
+
+      <statement>
+        <p>
+          Soit <m>(B_i)_{i\in I}</m> un SCE de <m>(\Omega,\mathscr T)</m>.
+          Alors pour tout <m>A\in\mathscr T</m>, on a
+          <me>
+            \Pr{A}=\sum\limits_{i\in I} \Pr{A\cap B_i}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+
+    <remark>
+      <p>
+        <ol>
+          <li>
+            <p>
+              Ce résultat reste valable si les événements <m>B_i</m> sont deux à deux disjoints, sans former une partition de <m>\Omega</m>, à condition que
+              <me>
+                \Pr{\bigcup_{i\in I}B_i} =1
+              </me>
+            </p>
+            <explanation><p>
+              Car si on pose <m>B=\bigcup_{i\in I}B_i</m> alors <m>B\subset A\cup B</m> et donc <m>\Pr{A\cup B}=1</m>. Par suite 
+              <m>
+                \Pr{A\cap B}=\Pr{B}+\Pr{A}-\Pr{A\cup B}=\Pr{A}
+              </m>
+              et donc 
+              <me>
+                \Pr{A}=\Pr{A\cap B}=\Pr{\bigcup_{i\in I}(A\cap B_i)}=\sum_{i\in I}\Pr{A\cap B_i}
+              </me>
+            </p></explanation>
+          </li>
+
+          <li>
+            <p>
+              Cette formule est extrêmement utile.
+              Elle stipule que si on sait calculer les probabilités des événements d'un SCE alors on peut exprimer la probabilité de n'importe quel événement.
+            </p>
+          </li>
+          <li xml:id="rem-progsigmatrib">
+            <p>
+              Reprenons le contexte de la <xref ref="prop-sigmatrib"/> et considérons une famille <m>(p_i)_{i\in I}</m> de nombre réel positifs dont la somme vaut <m>1</m>. Alors on définit complétement une probabilité <m>\PP</m> sur l'espace <m>(\Omega,\sigma(\mathcal A))</m> en posant 
+              <me>\forall i\in I,\; \Pr{A_i}=p_i</me> 
+              On a alors pour tout <m>A=\cup_{i\in I'}A_i\in\sigma(\mathcal A)</m> 
+              <me>
+                \Pr{A}=\sum_{i\in I'}p_i
+              </me>
+              
+            </p>
+            <p>
+              Le <xref ref="thm-probadisc"/> énoncé ci-après n'est qu'un cas particulier de ce dernier résultat.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+
+    <example>
+      <title> exemples génériques d'utilisation de la formule des probabilités totales </title>
+
+      <p>
+        <ol>
+          <li>
+            <p>
+              si on fixe un événement <m>B</m> alors
+              <me>
+                \forall A\in\mathscr T,\; \Pr{A}=\Pr{A\cap B}+\Pr{A\cap B^c}
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Si <m>B_1,B_2,\ldots,B_{n+1}</m> sont des événements quelconques alors
+              <me>
+                \Pr{\Bigl(\bigcap_{k=1}^nB_{k}\Bigr)\cap B_{n+1}^c}=\Pr{\bigcap_{k=1}^{n}B_{k}}- \Pr{\bigcap_{k=1}^{n+1} B_{k}}
+              </me>
+            </p>
+          </li>
+
+          
+        </ol>
+        Ces relations serviront notamment dans l'étude des événements indépendants (<xref ref="def-independance"/>)
+      </p>
+    </example>
+
+    
+
+    
+
+    <theorem xml:id="thm-probadisc">
+      <statement>
+        <p>
+          On suppose que <m>\Omega</m> est au plus dénombrable et on le munit de la tribu <m>\mathscr P(\Omega)</m>.
+          <ol>
+            <li>
+              <p>
+                Soit <m>\PP</m> une probabilité de <m>(\Omega,\mathscr P(\Omega))</m>.
+                Pour tout <m>A\in\mathscr T</m>, on a
+                <me>
+                  \Pr{A}=\sum\limits_{\omega\in A} \Pr{\{\omega\}}
+                </me>
+                <m>\PP</m> est  entièrement détérminée par les probabilités des singletons <m>\{\omega\}</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Soit <m>(p_\omega)_{\omega\in\Omega}</m> une famille de nombres réels positifs de somme <m>1</m>.
+                Alors il existe une unique probabilité <m>\PP</m> sur <m>\mathscr T</m> telle que
+                <me>
+                  \forall \omega\in\Omega,\;\Pr{\{\omega\}}=p_\omega
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <remark>
+      <p>
+        Si <m>\Omega</m> est au plus dénombrable alors pour toute famille sommable <m>x=(x_\omega)_{\omega\in\Omega}</m> de nombre réels positifs de somme <m>S>0</m>, on peut définir une probabilté sur <m>(\Omega,\mathscr P(\Omega)</m> en posant
+        <me>
+          \forall A\in\mathscr P(\Omega),\; \PP_x(A)=\frac1S\sum\limits_{\omega\in A} x_\omega
+        </me>
+        Cette remarque peut avoir des applications analytiques intéressantes même dans des cas où la probabilité <m>\PP_x</m> ne correspond pas réellement à une expérience aléatoire.
+      </p>
+    </remark>
+
+
+    <proposition xml:id="prop-probcond">
+      <title>Probabilité conditionnelle</title>
+      <notation>
+        <usage><m>\Pr{A \giv  B}</m></usage>
+        <description>probabilité de <m>A</m> sachant <m>B</m></description>
+      </notation>
+      <notation>
+        <usage><m>\PP_B(A)</m></usage>
+        <description>probabilité de <m>A</m> sachant <m>B</m></description>
+      </notation>
+      
+      
+      <statement>
+        <p>
+          On considère un événemnt <m>B</m> de probabilité non nulle.
+          L'application <m>\PP_B</m> définie sur <m>\mathscr T</m> par
+          <me>
+            \forall A\in\mathscr T,\; \PP_B(A)=\frac{\Pr{A\cap B}}{\Pr{B}}
+          </me>
+          est une probabilité de <m>(\Omega,\mathscr T)</m>.
+          La probabilité <m>\PP_B(A)</m> est aussi notée <m>\Pr{A \giv  B}</m> et on l'appelle probailité de <m>A</m> sachant <m>B</m>.
+        </p>
+      </statement>
+
+
+      <proof>
+        <p>
+          On a bien <m>\PP_B(\Omega)=1</m> et pour toute suite <m>(A_n)_{n\in\N}</m> d'éléments de <m>\mathscr T</m> deux à deux disjoints, on a
+          <me>
+            \PP_B\left(\bigcup\limits_{n=0}^\infty A_n\right)=\frac{\Pr{\bigcup\limits_{n=0}^\infty A_n\cap B}}{\Pr{B}}=\sum\limits_{n=0}^\infty \frac{\Pr{A_n\cap B}}{\Pr{B}}=\sum\limits_{n=0}^\infty \PP_B(A_n)
+          </me>
+        </p>
+      </proof>
+      <justification>
+      <title>Justification de la définition</title>
+
+      <p>
+        la probabilité de «<m>A</m> sachant <m>B</m>» est la probabilité de réalisation d'un résultat favorable à <m>A</m> quand on ne retient que les résultats favorables à <m>B</m>.
+        C'est une approximation du rapport des fréquences de réalisation des événements <m>A\cap B</m> et <m>B</m> dans une série d'expériences.
+        <me>
+          \Pr{A \giv  B}\approx\frac{k_N(A\cap B)}{k_N(B)}=\frac{k_N(A\cap B)/N}{k_N(B)/N}
+        </me>.
+        D'où la définition
+        <me>
+          \Pr{A \giv  B}=\frac{\Pr{A\cap B}}{\Pr{B}}
+        </me>
+      </p>
+      </justification>
+    </proposition>
+
+    <remark>
+      <p>
+        <ol>
+          <li>
+            <p>
+              Si <m>\Pr{B}=0</m> alors par convention, pour tout <m>A\in\mathscr T</m>, <m>\Pr{A \giv  B}=\Pr{A}</m>.
+              Ce choix s'explique par le fait que tout se passe comme si l'événement <m>B</m> n'avait pas eu lieu.
+            </p>
+
+            <p>
+              Avec cette convention on peut toujours écrire
+              <me>
+                \Pr{A\cap B}=\Pr{A \giv  B}\Pr{B}
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Sachant que <m>\PP_B</m> est une probabilité on peut lui appliquer toutes propriétés vues précédemment.
+              Par exemple
+              <me>
+                \Pr{A^c \giv  B}=1-\Pr{A \giv  B}
+              </me>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+
+    <warning>
+      <p>
+        On parle de «probabilité de <m>A</m> sachant <m>B</m>», jamais de «l'événement» <m>(A\mid B)</m> qui n'a pas de sens en théorie des probabilités.
+      </p>
+    </warning>
+
+    <theorem xml:id="thm-probatotale2">
+      <statement>
+        <p>
+          Soit <m>(B_i)_{i\in I}</m> un SCE de <m>(\Omega,\mathscr T)</m>.
+          Alors
+          <me>
+            \forall A\in\mathscr T,\; \Pr{A}=\sum\limits_{i\in I} \Pr{A \giv  B_i}\Pr{B_i}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+
+
+    <proposition xml:id="prop-bayes">
+      <title> Formules de Bayes </title>
+
+      <statement>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Soient <m>A</m> et <m>B</m> deux événements de probabilités non nulles.
+                Alors
+                <me>
+                  \Pr{A \giv  B}=\frac{\Pr{B \giv  A}\Pr{A}}{\Pr{B}}
+                </me>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Soit <m>(B_i)_{i\in I}</m> un SCE de <m>(\Omega,\mathscr T)</m> et <m>A\in\mathscr T</m> un événement de probabilité non nulle.
+                Alors pour tout <m>i\in I</m>, on a
+                <me>
+                  \Pr{B_i \giv  A}=\frac{\Pr{A \giv  B_i}\Pr{B_i}}{\sum\limits_{j\in I} \Pr{A \giv  B_j}\Pr{B_j}}
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </proposition>
+
+    <example>
+      <title> générique d'utilisation de la formule de Bayes </title>
+
+      <p>
+        Une chaine de production industrielle contient <m>N</m> machines identiques  mais avec des taux de production de pièces défectueuses différents.
+        Le taux pour la machine numéro <m>k</m> est <m>p_k</m>.
+      </p>
+
+      <p>
+        On prélève une pièce au hasard parmi un lot de pièces produite par la chaîne et on constate qu'elle est défectueuse.
+        Quelle est la probabilité que cette pièce provienne de la machine numéro <m>k</m> ?
+      </p>
+
+      <explanation>
+        <p>
+          Si on note <m>A</m> l'événement «la pièce est défectueuse» et <m>B_k</m> l'événement «la pièce provient de la machine numéro <m>k</m>» alors on cherche <m>\Pr{B_k \giv  A}</m>.
+          Celle-ci est donnée par la formule de Bayes :
+          <me>
+            \Pr{B_k \giv  A}=\frac{\Pr{A \giv  B_k}\Pr{B_k}}{\sum\limits_{j=1}^N \Pr{A \giv  B_j}\Pr{B_j}}= \frac{p_k}{\sum\limits_{j=1}^N p_j}
+          </me>
+          car <m>\Pr{B_k}=\frac1N</m> et <m>\Pr{A \giv  B_k}=p_k</m> pour tout <m>k\in\{1,\ldots,N\}</m>.
+        </p>
+      </explanation>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-independance">
+    <title>Indépendance des événements</title>
+
+    <note>
+      <p>
+        Dans tout la suite, <m>(\Omega,\mathscr T,\PP</m> désignera un espace probabilisé.
+      </p>
+    </note>
+
+    <definition xml:id="def-independance">
+      <statement>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Deux événements <m>A</m> et <m>B</m> de <m>\mathscr T</m> sont dits indépendants si <m>\Pr{A\cap B}=\Pr{A}\Pr{B}</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Une famille <m>(A_i)_{i\in I}</m> d'événements de <m>\mathscr T</m> est dite mutuellement indépendante (MI) si pour toute partie finie <m>J</m> de <m>I</m>,
+                <me>
+                  \Pr{\bigcap\limits_{j\in J} A_j}=\prod\limits_{j\in J} \Pr{A_j}
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <explanation>
+    <p>
+      <ul>
+        <li>
+          <title>Indépendance de deux événements</title>
+
+          <p>
+            <m>A</m> est indépendant de <m>B</m> si la probabilité de réalisation de <m>A</m> sachant <m>B</m> est la même que celle de réalisation de <m>A</m> : <m>\Pr{A \giv  B}=\Pr{A}</m>. Ce qui revient à
+            <me>
+              \Pr{A\cap B}=\Pr{A}\Pr{B}
+            </me>
+          </p>
+        </li>
+
+        <li>
+          <title>Indépendance mutuelle</title>
+
+          <p>
+            Des évéments <m>A_i</m>, <m>i\in I</m> sont mutuelement indépendants si et seulement si pour tout <m>i\in I</m> et pour toute partie finie <m>J\subset I</m> ne contenant pas <m>i</m> on a
+            <me>
+              \Pr{A_i\cap \bigcap\limits_{j\in J} A_j}=\Pr{A_i}\Pr{\bigcap\limits_{j\in J} A_j}
+            </me>
+            c'est à dire si et seulement si  la réalisation de chaque événement <m>A_i</m> est indépendante de la réalisation simultanée d'un ou plusieurs évenements <m>A_j</m> lorsque <m>j\ne i</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    </explanation>
+
+    <remark>
+      <p>
+        <ol>
+          <li>
+            <p>
+              Si <m>\Pr{A}=0</m> ou <m>\Pr{A}=1</m> alors tout événement <m>B</m> est indépendant de <m>A</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              deux événements incompatibles <m>A</m> et <m>B</m> ne peuvent être indépendants que si <m>\Pr{A}=0</m> ou <m>\Pr{B}=0</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Si <m>(A_i)_{i\in I}</m> est une famille MI alors <m>(A_i)_{i\in I'}</m> est MI pour toute partie  <m>I'</m> de <m>I</m>.
+              En particulier les événements <m>A_i</m> sont deux à deux indépendants.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Soit <m>(A_i)_{i\in I}</m> est une famille d'évéments MI.
+              Si on lui ajoute des événements presques sûrs ou négligeable alors les événements de la nouvelle famille sont MI.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Dans un SCE <m>(B_i)_{i\in I}</m> les événements <m>B_i</m> ne peuvent être  deux à deux indépendants, et a fortiori MI,  que s'il existe <m>i_0\in I</m> tel que
+              <me>
+                \Pr{B_{i_0}}=1 \text{ et } \forall i\ne i_0,\; \Pr{B_{i}}=0
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+
+
+    <proposition>
+      <statement>
+        <p>
+          Si <m>A</m> et <m>B</m> sont des événements indépendants alors <m>A^c</m> et <m>B</m> sont indépendants, <m>A</m> et <m>B^c</m> sont indépendants et <m>A^c</m> et <m>B^c</m> sont indépendants.
+        </p>
+      </statement>
+    </proposition>
+
+    <theorem xml:id="thm-">
+      <statement>
+        <p>
+          Soit <m>(A_i)_{i\in I}</m> une famille MI d'événements de <m>\mathscr T</m>.
+          <ol>
+            <li>
+              <p>
+                Soit <m>I'</m> une partie de <m>I</m>.
+                On pose <m>B_i=A_i</m> si <m>i\in I'</m> et <m>B_i=A_i^c</m> si <m>i\notin I'</m>.
+                Alors la famille <m>(B_i)_{i\in I}</m> est MI (en particulier <m>(A_i^c)_{i\in I}</m> est MI).
+              </p>
+            </li>
+
+            <li>
+              <title>Lemme des coalitions</title>
+
+              <p>
+                Soit <m>(I_k)_{k\in K}</m> une famille de parties deux à deux disjointes de <m>I</m>.
+                On pose pour tout <m>k\in K</m>, <m>C_k=\bigcap\limits_{i\in I_k} A_i</m>.
+                Alors la famille <m>(C_k)_{k\in K}</m> est MI.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+
+    <proposition xml:id="prop-forcomlement">
+      <title> Formule des compléments </title>
+
+      <statement>
+        <p>
+          Soient <m>A_1,A_2,\ldots,A_n</m> des événements de <m>(\Omega,\mathscr T)</m>.
+          Alors
+          <me>
+            \begin{split}\Pr{A_1\cap A_2\cap\cdots\cap A_n}= \Pr{A_1}\Pr{A_2 \giv  A_1}\Pr{A_3 \giv  A_1\cap A_2}\cdots{}\\ \Pr{A_n \giv  A_1\cap A_2\cap\cdots\cap A_{n-1}} \end{split}
+          </me>
+        </p>
+      </statement>
+
+
+      <proof>
+        <p>
+          On écrit
+          <me>
+            \Pr{A_1\cap A_2\cap\cdots\cap A_n}=\Pr{A_1}\Pr{A_2\cap\cdots\cap A_n \giv  A_1}=\Pr{A_1}\PP_{A_1}(A_2\cap\cdots\cap A_n)
+          </me>
+          et on raisonne par récurrnece en appliquant l'hypothèse de récurrence avec la probailité <m>\PP_{A_1}</m>
+        </p>
+      </proof>
+    </proposition>
+  </subsection>
+
+  <subsection xml:id="subsec-modelisation">
+    <title>Modélisation de phénomènes aléatoires</title>
+
+    <p>
+      Pour modéliser une expérience aléatoire on se place dans un ensemble <m>\Omega</m> qui contient tous les résultats possibles de l'expérience et on choisi une tribu de <m>\Omega</m> dans laquelle on peut exprimer tous les «événements» qui nous intéressent.
+      Il reste ensuite à définir une probabilité sur cette tribu qui rend compte de la fréquence de réalisation de ces événements.
+    </p>
+
+    <p>
+      On adopte alors le vocabulaire suivant :
+      <ul>
+        <li>
+          <p>
+            <m>\Omega</m> est dit l'univers de l'expérience ;
+          </p>
+        </li>
+
+        <li>
+          <p>
+            pour une instance de l'expérience, un évenement <m>A</m> se réalise si le résultat obtenu est dans <m>A</m> ;
+          </p>
+        </li>
+
+        <li>
+          <p>
+            un événement <m>A</m> est dit presque sûr si <m>\Pr{A}=1</m> et négligeable si <m>\Pr{A}=0</m> ;
+          </p>
+        </li>
+
+        <li>
+          <p>
+            deux événements <m>A</m> et <m>B</m> sont dits incompatibles si <m>\Pr{A\cap B}=0</m> ;
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <example>
+      <title> signification de certains événements courants </title>
+
+      <p>
+        Soit <m>(A_n)_n</m> une suite quelconque d'événements.
+        <ul>
+          <li>
+            <p>
+              <m>\bigcup\limits_{n\in\N} A_n</m> est l'événement «au moins un des événements <m>A_n</m> se réalise» ;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\bigcap\limits_{n\in\N} A_n</m> est l'événement «tous les événements <m>A_n</m> se réalisent» ;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>U=\bigcup\limits_{n\in\N}\bigg(\bigcap\limits_{k=n}^{\infty} A_k\bigg)</m> est l'événement «les événements <m>A_k</m> se réalisent tous à partir d'un certain rang <m>n</m> pour pour au moins un indice <m>n</m>». La probabilité de cet événement est
+              <me>
+                \Pr{U}=\lim\limits_{n\to\infty} \Pr{\bigcap\limits_{k=n}^{\infty} A_k}=\lim\limits_{n\to\infty}\lim_{m\to\infty} \Pr{\bigcap\limits_{k=n}^{n+m} A_k}
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>V=\bigcap\limits_{n\in\N}\bigg(\bigcup\limits_{k=n}^{\infty} A_k\bigg)</m> est l'événement «l'événement <m>A_n</m> se réalise pour une infinité d'indices <m>n</m>». La probabilité de cet événement est
+              <me>
+                \Pr{V}=1-\Pr{\bigcup\limits_{n\in\N}\bigg(\bigcap\limits_{k=n}^{\infty}A_k^c\bigg)}=1-\lim\limits_{n\to\infty}\lim_{m\to\infty} \Pr{\bigcap\limits_{k=n}^{n+m} A_k^c}
+              </me>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </example>
+
+    <p>
+      Deux approches sont en fait possibles pour modéliser une expérience aléatoire :
+      <ol>
+        <li>
+          <p>
+            Définir un espace <m>(\Omega,\mathscr T, \PP</m> où <m>\Omega</m> représente exactement l'ensemble des résultats possibles de l'expérience.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            La précédente méthode risque d'être inadéquate si certains événements qui nous intéresse sont inexprimables dans la tribu considérée.
+            C'est pour cela qu'en général on préfère se placer dans un espace probabilisable <m>(\Omega,\mathscr T)</m> où <m>\Omega</m> est beaucoup plus large et on modélise l'expérience non pas avec <m>(\Omega,\mathscr T)</m> mais avec une application <m>X</m> définie sur <m>\Omega</m> qu'on appellera «variable aléatoire».
+            L'avantage est qu'on peut combiner entre les résultats de différentes expériences aléatoires.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <remark>
+      <title>Cas où l'univers est au plus dénombrable</title>
+
+      <p>
+        Dans la pratique si l'ensemble <m>\Omega</m> qui contient les résultats de l'expérience est au plus plus dénombrable alors on le munit de la tribu <m>\mathscr T=\mathscr P(\Omega)</m> de telle sorte que tout ensemble formé de résultats possibles de l'expérience soit un événement.
+        Ce choix de tribu n'est pas adéquat lorsque l'ensemble des résultats est non dénombrable car cela pose des difficultés insurmontables pour définir une probabilité sur <m>\mathscr P(\Omega)</m>.
+      </p>
+    </remark>
+
+    <example>
+      <title>Lancer un dé</title>
+
+      <p>
+        On lance un dé à 6 faces.
+        On peut modéliser cette expérience par <m>\Omega=\{1,2,3,4,5,6\}</m> et <m>\mathscr T=\mathscr P(\Omega)</m>.
+        On peut définir une probabilité sur <m>\mathscr T</m> en posant <m>\Pr{\{i\}}=\frac 16</m> pour tout <m>i\in\Omega</m>.
+      </p>
+    </example>
+
+    <example>
+      <title>Lancer deux dés</title>
+
+      <p>
+        On lance deux dés à 6 faces.
+        On peut modéliser cette expérience par <m>\Omega=\{1,2,3,4,5,6\}^2</m> et <m>\mathscr T=\mathscr P(\Omega)</m>.
+        On peut définir une probabilité sur <m>\mathscr T</m> en posant <m>\Pr{\{(i,j)\}}=\frac 1{36}</m> pour tout <m>(i,j)\in\Omega</m>.
+      </p>
+
+      <p>
+        Si on s'intéresse à l'événement <m>A</m> : «la somme des résultats est paire», on peut créer un espace spécifique sous la forme <m>(\Omega=\{0,1\},\mathscr P(\Omega))</m> et y adjoindre la probabilité adéquate ou bien on peut rester dans l'univers <m>\Omega=\{1,2,3,4,5,6\}^2</m> et définir la variable aléatoire <m>X</m> sur <m>\Omega</m> en posant <m>X(i,j)=i+j</m> pour tout <m>(i,j)\in\Omega</m>.
+        On peut alors exprimer l'événement <m>A</m> par
+        <me>
+          A=\{(i,j)\in\Omega \mid X(i,j) \text{ est paire}\}
+        </me>
+      </p>
+    </example>
+
+    <example>
+      <title> Suite de lancers d'une pièce de monnaie</title>
+
+      <p>
+        On lance indéfiniment une piece de monnaie.
+        Si on ne s'intéresse qu'au numéro du premier lancer qui donne «face» alors peut modéliser cette expérience par <m>\Omega=\N^*</m> et <m>\mathscr T=\mathscr P(\Omega)</m>.
+        On peut définir une probabilité sur <m>\mathscr T</m> en posant <m>\Pr{\{n\}}=\frac 1{2^n}</m> pour tout <m>n\in\N^*</m>.
+      </p>
+
+      <p>
+        Mais dans ce cas les événements «obtenir trois face successivement au moins une fois» ou «obtenir face une infinité de fois» ne peuvent être exprimés dans <m>\mathscr T</m>.
+      </p>
+
+      <p>
+        On peut alors se placer dans l'espace beaucoup plus vaste <m>\Omega=\{0,1\}^{\N^*}</m>.
+        Le résultat de chaque séquence infinie de lancers est modélisé par une suite de zéros et de uns.
+        C'est un ensemble non dénombrable et y définir une tribu sur laquelle on doit ensuite définir une probabilité est non aisé.
+        L'approche peut être la suivante : on identifie une famille d'événements élémentaires avec lesquels on peut construire d'autre événements plus complexes et qui couvrent nos besoins et on n'aura qu'à se placer dans la tribu engendrée par ces événements élémentaires.
+      </p>
+
+      <p>
+        Par exemple, on peut considérer pour tout <m>n\in N^*</m> l'événement <m>E_{n}</m> : «le <m>n^{\mathrm{e}}</m> lancer donne face», ou encore
+        <me>
+          E_n=\{(\omega_p)_{p\in\N^*} \in\{0,1\}^{\N^*} \mid \omega_n=1\}
+        </me>
+        On peut alors exprimer
+        <ul>
+          <li>
+            <p>
+              pour tout <m>\omega=(\omega_n)_{n\in\N^*}</m>
+              <me>
+                \{\omega\}=\bigcap_{n\in\N^*} F_n \quad\text{avec } F_n=\begin{cases} E_n \amp \text{si } \omega_n=1\\ E_n^c \amp \text{si } \omega_n=0 \end{cases}
+              </me>
+              en particulier <m>\{\infty\}:=\bigcap\limits_{n\in\N^*}E_n^c</m> est l'événement «ne jamais obtenir face»
+            </p>
+          </li>
+
+          <li>
+            <p>
+              l'événement «le premier face apparaît au <m>n^{\mathrm e}</m> lancer» par
+              <me>
+                A_n=E_1^c\cap \cdots E_{n-1}^c\cap E_n
+              </me>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              l'événement «obtenir face une infinité de fois» par
+              <me>
+                B=\bigcap_{n\in\N^*}\Bigl(\bigcup_{k\geqslant n} E_k\Bigr)
+              </me>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              l'événement «obtenir trois faces successivement une infinité de fois» par
+              <me>
+                C=\bigcap_{n\in\N^*}\bigcup_{k\geqslant n} \bigl(E_k\cap E_{k+1}\cap E_{k+2}\bigr)
+              </me>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </example>
+  </subsection>
+
+  <exercises xml:id="exercises-approfondissement">
+  <title>Activités</title>
+
+  <activity>
+    <introduction>
+      <p>
+        On lance indéfiniment une piece de monnaie non équilibrée. La probabilité d'obtenir face est <m>p\in]0,1[</m> et les lancers sont indépendants.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Quelle est la probabilité pour que le numéro du premier lancer qui donne face soit pair ? Dans quel cas cette probabilité est-elle égale à celle que le numéro du premier face soit impaire ?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          On note <m>A</m> cet événement et <m>A_n</m> l'événement «le numéro du premier lancer qui donne face est <m>n</m>».
+          Alors <m>A=\bigcup\limits_{n\in\N^*}A_{2n}</m>, réunion d'événements deux à deux disjoints. On a <m>\Pr{A_n}=p(1-p)^{2n-1}</m> donc 
+          <me>
+            \Pr{A}=\sum\limits_{n\in\N^*} \Pr{A_{2n}}=p\sum\limits_{n\in\N^*} (1-p)^{2n-1}=\frac{p(1-p)}{1-(1-p)^2}=\frac{1-p}{2-p} 
+          </me>
+          Par ailleur <m>\Pr{A^c}=\Pr{A}</m> si et seulement si <m>\Pr{A}=1/2</m>. Ce qui équivaut à <m>\frac {1-p}{2-p}=\frac12</m> ou encore à <m>p=0</m>.
+        </p> 
+        <p>
+          On constate qu'en général <m>0\lt \Pr{A}\lt \frac12</m> sans jamais toucher ces valeurs extrêmes lorsque <m>p</m> varie dans <m>]0,1[</m>. La probabilité que le premier face ait un numéro impaire est toujours plus grande que celle que ce numéro soit paire et on n'approche d'un équilibre des deux probabilités que si <m>p</m> est presque nul, c'est à dire quand il est presque impossible d'obtenir face.
+        </p>
+        <p>
+          C'est un comportement contre-intuitif. L'intuition pousse plutôt vers <m>\Pr{A^c}=\Pr{A}</m> sous pretexte qu'il y a «autant de nombres paires que de nombres impaires».
+        </p>
+      </solution>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Quelle est la probabilité pour que les numéros de tous les lancers qui donnent face soient pairs ?
+        </p>
+      </statement>
+      <solution>
+        <case><title>Une première méthode</title> <p>
+          On note <m>B</m> l'evénement «tous les lancers qui donnent face sont pairs» et pour tout <m>n\in\N^*</m>, <m>B_n</m> l'événement «jusqu'au lancer <m>2n</m>, tous les lancers qui ont donné face sont de numéro paire». Alors 
+          <me>
+            B=\bigcap_{n=1}^{+\infty} B_n
+          </me>
+          la suite <m>(B_n)_n</m> et décroissante donc <m>\Pr{B}=\lim\Pr{B_n}</m>. Selon la formule des probabilités totales 
+          <md>
+          <mrow>\Pr{B_{n+1}} \amp=\Pr{B_{n+1}\giv B_n}\Pr{B_n}+\Pr{B_{n+1}\giv B_n^c}\Pr{B_n^c} </mrow>
+          <mrow> \amp=\Pr{B_{n+1}\giv B_n}\Pr{B_n} </mrow>
+          </md>
+          la probabilité conditionnelle <m>\Pr{B_{n+1}\giv B_n^c} </m> étant clairement nulle. Or si on sait que tout les lancers jusqu'à l'instant <m>2n</m> qui ont donné face sont de numéro paire, alors pour que <m>B_{n+1}</m> se réalise il faut et il suffit que le lancer <m>2n+1</m> ne donne pas face, peut importe ce que donne le lancer <m>2n+2</m>. Donc 
+          <m>\Pr{B_{n+1}\giv B_n}=q</m> et ainsi 
+          <me>
+            \Pr{B_{n+1}}=q\Pr{B_n}
+          </me>
+          <m>\Pr{B_n}</m> suit une progression géométrique de raison <m>q\in]0,1[</m> donc elle converge vers <m>0</m>. Alors <m>\Pr{B}=0</m>.
+        </p></case>
+        <case><title>Autre méthode</title><p>
+         Il suffit de remarquer qu'en fait 
+        <me>
+          B=\bigcap_{n\in\N^*}A_{2n+1}^c 
+        </me>
+        et que les événements <m>A_n</m> sont mutuellement indépendants et donc 
+        <me>
+          \Pr{B}=\lim\Pr[\bigg]{\bigcap_{k=1}^n A_{2k+1}^c}=\lim q^n=0
+        </me>
+        </p></case>
+      </solution>
+    </task>
+  </activity>
+
+  <activity>
+    <title>Calcul de l'ndicatrice d'Euler</title>
+
+    <introduction>
+      <p>
+        On fixe un entier <m>n\geqslant 2</m> et on note <m>p_1,p_2,\ldots,p_r</m> ses diviseurs premiers.
+        On pose <m>\Omega=\{ 1,2,\ldots,n\}</m> et pour tout diviseur <m>d</m> de <m>n</m>
+        <me>
+          A_d=\{k\in\Omega\mid d\text{ divise }k\}
+        </me>
+        On munit <m>\Omega</m> de la probabilité uniforme <m>\PP</m>.
+      </p>
+    </introduction>
+
+
+    <task>
+      <p>
+        Calculer <m>\Pr{A_d}</m>.
+      </p>
+    </task>
+
+
+    <task>
+    <statement>
+      <p>
+        Montrer que les événements <m>A_{p_1},A_{p_2},\ldots,A_{p_r}</m> sont mutuellement indépendants.
+      </p>
+       </statement>
+       <solution>
+        <p>
+          Juste pour le test du formatage de la reponse 
+        </p>
+       </solution>
+    </task>
+
+
+    <task>
+      <statement>
+        <p>
+          Retrouver la formule <m> \displaystyle\varphi(n)=n\prod_{k=1}^r\biggl(1-\frac1{p_k}\biggr)</m>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          Juste pour le test du formatage
+        </p>
+      </solution>
+    </task>
+  </activity>
+
+
+  <activity>
+    <title>Formule de Weierstrass</title>
+
+    <statement>
+      <p>
+        On fixe un réel <m>x\gt 1</m>.
+        On note <m>p_n</m> le <m>n^{\mathrm{e}}</m> nombre premier par ordre croissant et on définit la probabilité <m>\PP_x</m> sur <m>(\N^*,\mathscr P(\N^*))</m> par
+        <me>
+          \forall n\in\N^*,\; \PP_x(\{n\})=\frac1{\zeta(x)n^x}
+        </me>
+        On note pour tout <m>n\in\N^*</m>, <m>M_n</m> l'ensemble des multiple de <m>n</m>.
+        <ol>
+          <li>
+            <p>
+              Justifier que <m>\PP_x</m> définit bien une probabilité sur <m>\mathscr P(\N^*)</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Calculer <m>\PP_x(M_n)</m> pour tout <m>n\in\N^*</m>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Montrer que les événements <m>M_{p_n},\;n\in\N^*</m> sont mutuellement indépendants.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              En déduire que
+              <me>
+                \frac1{\zeta(x)}=\prod_{n=1}^\infty \biggl(1-\frac1{p_n^x}\biggr)
+              </me>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </activity>
+  </exercises>
+</section>

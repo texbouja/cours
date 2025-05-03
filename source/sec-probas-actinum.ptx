@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-probas--actinum" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Activités numériques</title>
+
+    <subsection xml:id="sec-expgraph">
+        <title>Exploration graphique</title>
+
+        <subsubsection xml:id="subsec-graphbinomiale">
+            <title>Représentation graphique de lois usuelles</title>
+            
+            <introduction>
+            Dans cette subsection on ne s'interesse qu'au comportement graphique des fonctions de masse de certaines lois discrètes. Il ne sera pas encore question de numériquement simuler des variables aléatoires. 
+            </introduction>
+
+        <activity>
+            <title>Exploration de la loi binomiale</title>
+
+            <introduction>
+                <p>
+                    Dans cette activité, vous allez explorer comment les paramètres <m> n </m> (nombre d'essais) et <m> p </m> (probabilité de succès) influencent la forme de la distribution binomiale.
+                    Vous pourrez choisir différentes valeurs de <m> n </m> et <m> p </m> et observer l'histogramme correspondant.
+                </p>
+            </introduction>
+
+
+            <task>
+                <statement>
+                    <p>
+                        Utiliser les curseurs ci-dessous pour choisir les valeurs de <m> n </m> et <m> p </m>, puis observer comment l'histogramme de la loi binomiale évolue.
+                    </p>
+                    <p><sage>
+                    <input>
+@interact
+def binomial_histogram(n=slider(1, 50, 1, default=10, label="n"),
+                p=slider(0.01, 1, 0.01, default=0.5, label="p")):
+    P = [binomial(n, k) * p^k * (1 - p)^(n - k) for k in range(n + 1)]
+    # Création de l'histogramme
+    g = bar_chart(P, width=0.5, axes_labels=[r"$k$", r"$P(X = k)$"])
+    # Ajuste la taille de l'affichage si nécessaire avec figsize
+    show(g, figsize=5)  
+                    </input>
+                    <output>
+                    <!-- L'histogramme sera affiché ici -->
+                    </output>
+                    </sage></p>
+                Donne une description sommaire de comportement de la distribution en fonction de la valeur du paramètre <m>p</m>.
+                </statement>
+
+                <solution>
+                    <p>
+                        En modifiant les valeurs de <m> n </m> et <m> p </m>, observer comment la forme de la distribution binomiale change :
+                        <ul>
+                            <li>
+                                Si <m> p = 0.5 </m>, la distribution est symétrique.
+                            </li>
+
+                            <li>
+                                Si <m> p \lt 0.5 </m>, la distribution est décalée vers la gauche.
+                            </li>
+
+                            <li>
+                                Si <m> p \gt 0.5 </m>, la distribution est décalée vers la droite.
+                            </li>
+
+                            <li>
+                                Plus <m> n </m> est grand, plus la distribution ressemble à une courbe en cloche (rappelant une distribution de Poisson).
+                            </li>
+                        </ul>
+                    </p>
+                </solution>
+            </task>
+
+
+            <task>
+                <statement>
+                    <p>
+                        Expliquer théoriquement vos observations
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                    Considérons une variable <m>X\sim\mathscr B(n,p)</m>. Pour <m>k\in\iic{0,n}</m> on a
+
+                    <md>
+                    <mrow>\frac{\PP(X=n-k)}{\PP(X=k)} \amp=
+                    \frac{p^{n-k}(1-p)^k}{p^k(1-p)^{n-k}}
+                    </mrow>
+                    <mrow>\amp=
+                    \left(\frac{p}{1-p}\right)^{n-2k}
+                    </mrow>
+                </md>
+                la fonction <m>p\longmapsto p/(1-p)</m> est croissante et varie entre <m>0</m> et <m>+\infty</m> en prenant la valeur <m>1</m> en <m>p=1/2</m>. Cela signifie que si <m>p\lt 1/2</m> alors <m>\PP(X=k)\geq \PP(X=n-k)</m> tant que <m>n-2k\geq 0</m>. Le maximum de <m>\PP(X=k)</m> est atteint donc en un point <m>k\in\iic{0,\ceil{n/2}}</m>. Si <m>p\gt 1/2</m> ce maximum est atteint pour <m>k\in\iic{\ceil{n/2},n}</m>. Losque <m>p=1/2</m>, <m>\PP(X=n-k)=\PP(X=k)</m> pour tout <m>k</m> ce qui signifie que le graphe de la distribution est symétrique par rapport au milieu <m>n/2</m>.
+                    <md>
+                    <mrow>\frac{\PP(X=k+1)}{\PP(X=k)} \amp= 
+                    \frac{\binom n{k+1}}{\binom nk}\cdot \frac{p}{1-p}
+                    </mrow>
+                    <mrow> \amp= 
+                    \frac{n!}{(k+1)!(n-k-1)!}\cdot \frac{k!(n-k)!}{n!}\cdot\frac{p}{1-p}
+                    </mrow>
+                    <mrow> \amp= 
+                    \frac{n-k}{k+1}\cdot \frac{p}{1-p}
+                    </mrow>
+                    </md>
+                    pour un <m>p</m> fixé on a donc 
+                    <md> 
+                    <mrow> \PP(X=k+1)\geq \PP(X=k)\amp
+                    \Longleftrightarrow 
+                        p(n-k)\geq (1-p)(k+1) 
+                    </mrow>
+                    <mrow> \amp\Longleftrightarrow 
+                        k\leq p(n+1)-1 </mrow>
+                    <mrow> \amp\Longleftrightarrow 
+                    k\leq r-1
+                     </mrow>  
+                    </md>
+                    où <m>r=\ceil{p(n+1)}</m>. La fonction de masses <m>k\longmapsto \PP(X=k)</m> reste croissante tant que <m>k\leq r-1</m> et devient décroissante au delà. Son maximum ne peut être atteint qu'en <m>k=r-1</m> et/ou en <m>k=r</m>.
+                        </p>
+                    <p>
+                        Noter que si <m>p\lt 1/2</m> alors <m>r-1\leq\ceil{n/2}</m> et si <m>p\gt 1/2</m> alors <m>r-1\geq \ceil{n/2}</m>. Ce qui confirme le constat précédent en le précisant. 
+                    </p>
+                    </solution>
+            </task>
+        </activity>
+
+        <activity>
+            <title>Comportement asymptotique d'une loi binomiale</title>
+            <introduction><p>
+            Dans cette activité, on s'intéresse à la convergence de la loi binomiale vers la loi de Poisson lorsque le nombre d'essais <m> n </m> devient grand.
+            </p></introduction>
+
+            <task>
+                <statement>
+                    <p>
+                        Visualiser l'approximation de la loi binomiale <m>B(n, p)</m> par la loi de Poisson <m>\mathscr P(np)</m> lorsque <m>n</m> est grand.
+                    </p>
+                    </statement>
+                        
+                    <solution>        
+                    <p>
+                    <sage>
+                    <input>
+@interact
+def binomial_vs_poisson(n=slider(50, 500, 1, default=50, label="n"),
+                        p=slider(0.01, 0.99, 0.01, default=0.5, label="p")):
+    lambda_ = n * p  # Paramètre de la loi de Poisson
+    P_binom = [binomial(n, k) * p^k * (1 - p)^(n - k) for k in range(n + 1)]
+    P_poisson = [exp(-lambda_) * lambda_^k / factorial(k) for k in range(n + 1)]
+    # Histogramme pour la loi binomiale
+    g_binom = bar_chart(P_binom, width=0.5, color='blue', legend_label="Binomial B(n, p)")
+    # Graphique pour la loi de Poisson (points reliés par une ligne)
+    g_poisson = list_plot(P_poisson, plotjoined=True, color='red', marker="o", legend_label="Poisson P(np)")
+    # Affichage combiné
+    show(g_binom + g_poisson, figsize=(6,5), axes_labels=[r"$k$", r"$P(X = k)$"])
+                    </input>
+                    <output>
+                    </output>
+                    </sage></p>
+                    <p>
+                        Ce graphique affiche en bleu l'histogramme de la loi binomiale <m>B(n, p)</m> et en rouge la courbe de la loi de Poisson <m>\mathscr P(np)</m>.
+                        Il permet de visualiser comment la distribution binomiale se rapproche de la distribution de Poisson lorsque <m>n</m> devient grand.
+                    </p>
+                    <p>
+                        Lorsque <m>n</m> est grand et <m>p</m> est petit, la distribution binomiale <m>B(n, p)</m> devient similaire à la distribution de Poisson <m>\mathscr P(np)</m>.
+                        Cette visualisation interactive permet d'observer cette convergence.
+                    </p>
+                </solution>
+                </task>
+                <task>
+                <statement>
+                    <p>
+                        Expliquer théoriquement vos observations
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Voir <xref ref="act-binomial-poisson"/>
+                    </p>
+                </solution>
+            </task>
+        </activity>
+
+    </subsubsection>
+    <subsubsection xml:id="subsec-histogramme-lois-usuelles">
+                <title>Échantillonage d'une loi discrète</title>
+
+                <introduction>
+                <p> Dans cette subsection on commencera à utiliser les fonctions offertes par les bibliothèques Python pour simuler des variables aléatoires et on essayera de comparer graphiquement leurs comportement avec celui des lois théoriques.     
+                </p>
+                </introduction>
+                
+                <activity><title>Loi binomiale</title>
+                <statement>
+                    <p>
+                    Utiliser les fonctions Python <c>numpy.random.binomial</c> et <c>numpy.random.poisson</c> pour générer des variables aléatoires qui suit la loi binomiale et la loi de Poisson. Écrire un script Python qui permet de modifier la taille <m>N</m> de l'échantillon utilisé ainsi que les paramètres <m>n</m> et <m>p</m> et <m>\lambda</m> et qui trace intéractivement l'histogramme des proportions des valeurs réalisées par, au choix, l'une des deux variables simulées dans l'échantillon ainsi que la courbe de la loi théorique correspondante.
+                    </p>
+                </statement>
+
+                <solution><p>
+                        <sage>
+                            <input>
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
+def binomial_pmf(k, n, p):
+    """Calcule la probabilité P(X = k) pour une loi binomiale."""
+    return math.comb(n, k) * (p**k) * ((1 - p)**(n - k))
+
+def poisson_pmf(k, lam):
+    """Calcule la probabilité P(X = k) pour une loi de Poisson."""
+    return (lam**k * np.exp(-lam)) / math.factorial(k)
+
+@interact
+def plot_distributions(distribution=['Binomiale', 'Poisson'], 
+        N=slider(10, 10000, 10, default=1000), 
+        n=slider(1, 50, 1, default=10), 
+        p=0.3, 
+        lam=10.0):
+    plt.figure(figsize=(5, 5))
+    
+    if distribution == 'Binomiale':
+        X = np.random.binomial(n, p, N)
+        k_values = np.arange(0, n + 1)
+        Pk_values = [binomial_pmf(k, n, p) for k in k_values]
+    
+    elif distribution == 'Poisson':
+        X = np.random.poisson(lam, N)
+        k_values = np.arange(0, max(15, int(2 * lam)))
+        Pk_values = [poisson_pmf(k, lam) for k in k_values]
+    
+    plt.hist(X, bins=np.arange(min(X), max(X) + 1.5) - 0.5, density=True, alpha=0.6, color='blue', edgecolor='black', label="Échantillon")
+    plt.plot(k_values, Pk_values, 'ro-', label="Théorique", markersize=5)
+
+    plt.xlabel("Valeurs")
+    plt.ylabel("Fréquence")
+    plt.title(f"Distribution {distribution} (N={N})")
+    plt.legend()
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.show()
+
+                            </input>
+                            <output>
+                                
+                            </output>
+                        </sage>
+                    </p></solution>
+                </activity>
+            </subsubsection>
+        
+        <subsubsection xml:id="subsec-lo-faible">
+            <title>Loi Faible des grands nombres avec une loi géométrique</title>
+
+            <introduction>
+            <p>
+                Dans cette subsection on essai de visualiser le conformance de la moyenne empirique sur un échantillon d'une loi géométrique avec la loi faible des grands nombre. 
+            </p>
+            </introduction>
+            
+
+            <activity>
+                <task>
+                    <statement>
+                <p>
+                    En utilisant la fonction <c>numpy.random.geometric</c> créer une variable qui suit la loi géométrique. 
+                </p> 
+                <p>
+                    Écrire un script Python qui permet de changer intéractivement la valeur du paramètre <m>p</m> de la taille <c>N_max</c> de l'échantillon et qui trace la courbe d'évolution de la moyenne des valeurs réalisées en fonction de la taille <m>N</m> de l'échantillon.  
+                </p>
+                </statement>
+                <solution>
+                <p>
+                    <sage>
+                        <input>
+import numpy as np
+import matplotlib.pyplot as plt
+
+@interact
+def loi_faible_grands_nombres_geom(
+        p=slider(0.05, 1.0, 0.05, default=0.2), 
+        N_max=slider(500, 10000, 100, default=1000)):
+    plt.figure(figsize=(6, 5))
+
+    # Génération des échantillons selon une loi géométrique
+    N_values = np.arange(1, N_max + 1)
+    X = np.random.geometric(p, N_max)  # Tableau de résultats selon la Loi géométrique avec paramètre p 
+    E_theorique = 1 / p  # Espérance théorique de la loi géométrique
+
+    # Calcul de la moyenne empirique cumulée
+    moyennes_empiriques = np.cumsum(X) / N_values
+
+    # Tracé des résultats 
+    plt.plot(N_values, moyennes_empiriques, label="Moyenne empirique", color="blue")
+    plt.axhline(E_theorique, color="red", linestyle="--", label=f"Espérance théorique ({E_theorique:.2f})")
+
+    plt.xlabel("Taille de l'échantillon (N)")
+    plt.ylabel("Moyenne empirique")
+    plt.title(f"Loi faible des grands nombres - Loi Géométrique (p={p})")
+    plt.legend()
+    plt.grid(alpha=0.7)
+    plt.show()
+
+                        </input>
+                        <output>
+                            
+                        </output>
+                    </sage>
+                </p>    
+                </solution>
+                </task>
+                <task>
+                    <statement>
+                        <p>
+                            Écrire un script qui permet de fixer intéractivement la valeur de la taille de l'échantillon et qui trace la courbe d'évolution de la moyenne empirique de la loi ainsi que celle de la fonction <m>p\longmapsto \EE(X)</m> quand <m>p</m> varie entre <m>0.1</m> et <m>0.99</m>. 
+                        </p>
+                    </statement>
+                <solution>
+                    <p>
+                        <sage>
+                        <input>
+import numpy as np
+import matplotlib.pyplot as plt
+
+@interact
+def loi_faible_grands_nombres_geom_variable_p(
+    N=slider(100, 10000, 100, default=1000)):
+    plt.figure(figsize=(6, 5))
+
+    # Valeurs de p variant linéairement de 0.01 à 0.99
+    p_values = np.linspace(0.01, 0.99, 50)
+    moyennes_empiriques = []
+    esperances_theoriques = []
+
+    for p in p_values:
+        X = np.random.geometric(p, N)  # Générer un échantillon de taille N
+        moyennes_empiriques.append(np.mean(X))  # Calculer la moyenne empirique
+        esperances_theoriques.append(1 / p)  # Espérance théorique de la loi géométrique
+
+    # Tracé des résultats
+    plt.plot(p_values, moyennes_empiriques, 'bo-', label="Moyenne empirique")
+    plt.plot(p_values, esperances_theoriques, 'r--', label="Espérance théorique")
+
+    plt.xlabel("Paramètre p")
+    plt.ylabel("Moyenne empirique")
+    plt.title(f"Loi faible des grands nombres - Loi Géométrique avec N={N}")
+    plt.legend()
+    plt.grid(alpha=0.7)
+    plt.show()
+
+                        </input>
+                        <output>
+                            
+                        </output>
+                    </sage>
+                    </p>
+                </solution>
+            
+            </task>
+            </activity>
+            
+        </subsubsection>
+
+    </subsection>
+
+    <subsection xml:id="sec-principeinversion">
+        <title>Principe d'inversion et simulation de variables aléatoires discrètes</title>
+    <subsubsection xml:id="subsec-basetheo">
+        <title>Base théorique</title>
+        
+        <introduction>
+            <p>
+                Dans cette subsection, nous allons étudier le <em>principe d'inversion</em>, une méthode mathématique pour simuler des variables aléatoires discrètes à partir d'une variable uniforme <m> U \sim \mathcal{U}([0,1]) </m> ( <xref ref="example-U"/> ).
+                </p>
+                <p>
+                Nous appliquerons ensuite ce principe à des lois discrètes usuelles (Bernoulli, binomiale, géométrique et Poisson) et implémenterons des simulations en Python.
+            </p>
+        </introduction>
+        <warning>
+            <p>
+                Les résultats énoncés dans cette subsection ne font pas partie du programme officiel et doivent être taités comme des exercices d'approfondissement.
+            </p>
+        </warning>
+
+        <theorem xml:id="thm-prininv">
+            <title>Principe d'inversion (énoncé mathématique)</title>
+
+            <statement>
+                <title>Principe de l'inversion d'une loi</title>
+
+                <p>
+                    Soit <m> X </m> une <em>variable aléatoire réelle</em>.
+                    La fonction de répartition <m> F_X </m> de <m> X </m> est définie par (voir <xref ref="subsec-fonction-repartition"/>) :
+                    <me>
+                        F_X(t) = P(X\leq t)
+                    </me>                
+                On pose pour tout <m>u\in[0,1]</m>
+                    <me>
+                        G(u)=\inf\{t\in\R\mid F_X(t)\geq u\}
+                    </me>
+                    <aside><p> si <m>F_X</m> est bijective alors <m>G=F_X^{-1}</m>. Noter que <m>F_X</m> n'est jamais bijective dans le cas d'une variable discrète. </p></aside>
+                    <m>G</m> est appelé inverse généralisé de la fonction <m>F_X</m>
+                </p>
+
+                <p>
+                    Si <m> U \sim \mathcal{U}([0,1]) </m>, alors la variable aléatoire <m>Y=G(U)</m> 
+                    suit la même loi que <m> X </m>.
+                    <!-- Plus concrétement
+                    <me>
+                        \forall\omega\in\Omega,\; Y(\omega) = x_i \Longleftrightarrow  U(\omega) \in [F_X(x_{i-1}), F_X(x_i)[,
+                    </me>
+                    avec <m> F_X(x_0) = 0 </m>.
+                    -->
+                </p>
+            </statement>
+
+
+            <proof>
+                <p>
+                    Montrons d'abords que pour tous <m>u\in [0,1]</m> et <m>t\in\R</m>
+                    <men xml:id="eq-equivbase">
+                        F_X(t)\geq u \Longleftrightarrow t\geq G(u)
+                    </men>
+                    Soient <m>u\in[0,1]</m> et <m>t\in\R</m>.
+                </p>
+
+                <p>
+                    Si <m>F_X(t)\geq u</m> alors par définition de <m>G(u)</m>, <m>G(u)\leq  t</m>.
+                </p>
+
+                <p>
+                    Réciproquement, supposons que <m>G(u)\leq t</m>.
+                    <ul>
+                        <li>
+                            <p>
+                                Si <m>G(u)\lt t</m> alors par caractérisation de la borne inférieure il existe <m>s\in\R</m> tel que <m>s\leq t</m> et <m>F_X(s)\geq u</m> et par croissante de <m>F_X</m> on a donc <m>u\leq F_X(s)\leq F_X(t)</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Si <m>G(u)=t</m>, soit <m>t=\inf\{s\in\R\mid F_X(s)\geq u\}</m>, il existe une suite décroissante <m>(s_n)_n</m> qui converge vers <m>t</m> et  telle que <m>F_X(s_n)\geq u</m> pour tout <m>n</m>. Par continuité à droite de <m>F_X</m> en <m>t</m>, la suite <m>(F_X(s_n))_n</m> converge vers <m>F_X(t)</m> et donc <m>F_X(t)\geqslant u</m>.
+                            </p>
+                        </li>
+                    </ul> 
+                Maintenant que <xref ref="eq-equivbase"/> est acquise, on en déduit que pour tout <m>t\in\R</m>
+                <me>
+                    F_Y(t)=\Pr{G(U)\leq t}=\Pr{U\leq F_X(t)}=F_U\bigl(F_X(t)\bigr)
+                </me>
+                mais comme <m>U\sim\mathscr U([0,1])</m> alors 
+                <m>F_U(u)=u</m> pour tout <m>u\in[0,1]</m> et ainsi 
+                <me>
+                    F_Y(t)=F_X(t)
+                </me>
+                Alors <m>Y</m> suit la même loi que <m>X</m>.
+                
+                
+                </p>
+            </proof>
+        </theorem>
+
+        
+
+        <corollary xml:id="cor-prininv">
+            <title>Cas où les valeurs de <m>X</m> sont des points isolés</title>
+            <statement>
+                <p>
+                    Soit <m>X</m> une <acro>VADR</acro> dont l'ensemble des valeurs s'organise en une suite strictement croissante <m>(x_n)_{n\in I}</m> avec <m>I=\iic{0,N}</m> si <m>X(\Omega)</m> est fini et <m>I=\N</m> sinon. On pose  pour tout <m>n\in I</m>, 
+                    <me>
+                        p_n=\Pr{X=x_n} \qtext{et} u_n=\sum_{k=0}^np_k
+                    </me>
+                    <aside>
+                        <p>
+                            Si pour un certain <m>n</m> on a <m>p_n=0</m> alors <m>u_n=u_{n-1}</m> et  donc l'evénement <m>(u_{n-1}\lt U\leq u_{n})</m> est vide. La formule reste donc valable dans ce cas. 
+                        </p>
+                    </aside>
+                    Alors <m>\Pr{X=x_0}=\Pr{U\leq u_0}</m> et pour tout <m>n\in I\setminus \{0\}</m> 
+                    <me>
+                        \Pr{X=x_n}=(u_{n-1}\lt U\leq u_n)
+                    </me>
+                </p>
+            </statement>
+            <proof>
+            <p>
+            Pour <m>n=0</m>, <m>\Pr{U\leq u_0}=F_U(p_0)=p_0</m> et 
+              pour tout <m>n\in I\setminus\{0\}</m>
+              <me>
+                \Pr{u_{n-1}\lt U\leq u_n}=F_U(u_n)-F_U(u_{n-1})=u_n-u_{n-1}=p_n
+              </me>
+            </p>
+        </proof>
+        <explanation>
+            <p>
+                Si <m>X</m> prend comme valeurs les termes d'une suite strictement croissantes de nombres réels <m>(x_n)_n</m>, la probabilité pour la valeur <m>x_n</m> se réalise est la même que si on tire un nombre <m>u</m> selon la  loi uniforme <m>\mathscr{U}([0,1])</m> et qu'on cherche ensuite sa position dans la suite préalablement formée <m>u_0,u_1,\ldots,u_n,\ldots</m>. La variable <m>Y</m> qui prend comme valeur l'indice <m>n</m> tel que <m>u_{n-1}\lt u\leq u_n</m> suit la même loi que <m>X</m>.
+            </p>
+            <p>
+               Tous langage de programmation qui se respecte offre au moins une fonction pseudo-aléatoire qui simule le comportement de la loi <m>\mathscr U([0,1])</m>. Trouver la position d'un nombre <m>u</m> tiré selon cette loi dans une une liste croissante préetablie de nombres est un problème de tri. Un tri par insertion est parfaitement adapté à ce problème.  
+            </p>
+            <p>
+                Il peut toutefois être plus rapide de trouver une expression théorique de <m>Y</m> et de l'implémenter directement comme une fonction. 
+            </p>
+        </explanation>
+        </corollary>
+        </subsubsection>
+
+        <subsubsection xml:id="subsec-simulation-principe-inverse">
+            <title>Simulation numérique</title>
+            
+       
+
+        <activity><title>Simulation d'une variable finie</title>
+        <introduction>
+            <p>
+                On veut simuler une variable aléatoire discrète avec le principe d'inversion. Les données sont les suivantes : 
+                les valeurs prises par la variable sont les entiers de 1 à 10 avec la liste des probabilité probabilités respectives 
+                <me>L=(1,0,0.1,0.2,0.25,0.15,0,0.05,0.05)</me> 
+            </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>
+                    Écrire un programme Python qui simule la variable. Visualiser graphiquement le bon fonctionnement du programme avec un échantillon de 1000 valeurs de la variable simulée.
+                    
+                </p><p>    
+                    Toutes les fonctions de la biliothèque <c>Numpy</c> peuvent être utilisée. En particulier 
+                    <ul>
+                        <li>
+                            <p>
+                                <c>np.random.uniform</c> qui génère une variable aléatoire qui suit la loi <m>\mathscr U([a,b])</m> ;
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <c>np.cumsum</c> qui retourne la liste des «sommes cummulées» de la  liste fournie ;
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <c>np.searchsorted</c> qui permet de trouver l'indice d'un élément dans une liste ordonnée ;
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Deux fonctions de simultions, la première utilise <c>random.uniform</c> de la bibliothèque <c>numpy</c> et la deuxième <c>random</c> de la bibliothèque <m>random</m>.  Vous pouver augmenter la valeur de <c>N</c> pour une meilleure qualité de la simulation.
+                    <sage>
+                        <input>
+import numpy as np
+from random import random 
+import matplotlib.pyplot as plt
+
+# Définition des valeurs et des probabilités
+valeurs = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+probabilités = np.array([0.1, 0, 0.1, 0.2, 0.25, 0.15, 0, 0.05, 0.05, 0.1])
+
+# Calcul de la fonction de répartition cumulative
+F = np.cumsum(probabilités)
+
+# fonction de simulation qui utilise np.random.uniform
+def x_sim():
+    """Simule une seule valeur de X en utilisant la méthode d'inversion."""
+    U = np.random.uniform(0, 1)  # Générer une seule valeur de U
+    X = valeurs[np.searchsorted(F, U)]  # Appliquer la méthode d'inversion
+    return X
+
+# fonction de simulation qui utilise random de la bibliothèque random 
+def y_sim():
+    """Simule une seule valeur de X en utilisant la méthode d'inversion."""
+    U = random()  # Générer une seule valeur de U
+    X = valeurs[np.searchsorted(F, U)]  # Appliquer la méthode d'inversion
+    return X
+
+# Simulation de 1000 instances
+N = 1000
+simulations_x = np.array([x_sim() for _ in range(N)])
+simulations_y = np.array([y_sim() for _ in range(N)])
+
+# Vérifier s'il y a des valeurs de probabilité nulle dans la liste générée
+valeurs_uniques, counts = np.unique(simulations_x, return_counts=True)
+print("Valeurs générées :", valeurs_uniques)
+
+# Tracer l'histogramme des résultats pour x_sim
+plt.figure(figsize=(5, 5))
+plt.hist(simulations_x, bins=np.arange(1, 12) - 0.5, density=True, edgecolor='black', alpha=0.7, color='blue')
+
+# Ajouter les probabilités théoriques sous forme de points rouges
+plt.scatter(valeurs, probabilités, color='red', label="Probabilités théoriques", zorder=3)
+
+# Labels et titre
+plt.xlabel("Valeur de X")
+plt.ylabel("Fréquence observée")
+plt.title("Histogramme des valeurs simulées de x_sim")
+plt.xticks(valeurs)  # Pour bien aligner les ticks avec les valeurs de X
+plt.legend()
+plt.grid(True, linestyle="--", alpha=0.6)
+
+# Affichage
+plt.show()
+
+# Tracer l'histogramme des résultats pour y_sim
+plt.figure(figsize=(5, 5))
+plt.hist(simulations_y, bins=np.arange(1, 12) - 0.5, density=True, edgecolor='black', alpha=0.7, color='blue')
+
+# Ajouter les probabilités théoriques sous forme de points rouges
+plt.scatter(valeurs, probabilités, color='red', label="Probabilités théoriques", zorder=3)
+
+# Labels et titre
+plt.xlabel("Valeur de X")
+plt.ylabel("Fréquence observée")
+plt.title("Histogramme des valeurs simulées de y_sim")
+plt.xticks(valeurs)  # Pour bien aligner les ticks avec les valeurs de X
+plt.legend()
+plt.grid(True, linestyle="--", alpha=0.6)
+
+# Affichage
+plt.show()
+
+                        </input>
+                        <output>
+                            
+                        </output>
+                    </sage>
+                </p>
+            </solution>
+        </task>
+        
+        
+            
+        </activity>
+        
+        
+                
+        <activity><title>Simulation des lois discrètes usuelles</title>
+        
+            <introduction>
+                <p>
+                    Les objectifs de cette activité sont :
+                    <ul>
+                        <li>
+                            Comprendre le principe d'inversion et son fondement mathématique.
+                        </li>
+
+                        <li>
+                            Appliquer ce principe pour simuler des variables aléatoires discrètes.
+                        </li>
+
+                        <li>
+                            Implémenter des simulations en Python pour les lois Bernoulli, binomiale, géométrique et Poisson.
+                        </li>
+                    </ul>
+                </p>
+            </introduction>
+
+            <task>
+                <title>Simulation de la loi de Bernoulli</title>
+            <statement>
+                <p>
+                    <ol>
+                        <li>
+                            Écrire un programme Python pour simuler une variable de Bernoulli en utilisant le principe d'inversion.
+                        </li>
+
+                        <li>
+                            Générer 1000 simulations et vérifier que la proportion de <m> 1 </m> est proche de <m> p </m>.
+                        </li>
+                    </ol>
+                </p>
+                </statement>
+                <solution>
+                <p>
+                    <strong>Code Python :</strong> 
+            <sage><input> 
+            from random import random 
+            def x_bernoulli(p): 
+                U = random() 
+                return 1 if U &lt; p else 0 
+            # Exemple d'utilisation 
+            p = 0.3 
+            simulations = [x_bernoulli(p) for _ in range(1000)] 
+            proportion = sum(simulations)/len(simulations)*1. 
+            print(f"Proportion de succès : {proportion}") 
+            </input> 
+            <output></output>
+            </sage>
+                </p>            
+            </solution>
+
+            </task>
+
+
+            <task>
+                <title>Simulation de la loi binomiale</title>
+                <statement>
+                <p>
+                    <ol>
+                        <li>
+                            Écrire un programme Python pour simuler une variable binomiale en fonction la variable de Bernouilli écrite dans le code précédent. 
+                        </li>
+
+                        <li>
+                            Générer 1000 simulations et comparer graphiquement la distribution obtenue avec la loi théorique.
+                        </li>
+                    </ol>
+                </p>
+                </statement>
+                <solution>
+                <p>
+                    <strong>Code Python :</strong> 
+            <sage><input> 
+# Importer les bibliothèques nécessaires
+import matplotlib.pyplot as plt
+import math
+
+# Définir la fonction x_bernouilli (si elle n'est pas déjà définie)
+def x_bernouilli(p):
+    """Simule une variable de Bernoulli."""
+    return 1 if random() &lt; p else 0
+
+# Fonction pour simuler une loi binomiale
+def x_binomiale(n, p):
+    """Simule une seule valeur de X suivant une loi binomiale(n, p) en sommant n variables de Bernoulli."""
+    return sum(x_bernouilli(p) for _ in range(n))
+
+# Fonction pour afficher l'histogramme en fonction de n et p
+def afficher_histogramme_binomiale(n, p, N):
+    simulations = [x_binomiale(n, p) for _ in range(N)]
+    
+    # Tracer l'histogramme des résultats
+    plt.figure(figsize=(5, 5))
+    bins = range(0, n + 2)
+    plt.hist(simulations, bins=bins, density=True, edgecolor='black', alpha=0.7, color='blue', label="Simulation")
+
+    # Ajout des probabilités théoriques
+    k_vals = range(0, n + 1)
+    binom_theorique = [math.comb(n, k) * p**k * (1 - p)**(n - k) for k in k_vals]
+    plt.scatter(k_vals, binom_theorique, color='red', zorder=3, label="Probabilités théoriques")
+
+    # Mise en forme
+    plt.xlabel("Valeur de X")
+    plt.ylabel("Fréquence observée")
+    plt.title(f"Histogramme des valeurs simulées d'une loi Binomiale")
+    plt.xticks(k_vals)  # Pour aligner les ticks avec les valeurs entières
+    plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.6)
+
+    # Affichage
+    plt.show()
+
+# Utilisation de zone de saisie dans SageMath avec @interact
+@interact
+def afficher_histogramme(n=10, p=0.3, N=1000):
+    afficher_histogramme_binomiale(n, p, N)
+
+
+
+            </input> 
+            <output> </output>
+            </sage>
+                </p>
+                </solution>
+            </task>
+
+
+            <task>
+                <title>Simulation de la loi géométrique</title>
+
+                <statement>
+                
+                <p>
+                    <ol>
+                        <li>
+                            <p>
+                                Simplifier le problème d'inversion d'une loi géométrique.
+                            </p>
+                        </li>
+                        <li>
+                            Écrire un programme Python pour la simuler.
+                        </li>
+
+                        <li>
+                            Générer 1000 simulations et vérifier que la moyenne est proche de <m> \frac{1}{p} </m>.
+                        </li>
+                    </ol>
+                </p>
+                </statement>
+
+            <solution>
+                <p>
+            <sage><input> 
+            from math import log 
+            def x_geometrique(p): 
+                U = random() 
+                return int(log(1 - U) / log(1 - p)) + 1 
+            # Exemple d'utilisation 
+            p = 0.2 
+            simulations = [x_geometrique(p) for _ in range(1000)]
+            moyenne = sum(simulations) / len(simulations)*1.
+            print(f"Moyenne empirique : {moyenne}")
+            print(f"Moyenne théorique : {1/p}") 
+            </input> 
+            <output> </output>
+            </sage>
+                </p>
+                </solution>
+            </task>
+
+
+            <task>
+                <title>Simulation de la loi de Poisson</title>
+            <statement>
+                <p>
+                    <ol>
+                        <li>
+                            Écrire un programme Python pour simuler une variable de Poisson en utilisant le principe d'inversion.
+                        </li>
+
+                        <li>
+                            Générer 1000 simulations et la comparer graphiquement avec la distribution théorique.
+                        </li>
+                    </ol>
+                </p>
+                </statement>
+            <solution>
+                <p>
+            <sage><input> 
+import random
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
+def x_poisson(lmbda):
+    """Simule une seule valeur de X suivant une loi de Poisson(λ) avec la méthode d'inversion."""
+    U = random.random()  # Génère un nombre uniforme entre 0 et 1
+    F = 0  # Cumul de la fonction de répartition
+    k = 0  # Variable à retourner
+
+    # Calcul de la fonction de répartition jusqu'à ce qu'on dépasse U
+    while F &lt; U:
+        P_k = (math.exp(-lmbda) * lmbda**k) / math.factorial(k)  # P(X = k)
+        F += P_k  # Mise à jour de la somme cumulative
+        if F &gt;= U:
+            return k  # Retourne la valeur simulée
+        k += 1  # Passe à l'entier suivant
+
+# Paramètre λ de la loi de Poisson
+lambda_poisson = 4  # Tu peux modifier cette valeur
+
+# Simulation de 1000 instances
+N = 1000
+simulations = [x_poisson(lambda_poisson) for _ in range(N)]
+
+# Tracer l'histogramme des résultats
+plt.figure(figsize=(6, 5))
+plt.hist(simulations, bins=np.arange(min(simulations), max(simulations) + 1) - 0.5,
+         density=True, edgecolor='black', alpha=0.7, color='blue', label="Simulation")
+
+# Ajout des probabilités théoriques
+k_vals = np.arange(0, max(simulations) + 1)
+poisson_theorique = [(math.exp(-lambda_poisson) * lambda_poisson**k) / math.factorial(k) for k in k_vals]
+plt.scatter(k_vals, poisson_theorique, color='red', zorder=3, label="Probabilités théoriques")
+
+# Mise en forme
+plt.xlabel("Valeur de X")
+plt.ylabel("Fréquence observée")
+plt.title(f"Histogramme des valeurs simulées de X ~ Poisson({lambda_poisson})")
+plt.xticks(k_vals)  # Pour aligner les ticks avec les valeurs entières
+plt.legend()
+plt.grid(True, linestyle="--", alpha=0.6)
+
+# Affichage
+plt.show()
+            </input> 
+            <output> </output>
+            </sage>
+                </p>
+                </solution>
+            </task>
+        </activity>
+         </subsubsection>
+    </subsection>
+</section>

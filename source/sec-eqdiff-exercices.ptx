@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+
+<exercises xml:id="sec-eqdiff-exercices-entrainement" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Exercices d'entraînement</title>
+
+
+<exercise>
+    <!-- <title>Exercice 7.1</title> -->
+    <introduction>
+        <p>Déterminer les solutions développables en série entière de l'équation différentielle</p>
+        <p><me>(\mathcal{H}) : xy'' + y' + y = 0.</me></p>
+    </introduction>
+    <task>
+<statement>
+        <p>Déterminer les solutions développables en série entière de l'équation différentielle <m>(\mathcal{H})</m>.</p>
+    </statement>
+<solution>
+        <p>Soit <m>(a_n)_n \in \mathbb{N}</m> une suite réelle pour laquelle le rayon de convergence <m>R</m> de la série entière <m>\sum a_n x^n</m> est strictement positif. On note <m>S</m> la somme de cette série entière sur <m>]-R, R[</m>. C’est une fonction indéfiniment dérivable et <m>S</m> est solution, sur <m>]-R, R[</m>, de l’équation <m>(\mathcal{H})</m> si et seulement si</p>
+        <p><me>\forall x \in ]-R, R[, \sum_{n=1}^{+\infty} n(n-1)a_n x^{n-1} + \sum_{n=1}^{+\infty} na_n x^{n-1} + \sum_{n=0}^{+\infty} a_n x^n = 0</me></p>
+        <p><me>\Leftrightarrow \forall x \in ]-R, R[, \sum_{n=0}^{+\infty} (n+1)^{2} a_{n+1} x^n + \sum_{n=0}^{+\infty} a_n x^n = 0</me></p>
+        <p>et par unicité du développement en série entière cela équivaut à ce que pour tout <m>n \in \mathbb{N}</m>, <m>a_{n+1} = -\frac{a_n}{((n+1)!)^2}</m>.</p>
+        <p>Conclusion <m>S</m> est solution, sur <m>]-R, R[</m>, de l’équation <m>(\mathcal{H})</m> si et seulement si pour tout <m>n \in \mathbb{N}</m>, <m>a_n = a_0 \frac{(-1)^n}{(n!)^2}</m>. Il reste à constater que le rayon de convergence de la série entière ainsi obtenue est égal à <m>+\infty</m> car <m>a_n = \frac{O}{n \rightarrow +\infty} (\frac{1}{n!})</m>.</p>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>On note <m>f</m> la solution DSE qui vérifie <m>f(0) = 1</m> et on pose</p>
+        <p><me>g(x) = xf^{\prime 2}(x) + f^{2}(x).</me></p>
+        <p>Étudier le sens de variation de <m>g</m> et en déduire que <m>g</m> possède une limite finie en <m>+\infty</m>.</p>
+    </statement>
+<solution>
+        <p>On a donc, pour tout réel <m>x</m>, <m>f(x) = \sum_{n=0}^{+\infty} \frac{(-1)^n}{(n!)^2} x^n</m>.</p>
+        <p>La fonction <m>g</m> est évidemment dérivable sur <m>\mathbb{R}</m> et pour tout réel <m>x</m>,</p>
+        <p><me>g^{\prime}(x) = f^{\prime 2}(x) + 2xf^{\prime}(x)f^{\prime\prime}(x) + 2f^{\prime}(x)f(x) = -f^{\prime 2}(x) \leq 0</me></p>
+        <p>de sorte que <m>g</m> est décroissante sur <m>\mathbb{R}</m>.</p>
+        <p>Comme elle est minorée par 0 sur <m>\mathbb{R}_+</m>, elle possède une limite finie <m>\ell \geq 0</m> en <m>+\infty</m>.</p>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>En déduire que <m>f</m> est bornée sur <m>\mathbb{R}_+</m> et que <m>f^{\prime}(x) \underset{x\rightarrow+\infty}{\rightarrow} 0</m>.</p>
+    </statement>
+<solution>
+        <p>Pour tout réel <m>x \geq 0</m>, <m>f^2(x) \leq g(x) \leq g(0)</m>,</p>
+        <p>on peut en déduire que <m>f</m> est bornée sur <m>\mathbb{R}_+</m>. De même,</p>
+        <p><me>\forall x\gt  0, \quad f'^2(x) \leq \frac{g(0)}{x}</me></p>
+        <p>donc <m>f'(x) \underset{x \to +\infty}{\to} 0</m>.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.2</title> -->
+        <title>zéros d’une solution d’une équation différentielle linéaire homogène du second ordre.</title>
+    <introduction>
+        <p>Soient <m>I</m> intervalle de <m>\mathbb{R}</m> et <m>p, q \in \mathcal{C}^0 (I, \mathbb{R})</m>. On considère l’équation</p>
+        <p><me>(\mathcal{L}) : y'' + py' + qy = 0</me></p>
+        <p>Soit <m>f</m> une solution sur <m>I</m> réelle et non identiquement nulle de <m>(\mathcal{L})</m>.</p>
+    </introduction>
+    <task>
+<statement>
+        <p>On suppose qu’il existe deux réels <m>a, b</m> tels que <m>a\lt b</m> et <m>f(a) = f(b) = 0</m>. Démontrer que l’ensemble</p>
+        <p><me>Z = \{ x \in [a, b] \mid f(x) = 0 \}</me></p>
+        <p>est un ensemble fini.</p>
+    </statement>
+<solution>
+        <p>Supposons au contraire que <m>Z</m> soit infini : il contient alors une suite <m>(x_n)_n \in \mathbb{N}</m> formée de réels deux à deux distincts. Quitte à extraire une sous-suite convenable on peut supposer que <m>(x_n)_n \in \mathbb{N}</m> converge vers <m>\ell \in [a, b]</m>.</p>
+        <p>En tenant compte de la continuité de <m>f</m>, on voit que <m>f(\ell) = 0</m>. De plus, par application du théorème de Rolle, pour tout <m>n \in \mathbb{N}</m>, il existe <m>c_n \in [x_n, x_{n+1}]</m> tel que <m>f'(c_n) = 0</m>.</p>
+        <p>On en déduit que <m>(c_n)_n \in \mathbb{N}</m> converge vers <m>\ell</m>, puis par continuité de <m>f'</m>, on obtient <m>f'(\ell) = 0</m>.</p>
+        <p>Conclusion comme <m>f(\ell) = f'(\ell) = 0</m>, le théorème de Cauchy-Lipschitz montre que <m>f</m> est identiquement nulle sur <m>I</m>, ce qui a été exclu. L’ensemble <m>Z</m> est donc fini.</p>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>En déduire que l’ensemble des zéros de <m>f</m> est un ensemble au plus dénombrable.</p>
+    </statement>
+<solution>
+        <p>On peut écrire <m>I</m> comme l’union d’une suite <m>(S_n)_n \in \mathbb{N}</m> de segments.</p>
+        <p>D’après la question précédente, l’ensemble <m>Z_n = \{ x \in S_n \mid f(x) = 0 \}</m> est fini, par conséquent l’ensemble des zéros de <m>f</m> est fini ou dénombrable.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.3</title> -->
+    <introduction>
+        <p>Soient <m>m</m> un réel strictement positif, <m>q \in \mathcal{C}^0 (\mathbb{R}_+, \mathbb{R})</m> telle que pour tout réel <m>t \geq 0</m>, <m>q(t) \geq m</m>. On considère l’équation différentielle</p>
+        <p><me>(\mathcal{H}) : y'' + qy = 0.</me></p>
+        <p>Soit <m>f : \mathbb{R}_+ \to \mathbb{R}</m> une solution non identiquement nulle de <m>(\mathcal{H})</m>.</p>
+    </introduction>
+    <task>
+<statement>
+        <p>Expliquer pourquoi on aura pour tout réel <m>t \geq 0</m>, <m>f(t) + if'(t) \neq 0</m>.</p>
+    </statement>
+<solution>
+        <p>D’après le théorème de Cauchy-Lipschitz, comme <m>f</m> n’est pas identiquement nulle, pour tout réel <m>t</m>, <m>(f(t), f'(t)) \neq (0, 0)</m>.</p>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>On admet qu’il existe alors deux fonctions <m>\rho : \mathbb{R}_+ \to \mathbb{R}_+</m> et <m>\theta : \mathbb{R}_+ \to \mathbb{R}</m> toutes deux de classe <m>\mathcal{C}^1</m> et telles que</p>
+        <p><me>f + if' = \rho \exp(i\theta).</me></p>
+        <ol>
+            <li>Exprimer <m>\theta'</m> en fonction de <m>q</m> et de <m>\theta</m>.</li>
+            <li>En déduire que <m>\theta</m> est une bijection <m>\mathcal{C}^1</m> de <m>\mathbb{R}_+</m> sur <m>\theta(\mathbb{R}_+)</m>.</li>
+            <li>Conclure que <m>f</m> possède une infinité de zéros.</li>
+        </ol>
+    </statement>
+<solution>
+        <p>On a donc <m>f = \rho \cos \theta</m> et <m>f' = \rho \sin \theta</m></p>
+        <p>d’où <m>f'' = \rho' \sin \theta + \theta' \cos \theta</m>,</p>
+        <p>de plus, <m>\rho \sin \theta = f' = (\rho \cos \theta)' = \rho' \cos \theta - \rho \theta' \sin \theta</m>,</p>
+        <p>d’où le système d’équations</p>
+        <p><me>\begin{cases}
+\rho' \cos \theta - \rho \theta' \sin \theta = \rho \sin \theta \\
+\rho' \sin \theta + \rho \theta' \cos \theta = -\rho \cos \theta.
+\end{cases}</me></p>
+        <p>En résolvant à l’aide des formules de Cramer</p>
+        <p><me>\theta' = \rho \left| \frac{\cos \theta}{\sin \theta} \cdot \frac{\rho \sin \theta}{-\rho \cos \theta} \right| = -(\rho \cos^2 \theta + \sin^2 \theta).</me></p>
+        <p><me>\begin{vmatrix}
+\cos \theta\amp   -\rho \sin \theta \\
+\sin \theta\amp   \rho \cos \theta
+\end{vmatrix}</me></p>
+        <p>Or <m>q \geq m\gt  0</m>, donc <m>-\theta' \geq m \cos^2 \theta + \sin^2 \theta</m> et de plus la fonction</p>
+        <p><me>F : \mathbb{R} \rightarrow \mathbb{R}, \quad x \mapsto m \cos^2 x + \sin^2 x</me></p>
+        <p>est continue, <m>\pi</m>-périodique et strictement positive.</p>
+        <p>On en déduit que <m>\inf_{x \in \mathbb{R}} F(x) = \min_{x \in \mathbb{R}} F(x) = \mu\gt  0</m>.</p>
+        <p>Conclusion <m>\theta' \leq -\mu\lt 0</m>, donc <m>\theta</m> est une bijection <m>\mathcal{C}^1</m> décroissante de <m>\mathbb{R}_+</m> sur <m>\theta(\mathbb{R}_+)</m>.</p>
+        <p>De plus, pour tout réel <m>t\gt  0</m>,</p>
+        <p><me>\theta(t) = \theta(0) + \int_0^t \theta'(s) ds \leq \theta(0) - \mu t</me></p>
+        <p>donc <m>\theta(t) \underset{t \rightarrow +\infty}{\rightarrow} -\infty</m> et donc <m>\theta(\mathbb{R}_+) =] -\infty, \theta(0)]</m>.</p>
+        <p>Pour tout entier <m>k \in \mathbb{Z}</m> tel que <m>\frac{(2k+1)\pi}{2} \leq \theta(0)</m>, il existe un unique réel <m>t_k \geq 0</m> tel que <m>\frac{(2k+1)\pi}{2} = \theta(t_k)</m>. On a alors <m>f(t_k) = 0</m>.</p>
+        <p>Conclusion <m>f</m> possède une infinité de zéros dans <m>\mathbb{R}_+</m>.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.4</title> -->
+    <statement>
+        <p>Soient <m>q \in \mathcal{C}^1(\mathbb{R}, \mathbb{R})</m> et <m>a\gt  0</m> tels que</p>
+        <p><me>\forall x \geq a, \quad q(x)\gt  0 \quad \text{et} \quad q'(x) \geq 0.</me></p>
+        <p>Démontrer que toute solution de l’équation <m>y'' + qy = 0</m> est bornée au voisinage de <m>+\infty</m>.</p>
+        <p>Indication : considérer la fonction <m>z = y^2 + \frac{y'^2}{q}</m>.</p>
+    
+        <p>Démontrer que toute solution de l’équation <m>y'' + qy = 0</m> est bornée au voisinage de <m>+\infty</m>.</p>
+    </statement>
+<solution>
+        <p>Comme indiqué, on considère la fonction <m>z = y^2 + \frac{y'^2}{q}</m>.</p>
+        <p>Elle est de classe <m>\mathcal{C}^1</m> sur <m>\mathbb{R}</m> et</p>
+        <p><me>z' = 2yy' + \frac{2y'y''q - q'y'^2}{q^2} = 2y'(y + \frac{y''}{q}) - \frac{q'}{q^2}y'^2 = -\frac{q'}{q^2}y'^2.</me></p>
+        <p>On en déduit que <m>z' \leq 0</m> sur <m>[a, +\infty]</m>, donc <m>z</m> est décroissante sur cet intervalle. Conclusion <m>z</m> est majorée par <m>z(a)</m> sur <m>[a, +\infty]</m> donc <m>|y|</m> est majorée par <m>\sqrt{z(a)}</m> sur <m>[a, +\infty]</m>.</p>
+    </solution>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.5</title> -->
+    <statement>
+        <p>Soit <m>p : \mathbb{R} \rightarrow \mathbb{R}</m> une fonction continue et <m>y : \mathbb{R} \rightarrow \mathbb{R}</m> une fonction de classe <m>\mathcal{C}^2</m> telle que</p>
+        <me>\forall x \in \mathbb{R}, \, y''(x) + p(x)y'(x) - y(x) = 0 \quad (1)</me>
+        <p>On suppose qu’il existe deux réels <m>a, b</m> tels que <m>a \lt b, \, y(a) = y(b) = 0</m>. Démontrer que <m>y = 0</m>.</p>
+        <p>Indication : si <m>y</m> n’est pas la fonction nulle, on utilisera l’exercice 7.2 p. 458 pour se ramener au cas où <m>y</m> ne s’annule pas sur <m>[a, b]</m>.</p>
+    
+        <p>Démontrer que <m>y = 0</m>.</p>
+    </statement>
+<solution>
+        <p>Si <m>y</m> n’est pas identiquement nulle, l’exercice 7.2 montre que l’on peut se ramener au cas où <m>y</m> s’annule en <m>a</m>, en <m>b</m> et où <m>y</m> ne s’annule pas sur <m>[a, b]</m>. De plus, grâce au théorème des valeurs intermédiaires, <m>y</m> est de signe constant sur <m>[a, b]</m> et quitte à changer <m>y</m> en son opposée, on peut supposer <m>y \gt 0</m> sur <m>[a, b]</m>. En notant <m>P</m> une primitive de <m>p</m> et en multipliant (1) par <m>\exp(P)</m>, on obtient</p>
+        <me>\forall x \in \mathbb{R}, \, \frac{d}{dx} (\exp(P(x)) \cdot y'(x)) = y(x) \exp(P(x)),</me>
+        <p>puis en intégrant entre <m>a</m> et <m>b</m>,</p>
+        <me>\exp(P(b)) \cdot y'(b) - \exp(P(a)) \cdot y'(a) = \int_a^b y(x) \exp(P(x)) dx \gt 0.</me>
+        <p>Enfin, <m>y'(a) \geq 0</m> et même <m>y'(a) \gt 0</m> (car si <m>y'(a) = 0 = y(a)</m>, il résulte du théorème de Cauchy-Lipschitz que l’on aurait <m>y = 0</m> sur <m>\mathbb{R}</m>, ce qui n’est pas le cas). De même, <m>y'(b) \lt 0</m>.</p>
+        <p>Conclusion <m>\exp(P(b)) \cdot y'(b) - \exp(P(a)) \cdot y'(a) \lt 0</m> alors que <m>\int_a^b y(x) \exp(P(x)) dx \gt 0</m>, d’où une contradiction. On en déduit que <m>y</m> est identiquement nulle sur <m>[a, b]</m>. En particulier <m>y'(a) = 0 = y(a)</m>, donc <m>y</m> est identiquement nulle sur <m>\mathbb{R}</m>.</p>
+    </solution>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.6</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Soit <m>y : \mathbb{R}_+ \rightarrow \mathbb{R}</m> une solution sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> bornée.</p>
+        <ol>
+            <li>Démontrer que <m>y'</m> possède une limite finie <m>\ell</m> en <m>+\infty</m>.</li>
+            <li>Démontrer que nécessairement <m>\ell = 0</m>.</li>
+        </ol>
+    </statement>
+<solution>
+        <p>Soit <m>y : \mathbb{R}_+ \rightarrow \mathbb{R}</m> une solution sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> bornée.</p>
+        <ol>
+            <li>
+                <p>La fonction <m>y'' = -qy</m> est le produit d’une fonction intégrable et d’une fonction bornée sur <m>\mathbb{R}_+</m>. Elle est donc, elle aussi, intégrable sur <m>\mathbb{R}_+</m>. On en déduit que</p>
+                <me>y'(x) = y'(0) - \int_0^x q(t)y(t)dt \underset{x\rightarrow+\infty}{\rightarrow} y'(0) - \int_0^{+\infty} q(t)y(t)dt = \ell.</me>
+            </li>
+            <li>
+                <p>Supposons par exemple <m>\ell \gt 0</m>. Dans ce cas <m>y'</m> est positive au voisinage de <m>+\infty</m> et par intégration des relations de comparaison on obtiendrait</p>
+                <me>y(x) - y(0) = \int_{0}^{x} y'(t)dt \sim \int_{0}^{x} tdt = \ell \cdot x,</me>
+                <p><m>y</m> admettait alors <m>+\infty</m> comme limite en <m>+\infty</m>, ce qui est exclu (on a supposé <m>y</m> bornée). On traite de même le cas où <m>\ell \lt 0</m> en remplaçant <m>y</m> par <m>-y</m>.</p>
+            </li>
+        </ol>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.7</title> -->
+    <introduction>
+        <p>Soient <m>q \in \mathcal{C}^0([a, +\infty], \mathbb{R}_+)</m> et</p>
+        <me>(\mathcal{E}_q): y'' = qy.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Soit <m>f \in S_{[a, +\infty]}(\mathcal{E}_q)</m> telle que <m>f(a) \gt 0</m> et <m>f'(a) \gt 0</m>. Démontrer que <m>f</m> et <m>f'</m> sont strictement positives sur <m>[a, +\infty]</m> et que <m>f(x) \rightarrow +\infty</m>.</p>
+    </statement>
+<solution>
+        <p>Supposons que <m>f</m> s’annule au moins une fois sur <m>[a, +\infty]</m>.</p>
+        <p>L’ensemble <m>\mathcal{Z}(f) = \{x \in [a, +\infty] \mid f(x) = 0\}</m> est alors une partie fermée non vide de <m>[a, +\infty]</m>, elle possède donc un plus petit élément <m>c</m> et <m>c \gt a</m>. De plus, d’après le théorème des valeurs intermédiaires, <m>f</m> est strictement positive sur <m>[a, c]</m>, donc <m>f'' = gf</m> est positive sur cet intervalle et donc <m>f</m> est convexe. On en déduit alors que pour tout <m>x \in [a, c]</m>,</p>
+        <me>f(x) \geq f'(a)(x - a) + f(a).</me>
+        <p>En particulier, avec <m>x = c, 0 = f(c) \geq f'(a)(c - a) + f(a)</m>.</p>
+        <p>Ceci est impossible puisque <m>f(a) \gt 0, f'(a) \gt 0</m> et <m>c - a \gt 0</m>.</p>
+        <p>Conclusion <m>f</m> ne peut s’annuler sur <m>[a, +\infty]</m>, donc elle y est de signe constant (nécessairement positif vu que <m>f(a) \gt 0</m>).</p>
+        <p>Par ailleurs <m>f'' = gf</m> est positive sur <m>[a, +\infty]</m>, donc <m>f'</m> est croissante sur cet intervalle, donc, pour tout <m>x \geq a</m>, <m>f'(x) \geq f'(a) \gt 0</m>.</p>
+        <p>Enfin <m>f(x) \rightarrow_{x \rightarrow +\infty} +\infty</m> car d’après ce qui vient d’être fait, <m>f</m> est convexe sur <m>[a,+\infty]</m>, donc</p>
+        <me>\forall x \geq a, \, f(x) \geq f'(a)(x-a)+f(a),</me>
+        <p>d’où le résultat cherché puisque <m>f'(a) \gt 0</m>.</p>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>Soient <m>u, v \in S_{[a, +\infty]}(\mathcal{E}_q)</m> telles que</p>
+        <me>u(a) = 1, \quad u'(a) = 0 \quad \text{et} \quad v(a) = 0 \quad \text{et} \quad v'(a) = 1.</me>
+        <ol>
+            <li>Calculer <m>u'v - uv'</m>. Démontrer que sur <m>[a, +\infty]</m>, <m>\frac{u}{v}</m> et <m>\frac{u'}{v'}</m> sont monotones de monotonies opposées.</li>
+            <li>Démontrer que <m>\frac{u}{v}</m> et <m>\frac{u'}{v'}</m> tendent vers la même limite en <m>+\infty</m>.</li>
+        </ol>
+    </statement>
+<solution>
+        <p>Posons <m>W = uv' - u'v</m>. Il s’agit d’une fonction de classe <m>\mathcal{C}^1</m> et</p>
+        <me>W' = uv'' - u''v = quv - quv = 0.</me>
+        <p>W est donc constante. De plus, <m>W(a) = 1</m>.</p>
+        <p>Par ailleurs, comme <m>v(a) = 0</m> et <m>v'(a) = 1</m>, la fonction <m>v</m> est strictement positive au voisinage de <m>a</m> à droite et en reprenant la raisonnement de la question 1), on montre que <m>v</m> est strictement positive sur <m>[a,+\infty]</m> et tend vers <m>+\infty</m> en <m>+\infty</m>. On en déduit également que <m>v'</m> est strictement positive et croissante sur cet intervalle. On a alors, sur <m>[a,+\infty]</m>,</p>
+        <me>\left( \frac{u}{v} \right)' = \frac{u'v - uv'}{v^2} = \frac{W}{v^2} = -\frac{1}{v^2} \lt 0 \text{ et}</me>
+        <me>\left( \frac{u'}{v'} \right)' = \frac{u''v' - u'v''}{v'^2} = \frac{uv' - vu'}{v'^2} = q\frac{W}{v'^2} = \frac{q}{v'^2} \gt 0.</me>
+        <p>Conclusion <m>\frac{u}{v}</m> est strictement décroissante sur <m>[a,+\infty]</m> et <m>\frac{u'}{v'}</m> est croissante sur cet intervalle.</p>
+        <p>Écrivons</p>
+        <me>\frac{u(x)}{v(x)} - \frac{u'(x)}{v'(x)} = \frac{W(x)}{v(x) \cdot v'(x)} = \frac{1}{v(x) \cdot v'(x)} \rightarrow 0 \quad (1)</me>
+        <p>car pour <m>x \in [a,+\infty]</m>, <m>v'(x) \geq v'(a) = 1</m> et <m>v(x) \rightarrow_{x \rightarrow +\infty} +\infty</m>.</p>
+        <p>Sur <m>[a,+\infty]</m>, <m>\frac{u'}{v'}</m> étant croissante et <m>v' \gt 0</m>, on en déduit que <m>u' \geq 0</m> sur <m>[a,+\infty]</m>.</p>
+        <p>De plus, pour <m>x \in [a,+\infty]</m>, <m>\frac{u(x)}{v(x)} - \frac{u'(x)}{v'(x)} \geq 0</m> donc la fonction décroissante sur <m>[a,+\infty]</m>, <m>x \rightarrow \frac{u(x)}{v(x)}</m> est minorée par 0 donc converge vers une limite finie <m>\ell \geq 0</m> en <m>+\infty</m>.</p>
+        <p>Et, bien sûr,</p>
+        <me>\lim_{x \rightarrow +\infty} \frac{u'(x)}{v'(x)} = \lim_{x \rightarrow +\infty} \frac{u(x)}{v(x)} = \ell.</me>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>Démontrer qu’il existe une unique <m>g \in S_{[a, +\infty]}(\mathcal{E}_q)</m> telle que <m>g</m> soit strictement positive, décroissante sur <m>[a, +\infty]</m> et telle que <m>g(a) = 1</m>.</p>
+    </statement>
+<solution>
+        <p>Le couple <m>(u,v)</m> est un système fondamental de solutions sur <m>[a,+\infty]</m> de <m>(\mathcal{E}_g)</m> (car leur wronskien ne s’annule pas). Toute solution de <m>(\mathcal{E}_g)</m> est donc de la forme <m>g = \lambda u + \mu v</m>, où <m>\lambda</m> et <m>\mu</m> sont des réels. La condition <m>g(a) = 1</m> revient à imposer <m>\lambda = 1</m>.</p>
+        <p>Le fait que <m>g</m> soit décroissante et minorée par 0 sur <m>[a,+\infty]</m> impose à <m>g</m> d’être bornée.</p>
+        <p>Écrivons sur <m>[a,+\infty]</m>,</p>
+        <me>g = v \left( \frac{u}{v} + \mu \right)</me>
+        <p>on en déduit que si <m>\ell + \mu \neq 0</m>, on aurait <m>g(x) \sim_{x \rightarrow +\infty} v(x) (\ell + \mu)</m> donc <m>g</m> aurait une limite infinie en <m>+\infty</m>, absurde. Donc, nécessairement, <m>\mu = -\ell</m>.</p>
+        <p>Ce qui prouve l’unicité de <m>g</m>, cette fonction ne peut s’écrire que sous la forme <m>g = u - \ell v</m>.</p>
+        <p>Montrons que cette fonction est bien décroissante et positive.</p>
+        <p>Sur <m>[a,+\infty]</m>, <m>g = v \left( \frac{u}{v} - \ell \right) \gt 0</m> car sur <m>[a,+\infty]</m>, <m>v \gt 0</m> et <m>\frac{u}{v}</m> est strictement décroissante de limite <m>\ell</m>.</p>
+        <p>Toujours sur <m>[a,+\infty]</m>, on a <m>g' = v' \left( \frac{u'}{v'} - \ell \right) \leq 0</m> car sur <m>[a,+\infty]</m>, <m>v' \gt 0</m> et <m>\frac{u'}{v'}</m> est strictement croissante de limite <m>\ell</m>.</p>
+        <p>Conclusion Il existe une unique <m>g \in S_{[a,+\infty]}(\mathcal{E}_g)</m> telle que <m>g</m> soit strictement positive, décroissante sur <m>[a,+\infty]</m> et telle que <m>g(a) = 1</m>, c’est <m>u - \ell v</m>.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.8</title> -->
+        <title>Théorème de relèvement pour les fonctions de classe <m>\mathcal{C}^1</m>.</title>
+    <statement>
+        <p>Soient <m>I</m> un intervalle de <m>\mathbb{R}</m>, <m>t_0 \in I</m>, <m>u, v \in \mathcal{C}^1(I, \mathbb{R})</m>, telles que <m>u^2 + v^2 = 1</m>. On considère également un réel <m>\theta_0</m> tel que</p>
+        <me>u(t_0) + iv(t_0) = \exp(i\theta_0),</me>
+        <p>ainsi que la fonction</p>
+        <me>\theta : I \rightarrow \mathbb{R}, \quad t \mapsto \theta_0 + \int_0^t [u(s)v'(s) - u'(s)v(s)]ds.</me>
+        <p>Démontrer que pour tout réel <m>t</m>,</p>
+        <me>u(t) + iv(t) = \exp(i\theta(t)).</me>
+    
+        <p>Démontrer que pour tout réel <m>t</m>,</p>
+        <me>u(t) + iv(t) = \exp(i\theta(t)).</me>
+    </statement>
+<solution>
+        <p>La fonction</p>
+        <me>\theta : I \rightarrow \mathbb{R}, \quad t \mapsto \theta_0 + \int_0^t [u(s)v'(s) - u'(s)v(s)]ds</me>
+        <p>est de classe <m>\mathcal{C}^1</m> sur <m>I</m> car <m>uv' - u'v</m> est continue sur cet intervalle. De plus, <m>\theta' = uv' - u'v</m>. Afin de conclure, on introduit la fonction</p>
+        <me>g = (u + iv) \exp(-i\theta).</me>
+        <p>Elle est évidemment de classe <m>\mathcal{C}^1</m> sur <m>I</m> et</p>
+        <me>g' = \exp(-i\theta) \left[ (u' + iv') - i\theta'(u + iv) \right] \\
+= \exp(-i\theta) \left[ (u' + iv') - i(uv' - u'v)(u + iv) \right] \\
+= \exp(-i\theta) \left[ (u' + v(uv' - u'v)) + i(v' - u(uv' - u'v)) \right] \\
+= \exp(-i\theta) \left[ (u' + uvv' - u'v^2) + i(v' - u^2v' + uu'v) \right].</me>
+        <p>Or <m>u^2 + v^2 = 1</m>, donc par dérivation <m>uu' + vv' = 0</m> et donc</p>
+        <me>g' = \exp(-i\theta) \left[ u'u^2 + uvv' + i(v'v^2 + uu'v') \right] \\
+= \exp(-i\theta) \left[ u(uu' + vv') + iv(vv' + uu') \right] = 0</me>
+        <p>Conclusion <m>g</m> est constante sur <m>I</m> égale à <m>g(t_0) = \exp(-i\theta_0)(u(t_0) + iv(t_0)) = \exp(-i\theta_0) \exp(i\theta_0) = 1</m>, par conséquent <m>u + iv = \exp(i\theta)</m>.</p>
+    </solution>
+</exercise>
+
+<exercise xml:id="exe-7-9">
+    <!-- <title>Exercice 7.9</title> -->
+        <title>Théorème de Sturm</title>
+    <introduction>
+        <p>Soient <m>I</m> un intervalle non trivial de <m>\mathbb{R}</m>, <m>p_1, p_2 : I \rightarrow \mathbb{R}</m> deux fonctions continues telles que <m>p_1 \leq p_2</m>. On considère également deux fonctions <m>y_1, y_2 : I \rightarrow \mathbb{R}</m> non identiquement nulles, de classe <m>\mathcal{C}^2</m> telles que</p>
+        <me>\forall x \in I, \quad y_1''(x) + p_1(x)y_1(x) = 0 \quad \text{et} \quad y_2''(x) + p_2(x)y_2(x) = 0.</me>
+        <p>Enfin, <m>a</m> et <m>b</m> désignent deux zéros consécutifs de <m>y_1</m>.</p>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>y_2</m> s’annule au moins une fois dans <m>[a, b]</m> ou que <m>y_2(a) = y_2(b) = 0</m>.</p>
+    </statement>
+<solution>
+        <p>Comme <m>y_1</m> ne s’annule pas sur <m>[a, b]</m>, elle y est de signe constant et quitte à la changer en son opposée on peut supposer qu’elle est strictement positive sur <m>[a, b]</m>. Supposons que <m>y_2</m> ne s’annule pas dans <m>[a, b]</m>. Elle y est donc de signe constant et ici aussi, quitte à changer <m>y_2</m> en son opposée, on peut supposer <m>y_2 \gt 0</m> sur <m>[a, b]</m>.</p>
+        <p>Considérons alors le wronskien <m>W</m> du couple <m>(y_1, y_2)</m>, <m>W = \begin{vmatrix} y_1\amp   y_2 \\ y_1'\amp   y_2' \end{vmatrix}</m>.</p>
+        <p>Il s’agit là d’une fonction de classe <m>\mathcal{C}^1</m> sur <m>I</m> et</p>
+        <me>W' = (y_1y_2' - y_2y_1')' = y_1y_2'' - y_2y_1'' = y_1y_2 (p_1 - p_2) \leq 0.</me>
+        <p>Ainsi, <m>W</m> est décroissante sur <m>[a, b]</m>.</p>
+        <p>Or <m>W(a) = -y_2(a)y_1'(a)</m> et <m>y_2(a) \geq 0, \, y_1'(a) \gt 0, \, donc \, W(a) \leq 0</m>.</p>
+        <p>De même <m>W(b) = -y_2(b)y_1'(b)</m> et <m>y_2(b) \geq 0, \, y_1'(b) \lt 0, \, donc \, W(b) \geq 0</m>.</p>
+        <p>Conclusion</p>
+        <me>\forall x \in [a, b], \, 0 \geq W(a) \geq W(x) \geq W(b) \geq 0.</me>
+        <p>On a donc <m>W = 0</m> sur <m>[a, b]</m>.</p>
+        <p>En particulier <m>W(a) = -y_2(a)y_1'(a) = 0</m> et <m>W(b) = -y_2(b)y_1'(b) = 0, \, donc \, y_2(a) = 0 = y_2(b)</m>.</p>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>Dans le cas où <m>y_2</m> ne s’annule pas dans <m>[a, b]</m>, démontrer que <m>y_2</m> est proportionnelle à <m>y_1</m> sur le segment <m>[a, b]</m>.</p>
+    </statement>
+<solution>
+        <p>Supposons que <m>y_2(a) = 0 = y_2(b)</m>. En reprenant les précédents calculs, on voit que l’on a toujours <m>W</m> décroissante sur <m>[a, b]</m> avec <m>W(a) = W(b) = 0, \, donc \, W</m> est nulle sur <m>[a, b]</m>.</p>
+        <p>On en déduit que sur <m>[a, b]</m>,</p>
+        <me>\left(\frac{y_2}{y_1}\right)' = 0.</me>
+        <p>Il existe donc <m>\alpha \in \mathbb{R}^*</m> tel que <m>y_2 = \alpha y_1</m> sur <m>[a, b]</m>. Cette relation est encore vraie en <m>a</m> et en <m>b</m>.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.10</title> -->
+    <statement>
+        <p>Une application de <xref ref="exe-7-9"/></p>
+        <p>Soit <m>y : \mathbb{R} \rightarrow \mathbb{R}</m> une fonction de classe <m>\mathcal{C}^2</m>, non identiquement nulle et solution sur <m>\mathbb{R}</m> de l’équation différentielle <m>y''(x) + \exp(x) \cdot y(x) = 0</m>.</p>
+    
+        <p>Démontrer que l’ensemble des zéros de <m>y</m> est infini dénombrable.</p>
+    </statement>
+<solution>
+        <p>On sait (voir exercice 7.2) que <m>y</m> possède un nombre fini de zéros dans tout segment.</p>
+        <p>Comme <m>\mathbb{R}</m> est l’union d’une famille dénombrable de segments, l’ensemble <m>\mathcal{Z}(y)</m> est l’union dénombrable d’ensembles finis, il est donc au plus dénombrable.</p>
+        <p>Il reste à voir que <m>\mathcal{Z}(y)</m> est infini. Supposons au contraire que <m>\mathcal{Z}(y)</m> soit fini.</p>
+        <p>Dans ce cas, il existe un réel <m>\alpha</m> pour lequel <m>y</m> ne s’annule pas sur <m>[\alpha, +\infty]</m>.</p>
+        <p>On peut supposer (par application du théorème des valeurs intermédiaires) que <m>y</m> est strictement positive sur <m>[\alpha, +\infty]</m>.</p>
+        <p>Il s’ensuit que <m>y'' \lt 0</m> sur <m>[\alpha, +\infty]</m>, de sorte que <m>y</m> est concave sur <m>[\alpha, +\infty]</m>.</p>
+        <p>On en déduit que pour <m>a, x \in [\alpha, +\infty]</m>,</p>
+        <me>y(x) \leq y(a) + y'(a)(x - a) \quad (1)</me>
+        <p>Si <m>y'(a) \lt 0</m>, alors <m>y</m> tendrait vers <m>-\infty</m> en <m>+\infty</m>, ce qui n’est pas possible.</p>
+        <p>En définitive, <m>y'</m> est positive sur <m>[\alpha, +\infty]</m>, donc <m>y</m> est croissante sur <m>[\alpha, +\infty]</m>.</p>
+        <p>On en déduit que pour tout <m>x \geq \alpha</m>,</p>
+        <me>y''(x) = -\exp(x)y(x) \leq -\exp(\alpha)y(\alpha) = -\gamma \lt 0.</me>
+        <p>L’inégalité des accroissements finis montre que <m>y'(x) \underset{x \rightarrow +\infty}{\rightarrow} -\infty</m>.</p>
+        <p>Une nouvelle application de l’inégalité des accroissements finis permet de conclure que <m>y(x) \underset{x \rightarrow +\infty}{\rightarrow} -\infty</m>, d’où une contradiction puis que par hypothèse <m>y \gt 0</m> sur <m>[\alpha, +\infty]</m>.</p>
+        <p>Conclusion <m>\mathcal{Z}(y)</m> est un ensemble infini dénombrable.</p>
+    </solution>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.11</title> -->
+    <statement>
+        <p>Une application de <xref ref="exe-7-9"/></p>
+        <p>Soit <m>q : \mathbb{R} \rightarrow \mathbb{R}</m> une fonction continue, <m>T</m>-périodique (<m>T \gt 0</m>).</p>
+    
+        <p>On considère une fonction <m>y : \mathbb{R} \rightarrow \mathbb{R}</m> de classe <m>\mathcal{C}^2</m>, non identiquement nulle et solution sur <m>\mathbb{R}</m> de l’équation différentielle <m>y'' + qy = 0</m>.</p>
+        <p>On note <m>\mathcal{Z}(y)</m> l’ensemble des zéros de <m>y</m>.</p>
+        <p>Démontrer que ou bien <m>\text{Card}(\mathcal{Z}(y)) \leq 1</m> ou bien <m>\mathcal{Z}(y)</m> est infini.</p>
+        <p>Indication : si <m>a</m> et <m>b</m> sont deux zéros consécutifs de <m>y</m>, démontrer que <m>y</m> s’annule dans tout segment de la forme <m>[a + nT, b + nT]</m>, où <m>n \in \mathbb{Z}</m>.</p>
+    </statement>
+<solution>
+        <p>Supposons que <m>y</m> possède au moins deux zéros <m>a \lt b</m>. En utilisant la conclusion de l’exercice 7.2, on se ramène au cas où <m>a</m> et <m>b</m> sont deux zéros consécutifs de <m>y</m>.</p>
+        <p>Dans ce cas (théorème des valeurs intermédiaires), <m>y</m> est de signe constant sur <m>]a, b[</m> et quitte à changer <m>y</m> en son opposé, on peut supposer que <m>y</m> est strictement positive sur <m>]a, b[</m>. Pour tout entier <m>n</m>, on note</p>
+        <me>y_n : \mathbb{R} \rightarrow \mathbb{R}, \, x \mapsto y(x + nT).</me>
+        <p>Comme la fonction <m>q</m> est <m>T</m>-périodique, <m>y_n</m> est solution, sur <m>\mathbb{R}</m>, de l’équation <m>y'' + qy = 0</m>.</p>
+        <p>On utilise alors les conclusions de l’exercice 7.9 avec ici <m>p_1 = p_2 = q</m>.</p>
+        <p>La fonction <m>y_n</m> s’annule au moins une fois dans <m>]a, b[</m> ou alors <m>y_n(a) = y_n(b) = 0</m>.</p>
+        <p>Dans les deux cas, on a répondu à la question. Considérons alors un entier <m>p \gt 0</m> tel que <m>pT \gt b - a</m>. On vérifie que pour <m>n \geq p</m>, les segments <m>[a + npT, b + npT]</m> sont deux à deux disjoints car</p>
+        <me>b + npT \lt a + (n + 1)pT.</me>
+        <p>Conclusion si <m>\text{Card}(\mathcal{Z}(y)) \geq 2</m>, alors <m>\mathcal{Z}(y)</m> est infini.</p>
+    </solution>
+</exercise>
+
+<exercise>
+        <title>Le lemme de Gronwall.</title>
+    <!-- <title>Exercice 7.12</title> -->
+    <statement>
+        <p>Soient <m>u, v \in \mathcal{C}^0([a, +\infty], \mathbb{R}_+)</m> et <m>c</m> un réel positif tels que</p>
+        <me>\forall \, x \in [a, +\infty], \, u(x) \leq c + \int_a^x u(t)v(t)dt.</me>
+        <p>Démontrer que pour tout <m>x \in [a, +\infty]</m>,</p>
+        <me>u(x) \leq c \cdot \exp \left( \int_a^x v(t)dt \right).</me>
+    
+        <p>Démontrer que pour tout <m>x \in [a, +\infty]</m>,</p>
+        <me>u(x) \leq c \cdot \exp \left( \int_a^x v(t)dt \right).</me>
+    </statement>
+<solution>
+        <p>Supposons d’abord <m>c \gt 0</m> et considérons la fonction</p>
+        <me>F : [a, +\infty] \rightarrow \mathbb{R}_+, \, x \mapsto \ln \left( c + \int_a^x u(t)v(t)dt \right).</me>
+        <p>Cette fonction est de classe <m>\mathcal{C}^1</m> et pour tout <m>x \geq a</m>,</p>
+        <me>F'(x) = \frac{u(x)v(x)}{c + \int_a^x u(t)v(t)dt} \leq v(x),</me>
+        <p>d’où, par intégration</p>
+        <me>\forall \, x \geq a, \, F(x) - \ln c = F(x) - F(a) \leq \int_a^x v(t)dt,</me>
+        <p>d’où</p>
+        <me>\forall x \geq a, \, u(x) \leq \exp(F(x)) \leq c \cdot \exp\left( \int_a^x v(t)dt \right).</me>
+        <p>Supposons à présent que <m>c = 0</m>. Dans ce cas, on peut appliquer tout ce qui précède pour tout <m>\varepsilon \gt 0</m>,</p>
+        <me>\forall x \geq a, \, u(x) \leq \varepsilon \cdot \exp\left( \int_a^x v(t)dt \right),</me>
+        <p>d’où le résultat cherché en faisant tendre <m>\varepsilon</m> vers 0.</p>
+    </solution>
+</exercise>
+
+
+<exercise>
+        <title>Un problème de conditions aux limites.</title>
+    <!-- <title>Exercice 7.13</title> -->
+    <statement>
+        <p>Soient <m>f, g \in \mathcal{C}^0([a, b], \mathbb{R})</m>. On suppose que <m>f \leq 0</m>. On s’intéresse à l’équation différentielle</p>
+        <me>(\mathcal{L}) : y'' + f(x)y = g(x)</me>
+        <p>où la fonction inconnue <m>y</m> est supposée à valeurs réelles.</p>
+
+        <p>Soit <m>y</m> une solution de l’équation homogène <m>(\mathcal{H})</m> associée vérifiant <m>y(a) = y(b) = 0</m>. En considérant <m>\int_a^b f(x)y^2(x)dx</m>, démontrer que <m>y</m> est constante, égale à zéro sur <m>[a, b]</m>.</p>
+    </statement>
+<solution>
+        <p>On considère comme c’est indiqué dans l’énoncé <m>\int_a^b f(x)y^2(x)dx</m>. Ce nombre est clairement négatif. Par ailleurs, en tenant compte du fait que <m>y(a) = y(b) = 0</m>,</p>
+        <me>\int_a^b f(x)y^2(x)dx = - \int_a^b y(x)y''(x)dx = - [y(x)y'(x)]_a^b + \int_a^b y'^2(x)dx = \int_a^b y'^2(x)dx \geq 0.</me>
+        <p>Conclusion <m>\int_a^b f(x)y^2(x)dx = \int_a^b y'^2(x)dx = 0</m> et comme <m>y'^2</m> est positive et continue, on peut conclure que <m>y'^2 = 0</m> sur <m>[a, b]</m>, donc <m>y</m> est constante et nécessairement nulle vu que <m>y(a) = y(b) = 0</m>.</p>
+    </solution>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.14</title> -->
+    <statement>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction de classe <m>\mathcal{C}^1</m> telle que <m>q' \in L^1(\mathbb{R}_+)</m>. Démontrer que les solutions sur <m>\mathbb{R}_+</m> de l’équation</p>
+        <me>(\mathcal{H}) : y'' + (1 + q)y = 0</me>
+        <p>sont toutes bornées ainsi que leurs dérivées d’ordre 1. Indication : on pourra considérer la fonction <m>E = \frac{1}{2}(y^2 + y'^2)</m> puis utiliser le lemme de Gronwall (exercice 7.12).</p>
+    
+        <p>Démontrer que les solutions sur <m>\mathbb{R}_+</m> de l’équation <m>(\mathcal{H})</m> sont toutes bornées ainsi que leurs dérivées d’ordre 1.</p>
+    </statement>
+<solution>
+        <p>Soit <m>y : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une solution sur <m>\mathbb{R}_+</m> de l’équation <m>(\mathcal{H})</m>. On lui associe la fonction <m>E = \frac{1}{2}(y^2 + y'^2)</m>. Cette fonction est de classe <m>\mathcal{C}^1</m> et <m>E' = -qyy'</m>. Ainsi, pour tout réel <m>x \geq 0</m>,</p>
+        <me>E(x) - E(0) = - \int_0^x q(t)y(t)y'(t)dt = - \left[ \frac{1}{2}q(t)y^2(t) \right]_0^x + \frac{1}{2} \int_0^x q'(t)y^2(t)dt</me>
+        <me>= -\frac{1}{2}q(x)y^2(x) + \frac{1}{2}q(0)y^2(0) + \frac{1}{2} \int_0^x q'(t)y^2(t)dt,</me>
+        <p>d’où, pour les mêmes valeurs de <m>x</m>,</p>
+        <me>E(x) \leq C + \frac{1}{2} \int_0^x |q'(t)|y^2(t)dt \leq C + \int_0^x |q'(t)|E(t)dt \quad (\text{avec} \quad C = \frac{1}{2}q(0)y^2(0) + E(0)).</me>
+        <p>Le lemme de Gronwall permet alors de conclure que</p>
+        <me>\forall x \in \mathbb{R}_+, \quad E(x) \leq C \exp \left( \int_0^x |q'(t)|dt \right) \leq C \exp \left( \int_0^{\infty} |q'(t)|dt \right).</me>
+        <p>Conclusion <m>E</m> est bornée sur <m>\mathbb{R}_+</m> et il en est donc de même de <m>y</m> et de <m>y'</m>.</p>
+    </solution>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.15</title> -->
+    <introduction>
+        <p>Soient <m>I</m> un intervalle ouvert de <m>\mathbb{R}</m>, <m>(a, b) \in \mathcal{C}^0 (I, \mathbb{R})^2</m>. On considère l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + ay' + by = 0.</me>
+        <p>On suppose connu le fait que les zéros de toute solution sur <m>I</m> non identiquement nulle de <m>(\mathcal{H})</m> sont isolés.</p>
+    </introduction>
+    <task>
+<statement>
+        <p>Soient <m>f, g \in S_1 (\mathcal{H}) \setminus \{0\}</m>. On suppose que <m>f</m> et <m>g</m> possèdent un zéro commun. Démontrer alors que ces deux fonctions sont proportionnelles.</p>
+    </statement>
+<solution>
+        <p>Supposons qu’il existe <m>a \in I</m> tel que <m>f(a) = g(a) = 0</m>. Comme <m>f</m> et <m>g</m> sont des solutions non identiquement nulles de <m>(\mathcal{H})</m>, <m>f'(a)</m> et <m>g'(a)</m> ne sont pas nuls. On considère alors <m>h = f'(a) \cdot g - g'(a) \cdot f</m>. C’est une solution sur <m>I</m> de <m>(\mathcal{H})</m> qui est telle que <m>h(a) = 0</m> et <m>h'(a) = 0</m>. On en déduit que <m>h</m> est la fonction nulle, par conséquent <m>f</m> et <m>g</m> sont proportionnelles.</p>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>Soit <m>(f, g)</m> un système fondamental de solutions sur <m>I</m> de <m>(\mathcal{H})</m>. Démontrer qu’entre deux zéros consécutifs de <m>f</m> il y a exactement un zéro de <m>g</m>.</p>
+    </statement>
+<solution>
+        <p>Soient <m>(f, g)</m> un système fondamental de solutions sur <m>I</m> de <m>(\mathcal{H})</m> et <m>a \lt b</m> deux zéros consécutifs de <m>f</m>. Quitte à changer <m>f</m> en <m>-f</m>, on peut supposer grâce au théorème des valeurs intermédiaires que <m>f</m> est strictement positive sur <m>]a, b[</m>.</p>
+        <p>Supposons à présent que <m>g</m> ne s’annule pas sur <m>]a, b[</m>. À nouveau, on peut supposer <m>g \gt 0</m> sur <m>]a, b[</m>. Comme <m>f</m> et <m>g</m> sont linéairement indépendantes, il résulte de la question 1) que <m>g</m> ne s’annule ni en <m>a</m> ni en <m>b</m>. Ainsi <m>g(a) \gt 0</m> et <m>g(b) \gt 0</m>.</p>
+        <p>Par ailleurs si on note <m>W</m> le wronskien du couple <m>(f, g)</m>, <m>W = \begin{vmatrix} f\amp   g \\ f'\amp   g' \end{vmatrix}</m>.</p>
+        <p>On a <m>f'(a) \geq 0</m> et même <m>f'(a) \gt 0</m> (car sinon on aurait <m>f(a) = f'(a) = 0</m>, ce qui entraînerait <m>f = 0</m>). De même <m>f'(b) \lt 0</m>. Ainsi</p>
+        <me>W(a) = -g(a)f'(a) \lt 0 \quad \text{et} \quad W(b) = -g(b)f'(b) \gt 0</me>
+        <p>ce qui entraînerait via le théorème des valeurs intermédiaires l’existence d’un zéro pour <m>W</m> dans <m>I</m>. Ceci est impossible vu que <m>(f, g)</m> est un système fondamental de solutions sur <m>I</m> de <m>(\mathcal{H})</m>.</p>
+        <p>Conclusion entre <m>a</m> et <m>b</m>, <m>g</m> s’annule au moins une fois. De plus elle ne peut s’annuler deux fois sans quoi le précédent raisonnement appliqué au couple <m>(g, f)</m> démontrerait l’existence pour <m>f</m> d’un zéro strictement compris entre <m>a</m> et <m>b</m>.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.16</title> -->
+    <statement>
+        <p>Soient <m>A \in M_n (\mathbb{C})</m> et</p>
+        <me>(\mathcal{E}_A) : Y' = AY</me>
+        <p>(où la fonction inconnue <m>Y</m> est à valeurs dans <m>\mathbb{C}^n</m>).</p>
+        <p>Démontrer que toutes les solutions sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m> sont bornées si et seulement si <m>A</m> est diagonalisable et si <m>\text{Sp}(A) \subset i\mathbb{R}</m>.</p>
+   
+        <p>Démontrer que toutes les solutions sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m> sont bornées si et seulement si <m>A</m> est diagonalisable et si <m>\text{Sp}(A) \subset i\mathbb{R}</m>.</p>
+    </statement>
+<solution>
+        <p>On note <m>||\cdot||</m> une norme sur <m>\mathbb{C}^n</m>.</p>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m> sont bornées. Soient <m>\lambda \in \text{Sp}(A)</m> et <m>v</m> un vecteur propre associé. On sait alors que l’application <m>Y_v : t \mapsto e^{\lambda t} \cdot v</m> est une solution sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m>. De plus, pour tout réel <m>t</m>,</p>
+        <me>||Y_v(t)|| = e^{t \cdot \text{Re}(\lambda)} ||v||.</me>
+        <p>Comme <m>Y_v</m> est bornée sur <m>\mathbb{R}</m>, cela impose <m>\text{Re}(\lambda) = 0</m>.</p>
+        <p>Conclusion <m>\text{Sp}(A) \subset i\mathbb{R}</m>.</p>
+        <p>Considérons à présent <m>\lambda \in \text{Sp}(A)</m> et <m>w \in \ker(A - \lambda I_n)^2</m>. On note <m>v = Aw - \lambda w</m>. L’application</p>
+        <me>X_w : t \mapsto \exp(tA) \cdot w = e^{\lambda t} \exp(t(A - \lambda I_n) \cdot w = e^{\lambda t} \sum_{p=0}^{+\infty} \frac{t^p}{p!}(A - \lambda I_n)^p \cdot w = e^{\lambda t}[w + tv]</me>
+        <p>est aussi une solution bornée sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m>. On en déduit que nécessairement <m>v = 0</m>.</p>
+        <p>Ainsi, pour toute <m>\lambda \in \text{Sp}(A)</m>, <m>\ker(A - \lambda I_n)^2 = \ker(A - \lambda I_n)</m>. On démontre (exercice classique) que pour tout entier <m>k \geq 1</m>, <m>\ker(A - \lambda I_n)^k = \ker(A - \lambda I_n)</m>.</p>
+        <p>De plus, le théorème de Cayley-Hamilton ainsi que le lemme de décomposition des noyaux montrent que</p>
+        <me>\mathbb{C}^n = \bigoplus_{\lambda \in \text{Sp}(A)} \ker(A - \lambda I_n)^{m(\lambda, \chi_A)}.</me>
+        <p>Conclusion D’après ce qui précède <m>\mathbb{C}^n = \bigoplus_{\lambda \in \text{Sp}(A)} \ker(A - \lambda I_n)</m>, donc <m>A</m> est diagonalisable.</p>
+        <p>Réciproquement, supposons <m>A</m> est diagonalisable et <m>\text{Sp}(A) \subset i\mathbb{R}</m>.</p>
+        <p>Dans ce cas, toute solution de <m>(\mathcal{E}_A)</m> est combinaison linéaire de solutions de la forme <m>Y_v</m> qui sont toutes bornées sur <m>\mathbb{R}</m>.</p>
+        <p>Conclusion toutes les solutions sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m> sont bornées sur <m>\mathbb{R}</m>.</p>
+    </solution>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.17</title> -->
+    <statement>
+        <p>Soient <m>A \in \mathcal{M}_n (\mathbb{C})</m> et</p>
+        <me>(\mathcal{E}_A) : Y' = AY</me>
+        <p>(où la fonction inconnue <m>Y</m> est à valeurs dans <m>\mathbb{C}^n</m>).</p>
+        <p>Que peut-on dire de <m>A</m> si toutes les solutions sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m> sont 1-périodiques ?</p>
+    
+        <p>Que peut-on dire de <m>A</m> si toutes les solutions sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m> sont 1-périodiques ?</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m> sont 1-périodiques.</p>
+        <p>Considérons <m>\lambda \in \text{Sp}(A)</m> et <m>v</m> un vecteur propre associé.</p>
+        <p>On sait alors que l’application <m>Y_v : t \mapsto e^{\lambda t} \cdot v</m> est une solution sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m>.</p>
+        <p>Comme elle est 1-périodique, <m>e^{\lambda} = 1</m>, donc <m>\lambda \in 2i\pi \mathbb{Z}</m>.</p>
+        <p>Considérons toujours <m>\lambda \in \text{Sp}(A)</m> et cette fois <m>w \in \ker(A - \lambda I_n)^2</m>. On note <m>v = Aw - \lambda w</m>.</p>
+        <p>L’application</p>
+        <me>X_w : t \mapsto \exp(tA) \cdot w = e^{\lambda t} \exp(t(A - \lambda I_n) \cdot w = e^{\lambda t} \sum_{p=0}^{+\infty} \frac{t^p}{p!}(A - \lambda I_n)^p \cdot w = e^{\lambda t}[w + tv]</me>
+        <p>est aussi une solution sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m>. Elle est donc 1-périodique, donc</p>
+        <me>\forall t \in \mathbb{R}, e^{\lambda t}[w + tv + v] = e^{\lambda t}[w + tv]</me>
+        <p>donc <m>v = 0</m>.</p>
+        <p>Ainsi, pour toute <m>\lambda \in \text{Sp}(A)</m>, <m>\ker(A - \lambda I_n)^2 = \ker(A - \lambda I_n)</m>. On suit la même démarche qu’à l’exercice précédent, on montre que pour tout entier <m>k \geq 1</m>, <m>\ker(A - \lambda I_n)^k = \ker(A - \lambda I_n)</m> puis le théorème de Cayley-Hamilton et le lemme de décomposition des noyaux montrent que</p>
+        <me>\mathbb{C}^n = \bigoplus_{\lambda \in \text{Sp}(A)} \ker(A - \lambda I_n)^{m(\lambda, \chi_A)}</me>
+        <p>Conclusion d’après ce qui précède <m>\mathbb{C}^n = \bigoplus_{\lambda \in \text{Sp}(A)} \ker(A - \lambda I_n)</m>, donc <m>A</m> est diagonalisable.</p>
+        <p>Réciproquement, on vérifie facilement que si <m>A</m> est diagonalisable et si <m>\text{Sp}(A) \subset 2i\pi \mathbb{Z}</m>, alors toutes les solutions sur <m>\mathbb{R}</m> de <m>(\mathcal{E}_A)</m> sont 1-périodiques.</p>
+    </solution>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.18</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R} \rightarrow \mathbb{R}_+</m> une application continue telle que <m>q(t) \underset{t \rightarrow +\infty}{\rightarrow} \ell \gt 0</m>.</p>
+        <p>On considère également une solution sur <m>\mathbb{R}</m>, <m>y</m> de l’équation</p>
+        <me>(\mathcal{H}) : y'' + qy = 0</me>
+        <p>vérifiant en outre <m>y(0) = 0</m>.</p>
+    </introduction>
+    <task>
+<statement>
+        <p>Que peut-on dire de <m>y</m> si <m>y'(0) = 0</m> ?</p>
+    </statement>
+<solution>
+        <p>Si <m>y(0) = y'(0) = 0</m>, le théorème de Cauchy-Lipschitz montre que la fonction <m>y</m> est identiquement nulle sur <m>\mathbb{R}</m>.</p>
+    </solution>
+</task>
+    <task>
+<statement>
+        <p>On suppose à présent <m>y'(0) \gt 0</m>.</p>
+        <ol>
+            <li>Démontrer que <m>y'</m> s’annule au moins une fois sur <m>\mathbb{R}_+^*</m>.</li>
+            <li>Démontrer que <m>y</m> s’annule une infinité de fois sur <m>\mathbb{R}_+</m>.</li>
+        </ol>
+    </statement>
+<solution>
+        <p>Afin de résoudre cette question on aura besoin du lemme suivant :</p>
+        <p><strong>Lemme</strong> : Soit <m>f : [c, +\infty] \rightarrow \mathbb{R}</m> une fonction dérivable possédant une limite <m>L \in \mathbb{R}_- \cup \{-\infty\}</m> en <m>+\infty</m>. Alors <m>f</m> tend vers <m>-\infty</m> en <m>+\infty</m>.</p>
+        <p><strong>Preuve du lemme</strong> : D’après l’hypothèse faite sur <m>f</m>, il existe <m>A \geq c, m \gt 0</m> tels que pour tout <m>x \geq A, f'(x) \leq -m</m>. L’inégalité des accroissements finis permet de conclure que pour ces mêmes valeurs de <m>x</m>,</p>
+        <me>f(x) \leq f(A) - m(x-a)</me>
+        <p>d’où immédiatement la conclusion souhaitée.</p>
+        <ol>
+            <li>
+                <p>Supposons que <m>y'</m> ne s’annule pas sur <m>\mathbb{R}_+^*</m>. Elle possède donc sur cet intervalle un signe constant et comme <m>y'(0) \gt 0</m>, elle y reste strictement positive. Il s’ensuit que <m>y</m> est strictement croissante sur <m>\mathbb{R}_+</m>, donc <m>y(t) \underset{t \rightarrow +\infty}{\rightarrow} L \gt 0</m> et donc <m>y''(t) \underset{t \rightarrow +\infty}{\rightarrow} -\ell \cdot L</m> (éventuellement <m>-\infty</m>). Le précédent lemme montre qu’alors <m>y'(t) \underset{t \rightarrow +\infty}{\rightarrow} -\infty</m>, ce qui est impossible.</p>
+                <p>Conclusion <m>y'</m> s’annule au moins une fois sur <m>\mathbb{R}_+^*</m>.</p>
+            </li>
+            <li>
+                <p>Ici aussi on raisonne par l’absurde en supposant que <m>y</m> ne possède qu’un nombre fini de zéros sur <m>\mathbb{R}_+</m>. On note <m>A \geq 0</m> le plus grand d’entre eux. La fonction <m>y</m> est alors de signe constant sur <m>[A, +\infty]</m>. Supposons par exemple qu’elle y est strictement positive.</p>
+                <p>Dans ce cas, <m>y'' = -qy</m> est négative sur <m>[A, +\infty]</m> et donc <m>y</m> est concave sur <m>[A, +\infty]</m> et donc pour tout <m>a \geq A</m> et pour tout <m>x \geq A</m>,</p>
+                <me>y(x) \leq y(a) + y'(a)(x-a)</me>
+                <p>On en déduit que si <m>y'(a) \gt 0</m>, alors <m>y'(t) \underset{t \rightarrow +\infty}{\rightarrow} -\infty</m>, donc <m>y(t) \underset{t \rightarrow +\infty}{\rightarrow} -\infty</m>, ce qui est impossible.</p>
+                <p>Conclusion <m>y'</m> est négative sur <m>[A, +\infty]</m>, donc <m>y</m> décroit sur <m>[A, +\infty]</m> et comme elle est minorée par 0 sur cet intervalle, elle possède une limite finie <m>\ell_0 \geq 0</m> en <m>+\infty</m>.</p>
+                <p>De plus on a nécessairement <m>\ell_0 = 0</m> sinon <m>y''(t) \underset{t \rightarrow +\infty}{\rightarrow} -\ell \cdot \ell_0 \lt 0</m> et le précédent lemme montre alors que <m>y'(t) \underset{t \rightarrow +\infty}{\rightarrow} -\infty</m>, puis que <m>y(t) \underset{t \rightarrow +\infty}{\rightarrow} -\infty</m> ce qui est impossible.</p>
+                <p>On aboutit à une contradiction car <m>y(A) = 0 = \lim_{t \rightarrow +\infty} y(t)</m> et <m>y</m> décroissante sur <m>[A, +\infty]</m>, donc <m>y = 0</m> sur <m>[A, +\infty]</m>.</p>
+            </li>
+        </ol>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.19</title> -->
+        <title>Méthode d’Euler – Python.</title>
+    <statement>
+        <p>Cet exercice utilise le lemme de Gronwall, exercice 7.12.</p>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}</m> une application continue et intégrable sur <m>\mathbb{R}_+</m>.</p>
+        <p>On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + (1 + q)y = 0.</me>
+        <p>Soit <m>y \in S_{\mathbb{R}_+} (\mathcal{H})</m>.</p>
+    
+        <p>Dans cette question uniquement, <m>q(t) = \frac{1}{1 + t^2 + t^4}</m>.</p>
+        <p>Soit <m>y: \mathbb{R}_+ \rightarrow \mathbb{R}</m> une solution de l’équation <m>(\mathcal{H})</m> telle que <m>y(0) = \alpha, \, y'(0) = \beta</m>. À l’aide de la méthode d’Euler (ou bien l’instruction <m>odeint</m> du module <m>scipy.integrate</m>), tracer le support de la courbe paramétrée</p>
+        <me>[0, 20] \rightarrow \mathbb{R}^2, \, t \mapsto (y(t), y'(t))</me>
+        <p>pour diverses valeurs du couple <m>(\alpha, \beta)</m>.</p>
+        <p>Que peut-on conjecturer en ce qui concerne le comportement asymptotique de la fonction <m>y</m> en <m>+\infty</m> ?</p>
+    </statement>
+<solution>
+        <p>Voici le code Python :</p>
+        <sage><input>
+import numpy as np
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+
+def q(t):
+    return 1 / (1 + t**2 + t**4)
+
+def g(X, t):
+    x, y = X
+    return np.array([y, -(1 + q(t))*X])
+
+def methEuler(F, XO, T):
+    '''
+    méthode d'Euler vectorielle dim 2,
+    en suivant la subdivision de temps T
+    XO = condition initiale en T[0] (comme odeint)
+    '''
+    N = len(T)
+    X = np.zeros((N, 2))
+    X[0, i] = np.array(XO)
+    for i in range(1, N):
+        Xp = g(X[i-1], T[i-1])
+        X[i] = X[i-1] + (T[i] - T[i-1])*Xp
+    return X
+
+def portrait(x0, y0, tmax, nbpoints=101):
+    T = np.linspace(0, tmax, nbpoints)
+    X = methEuler(g, [x0, y0], T)
+    Xo = odeint(g, [x0, y0], T)
+    plt.plot(X[:, 0], X[:, 1], 'b', lw=2, label='Euler')
+    plt.plot(Xo[:, 0], Xo[:, 1], 'r--', lw=3, label='odeint')
+    plt.legend(loc='best')
+    plt.show()
+
+portrait(-1, 1, 10, nbpoints=1001)
+</input></sage>
+        <p>On peut penser que la solution <m>y</m> est bornée (surtout en utilisant <m>odeint</m>).</p>
+    </solution>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.20</title> -->
+    <introduction>
+        <p>Soit <m>q</m> application continue de <m>\mathbb{R}^{+}</m> dans <m>\mathbb{R}_{+}^{*}</m> et non intégrable sur <m>\mathbb{R}_{+}</m>.</p>
+        <p>On veut démontrer qu’une solution (non identiquement nulle) de l’équation différentielle <m>(\mathcal{E})</m> sur <m>\mathbb{R}^{+}</m></p>
+        <me>(\mathcal{E}) : x'' + q(t)x = 0</me>
+        <p>admet une infinité de zéros.</p>
+    </introduction>
+    <task>
+<statement>
+        <p>Vérifier ce résultat sur un cas simple de votre choix.</p>
+    </statement>
+<solution>
+        <p>Il suffit de choisir <m>q = 1</m>. Les solutions de l’équation sont toutes les fonctions de la forme</p>
+        <me>y : t \mapsto A \cos t + B \sin t</me>
+        <p>Si <m>A</m> ou <m>B</m> est nul, il est clair que <m>y</m> possède une infinité de zéros. S’ils ne sont pas nuls, on considère un réel <m>\varphi</m> tel que <m>\tan \varphi = \frac{B}{A}</m>. On a alors</p>
+        <me>\forall t \in \mathbb{R}, \quad y(t) = \frac{A}{\cos \varphi} \cos (t - \varphi)</me>
+        <p>et la conclusion s’en suit immédiatement.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.21</title> -->
+    <introduction>
+        <p>Dans cet exercice on s’intéresse à l’équation différentielle</p>
+        <me>(\mathcal{E}) : y''(x) + q(x)y(x) = 0</me>
+        <p>où <m>q : [1,+\infty] \rightarrow \mathbb{R}</m> est une fonction continue pour laquelle la fonction <m>t \mapsto tq(t)</m> est intégrable sur <m>[1,+\infty]</m> avec</p>
+        <me>K = \int_{1}^{+\infty} t |q(t)| dt \lt 1.</me>
+        <p>On note <m>C_0^0 ([1,+\infty], \mathbb{R})</m> l’espace vectoriel des fonctions <m>f : [1,+\infty] \rightarrow \mathbb{R}</m> qui sont continues et bornées sur <m>[1,+\infty]</m>. Cet espace est muni de la norme <m>|| \cdot ||</m> définie par</p>
+        <me>\forall f \in C_0^0 ([1,+\infty], \mathbb{R}), || f || = \sup_{x \in [1,+\infty]} |f(x)|.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Soit <m>y \in C_0^0 ([1,+\infty], \mathbb{R})</m>. Démontrer que la fonction</p>
+        <me>\Phi(y) : x \mapsto 1 + \int_{x}^{+\infty} (x-t)q(t)y(t)dt</me>
+        <p>est définie, bornée et de classe <m>\mathcal{C}^2</m> sur l’intervalle <m>[1,+\infty]</m>.</p>
+    </statement>
+<solution>
+        <p>Soit <m>x \geq 1</m> fixé. La fonction <m>t \mapsto (x-t)q(t)y(t)</m> est continue sur <m>[1,+\infty]</m> et pour tout <m>t \geq x</m></p>
+        <me>|(x-t)q(t)y(t)| \leq (t-x) |q(t)| || y || \leq t |q(t)| || y ||</me>
+        <p>ce qui assure l’intégrabilité de <m>t \mapsto (x-t)q(t)y(t)</m> sur <m>[1,+\infty]</m>.</p>
+        <p>De plus,</p>
+        <me>\forall x \geq 1, \quad \Phi(y)(x) = 1 + \int_{x}^{+\infty} (x-t)q(t)y(t)dt = 1 + x \int_{x}^{+\infty} q(t)y(t)dt - \int_{x}^{+\infty} tq(t)y(t)dt</me>
+        <p>Comme les fonctions <m>q</m> et <m>y</m> sont continues, on en déduit le caractère <m>\mathcal{C}^1</m> de <m>\Phi(y)</m> et la relation</p>
+        <me>\forall x \geq 1, \quad \Phi(y)'(x) = \int_{x}^{+\infty} q(t)y(t)dt - xq(x)y(x) + xq(x)y(x) = \int_{x}^{+\infty} q(t)y(t)dt</me>
+        <p>d’où le caractère <m>\mathcal{C}^2</m> de <m>\Phi(y)</m> et la relation</p>
+        <me>\forall x \geq 1, \quad \Phi(y)''(x) = -q(x)y(x)</me>
+        <p>Enfin, <m>\Phi(y)</m> est bornée car</p>
+        <me>\forall x \geq 1, |\Phi(y)(x)| \leq 1 + ||y|| \int_{x}^{+\infty} t |q(t)| \leq 1 + ||y|| K.</me>
+    </solution>
+</task>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.22</title> -->
+    <introduction>
+        <p>Soit <m>P = X^n + a_{n-1}X^{n-1} + \cdots + a_1X + a_0 \in \mathbb{C}[X]</m> un polynôme dont les racines ont toutes une partie réelle strictement négative. On considère également une fonction <m>g \in \mathcal{C}^{\infty}(\mathbb{R}, \mathbb{C})</m> de limite nulle en <m>+\infty</m>. On leur associe l’équation différentielle linéaire d’ordre <m>n</m></p>
+        <me>(\mathcal{L}) : y^{(n)} + a_{n-1}y^{(n-1)} + \cdots + a_1y' + a_0y = g.</me>
+        <p>Démontrer que toute solution <m>y : \mathbb{R} \rightarrow \mathbb{C}</m> de cette équation tend vers 0 en <m>+\infty</m>.</p>
+        <p>Indication : on pourra commencer par examiner le cas où <m>n = 1</m>.</p>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que toute solution <m>y : \mathbb{R} \rightarrow \mathbb{C}</m> de cette équation tend vers 0 en <m>+\infty</m>.</p>
+    </statement>
+<solution>
+        <p>On peut commencer par observer que toute solution de <m>(\mathcal{L})</m> est indéfiniment dérivable (démontrer par récurrence qu’une telle fonction est de classe <m>\mathcal{C}^k</m>, pour tout <m>k \in \mathbb{N}</m>). Pour la question posée, on procède par récurrence.</p>
+        <p><strong>Cas <m>n = 1</m></strong> : On a donc ici <m>P = X + a_0</m>. On considère donc une fonction <m>g \in \mathcal{C}^{\infty}(\mathbb{R}, \mathbb{C})</m> telle que pour tout réel <m>t</m>,</p>
+        <me>y'(t) + a_0y(t) = g(t)</me>
+        <p>ce qui équivaut à</p>
+        <me>\frac{d}{dt}(t \mapsto y(t) \exp(a_0t))(t) = \exp(a_0t)g(t)</me>
+        <p>d’où l’existence d’un complexe <m>C</m> tel que pour tout <m>t \in \mathbb{R}</m>,</p>
+        <me>y(t) \exp(a_0t) = C + \int_0^t \exp(a_0s)g(s)ds</me>
+        <p>d’où</p>
+        <me>y(t) = C \exp(-a_0t) + \exp(-a_0t) \int_0^t \exp(a_0s)g(s)ds</me>
+        <p>On en déduit, pour les mêmes valeurs de <m>t</m>,</p>
+        <me>|y(t)| \leq |C| \exp(-\text{Re}(a_0)t) + \exp(-\text{Re}(a_0)t) \int_0^t \exp(\text{Re}(a_0)s) |g(s)| ds</me>
+        <p>Comme <m>\text{Re}(a_0) \gt 0</m>, <m>|C| \exp(-\text{Re}(a_0)t) \underset{t \to +\infty}{\rightarrow} 0</m>. Il ne reste plus qu’à s’occuper du second terme. Pour cela on se donne un réel <m>\varepsilon \gt 0</m>. Comme <m>g</m> tend vers 0 en <m>+\infty</m>, il existe un réel <m>\Lambda \gt 0</m> tel que pour tout <m>t \geq \Lambda</m>, <m>|g(t)| \leq \varepsilon</m>. On en déduit, toujours, pour <m>t \geq \Lambda</m>,</p>
+        <me>\exp(-\text{Re}(a_0)t) \int_0^t \exp(\text{Re}(a_0)s) |g(s)| ds</me>
+        <me>\leq \exp(-\text{Re}(a_0)t) \int_0^{\Lambda} \exp(\text{Re}(a_0)s) |g(s)| ds + \exp(-\text{Re}(a_0)t) \int_{\Lambda}^t \exp(\text{Re}(a_0)s) ds</me>
+        <me>\leq \exp(-\text{Re}(a_0)t) \int_0^{\Lambda} \exp(\text{Re}(a_0)s) |g(s)| ds + \exp(-\text{Re}(a_0)t) \left[ \frac{e^{\text{Re}(a_0)t} - e^{\text{Re}(a_0)\Lambda}}{\text{Re}(a_0)} \right]</me>
+        <me>\leq \exp(-\text{Re}(a_0)t) \int_0^{\Lambda} \exp(\text{Re}(a_0)s) |g(s)| ds + \frac{\varepsilon}{\text{Re}(a_0)} \left[ 1 - e^{\text{Re}(a_0)(\Lambda - t)} \right]</me>
+        <me>\leq \exp(-\text{Re}(a_0)t) \int_0^{\Lambda} \exp(\text{Re}(a_0)s) |g(s)| ds + \frac{\varepsilon}{\text{Re}(a_0)}</me>
+        <p>Enfin <m>\exp(-\text{Re}(a_0)t) \int_0^{\Lambda} \exp(\text{Re}(a_0)s) |g(s)| ds \underset{t \to +\infty}{\rightarrow} 0</m>, donc il existe <m>B \gt A</m> tel que pour tout <m>t \geq B</m>, <m>\exp(-\text{Re}(a_0)t) \int_0^{\Lambda} \exp(\text{Re}(a_0)s) |g(s)| ds \leq \varepsilon</m>.</p>
+        <p>En définitive,</p>
+        <me>\forall t \geq B, \exp(-\text{Re}(a_0)t) \int_0^t \exp(\text{Re}(a_0)s) |g(s)| ds \leq \varepsilon \left(1 + \frac{1}{\text{Re}(a_0)}\right)</me>
+        <p>donc <m>\exp(-\text{Re}(a_0)t) \int_0^t \exp(\text{Re}(a_0)s) |g(s)| ds \to 0</m> et donc <m>|y(t)| \to 0</m>.</p>
+        <p><strong>Cas général</strong> : Supposons la propriété démontrée au rang <m>n - 1 \geq 1</m>. On considère donc l’équation d’ordre <m>n</m>,</p>
+        <me>(\mathcal{L}) : y^{(n)} + a_{n-1}y^{(n-1)} + \cdots + a_1y' + a_0y = g</me>
+        <p>On peut remarquer que cette équation peut s’écrire sous la forme <m>P(D)(y) = g</m> où <m>D</m> est l’opérateur de dérivation sur l’espace <m>\mathcal{C}^\infty (\mathbb{R}, \mathbb{C})</m> et où <m>P = X^n + a_{n-1}X^{n-1} + \cdots + a_1X + a_0</m>. Soit <m>\lambda</m> une racine de <m>P</m>. Il existe donc <m>Q \in \mathbb{C}[X]</m>, de degré <m>n - 1</m> tel que <m>P = (X - \lambda)Q</m>. L’équation <m>(\mathcal{L})</m> peut alors s’écrire</p>
+        <me>(D - \lambda Id)(z) = g \text{ et } z = Q(D)(y)</me>
+        <p>D’après l’étude du cas <m>n = 1</m>, la fonction <m>z</m> tend vers 0 en <m>+\infty</m> et d’après l’hypothèse de récurrence, <m>y</m> tend aussi vers 0 en <m>+\infty</m>.</p>
+    </solution>
+</task>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.23</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}^*</m> une fonction continue strictement négative. On s’intéresse dans cet exercice aux solutions sur <m>\mathbb{R}_+</m> de l’équation différentielle</p>
+        <me>(\mathcal{E}_q) : y'' + qy = 0</me>
+        <p>On note <m>y_1 : \mathbb{R}_+ \rightarrow \mathbb{R}</m> la solution de <m>(\mathcal{E}_q)</m> vérifiant <m>y_1(0) = 1 = y_1'(0)</m>.</p>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que la fonction <m>y_1</m> est strictement positive, strictement croissante et convexe sur <m>\mathbb{R}_+</m>.</p>
+    </statement>
+<solution>
+        <p>Supposons que <m>y_1</m> s’annule au moins une fois dans <m>\mathbb{R}_+</m>. On note</p>
+        <me>X = \{x \in \mathbb{R}_+ \mid y_1(x) = 0\} \text{ et } c = \inf X</me>
+        <p>Or <m>X</m> est une partie fermée de <m>\mathbb{R}</m>, donc <m>c \in X</m>. De plus, comme <m>y_1(0) \gt 0</m>, le théorème des valeurs intermédiaires montre que <m>y_1 \gt 0</m> sur <m>[0, c]</m>. On en déduit que <m>y_1'' \gt 0</m> sur <m>[0, c]</m>, donc</p>
+        <me>\forall x \in [0, c], \quad y_1(x) \geq y_1'(0)(x - 0) + y_1(0)</me>
+        <p>En particulier, avec <m>x = c, 0 = y_1(c) \geq y_1'(0)c + y_1(0)</m>.</p>
+        <p>Ceci est impossible puisque <m>y_1(0) \gt 0, y_1'(0) \gt 0</m> et <m>c \gt 0</m>.</p>
+        <p>Conclusion <m>y_1</m> ne peut s’annuler sur <m>\mathbb{R}_+</m>, donc elle y est de signe constant (nécessairement positif vu que <m>y_1(0) \gt 0</m>).</p>
+        <p>Par ailleurs <m>y_1'' = qy_1</m> est positive sur <m>\mathbb{R}_+</m>, donc <m>y_1'</m> est croissante sur cet intervalle, donc, pour tout <m>x \geq 0</m>, <m>y_1'(x) \geq y_1'(0) \gt 0</m>.</p>
+        <p>Enfin <m>y_1(x) \rightarrow_{x \rightarrow +\infty} +\infty</m> car d’après ce qui vient d’être fait, <m>y_1</m> est convexe sur <m>[0,+\infty]</m>, donc</p>
+        <me>\forall x \geq 0, \, y_1(x) \geq y_1'(0)x + y_1(0),</me>
+        <p>d’où le résultat cherché puisque <m>y_1'(0) \gt 0</m>.</p>
+    </solution>
+</task>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.24</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Soit <m>y : \mathbb{R}_+ \rightarrow \mathbb{R}</m> une solution sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> bornée.</p>
+        <ol>
+            <li>Démontrer que <m>y'</m> possède une limite finie <m>\ell</m> en <m>+\infty</m>.</li>
+            <li>Démontrer que nécessairement <m>\ell = 0</m>.</li>
+        </ol>
+    </statement>
+<solution>
+        <p>Soit <m>y : \mathbb{R}_+ \rightarrow \mathbb{R}</m> une solution sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> bornée.</p>
+        <ol>
+            <li>
+                <p>La fonction <m>y'' = -qy</m> est le produit d’une fonction intégrable et d’une fonction bornée sur <m>\mathbb{R}_+</m>. Elle est donc, elle aussi, intégrable sur <m>\mathbb{R}_+</m>. On en déduit que</p>
+                <me>y'(x) = y'(0) - \int_0^x q(t)y(t)dt \underset{x\rightarrow+\infty}{\rightarrow} y'(0) - \int_0^{+\infty} q(t)y(t)dt = \ell.</me>
+            </li>
+            <li>
+                <p>Supposons par exemple <m>\ell \gt 0</m>. Dans ce cas <m>y'</m> est positive au voisinage de <m>+\infty</m> et par intégration des relations de comparaison on obtiendrait</p>
+                <me>y(x) - y(0) = \int_{0}^{x} y'(t)dt \sim \int_{0}^{x} tdt = \ell \cdot x,</me>
+                <p><m>y</m> admettait alors <m>+\infty</m> comme limite en <m>+\infty</m>, ce qui est exclu (on a supposé <m>y</m> bornée). On traite de même le cas où <m>\ell \lt 0</m> en remplaçant <m>y</m> par <m>-y</m>.</p>
+            </li>
+        </ol>
+    </solution>
+</task>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.25</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.26</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.27</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.28</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.30</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.31</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.32</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.33</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <!-- <title>Exercice 7.34</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.35</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.36</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+
+<exercise>
+    <!-- <title>Exercice 7.37</title> -->
+    <introduction>
+        <p>Soit <m>q : \mathbb{R}_+ \rightarrow \mathbb{R}_+</m> une fonction continue et intégrable sur <m>\mathbb{R}_+</m>. On lui associe l’équation différentielle</p>
+        <me>(\mathcal{H}) : y'' + qy = 0.</me>
+    </introduction>
+    <task>
+<statement>
+        <p>Démontrer que <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </statement>
+<solution>
+        <p>Supposons que toutes les solutions sur <m>\mathbb{R}_+</m> de <m>(\mathcal{H})</m> soient bornées.</p>
+        <p>On note <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>. On considère alors <m>W = y_1y_2 - y_2y_1'</m> le wronskien du couple <m>(y_1, y_2)</m>. On vérifie aisément que cette fonction est constante sur <m>\mathbb{R}_+</m> et non nulle car <m>(y_1, y_2)</m> un système fondamental de solutions de <m>(\mathcal{H})</m> sur <m>\mathbb{R}_+</m>.</p>
+        <p>Or, d’après 1) b),</p>
+        <me>y_1(x)y_2'(x) - y_2(x)y_1'(x) \rightarrow 0,</me>
+        <p>d’où une contradiction.</p>
+        <p>Conclusion <m>(\mathcal{H})</m> possède au moins une solution sur <m>\mathbb{R}_+</m> non bornée.</p>
+    </solution>
+</task>
+</exercise>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</exercises>  

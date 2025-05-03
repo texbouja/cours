@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The docinfo block is the analogue to the latex preamble --> 
+<!-- This is where you can define macros and other book-wide --> 
+
+<!-- settings. -->
+<docinfo xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- A unique name for the book in a catalog; for example, see https://pretextbook.org/catalog.html and https://runestone.academy/ns/books/index. It contains a simple lowercase string with no dashes or other special characters. See https://pretextbook.org/doc/guide/html/sec-publishing-to-runestone-academy.html for more information. --> 
+  <!-- The next three lines are likely for mature projects only: -->
+   <!-- <brandlogo url="" source="images/cover.png"/> --> 
+   <!-- <covers front="images/front.pdf" back="images/back.pdf"/> --> 
+   <!-- macros for defining latex math shortcuts. It is good practice --> 
+   <!-- to define these semantically, so that the macro relates to what--> 
+   <!-- it defines. -->
+     
+  <document-id>coursmp</document-id>
+
+  <macros>
+    \newcommand{\N}{\mathbb N}
+    \newcommand{\Z}{\mathbb Z}
+    \newcommand{\Q}{\mathbb Q}
+    \newcommand{\R}{\mathbb R}
+    \newcommand{\C}{\mathbb C}
+    \newcommand{\K}{\mathbb K}
+    \newcommand\card{\operatorname{Card}}
+    \newcommand\giv[1][\middle]{\nonscript\:#1\vert\nonscript\:\mathopen{}}
+    \newcommand\qtext[1]{\quad\text{#1}\quad}
+    \newcommand\llbracket{[\![}
+    \newcommand\rrbracket{]\!]}
+    \newcommand\iic[1]{\llbracket #1 \rrbracket}
+    \newcommand\id{\mathrm{id}}
+    \newcommand\e{\mathbf{e}}
+    \newcommand\dt{\mathrm{d}}
+    \newcommand\dd[2]{\frac{\partial #1}{\partial #2}}
+    \newcommand\ddeux[3]{\frac{\partial #1^2}{\partial #1\ifx#1#2^#2\else\partial #2\fi}}
+    \newcommand\func[5]{#1\:\;\begin{array}[t]{rcl}#2 \amp \longrightarrow \amp #3 \\ #4 \amp \longmapsto \amp #5\end{array}}
+    \newcommand\fct[2]{#1\longrightarrow#2}
+    \newcommand\nm[1]{\left\Vert#1\right\vert}
+    \newcommand\nmm[1]{\left\Vert#1\right\Vert}
+    \newcommand\tr{\operatorname{Tr}}
+    \newcommand\re{\operatorname{Re}}
+    \newcommand\im{\operatorname{Im}}
+    \newcommand\rg{\operatorname{rg}}
+    \newcommand\OPN[1]{\operatorname{#1}}
+    \newcommand\PP{\mathbb P}
+    \newcommand\EE{\mathbb E}
+    \newcommand\VV{\mathbb V}
+    \newcommand\Pr[1]{\mathbb P\left(#1\right)}
+    \newcommand\Es[1]{\mathbb E\left(#1\right)}
+    \newcommand\Va[1]{\mathbb V\left(#1\right)}
+    \let\geq\geqslant
+    \let\leq\leqslant
+    \let\ds\displaystyle
+  </macros>
+  <!-- If you put any latex-image elements you can include preambles --> 
+  <!-- for those in the next element. -->
+  <latex-image-preamble>
+    \usepackage{adjustbox}
+    \usepackage{tikz, pgfplots}
+    \pgfplotsset{compat=1.18}
+    \usetikzlibrary{positioning,matrix,arrows,automata}
+    \usetikzlibrary{shapes,decorations,shadows,fadings,patterns}
+    \usetikzlibrary{decorations.markings}
+  </latex-image-preamble> 
+  <math-package latex-name="mathrsfs" mathjax-name=""/> 
+  <math-package latex-name="mathtools" mathjax-name="mathtools"/> 
+  <math-package latex-name="empheq" mathjax-name="empheq"/> 
+  <rename element="colophon" xml:lang="fr-FR">License</rename> 
+  <rename element="task" xml:lang="fr-FR">Question</rename>
+  <rename element="inlineexercise" xml:lang="fr-FR">Exercice</rename> 
+  <rename element="insight" xml:lang="fr-FR">Vocabulaire</rename> 
+  <rename element="note" xml:lang="fr-FR">Notations</rename>
+  <rename element="convention" xml:lang="fr-FR">Conventions et notations</rename> 
+  <rename element="observation" xml:lang="fr-FR">Thème</rename>
+  
+  <!-- It is possible to rename elements: --> 
+  <!-- <rename element="assemblage" xml:lang="en-US">Summary</rename> --> 
+  <!-- Specify the default type of cross reference: --> 
+  <!-- <cross-references text="type-global" /> -->
+</docinfo>

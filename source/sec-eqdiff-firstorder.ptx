@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-eqdiff-equations-differentielles-lineaires-ord-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Équations différentielles linéaires d'ordre <m>1</m></title>
+
+    <assemblage><title>Notations et conventions </title>
+        <p>
+            <ul>
+                <li><m>E</m> désignera un <m>\K</m>-evn de dimension finie non nulle <m>d</m>.</li>
+                <li>On fixe une base <m>\mathcal B=(e_1,e_2,\ldots,e_d)</m> de <m>E</m>.</li>
+                <li><m>I</m> sera un intervalle non trivial de <m>\R</m>.</li>
+                <li>On notera <m>\mathcal C^k(I,E)</m> l'ensemble des fonctions de classe <m>\mathcal C^k</m> de <m>I</m> dans <m>E</m>.</li>
+                <li>Pour tout <m>u\in\mathcal L(E)</m> et <m>h\in E</m>, on notera <m>u\cdot h</m> le vecteur <m>u(h)</m>.</li>
+            </ul>
+        </p>
+    </assemblage>
+    
+
+    <assemblage>
+        <title>Rappels</title>
+        <p><ol>
+        <li><p>
+            L'application <m> \func{}{\mathcal L(E)\times E}{E}{(u,h)}{u\cdot h}</m> est bilinéaire.
+        </p>
+        <p>
+            Donc si <m>a</m> est une application dérivable de <m>I</m> dans <m>\mathcal L(E)</m> et <m>x</m> est une application dérivable de <m>I</m> dans <m>E</m> alors l'application <m>t\longmapsto a(t)\cdot x(t)</m> est dérivable et on a
+            <me>
+                \frac{\dt}{\dt t}\big(a(t)\cdot x(t)\big)=a'(t)\cdot x(t)+a(t)\cdot x'(t)
+            </me>
+        </p>
+        
+        </li>
+        <li>
+            <p>
+            Soient des réels <m>a \lt b</m> et un autre <m>\K</m>-evn de dimension finie <m>E'</m>.
+        </p>
+            <p>
+            Soit <m>f:[a,b]\longrightarrow E</m> une fonction <acro>CPM</acro>. Pour toute application linéaire <m>u</m> de <m>E</m> dans <m>E'</m>
+            <me>
+                u\cdot \bigg(\int_a^b f(t)\dt t\bigg)=\int_a^b u\cdot f(t)\dt t
+            </me>
+        </p>
+        </li>
+        </ol></p>
+    </assemblage>
+
+        <subsection>
+            <title>Solutions d'une équation différentielle linéaire du premier ordre</title>
+
+            <assemblage><title>Notations et conventions</title>
+            
+                <p>
+                    Dans toute cette section, on considère des applications continues
+                    <me>
+                        \begin{aligned} 
+                        a:I\longrightarrow\mathcal L(E) \amp \amp  b:I\longrightarrow E
+                        \end{aligned}
+                    </me>
+                    Les notations suivantes seront valables tout au long de la première section de ce chapitre.
+                </p>
+                <aside><p>
+                    Une solution de <m>(E)</m> sur <m>I</m> est en fait de classe <m>\mathcal C^1</m> sur <m>I</m>. En général si les fonctions <m>a</m> et <m>b</m> sont de classe <m>\mathcal C^p</m> alors les solutions de <m>(E)</m> sont au moins de classe <m>\mathcal C^{p+1}</m>.
+                </p></aside>
+                <p>
+                    <ul>
+                        <li><title>Forme générale</title> <p>L'équation différentielle
+                            <md>
+                                <mrow> (E)\amp\amp x'\amp =a(t)\cdot x+b(t)</mrow>
+                            </md>
+                            est dite une équation différentielle linéaire du premier ordre. L'inconnue <m>x</m> est une fonction dérivable de <m>I</m> dans <m>E</m>.
+                        </p></li>
+                        <li><title>Solutions de <m>(E)</m></title> 
+                            <p>On appelle solution de <m>(E)</m> sur <m>I</m> toute fonction <m>f:I\longrightarrow E</m> telle que :
+                            <ul>
+                                <li><m>f</m> est dérivable sur <m>I</m> ;</li>
+                                <li><m>\forall t\in I,\; f'(t)=a(t)\cdot f(t)+b(t)</m>.</li>
+                            </ul>
+                        On notera <m>S_I(E)</m> l'ensemble des solutions de <m>(E)</m> sur l'intervalle <m>I</m>.</p></li>
+                    <li><title>Équation homogène de <m>(E)</m></title>
+                        <p>
+                            L'équation différenteielle linéaire du premier ordre
+                            <md> 
+                                <mrow> (H)\amp\amp x'\amp=a(t).x </mrow>
+                            </md>
+                        est dite équation homogène (ou équation sans second membre) de <m>(E)</m>.    
+                        </p>
+                    </li>
+                    <li><title> Système différentiel asscocié</title>
+                        <p>
+                            On fixe une base <m>\mathcal B=(e_1,e_2,\ldots,e_n)</m> de l'espace <m>E</m> et on note <m>x_1,x_2,\ldots,x_n</m> les applications composantes de <m>x</m> et <m>b_1,b_2,\ldots,b_n</m> celles de <m>b</m> dans la base <m>\mathcal B</m>. Alors <m>(E)</m> équivaut au système d'équation 
+                            <md><mrow> (SE) \amp\amp 
+                            \begin{cases}
+                                x_1'\amp =a_{1,1}(t)x_1+a_{1,2}(t)x_2+\cdots+a_{1,n}x_n+b_1(t) \\
+                                x_2'\amp =a_{2,1}(t)x_1+a_{2,2}(t)x_2+\cdots+a_{2,n}x_n+b_2(t) \\
+                                \amp\vdots \\
+                                x_n'\amp=a_{n,1}(t)x_1+a_{n,2}(t)x_2+\cdots+a_{n,n}x_n+b_n(t)
+                            \end{cases}
+                            </mrow>
+                            </md>
+                        où on a posé <m>\operatorname{Mat}_{\mathcal B}(a(t))=\bigl(a_{i,j}(t)\bigr)_{i,j}</m>. Le système <m>(SE)</m> est dit système différentiel associé à <m>(E)</m> dans la base <m>\mathcal B</m>. On notera <m>(SH)</m> celui associé à l'équation homogène <m>(H)</m> et on les écrira sous forme compacte 
+                        <md>
+                            <mrow>(SE) \amp\amp X'\amp= A(t)X+B(t) </mrow>
+                            <mrow>(SH) \amp\amp X'\amp= A(t)X </mrow>
+                        </md>     
+                        où <m>X(t)=[x(t)]_{\mathcal B}</m>, <m>A(t)=\operatorname{Mat}_{\mathcal B}(a(t))</m> et <m>B(t)=[b(t)]_{\mathcal B}</m>.</p>
+                    </li>
+                    </ul>
+                </p>
+            </assemblage>
+            <proposition>
+                <aside><p>
+                    <m>S_I(E)</m> est le sous-espace affine de <m>\mathcal C^1(I,E)</m> passant par <m>f_0</m> est de direction <m>S_I(H)</m>.</p>
+                </aside>
+                <p>
+                    <ul>
+                        <li><m>S_I(H)</m> est un <m>\K</m>-ev.</li>
+                        <li>Si <m>f_0</m> une solution de <m>(E)</m> sur <m>I</m> alors <m>S_I(E)=f_0+S_I(H)</m>.</li>
+                    </ul>
+                </p>
+                <aside>
+                    <p>Pour résoudre <m>(E)</m>, il suffit de résoudre <m>(H)</m> et de déterminer une solution particulière <m>f_0</m> de <m>(E)</m>.</p>
+                </aside>
+            </proposition>
+
+            <theorem xml:id="cauchy-lipchitz">
+                <title>de Cauchy-Lipchitz</title>
+                <statement><p>
+                    Soit <m>(t_0,x_0)\in I\times E</m>. Le problème de Cauchy <m>(\mathcal C)</m> admet une solution unique <m>f</m> sur <m>I</m>. C'est la seule fonction vérifiant
+                    <me>
+                        \forall t\in I,\; f(t)=x_0+\int_{t_0}^t\big(a(s)\cdot f(s)+b(s)\big)\dt s
+                    </me>
+                </p></statement>
+                <proof>
+                    <p>
+                    Ce résultat revient à démontrer qu'il n'y a qu'une fonction <m>f:I\longrightarrow E</m> de classe <m>\mathcal C^1</m> qui vérifie
+                    <me>
+                        \forall t\in I,\; f(t)=x_0+\int_{t_0}^t\big(a(s)\cdot f(s)+b(s)\big)\dt s
+                    </me>
+                </p>
+                <p>
+                    <ul>
+                        <li><title>Existence</title>
+                            On introduit la suite de fonctions <m>(f_n)_n</m> définie par <m>f_0=x_0</m> et
+                            <me>
+                                \forall n\in\N,\;\forall t\in I,\; 
+                                f_{n+1}(t)=x_0+\int_{t_0}^t\big(a(s)\cdot f_n(s)+b(s)\big)\dt s
+                            </me>
+                            En constantant ensuite que
+                            <me>
+                                \forall n\in\N^*,\;\forall t\in I,\;
+                                f_{n+1}(t)-f_{n}(t)=\int_{t_0}^ta(s)\cdot\big(f_{n}(s)-f_{n-1}(s)\big)\dt s
+                            </me>
+                            et en posant <m>M(t)=\sup_{s\in [t_0,t]}\nmm{a(s)}</m>, on démontre par récurrence que
+                            <me>
+                                \forall t\in J,\;
+                                \nm{f_n(t)-f_{n-1}(t)}\leq \frac1{n!}\big(|t-t_0| M(t)\big)^n
+                            </me>
+                            Ce qui permet de justifier que la série de fonctions continues <m>\sum(f_n-f_{n-1})</m> converge uniformément sur tout segment de <m>I</m>. La suite de fonctions <m>(f_n)_n</m> converge donc uniformément sur tout segment de <m>I</m> vers une fonction <m>f</m> continue sur <m>I</m> et qui vérifie naturellement l'équation intégrale.
+                        </li>
+                        <li><title>Unicité</title>
+                            Si <m>f</m> et <m>g</m> sont des solutions du problème alors
+                            <me>
+                                \forall t\in I,\;
+                                f(t)-g(t)=\int_{t_0}^ta(s)\cdot \big(f(s)-g(s)\big)\dt s
+                            </me>
+                            Ce qui permet de justifier par récurrence que pour tout <m>t\in I</m>
+                            <me>
+                                \nm{f(t)-g(t)}\leq \frac{\big(M(t)|t-t_0|\big)^n}{n!}
+                            </me>
+                            et donc que <m>g(t)=f(t)</m> puisque ce dernier majorant converge vers <m>0</m>.
+                        </li>
+                    </ul>
+                </p>
+                </proof>
+            </theorem>
+
+
+            <corollary>
+                <p>
+                    Pour tout <m>t_0\in I</m>, l'application <m>\Phi_{t_0}</m> définie sur <m>S_I(H)</m> par
+                            <me>
+                                \forall f\in S_I(H),\; \Phi_{t_0}(f)=f(t_0)
+                            </me>
+                            est un isomorphisme de <m>S_I(H)</m> dans <m>E</m>. En particulier
+                    <me>
+                        \dim S_I(H)=\dim E
+                    </me>
+                </p>
+            </corollary>
+
+            <proposition xml:id="prop-superposition">
+                <title>Principe de superposition</title>
+                <statement>
+                    <p> On considére deux EDL du premier ordre partageant la même équation homogène <nbsp/>:
+                    <md>
+                        <mrow>(E_1) \amp\amp x'\amp=a(t).x+b_1(t) </mrow>
+                        <mrow>(E_2) \amp\amp x'\amp=a(t).x+b_2(t) </mrow>
+                    </md>
+                    Si <m>f_1</m> est une solution de <m>(E_1)</m> et <m>f_2</m> est une solution de <m>(E_2)</m> alors <m>f_1+f_2</m> est une solution de l'equation 
+                    <md>
+                        <mrow>(E) \amp\amp x'\amp=a(t).x+b_1(t)+b_2(t) </mrow>
+                    </md>
+                    </p>
+                </statement>
+            </proposition>
+
+            <proposition xml:id="prop-solreelle">
+                <statement>
+                    <p>
+                        On considère un système différentiel homogène réel 
+                        <me>
+                            (SH)\qquad X'=A(t)X 
+                        </me>
+                        <m>A</m> étant une fonction continue de <m>I</m> dans <m>\mathcal M_n(\R)</m>.
+                    </p>
+                    Les solutions réelles de <m>(SH)</m> sont les parties réelles des solutions complexes. 
+                </statement>
+                <proof>
+                    <p>
+                        Toute solution réelle de <m>(SH)</m> est sa propre partie réelle. Si maintenant <m>f</m> est une solution complexe de <m>(SH)</m> alors, du fait que <m>A(t)</m> est une matrice réelle, <m>\overline f</m> est une solution de <m>(SH)</m>. L'ensemble des solution complexes de <m>(SH)</m> étant un <m>\C</m>-espace vectoriel, <m>\re f=\frac12(f+\overline f)</m> est une solution de <m>(SH)</m>. 
+                    </p>
+                    <p> Ce qui montre que les solutions réelles de <m>(SH)</m> sont les parties réelles de ses solutions complexes. </p>
+                </proof>
+            </proposition>
+            <remark>
+                <p>
+                    L'ensemble des solutions réelles <m>(SH)</m> est aussi l'ensemble des solutions à priori complexes qui prennent des valeurs réelles. Concrètement, une fois obtenu les solutions complexes, il suffit de déterminer les valeurs des paramètres en jeu qui permettent que la solution prennent uniquement des valeurs réelles.
+                </p>
+            </remark>
+
+            <assemblage>
+                <title>Résolution pratique</title>
+                <p><dl><li><title>Avertissement</title>
+                    Sauf dans des cas très particuliers, il n'y a aucune méthode générale de résoultion des <acro>EDL</acro> du premier ordre. 
+                    </li>
+                    </dl>
+                    </p>
+                <p> 
+                    On s'interesse au système différentiel homogène
+                    <md>
+                        <mrow>(SH) \amp\amp X'=A(t)X </mrow>
+                    </md>
+                    <aside><p>
+                    Voir méthode de la variation des constantes pour la résolution du système avec second membre <m>(SE)</m>
+                    </p></aside>
+                    </p>
+                <p><ul>
+                    <li>
+                        <p> On suppose que la matrice <m>{}^t\!A(t)</m> admet un vecteur propre <m>V</m> qui ne dépend pas de <m>t</m> associé à une valeur propre <m>\lambda(t)</m>. En multipliant <m>(SH)</m> par <m>{}^tV</m> et en posant <m>z={}^tVX</m> on voit que 
+                        <me>
+                            z'=\lambda(t)z
+                        </me>
+                        Ce qui permet de calculer <m>z</m> sachant qu'elle est une combinaison linéaire des composantes de <m>X</m>. Cela permet d'exprimer l'une des fonctions inconnues en fonction des  autres et donc, par report dans <m>(SH)</m>, de réduire le nombre de fonctions inconnues.                             
+                        </p>
+                    </li>
+                    <li>
+                        <p>Dans le cas où les matrices <m>A(t)</m> se réduisent toutes sous la forme 
+                <me>
+                    A(t)=PR(t)P^{-1}
+                </me>
+                où <m>P</m> est une matrice inversible <alert>qui ne dépend pas</alert> de <m>t</m> et <m>R(t)</m> est une matrice plus simple (diagonale, triangulaire supérieure ou même diagonale par blocs) alors 
+                <md>
+                    <mrow>(SH) \amp\Longleftrightarrow \begin{cases} X=PY \\ Y'=R(t)Y\end{cases} </mrow>
+                </md></p>
+                <p>Les solutions de <m>(SH)</m> sont les fonctions <m>X=PY</m> où <m>Y</m> est une solution quelconque du système <m>Y'=R(t)Y</m> qui est plus simple à traiter : 
+                <ul>
+                    <li>
+                        <p>
+                            si <m>R(t)</m> est diagonale alors il est formé d'équations indépendantes en les composantes de <m>Y</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            si <m>R(t)</m> est triangualaire supérieur alors il peut être résolu de proche en proche en commençant par la dernière équation.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Si <m>R(t)</m> est diagonale par bloc alors il peut être éclaté en plusieurs systèmes différentiels de tailles plus petites.
+                        </p>
+                    </li>
+                    </ul>
+                </p>
+                    </li>
+                </ul></p>
+                
+                
+            </assemblage>
+
+        <example>
+        <statement>
+            <p>
+                Résoudre le système différentiel 
+            <me>
+                        \left\{\begin{array}{l}
+                        \left(t^{2}+1\right) x^{\prime}=t x+y \\
+                        \left(t^{2}+1\right) y^{\prime}=-x+t y
+                        \end{array}\right.
+                    </me>
+        </p>
+        </statement>
+        <solution>
+            <p>
+                Le système s'ecrit 
+                <me>
+                    X'=A(t)X \quad\text{avec } X=\begin{pmatrix} x\\y\end{pmatrix} \text{ et }
+                    A(t)=\frac1{1+t^2}\begin{pmatrix} t \amp 1 \\ -1 \amp t\end{pmatrix}
+                </me>
+                La matrice <m>\sqrt{1+t^2}A(t)</m> est orthogonale directe donc <m>V={}^t(1\;\; i)</m> en est un vecteur propre. C'est aussi un vecteur propre de <m>{}^t\!A(t)</m>. En multipliant la relation <m>X'=A(t)X</m> par <m>{}^tV</m> on obtient l'equation en <m>z=(1\;\; i)X=x+iy</m> :
+                <me>
+                    (L)\qquad (1+t^2)z'=(t-i)z
+                </me>
+                En suivant la procédure standard de résoltion pour une EDL linéaire du premier ordre on a  
+                <me>
+                    \int\frac{t-i}{1+t^2}\mathrm dt=
+                    \frac12\ln(1+t^2)-i\arctan t+\mathrm{cte}
+                </me>
+                alors il existe <m>\lambda\in\C</m> tel que 
+                <me>
+                    z(t)=\lambda\exp\bigl(\frac12\ln(1+t^2)-i\arctan t\bigr)=\lambda\sqrt{1+t^2}\e^{-i\arctan t}
+                </me>
+                dans l'expression <m>\sqrt{1+t^2}\e^{-i\arctan t}</m> on reconnait le module et l'argument de <m>1-it</m> donc 
+                <me>
+                    z(t)=\lambda(1-it)
+                </me>
+                
+                En posant <m>\lambda=\alpha+i\beta</m> avec <m>\alpha,\beta\in\R</m> et en identifiant les parties réelle et imaginaire 
+                <me>
+                    \begin{cases}
+                        x=\alpha+\beta t \\
+                        y=\beta-\alpha t
+                    \end{cases}
+                </me>
+                <m>S_\R(H)</m> est effectivement un <m>\R</m>-espace vectoriel de dimension <m>2</m>. Il est engendré par les fonctions 
+                <me>
+                    t\longmapsto \begin{pmatrix} 1\\-t\end{pmatrix}
+                    \qtext{et}
+                    t\longmapsto \begin{pmatrix} t\\1\end{pmatrix}
+                </me>
+            </p>
+        </solution>
+        </example>
+
+        <example>
+            <statement>
+                <p>
+                    Résoudre sur l'intervalle <m>]0,+\infty[</m> le système différentiel 
+                    <me>
+                        \begin{cases}
+                            tx'= (-2t^2+2)x+(4t^2-2)y\\
+                            ty'= (-2t^2+1)x+(4t^2-1)y
+                        \end{cases}
+                    </me>
+                </p>
+            </statement>
+            <solution>
+                <p> Le système équivaut à <m>X'=A(t)X</m> avec 
+                    <me>
+                        A(t)=\frac1t\left[\begin{matrix}- 2 t^2 + 2 \amp 4t^2-2\\-2t^2+1 \amp 4t^2-1\end{matrix}\right]
+                    </me>
+                On constate que la somme des deux colonnes de <m>A(t)</m> vaut <m>2tV_1</m> avec <m>V_1={}^t(1\;\;1)</m>. Donc <m>V_1</m> est une vecteur propre de <m>A(t)</m> associé à la valeur propre <m>2t</m>. Comme <m>\tr A(t)=2t+1/t</m> alors l'autre valeur propre de <m>A(t)</m> est <m>1/t</m> et après un calcul rapide le vecteur <m>V_2={}^t(2\;\;1)</m> est un vecteur propre qui lui est associé. Ainsi 
+                <me>
+                    A(t)=PD(t)P^{-1}\quad\text{avec }
+                    D(t)=\begin{pmatrix} 2t \amp 0 \\ 0 \amp 1/t \end{pmatrix} \text{ et }
+                    P=\begin{pmatrix} 1 \amp 2  \\ 1 \amp 1 \end{pmatrix} 
+                </me>
+                En posant <m>X=PU</m> avec <m>U={}^t(u\;\; v)</m> on obtient le système différentiel d'inconnues <m>u,v</m>
+                <me>
+                    \begin{cases} u'=2tu \\ v'=\frac1t v \end{cases} 
+                </me>
+                Il existe donc <m>\lambda,\mu\in\R</m> tels que 
+                <me>
+                    \begin{cases} u=\lambda\e^{t^2} \\ v=\mu t \end{cases}
+                </me>
+                La relation <m>X=PU</m> se traduit pas <m>x=u+2v</m> et <m>y=u+v</m> donc
+                <me>
+                    \begin{cases} 
+                        x=\lambda \e^{t^2}+2\mu t \\ 
+                        y=\lambda \e^{t^2}+\mu t 
+                    \end{cases}
+                </me>
+                 
+
+                
+                
+                   
+                </p>
+            </solution>
+        </example>
+
+        <example>
+            <statement>
+                <p> Résoudre sur <m>]0,+\infty[</m> le système différentiel 
+                    <me>
+                        \begin{cases} 
+                            tx'= (t+1)x-2t^2y-(t^2+t+1)z \\
+                            y'=t y +t z \\
+                            z'=-2ty-tz 
+                        \end{cases}
+                    </me>
+
+                </p>
+            </statement>
+            <solution>
+                <p> Ici le système différentiel s'écrit <m>X'=A(t)X</m> avec 
+                    <me>
+                        A(t)=\frac1t\left[\begin{matrix}t + 1 \amp - 2 t^{2} \amp - t^{2} - t - 1\\0 \amp t^{2} \amp t^{2}\\0 \amp - 2 t^{2} \amp - t^{2}\end{matrix}\right]
+                    </me>
+                    <md>
+                    <mrow> \chi_{A(t)} \amp =(X-1-1/t)\begin{vmatrix}
+                        X-t \amp -t \\ 2t \amp X+t 
+                    \end{vmatrix} </mrow>
+                    <mrow> \amp= 
+                        (X-1-1/t)(X^2+t^2)
+                    </mrow>
+                </md>
+                </p>
+                <p> Ce qui prouve que <m>A(t)</m> est semblable dans <m>\mathcal M_3(\C)</m> à la matrice diagonale <m>D(t)=\mathrm{diag}(1+1/t,it,-it)</m>. Clairement <m>V_1={}^t(1\;\;0\;\;0)</m> est un vecteur propre de <m>A(t)</m> associé à la valeur propre <m>1+1/t</m> et pour tout <m>X={}^t(x\;\;y\;\;z)\in\mathcal M_{3,1}(\C)</m> on a 
+                <md>
+                    <mrow> 
+                        A(t)X = itX \amp \Longleftrightarrow 
+                        \begin{cases}
+                        (1+1/t-it)x-2ty -(t+1+1/t)z=0\\
+                        (t-it)y+tz=0 \\
+                        -2ty-(t+it)z=0
+                    \end{cases} </mrow> 
+                    <mrow> \amp\Longleftrightarrow  
+                        \begin{cases}
+                        (t+1-it^2)x-t^2(1+i)z+(t^2+t+1)z=0 \\
+                        y=\frac1{1-i}z=\frac12(1+i)z 
+                        \end{cases}
+                    </mrow>
+                    <mrow> \amp\Longleftrightarrow 
+                    \begin{cases}x=-z \\ y=\frac12(1+i)z\end{cases}
+                    </mrow>
+                </md>
+                Comme prévu <m>E_{it}(A(t))</m> est une droite vectorielle. Elle est engendrée par le vecteur 
+                <me>
+                    V_2=\begin{pmatrix} -2 \\ 1+i \\ 2\end{pmatrix}
+                </me>
+                <m>A(t)</m> étant une matrice réelle, <m>E_{-it}(A(t))</m> est la droite engendrée par <m>V_3=\overline{V_2}</m>. Ainsi <m>A(t)=PD(t)P^{-1}</m> avec 
+                <me>
+                    P=\begin{pmatrix}
+                        1 \amp -2  \amp -2 \\
+                        0 \amp 1+i  \amp 1-i \\
+                        0 \amp 2  \amp 2
+                    \end{pmatrix}
+                </me>
+                Si on pose maintenant <m>X=PU</m> avec <m>U={}^t(u\;\; v\;\; w)</m> alors 
+                <me>
+                    (SE)\Longleftrightarrow U'=D(t)U \Longleftrightarrow 
+                    \begin{cases}
+                        u'=(t+1/t)u \\
+                        v'=itv \\
+                        w'=-itw 
+                    \end{cases}
+                </me>
+                Il existe donc <m>a,b,c\in\C</m> tels que 
+                <me>
+                \begin{cases}
+                    u=at\e^{t^2/2} \\
+                    v=b\e^{it^2/2} \\
+                    w=c\e^{-it^2/2}
+                \end{cases}
+                </me>
+                de quoi on déduit que les solutions complexes de <m>(SH)</m> sont données par 
+                <me>
+                \begin{cases}
+                    x=at\e^{t^2/2}-2b\e^{it^2/2}-2c\e^{-it^2/2} \\
+                    y=b(1+i)\e^{it^2/2}+c(1-i)\e^{-it^2/2} \\
+                    z=2b\e^{it^2/2}+2c\e^{-it^2/2}
+                \end{cases}
+                </me>
+                cette solution est réelle si <m>a\in\R</m> et <m>c=\overline b</m> donc en posant <m>b=\alpha+i\beta</m> on peut écrire 
+                <me>
+                \begin{cases}
+                    x=at\e^{t^2/2}-4\alpha\cos(t^2/2)+4\beta\sin(t^2/2) \\
+                    y=(\alpha-\beta)\cos(t^2/2)+(\alpha+\beta)\sin(t^2/2) \\
+                    z=4\alpha\cos(t^2/2)-4\beta\sin(t^2/2)
+                \end{cases}
+                </me>
+                où <m>a,\alpha,\beta\in\R</m>. L'ensemble des solutions de cette forme est de dimension <m>3</m> sur <m>\R</m> donc il est l'ensemble des solutions réelles de <m>(SH)</m>.
+                </p> 
+                
+            </solution>
+        </example>
+    </subsection>
+
+        <subsection>
+            <title>Système fondamental de solutions de l'équation homogène</title>
+
+            <insight>
+                <p>
+                    <ul>
+                        <li>On appelle système fondamental de solutions de <em>l'équation homogène</em> <m>(H)</m> toute base <m>(f_1,f_2,\ldots,f_d)</m> de <m>S_I(H)</m>.</li>
+                        <li>Soient <m>f_1,f_2,\ldots,f_d</m> des solution de <m>(H)</m>. On appelle wronksien dans la base <m>\mathcal B</m> du système de solutions <m>(f_1,f_2,\ldots,f_d)</m> de <m>(H)</m> la fonction définie par
+                            <me>
+                                \forall t\in I,\; W(t)=\det_{\mathcal B}\big(f_1(t),f_2(t),\ldots,f_d(t)\big)
+                            </me>
+                        </li>
+                    </ul>
+                </p>
+            </insight>
+
+            <proposition>
+                <p>
+                    Soient <m>f_1,f_2,\ldots,f_d</m> des solution de <m>(H)</m>. Soit <m>W</m> leurs wronksien. Les assertions suivantes sont équivalentes :
+                    <ul>
+                        <li><m>(f_1,f_2,\ldots,f_d)</m> est un système fondamental de solutions de <m>(H)</m> ;</li>
+                        <li>pour tout <m>t\in I</m>, la famille <m>\big(f_1(t),f_2(t),\ldots,f_d(t)\big)</m> est une base de <m>E</m> ;</li>
+                        <li>il existe <m>t_0\in I</m> tel que <m>\big(f_1(t_0),f_2(t_0),\ldots,f_d(t_0)\big)</m> soit une base de <m>E</m> ;</li>
+                        <li>pour tout <m>t\in I</m>, <m>W(t)\ne0</m> ;</li>
+                        <li>il existe <m>t_0\in I</m> tel que <m>W(t_0)\ne0</m>.</li>
+                    </ul>
+                </p>
+            </proposition>
+
+            <remark>
+                <p>
+                    Avec les notations de la proposition précédente :
+                    <ul>
+                        <li>
+                            <aside>
+                    <p>Une famille  <m>(f_1,f_2,\ldots,f_d)</m> de fonctions de <m>I</m> dans <m>E</m> peut très bien être libre sans que <m>(f_1(t),f_2(t),\ldots,f_d(t))</m> soit libre pour tout <m>t\in I</m>.</p>
+                </aside>
+                            <p>la fonction <m>W</m> est soit partout nulle sur <m>I</m>, soit ne s'annule en aucun point de <m>I</m> ;</p>
+                    </li>
+                        <li>la famille <m>\big(f_1(t),f_2(t),\ldots,f_d(t)\big)</m> est soit une base de <m>E</m> pour tout <m>t\in I</m> soit elle est liée pour tout <m>t\in I</m>.</li>
+                    </ul>
+                </p>
+                
+            </remark>
+
+            
+
+            <proposition>
+                <title>Équation du wronksien</title>
+                <p>
+                    Soient <m>f_1,f_2,\ldots,f_d</m> des solution de <m>(H)</m>. Soit <m>W</m> leurs wronksien dans <m>\mathcal B</m>. Alors
+                    <me>
+                        \forall t\in I,\; W'(t)=W(t)\tr\big(a(t)\big)
+                    </me>
+                </p>
+                
+            </proposition>
+        </subsection>
+        <remark>
+            <p>Ainsi la fonction <m>W</m> est une solution sur <m>I</m> de l'équation différentielle linéaire scalaire homogène du premier ordre
+                    <me>
+                        w'-\tr\big(a(t)\big)w=0
+                    </me>
+                    Ce qui implique que son expression est de la forme <m>W(t)=\lambda\e^{\alpha(t)}</m> où <m>\lambda\in \K</m> et <m>\alpha</m> est une primitive sur <m>I</m> de la fonction <m>t\longmapsto \tr\big(a(t)\big)</m>. Ce qui confirme que <m>W</m> est soit partout nulle, soit ne s'annule pas sur <m>I</m>.</p>
+                </remark>
+
+<subsection xml:id="sec-varconst">
+    <title>Méthode de la variation des constantes</title>
+
+    <lemma>
+        <p>
+            Soit <m>(f_1,f_2,\ldots,f_d)</m> un système fondamental de solutions de <m>(H)</m>. Pour toute fonction de classe <m>\mathcal C^1</m> <m>f:I\longmapsto E</m>, il existe des fonctions uniques <m>\lambda_1,\lambda_2,\ldots,\lambda_d</m> de classe <m>\mathcal C^1</m> de <m>I</m> dans <m>\K</m> telles que
+            <me>
+                \forall t\in I,\; f(t)=\sum_{k=1}^n\lambda_k(t)f_k(t)
+            </me>
+        </p>
+    </lemma>
+
+    <theorem xml:id="variation-des-constantes">
+        <title>Méthode de la variation des constantes</title>
+        <p>
+            On suppose qu'on connait un système fondamental <m>\big(f_1,f_2,\ldots,f_d\big)</m> de l'équation homogène <m>(H)</m> et on pose
+            <me>
+                x(t)=\lambda_1(t)f_1(t)+\lambda(t)f_2(t)+\cdots+\lambda_d(t)f_d(t)
+            </me>
+            </p>
+            <aside>
+            <p>Grâce aux formules de Cramer,
+            <me>
+                \forall k\in\iic{1,d},\; \lambda_k'(t)=
+                \frac{\det_{\mathcal B}\big(f_1(t),\ldots,f_{k-1}(t),b(t),f_{k+1}(t),\ldots,f_d(t)\big)}{W(t)}
+            </me></p>
+            </aside>
+            <p>Alors l'équation <m>(E)</m> équivaut à
+            <me>
+                \forall t\in I,\;
+                \lambda_1'(t)f_1(t)+\lambda_2'(t)f_2(t)+\cdots+\lambda_d'(t)f_d(t)=b(t)
+            </me>
+        </p>
+        
+    </theorem>
+
+    <example>
+        <statement>
+        <p>On veut résoudre complétement le système différentiel
+                    <me>
+                        \left\{\begin{array}{l}
+                        \left(t^{2}+1\right) x^{\prime}=t x+y+2 t^{2}-1 \\
+                        \left(t^{2}+1\right) y^{\prime}=-x+t y+3 t
+                        \end{array}\right.
+                    </me>
+        sachant que les fonctions <m>t\longmapsto (t,1)</m> et <m>t\longmapsto (-1,t)</m> sont des solutions du système homogène. 
+        </p>
+        </statement>
+        <solution>
+            <p>
+               Les fonctions <m>t\longmapsto (t,1)</m> et <m>t\longmapsto (-1,t)</m> sont des solutions du système homogène associé à <m>(S)</m>. Elles en constituent un <acro>SFS</acro>. Les solutions de <m>(H)</m> sont donc données par
+                    <me>
+                        \begin{cases}
+                        x=\lambda t-\mu \\
+                        y=\lambda+\mu t
+                        \end{cases}
+                    </me>
+                    où <m>(\lambda,\mu)\in\R^2</m>. 
+            En posant <m>x=\lambda(t)t+\mu(t)</m> et <m>y=-\lambda(t)+\mu(t)t</m>, la métode de la variation des consantes aboutit à  
+            <me>
+                \begin{cases}
+                    t\lambda'(t)-\mu'(t)=\frac{2t^2-1}{t^2+1} \\
+                    \lambda'(t)+t\mu'(t)=\frac{3t}{t^2+1}
+                \end{cases}
+            </me>
+            Système linéaire d'inconnues <m>\lambda'(t)</m> et <m>\mu'(t)</m> et de déterminant <m>w(t)=t^2+1</m>. Il se résout en 
+            <me>
+                \begin{cases}
+                    \lambda'(t)=\ds\frac1{(t^2+1)^2}\begin{vmatrix} 2t^2-1 \amp -1  \\ 3t \amp t \end{vmatrix}=\frac{2t^3+2t}{(t^2+1)^2}=\frac{2t}{t^2+1} \\
+                    \mu'(t)=\ds\frac1{(t^2+1)^2}\begin{vmatrix} t \amp 2t^2-1 \\ 1 \amp 3t\end{vmatrix}=\frac{t^2+1}{(t^2+1)^2}=\frac1{t^2+1}
+                \end{cases}
+            </me>
+            ce qui donne :
+            <me>
+                \begin{cases}
+                    \lambda(t)=\lambda_0+\ln(1+t^2) \\
+                    \mu(t)=\mu_0+\arctan(t)
+                \end{cases}
+            </me>
+            où <m>\lambda_0</m> et <m>\mu_0</m> sont des constantes quelconques. Les solutions du système différentiel de départ sont donc données par 
+            <me>
+                \begin{cases}
+                x(t)=\lambda_0 t-\mu_0+t\ln(t^2+1)-\arctan(t) \\
+                y(t)=\lambda_0+\mu_0 t+\ln(1+t^2)+t\arctan(t)    
+                \end{cases}
+            </me>            
+        </p>
+
+        </solution>
+    </example>
+</subsection>
+
+
+<subsection>
+    <title>Équation différentielle linéaire du premier ordre à coefficients constants</title>
+
+    <convention>
+        <p>
+            Soient <m>a</m> un endomorphisme de <m>E</m> et <m>b:I\longrightarrow E</m> une application continue. Dans toute cette section, on considère l'équation différentielle
+            <md>
+              <mrow>(E)\amp\amp  x'\amp=a\cdot x+b(t)</mrow>
+            </md>
+            et le système différentiel associé à <m>(E)</m> dans la base <m>\mathcal B</m>
+            <md>
+                <mrow> (SE) \amp\amp X'\amp=AX+B(t) </mrow>
+            </md>
+            <m>(E)</m> est dite une équation différentielle linéaire du premier ordre à coefficients constants. On notera <m>(H)</m> l'équation homogène de <m>(E)</m> et <m>(SH)</m> celle de <m>(SE)</m>.
+        </p>
+    </convention>
+
+    <theorem xml:id="solutions-homogenes-coefficients-constants">
+        <title>Solutions d'une équation homogène à coefficients constants</title>
+        <p>
+            <ul>
+                <li>Les solutions de l'équation homogène <m>(H)</m> sur <m>\R</m> sont les fonctions
+                    <me>
+                        t\longmapsto \e^{ta}\cdot v
+                    </me>
+                    où <m>v</m> est un vecteur quelconque de <m>E</m>.
+                </li>
+                <li>Soit <m>(t_0,v_0)\in\R\times E</m>. L'unique solution sur <m>\R</m> du problème de Cauchy de l'équation homogène <m>(H)</m> en <m>(t_0,x_0)</m> est donnée par
+                    <me>
+                        \forall t\in\R,\; f(t)=\e^{(t-t_0)a}\cdot v_0
+                    </me>
+                </li>
+            </ul>
+        </p>
+    </theorem>
+
+    <corollary>
+        <title>Propriétés de l'exponentielle</title>
+        <p>
+            <ul>
+                <li>On considère une algèbre de dimension finie <m>A</m>. Pour tout <m>a\in A</m>, l'application <m>f:t\longmapsto \e^{ta}</m> est l'unique solution du problème de Cauchy
+                    <me>
+                        \begin{cases}
+                        x'=ax \\
+                        x(0)=1_A
+                        \end{cases}
+                    </me>
+                    Grâce à cette identification, on établit rapidement la propriété :
+                    <me>
+                        \forall (a,b)\in A^2,\; ab=ba\Rightarrow \e^{a+b}=\e^a\e^b
+                    </me>
+                </li>
+                <li>On se place dans l'algèbre <m>\mathcal L(E)</m>. Si <m>u</m> est un endomorphisme de <m>E</m> alors
+                    <me>
+                        \det(\e^{u})=\e^{\tr u}
+                    </me>
+                </li>
+            </ul>
+        </p>
+    </corollary>
+
+    <assemblage><title>Remarques pratiques</title>
+            <p><ol>
+                <li><title>Solutions propres de l'équation homogène</title> 
+                    <p>Soit <m>\lambda</m> une <acro>VAP</acro> éventuelle de <m>a</m>. Pour tout <acro>VEP</acro> <m>v</m> de <m>a</m> associé à <m>\lambda</m>, la fonction <m>t\longmapsto \e^{\lambda t}v</m> est une solution de <m>(H)</m> sur <m>\R</m>.</p>
+                </li>
+                <li><title>Solution de l'équation homogène dans le cas où <m>a</m> est diagonalisable</title>
+                    <p>On suppose que <m>a</m> est diagonalisable. On considère une base de diagonalisation <m>(v_1,v_2,\cdots,v_d)</m> de <m>a</m> et on pose <m>a\cdot v_k=\lambda_k v_k</m>. Alors les solutions de <m>(H)</m> sur <m>\R</m> sont les fonctions
+                    <me>
+                        t\longmapsto \smash[t]{\sum_{k=1}^d}\alpha_k\e^{\lambda_k t}v_k
+                    </me>
+                    où <m>\alpha_1,\alpha_d,\ldots,\alpha_d</m> sont des scalaires quelconques.</p>
+                </li>
+                <li><title>Méthode pratique de résolution du système homogène <m>(SH)</m></title>
+                    <p>On suppose que la matrice <m>A</m> se réduit sous la forme <m>A=PRP^{-1}</m>. Alors
+                    <me>
+                        X'=AX \Longleftrightarrow 
+                        \begin{cases} 
+                        X=PY \\ Y'=RY 
+                        \end{cases}
+                    </me>
+                     la résolution du système différentiel <m>X'=AX</m> passe donc par celle du système «plus simple» <m>Y'=RY</m>.</p> 
+        
+                    <p> Noter aussi que puisque <m>\e^{tA}=P\e^{tR}P^{-1}</m> on peut directement fournir les solutions de <m>(SH)</m> en calculant <m>\e^{tR}</m>. Ces solutions sont de la forme : </p> 
+                        <aside><p>Quelque soit la méthode de calcul choisie, le calcul explicite de <m>P^{-1}</m> n'est pas nécessaire. 
+                        </p></aside> 
+                    <p>
+                    <me>
+                        t\longmapsto P\e^{tR}W
+                    </me>
+                     où <m>W</m> est un vecteur quelconque de <m>\mathcal M_{n,1}(\K)</m>.</p>
+                </li>
+        </ol>
+        </p>
+        </assemblage>
+            
+    <remark><title> SFS et variation des constantes</title>
+        <ol>
+            <li><title>Système fondamental de solution et wronksien</title>
+        <p>Soient <m>v_1,v_2,\ldots,v_d\in E</m> et posons pour tout <m>k\in\iic{1,d}</m>, <m>f_k(t)=\e^{ta}\cdot v_k</m>.</p>
+        <aside>
+            <p>Ces notions ont toutefois peu d'intérêt dans le cas d'une <acro>EDL</acro> à coefficients constants car on sait expliciter les solutions.</p>
+        </aside>
+            <p><ul>
+                <li><m>(f_1,f_2,\ldots,f_d)</m> est un <acro>SFS</acro> de <m>(H)</m> sur <m>\R</m> si et seulement si <m>(v_1,v_2,\ldots,v_d)</m> est une base de <m>E</m>.</li>
+                <li>Le wronksien de <m>(f_1,f_2,\ldots,f_d)</m> dans la base <m>\mathcal B</m> est donné par
+                    <me>
+                        \forall t\in\R,\; W(t)=\det\big(\e^{ta}\big)\det_{\mathcal B}(v_1,v_2,\ldots,v_d)
+                    </me>
+                </li>
+            </ul></p>
+        </li>
+        <li> <title>Variation des constantes</title>
+            <p>Les solutions de l'équation homogène étant les fonctions
+            <me>
+                t\longmapsto \e^{ta}\cdot v
+            </me>
+            où <m>v</m> est un vecteur quelconque de <m>E</m>, faire varier les constantes revient à faire varier le vecteur <m>v</m>. On pose donc <m>x(t)=\e^{ta}\cdot v(t)</m> de telle sorte que
+            <me>
+                (E)\Longleftrightarrow v'(t)=\e^{-ta}\cdot b(t)
+            </me>
+            Cette présentation n'offre toutefois pas d'avantage pratique par rapport à la méthode générale de la variation des constantes puisqu'elle exige le calcul de l'exponentielle <m>\e^{-ta}</m> et donc le calcul de l'inverse de la matrice de passage dans une base de réduction.
+            </p>
+        </li>
+        </ol> 
+    </remark>
+
+    <theorem xml:id="expression-solution-cauchy">
+        <title>Expression intégrale de la solution du problème de Cauchy</title>
+        <statement>
+            <p>
+            Soient <m>t_0\in I</m> et <m>x_0\in E</m>. L'unique solution <m>f</m> de l'équation complète <m>(E)</m> vérifiant la condition initiale <m>f(t_0)=x_0</m> est donnée par
+            <me>
+                \forall t\in I,\; f(t)=\e^{(t-t_0)a}\cdot x_0+\int_{t_0}^t\e^{(t-s)a}\cdot b(s)\dt s
+            </me>
+        </p>
+        </statement> 
+        <proof>
+            <p> Notons <m>f</m> l'unique solution de <m>(E)</m> telle que <m>f(t_0)=x_0</m> et posons
+            <me>
+                g(t)=\e^{-ta}\cdot f(t)
+            </me>
+            La fonction <m>g</m> est de classe <m>\mathcal C^1</m> et on a  
+            <md>
+                <mrow> g'(t)\amp =-a\circ \e^{-ta}\cdot f(t)+\e^{-ta}\cdot f'(t)
+                </mrow>
+                <mrow> \amp=
+                -a\circ \e^{-ta}\cdot f(t)+\e^{-ta}\cdot\bigl(a\cdot f(t)+b(t)\bigr)
+                 </mrow>
+                 <mrow> \amp=
+                 \e^{-ta}\cdot b(t)
+                  </mrow>
+            </md>
+            <m>g</m> est donc une primitive de la fonction <m>t\longmapsto \e^{-ta}\cdot b(t) </m>. Puisque <m>g(t_0)=\e^{-t_0a}\cdot f(t_0)=\e^{-t_0a}\cdot x_0</m> alors 
+            <me>
+                g(t)=\e^{-t_0a}\cdot x_0+\int_{t_0}^t \e^{-sa}\cdot b(s)\mathrm ds
+            </me>
+            et donc 
+            <md>
+                <mrow>f(t) \amp=
+                \e^{ta}\cdot\biggl(\e^{-t_0a}\cdot x_0+\int_{t_0}^t \e^{-sa}\cdot b(s)\mathrm ds\biggr)
+                 </mrow>
+                 <mrow> \amp= \e^{(t-t_0)a}\cdot x_0+\int_{t_0}^t\e^{(t-s)a}\cdot b(s)\dt s
+                 
+                 </mrow>
+            </md>
+            
+            
+            
+                
+            </p>
+        </proof>
+    </theorem>
+</subsection>
+</section>
+
+

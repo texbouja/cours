@@ -1,0 +1,3163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+
+<exercises xml:id="sec-probas-exercices">
+    <title>Exercices</title>
+    
+
+<subsection xml:id="sec-exos-approfondissement">
+    <title>Exercices d'approfondissement</title>
+    
+
+    <exercise><title>Caractérisation de la loi géometrique décalée</title>
+
+
+    <introduction>
+    <p>
+        On considère <m> X </m> et <m> Y </m> deux variables aléatoires sur <m> (\Omega, \mathcal{A}, \mathbb{P}) </m>, à valeurs dans <m> \mathbb{N} </m>, indépendantes, de même loi. On pose <m> D = X - Y </m> et <m> I = \min(X, Y) </m>.
+    </p>
+    </introduction>
+
+    <task>
+        <statement>
+            On suppose que pour tout <m> k </m> dans <m> \mathbb{N} </m>, <m> \mathbb{P}(X = k) = pq^k </m>, où <m> p \in [0, 1[ </m> et <m> q = 1 - p </m>.
+            <ol>
+                <li>Déterminer la loi conjointe de <m> (D, I) </m>.</li>
+                <li>Déterminer les lois marginales de <m> D </m> et <m> I </m>. Vérifier que <m> D </m> et <m> I </m> sont indépendantes.</li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    <p>
+                    On a <m> D(\Omega) = \mathbb{Z} </m> et <m> I(\Omega) = \mathbb{N} </m>.
+                    <ul>
+                        <li><p>Si <m> k \geq 0 </m>, alors on a :
+                            <me>
+                            \{D = k\} \cap \{I = \ell\} = \{X - Y = k\} \cap \{Y = \ell\} = \{X = k + \ell\} \cap \{Y = \ell\}
+                            </me>
+                            et donc, par indépendance de <m> X </m> et <m> Y </m> :
+                            <me>
+                            \mathbb{P}(\{D = k\} \cap \{I = \ell\}) = \mathbb{P}(\{X = k + \ell\} \cap \{Y = \ell\}) = pq^{k + \ell} pq^\ell = p^2 q^{k + 2\ell}.
+                            </me>
+                            </p>
+                        </li>
+                        <li>
+                            <p> Si <m> k \lt 0 </m>, alors on a :
+                            <me>
+                            \{D = k\} \cap \{I = \ell\} = \{X - Y = k\} \cap \{X = \ell\} = \{X = \ell\} \cap \{Y = -k + \ell\}
+                            </me>
+                            et donc, par indépendance de <m> X </m> et <m> Y </m> :
+                            <me>
+                            \mathbb{P}(\{D = k\} \cap \{I = \ell\}) = \mathbb{P}(\{X = \ell\} \cap \{Y = -k + \ell\}) = pq^\ell pq^{-k + \ell} = p^2 q^{-k + 2\ell}.
+                            </me>
+                            </p>
+                        </li>
+                    </ul>
+                    </p>
+                    <p>
+                    Dans tous les cas, on trouve <m> \mathbb{P}(\{D = k\} \cap \{I = \ell\}) = p^2 q^{|k| + 2\ell} </m>.
+                    </p>
+                </li>
+                <li>
+                    <ul>
+                        <li>Pour <m> k \in \mathbb{Z} </m>, on a :
+                            <me>
+                            \mathbb{P}(D = k) = \sum_{\ell=0}^{+\infty} \mathbb{P}(\{D = k\} \cap \{I = \ell\}) = \sum_{\ell=0}^{+\infty} p^2 q^{|k| + 2\ell} = \frac{p^2 q^{|k|}}{1 - q^2} = \frac{p q^{|k|}}{1 + q}.
+                            </me>
+                        </li>
+                        <li>Pour <m> \ell \in \mathbb{N} </m>, on a :
+                            <me>
+                            \mathbb{P}(I = \ell) = \sum_{k=-\infty}^{+\infty} \mathbb{P}(\{D = k\} \cap \{I = \ell\}) = \sum_{k=-\infty}^{+\infty} p^2 q^{|k| + 2\ell} = p^2 q^{2\ell} \left( \frac{2}{1 - q} - 1 \right) = p q^{2\ell} (1 + q).
+                            </me>
+                        </li>
+                    </ul>
+                    <p>
+                    On vérifie que <m> D </m> et <m> I </m> sont indépendantes car :
+                    <me>
+                    \mathbb{P}(\{D = k\} \cap \{I = \ell\}) = \mathbb{P}(D = k) \mathbb{P}(I = \ell).
+                    </me>
+                    </p>
+                </li>
+            </ol>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>
+            On suppose que les variables <m> D </m> et <m> I </m> sont indépendantes et que <m> \mathbb{P}(X = n) \neq 0 </m> pour tout <m> n \in \mathbb{N} </m>. Montrer qu'il existe <m> p \in [0, 1[ </m>, tel que, pour tout <m> k \in \mathbb{N} </m>,
+            <me>
+            \mathbb{P}(X = k) = p q^k.
+            </me>
+            </p>
+        </statement>
+        <solution>
+            <p>
+            Comme précédemment, on a :
+            <me>
+            \forall k \in \mathbb{N}, \quad \{D = k\} \cap \{I = \ell\} = \{X = k + \ell\} \cap \{Y = \ell\}.
+            </me>
+            Par indépendance de <m> X </m> et <m> Y </m> d'une part, de <m> D </m> et <m> I </m> d'autre part, on en déduit :
+            <me>
+            \mathbb{P}(D = k) \mathbb{P}(I = \ell) = \mathbb{P}(X = k + \ell) \mathbb{P}(Y = \ell) = \mathbb{P}(X = k + \ell) \mathbb{P}(X = \ell) \neq 0,
+            </me>
+            par hypothèse. On a en particulier, pour tout <m> k \in \mathbb{N} </m> :
+            <me>
+            \mathbb{P}(D = k) \mathbb{P}(I = 0) = \mathbb{P}(X = k) \mathbb{P}(X = 0),
+            </me>
+            <me>
+            \mathbb{P}(D = k) \mathbb{P}(I = 1) = \mathbb{P}(X = k + 1) \mathbb{P}(X = 1).
+            </me>
+            En divisant les égalités, on obtient :
+            <me>
+            \frac{\mathbb{P}(X = k + 1)}{\mathbb{P}(X = k)} = \frac{\mathbb{P}(I = 1) \mathbb{P}(X = 0)}{\mathbb{P}(I = 0) \mathbb{P}(X = 1)}.
+            </me>
+            Ce rapport est indépendant de <m> k </m> et strictement positif. On le note <m> q </m>. La suite <m> (\mathbb{P}(X = k)) </m> est géométrique de raison <m> q </m>. Pour tout <m> k \in \mathbb{N} </m>, on a <m> \mathbb{P}(X = k) = \mathbb{P}(X = 0) q^k </m>. La série <m> \sum \mathbb{P}(X = k) </m> converge et a pour somme 1 donc <m> q \lt 1 </m> et <m> \mathbb{P}(X = 0) = 1 - q </m>. En posant <m> p = 1 - q </m>, on a le résultat voulu.
+            </p>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise><title>Une caractérisation de la loi de Poisson</title>
+    
+
+        <introduction>
+            <p>
+                On considère une variable aléatoire discrète <m>N</m> sur l'espace probabilisé <m>(\Omega, \mathcal{A}, \PP</m> telle que <m>N(\Omega)=\N</m> et <m>\Pr{N=n} \neq 0</m> pour tout <m>n \in \N</m>.
+                Si la variable aléatoire <m>N</m> prend la valeur <m>n</m>, on procède à une succession de <m>n</m> épreuves de Bernoulli indépendantes de paramètre <m>p \in] 0,1[</m>.
+                On note <m>S</m> et <m>E</m> les variables aléatoires représentant respectivement le nombre de succès et d'échecs dans ces <m>n</m> épreuves.
+            </p>
+        </introduction>
+
+
+        <task>
+            <p>
+                Montrer que si <m>N</m> suit une loi de Poisson de paramètre <m>\lambda>0</m>, les variables <m>S</m> et <m>E</m> suivent aussi des lois de Poisson dont on déterminera les paramètres.
+                Montrer que les variables <m>E</m> et <m>S</m> sont indépendantes.
+            </p>
+        </task>
+
+
+        <task>
+            <p>
+                Montrer réciproquement que si <m>S</m> et <m>E</m> sont indépendantes, alors <m>N</m> suit une loi de Poisson.
+                Pour cela, on montrera :
+            </p>
+
+            <ul>
+                <li>
+                    <p>
+                        qu'il existe deux suites <m>\left(u_{n}\right)_{n \in \N}</m> et <m>\left(v_{n}\right)_{n \in \N}</m> telles que :
+                        <me>
+                            \forall(m, n) \in \N^{2} \quad(m+n) ! \Pr{N=m+n}=u_{m} v_{n}
+                        </me>
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        que les suites <m>\left(u_{n}\right)_{n \in \N}</m> et <m>\left(v_{n}\right)_{n \in \N}</m> sont géométriques.
+                    </p>
+                </li>
+            </ul>
+        </task>
+    </exercise>
+
+    <exercise><title>Variables aléatoires uniformes et Poisson</title>
+    <introduction>
+        <p>
+            Soient un entier <m>n \geqslant 1</m> et une suite <m>(U_{k})_{k \in \N^{*}}</m> de variables aléatoires indépendantes et de même loi uniforme sur <m>\llbracket 1, n \rrbracket</m>. Pour tout <m>i \in \llbracket 1, n \rrbracket</m>, on définit :
+            <me>
+                X_{i}^{(0)} = 0 \quad \text{et} \quad X_{i}^{(m)} = \card\{k \in \llbracket 1, m \rrbracket \mid U_{k} = i\} \quad \forall m \geqslant 1.
+            </me>
+        </p>
+        </introduction>
+        <task>
+            <p>
+                Quelle est la loi de <m>X_{i}^{(m)}</m> pour <m>i \in \llbracket 1, n \rrbracket</m> et <m>m \geqslant 1</m> ?
+            </p>
+        </task>
+        <task>
+            <p>
+                Soit <m>m \geqslant 1</m> et <m>(i, j) \in \llbracket 1, n \rrbracket^{2}</m> avec <m>i \neq j</m>. Calculer la covariance des variables aléatoires <m>X_{i}^{(m)}</m> et <m>X_{j}^{(m)}</m>. Sont-elles indépendantes ?
+            </p>
+        </task>
+        <task>
+            <p>
+                Soit <m>\lambda\gt0</m> et <m>N</m> une variable aléatoire suivant une loi de Poisson de paramètre <m>\lambda</m>, indépendante des variables <m>U_{k}</m>. On pose :
+                <me>
+                    \forall i \in \llbracket 1, n \rrbracket \quad Y_{i} = X_{i}^{(N)}.
+                </me>
+            </p>
+            <ol marker="1.">
+                <li>
+                    <p>
+                        Déterminer, en fonction de <m>\lambda</m> et <m>n</m>, la loi de <m>Y_{i}</m> pour tout <m>i \in \llbracket 1, n \rrbracket</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Déterminer la loi conjointe de <m>(Y_{1}, \ldots, Y_{n})</m>.
+                    </p>
+                </li>
+            </ol>
+        </task>
+    </exercise>
+
+
+    <exercise xml:id="borel-cantelli"><title>Lemme de Borel-Cantelli</title>
+    <introduction>
+        <p>Soit <m>(A_n)</m> une suite d’événements. On pose 
+        <me>A = \bigcap_{n \geq 0} \left( \bigcup_{k \geq n} A_k \right)</me>
+        <m>A</m> est l'événement «<m>A_k</m> se réalise pour une infinité d'indices <m>k</m>».
+        </p>
+    </introduction>
+
+    <task><title>Lemme 1 de Borel-Cantelli</title>
+        <statement>
+            <p>Montrer que si la série <m>\sum_{n \geq 0} \mathbb{P} (A_n)</m> converge alors <m>\mathbb{P} (A) = 0</m>.</p>
+        </statement>
+        <solution>
+            <p>Notons <m>B_n = \bigcup_{k \geq n} A_k</m>. La suite <m>(B_n)</m> est décroissante donc <m>\mathbb{P} (A) = \lim_{n \to +\infty} \mathbb{P} (B_n)</m>.
+
+            D’après le cours, on sait que <m>\mathbb{P} (B_n) \leq \sum_{k=n}^{+\infty} \mathbb{P} (A_k)</m> et comme la série <m>\sum_{n \geq 0} \mathbb{P} (A_n)</m> converge,
+            <me>
+            \lim_{n \to +\infty} \sum_{k=n}^{+\infty} \mathbb{P} (A_k) = 0 \text{ (le reste tend vers 0)}.
+            </me>
+            Conclusion : <m>\mathbb{P} (A) = \lim_{n \to +\infty} \mathbb{P} (B_n) = 0</m>.</p>
+        </solution>
+    </task>
+
+
+    <task><title>Lemme 2 de Borel-Cantelli</title>
+        <statement>
+            <p>On suppose que les événements <m>A_n</m> sont indépendants, montrer que si la série <m>\sum_{n \geq 0} \mathbb{P} (A_n)</m> diverge alors <m>\mathbb{P} (A) = 1</m>.</p>  
+        </statement>
+        <hint>
+            <p>Montrer que pour tout <m>n \geq 0</m>, <m>\mathbb{P} \left( \bigcap_{k \geq n} (\Omega \setminus A_k) \right) = 0</m> et penser au logarithme qui transforme produit en somme...</p> 
+        </hint>
+        <solution>
+            <p>On a 
+            <me>\Omega \setminus A = \bigcup_{n \geq 0} \left( \bigcap_{k \geq n} (\Omega \setminus A_k) \right)</me>.
+
+            Montrons que pour tout <m>n \geq 0</m>, <m>\mathbb{P} \left( \bigcap_{k \geq n} (\Omega \setminus A_k) \right) = 0</m>, et on en déduit que <m>\mathbb{P}(\Omega \setminus A) = 0</m>.</p>
+
+            <p>Par décroissance de la famille <m>\left( \bigcap_{k=n}^{N} (\Omega \setminus A_k) \right)</m>,
+            <me>
+            \mathbb{P} \left( \bigcap_{k \geq n} (\Omega \setminus A_k) \right) = \lim_{N \to +\infty} \mathbb{P} \left( \bigcap_{k=n}^{N} (\Omega \setminus A_k) \right).
+            </me>
+            Or par indépendance, <m>\mathbb{P} \left( \bigcap_{k=n}^{N} (\Omega \setminus A_k) \right) = \prod_{k=n}^{N} (1 - \mathbb{P}(A_k))</m>.</p>
+
+            <p>Il suffit donc de démontrer que 
+            <me>
+            \lim_{N \to +\infty} \prod_{k=n}^{N} (1 - \mathbb{P}(A_k)) = 0
+            </me>
+            pour conclure.</p>
+
+            <p>S’il existe un <m>k \geq N</m> tel que <m>\mathbb{P}(A_k) = 1</m>, le résultat est immédiat.</p>
+
+            <p>Dans le cas contraire, pour tout <m>k \geq n</m>, <m>1 - \mathbb{P}(A_k)  \gt 0</m>, on peut considérer le logarithme du produit et on utilise l’inégalité <m>\ln(1 + x) \leq x</m> pour <m>x  \gt -1</m>,
+            <me>
+            \ln \left( \prod_{k=n}^{N} (1 - \mathbb{P}(A_k)) \right) = \sum_{k=n}^{N} \ln (1 - \mathbb{P}(A_k)) \leq -\sum_{k=n}^{N} \mathbb{P}(A_k) \underset{N \to +\infty}{\to} -\infty
+            </me>
+            car 
+            <me>
+            \sum_{n \geq 0} \mathbb{P}(A_n)
+            </me>
+            diverge. Ainsi, le produit tend vers 0, et donc <m>\mathbb{P} (A) = 1</m>.</p>
+        </solution>
+    </task>
+
+    <task><title>Application 1</title>
+        <statement>
+            <p>Soit <m>(X_n)_{n \geq 0}</m> une suite de variables aléatoires et <m>X</m> une variable aléatoire discrète.
+            Pour <m>\varepsilon  \gt 0</m>, on pose 
+            <me>A_n (\varepsilon) = \{ |X_n - X|  \gt \varepsilon \}</me>.
+            Montrer que si pour tout <m>\varepsilon  \gt 0</m>, la série <m>\sum_{n \geq 0} \mathbb{P} (A_n (\varepsilon))</m> converge alors la suite <m>X_n</m> converge presque sûrement vers <m>X</m>, c’est-à-dire qu’il existe <m>\mathcal{A}</m> tel que <m>\mathbb{P} (\mathcal{A}) = 1</m> et pour tout <m>\omega \in \mathcal{A}, \lim_{n \to +\infty} X_n (\omega) = X(\omega)</m>.</p>
+        </statement>
+        <solution>
+            <p>D’après le lemme 1 de Borel-Cantelli, <m>\mathbb{P}(B(\varepsilon)) = 0</m> avec <m>B(\varepsilon) = \bigcap_{n \geq 0} \left( \bigcup_{k \geq n} A_k (\varepsilon) \right)</m>.
+
+            Posons <m>\mathcal{B} = \bigcup_{p \geq 1} B \left( \frac{1}{p} \right)</m>. On sait que <m>\mathbb{P}(\mathcal{B}) = 0</m>.
+
+            Soit <m>\omega \in \Omega \setminus \mathcal{B}</m>. On a
+            <me>
+            \forall p \geq 1, \exists n \geq 0, \forall k \geq n, \omega \notin A_k \left( \frac{1}{p} \right)
+            </me>
+            c’est-à-dire <m>\forall p \geq 1, \exists n \geq 0, \forall k \geq n, |X_k (\omega) - X(\omega)| \leq \frac{1}{p}</m>
+            ce qui est équivalent à 
+            <me>
+            \lim_{n \to +\infty} X_k (\omega) = X(\omega).
+            </me>
+            Ainsi, sur <m>\mathcal{A} = \Omega \setminus \mathcal{B}</m> de probabilité 1, on a pour tout <m>\omega \in \mathcal{A}, \lim_{n \to +\infty} X_n (\omega) = X(\omega)</m>.</p>
+        </solution>
+    </task>
+
+    <task><title> Application 2 </title>
+        <statement>
+            <p>On tape aléatoirement un texte au clavier, chaque caractère étant équiprobable. Montrer que presque sûrement le texte tapé (supposé très grand) contiendra n’importe quel ouvrage littéraire connu.</p>
+        </statement>
+        <solution>
+            <p>Soit <m>X_n</m> la variable aléatoire représentant le caractère tapé à la <m>n^e</m> étape. Les variables aléatoires <m>(X_n)_n \in \mathbb{N}</m> sont indépendantes (et de même loi).</p>
+
+            <p>On considère un texte d’un ouvrage littéraire connu (il y en a un nombre fini). Soit <m>\ell</m> sa longueur et <m>(c_i)_i \in [1, \ell]</m> ce texte codé en suite de caractères.</p>
+
+            <p>Posons <m>A_k = \{\forall i \in [1, \ell], X_{k+i} = c_i \}</m>. Il est clair que les événements <m>(A_{\ell k})_{k \geq 0}</m> sont indépendants et que pour tout <m>k \geq 0</m>, <m>\mathbb{P}(A_{\ell k}) = \frac{1}{N^\ell}</m> où <m>N</m> est le nombre de caractères possibles.</p>
+
+            <p>Comme la série (à terme général constant) 
+            <me>
+            \sum_{k \geq 0} \mathbb{P}(A_{\ell k})
+            </me>
+            diverge, le lemme 2 de Borel-Cantelli nous permet d’affirmer que 
+            <me>
+            \mathbb{P}\left(\bigcap_{n \geq 0}\left(\bigcup_{k \geq n} A_{\ell k}\right)\right)=1.
+            </me>
+            Ainsi, de façon presque sûre, le texte tapé contiendra une infinité de fois le texte littéraire que nous avons choisi. Comme il existe un nombre fini de textes littéraires, de façon presque sûre, le texte tapé contient à terme tous les textes littéraires une infinité de fois. Ce « paradoxe » dit de Borel s’explique par le fait que les apparitions (en moyenne) de tels textes sont extrêmement rares et dépassent largement l’espérance de vie d’un être humain...</p>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise xml:id="borel-cantelli-2"><title>Lemme de Borel-Cantelli, deuxième méthode</title>
+    
+        <introduction>
+            <p>Soit <m>(\Omega, A, P)</m> un espace probabilisé et <m>(E_n)_{n \in \mathbb{N}}</m> 
+            une suite d’événements.</p>
+            <p>On suppose que la série suivante converge :</p>
+            <me>
+                \sum_{n=0}^{+\infty} \PP(E_n) \lt +\infty.
+            </me>
+        </introduction>
+        
+    <task>
+        <statement>
+            <p>On note <m>1_X</m> la fonction indicatrice d’un ensemble <m>X</m>. 
+            Soit <m>Z = \sum_{n=0}^{+\infty} 1_{E_n}</m> (avec la convention <m>Z = +\infty</m> 
+            si la série diverge). Prouver que <m>Z</m> est une variable aléatoire discrète.</p>
+        </statement>
+        <solution>
+            <p>On montre que <m>Z</m> prend ses valeurs dans <m>\mathbb{N} \cup \{+\infty\}</m>, 
+            qui est un ensemble dénombrable. Pour <m>n \in \mathbb{N}</m>, on a :</p>
+            <me>
+                \{Z = n\} = \bigcup_{I \in P_n(\mathbb{N})} 
+                \left( \bigcap_{k \in I} E_k \cap \bigcap_{k \in \mathbb{N} \setminus I} E_k^c \right).
+            </me>
+            <p>Chaque ensemble à l'intérieur de cette union est un événement, donc <m>\{Z = n\}</m> 
+            est un événement. De même, on montre que <m>\{Z = +\infty\}</m> est un événement, donc 
+            <m>Z</m> est bien une variable aléatoire discrète.</p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>Soit <m>F = \{\omega \in \Omega \mid \omega</m> appartient à un nombre fini de 
+            <m>E_n</m> (pour <m>n \in \mathbb{N}</m>)}. Prouver que <m>F</m> est un événement 
+            et que <m>\PP(F) = 1</m>.</p>
+        </statement>
+        <solution>
+            <p>La série <m>\sum \PP(E_n)</m> converge, donc d'après le  lemme de <em>Borel-Cantelli</em> (<xref ref="borel-cantelli"/>),</p>
+            <me>
+                P\left( \bigcap_{n \in \mathbb{N}} \bigcup_{p \geq n} E_p \right) = 0.
+            </me>
+            <p>Cela signifie que <m>\PP(Z = +\infty) = 0</m>. Donc, presque sûrement, 
+            <m>\omega</m> appartient à un nombre fini d'événements <m>E_n</m>, ce qui montre que 
+            <m>F</m> est un événement et que <m>\PP(F) = 1</m>.</p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>Prouver que <m>Z</m> est d'espérance finie.</p>
+        </statement>
+        <solution>
+            <p>On définit <m>Z_n = \sum_{i=0}^{n} 1_{E_i}</m>. Alors :</p>
+            <me>
+                E(Z_n) = \sum_{i=0}^{n} \PP(E_i).
+            </me>
+            <p>Par passage à la limite, et en utilisant la convergence de la série :</p>
+            <me>
+                E(Z) = \sum_{i=0}^{+\infty} \PP(E_i).
+            </me>
+            <p>Ainsi, <m>Z</m> est bien d'espérance finie.</p>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise><title>Loi faible des grands nombres dans <m>L^1</m></title>
+        <introduction>
+            <p>
+                Soit <m>(X_n)_{n \geq 1}</m> une suite de variables aléatoires réelles discrètes, deux à deux indépendantes, de même loi, possédant une espérance finie <m>m</m>. On pose, pour tout <m>n \in \mathbb{N}^*</m>, <m>Y_n = \frac{X_1 + \cdots + X_n}{n}</m>.
+            </p>
+        </introduction>
+
+        <task>
+            <statement>
+                <p>
+                    Dans les deux premières questions, on suppose <m>m = 0</m>.
+                    <ol>
+                        <li>
+                            <p>Soit <m>\varepsilon \gt 0</m>.
+                            <ol>
+                                <li>
+                                    Pour <m>c \gt 0</m>, on définit <m>g : \mathbb{R} \to \mathbb{R}</m> par :
+                                    <me>
+                                        g(x) = 
+                                        \begin{cases} 
+                                            x \amp \text{si } |x| \leq c \\
+                                            0 \amp \text{sinon}.
+                                        \end{cases}
+                                    </me>
+                                    Montrer que la variable aléatoire <m>g(X_1)</m> est d'espérance finie et que l'on peut choisir <m>c</m> tel que <m>\mathbb{E}(|g(X_1) - X_1|) \leq \frac{\varepsilon}{2}</m>.
+                                </li>
+                                <li>
+                                    On pose <m>a = \mathbb{E}(g(X_1))</m>. Montrer que :
+                                    <me>
+                                        \mathbb{E}(|g(X_1) - X_1 - a|) \leq \varepsilon.
+                                    </me>
+                                </li>
+                                <li>
+                                    On pose, pour tout <m>n \in \mathbb{N}^*</m>, <m>U_n = g(X_n) - a</m> et <m>Y_n' = \frac{U_1 + \cdots + U_n}{n}</m>. Justifier que les variables <m>U_n</m> admettent un moment d'ordre 2. Montrer que <m>\lim_{n \to +\infty} \mathbb{V}(Y_n') = 0</m>. En déduire que <m>\lim_{n \to +\infty} \mathbb{E}(|Y_n|) = 0</m>.
+                                </li>
+                            </ol></p>
+                        </li>
+                        <li>
+                            Montrer que, pour tout <m>\varepsilon \gt 0</m>, on a :
+                            <me>
+                                \lim_{n \to +\infty} \mathbb{P}(|Y_n| \geq \varepsilon) = 0.
+                            </me>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    <ol>
+                        <li>
+                            <ol>
+                                <li>
+                                    La fonction <m>g</m> est bornée par <m>c</m>, donc <m>g(X_1)</m> est d'espérance finie. De plus, on a :
+                                    <me>
+                                        \mathbb{E}(|g(X_1) - X_1|) = \mathbb{E}(|X_1| \mathbf{1}_{\{|X_1| \gt c\}}).
+                                    </me>
+                                    Comme <m>\mathbb{E}(|X_1|) \lt +\infty</m>, on peut choisir <m>c</m> suffisamment grand pour que <m>\mathbb{E}(|X_1| \mathbf{1}_{\{|X_1| \gt c\}}) \leq \frac{\varepsilon}{2}</m>.
+                                </li>
+                                <li>
+                                    On a :
+                                    <me>
+                                        \mathbb{E}(|g(X_1) - X_1 - a|) \leq \mathbb{E}(|g(X_1) - X_1|) + |a|.
+                                    </me>
+                                    Comme <m>a = \mathbb{E}(g(X_1))</m> et <m>|a| \leq \mathbb{E}(|g(X_1)|) \leq c</m>, on peut choisir <m>c</m> suffisamment grand pour que <m>\mathbb{E}(|g(X_1) - X_1 - a|) \leq \varepsilon</m>.
+                                </li>
+                                <li>
+                                    Les variables <m>U_n</m> sont centrées et admettent un moment d'ordre 2 car <m>g(X_n)</m> est bornée et <m>X_n</m> a une espérance finie. On a :
+                                    <me>
+                                        \mathbb{V}(Y_n') = \frac{\mathbb{V}(U_1)}{n} \to 0 \quad \text{quand} \quad n \to +\infty.
+                                    </me>
+                                    Par l'inégalité de Markov, on a :
+                                    <me>
+                                        \mathbb{E}(|Y_n|) \leq \mathbb{E}(|Y_n'|) + \mathbb{E}(|Y_n - Y_n'|) \leq \sqrt{\mathbb{V}(Y_n')} + \mathbb{E}(|Y_n - Y_n'|).
+                                    </me>
+                                    Comme <m>\mathbb{E}(|Y_n - Y_n'|) \leq \mathbb{E}(|g(X_1) - X_1 - a|) \leq \varepsilon</m>, on obtient :
+                                    <me>
+                                        \lim_{n \to +\infty} \mathbb{E}(|Y_n|) = 0.
+                                    </me>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            Pour tout <m>\varepsilon \gt 0</m>, on a :
+                            <me>
+                                \mathbb{P}(|Y_n| \geq \varepsilon) \leq \frac{\mathbb{E}(|Y_n|)}{\varepsilon} \to 0 \quad \text{quand} \quad n \to +\infty.
+                            </me>
+                        </li>
+                    </ol>
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <statement>
+                <p>
+                    On ne suppose plus <m>m = 0</m>. Montrer que l'on a :
+                    <me>
+                        \forall \varepsilon \gt 0, \quad \lim_{n \to +\infty} \mathbb{P}(|Y_n - m| \geq \varepsilon) = 0.
+                    </me>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    On pose <m>Z_n = Y_n - m</m>. Alors <m>Z_n</m> est la moyenne des variables <m>X_n - m</m>, qui sont centrées. D'après la question précédente, on a :
+                    <me>
+                        \lim_{n \to +\infty} \mathbb{P}(|Z_n| \geq \varepsilon) = 0.
+                    </me>
+                    Par conséquent :
+                    <me>
+                        \lim_{n \to +\infty} \mathbb{P}(|Y_n - m| \geq \varepsilon) = 0.
+                    </me>
+                </p>
+            </solution>
+        </task>
+    </exercise>
+
+    <exercise> <title>Somme aléatoire de variables aléatoires (I)</title>
+        <introduction>
+            <p>
+                Soit <m>(X_n)_{n \geq 1}</m> une suite de variables aléatoires réelles discrètes, toutes de même loi, et <m>N</m> une variable aléatoire à valeurs dans <m>\mathbb{N}</m>. On suppose que <m>N</m> et les variables <m>X_n</m>, pour <m>n \in \mathbb{N}^*</m>, forment une suite de variables aléatoires indépendantes. On pose :
+                <me>
+                    \forall n \in \mathbb{N}^*, \quad S_n = \sum_{k=1}^n X_k \quad \text{et} \quad S_0 = 0.
+                </me>
+            </p>
+        </introduction>
+
+        <task>
+            <statement>
+                <p>
+                    Montrer que <m>S_N</m> est une variable aléatoire.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    On a <m>S_N(\Omega) \subset \{0\} \cup \bigcup_{n \in \mathbb{N}^*} S_n(\Omega)</m>. Les <m>S_n(\Omega)</m> étant au plus dénombrables, il en est de même de leur union dénombrable, et a fortiori <m>S_N(\Omega)</m> est au plus dénombrable. De plus :
+                    <me>
+                        \forall x \in S_N(\Omega), \quad \{S_N = x\} = \bigcup_{n \in \mathbb{N}} \{S_n = x\} \cap \{N = n\},
+                    </me>
+                    donc <m>\{S_N = x\}</m>, union dénombrable d'événements, est un événement et <m>S_N</m> est une variable aléatoire.
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <statement>
+                <p>
+                    Déterminer la loi de <m>S_N</m>, lorsque les <m>X_k</m> suivent la loi de Bernoulli de paramètre <m>p</m> et <m>N</m> la loi de Poisson de paramètre <m>\lambda</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    On a <m>S_N(\Omega) = \mathbb{N}</m> et d'après la formule des probabilités totales, pour tout <m>k \in \mathbb{N}</m> :
+                    <me>
+                        \mathbb{P}(S_N = k) = \sum_{n=0}^{+\infty} \mathbb{P}(S_N = k \mid N = n) \mathbb{P}(N = n).
+                    </me>
+                    On remarque que :
+                    <me>
+                        \mathbb{P}(S_N = k \mid N = n) = \mathbb{P}(S_n = k \mid N = n) = \mathbb{P}(S_n = k),
+                    </me>
+                    la dernière égalité résultant de l'indépendance des variables <m>X_n</m> par rapport à <m>N</m>. Pour <m>n \geq 1</m>, <m>S_n</m> est une somme de <m>n</m> variables de Bernoulli, indépendantes, de même paramètre <m>p</m> ; elle suit donc la loi binomiale de paramètre <m>(n, p)</m>. On a donc :
+                    <me>
+                        \mathbb{P}(S_n = k) = 
+                        \begin{cases} 
+                            \binom{n}{k} p^k (1 - p)^{n - k}  \amp   \text{si } k \leq n \\
+                            0  \amp   \text{si } k \gt n.
+                        \end{cases}
+                    </me>
+                    On remarque que cette formule reste vérifiée si <m>n = 0</m>, car alors <m>S_n</m> prend la valeur 0, avec la probabilité 1. On en déduit :
+                    <me>
+                        \mathbb{P}(S_N = k) = \sum_{n=k}^{+\infty} \binom{n}{k} p^k (1 - p)^{n - k} e^{-\lambda} \frac{\lambda^n}{n!}.
+                    </me>
+                    En simplifiant, on obtient :
+                    <me>
+                        \mathbb{P}(S_N = k) = e^{-\lambda p} \frac{(\lambda p)^k}{k!}.
+                    </me>
+                    La variable aléatoire <m>S_N</m> suit donc la loi de Poisson de paramètre <m>\lambda p</m>.
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <statement>
+                <p>
+                    Déterminer la loi de <m>S_N</m> lorsque les <m>X_k</m> suivent la loi géométrique de paramètre <m>p</m> et <m>N</m> la loi géométrique de paramètre <m>p'</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    On procède comme dans la question précédente. On a <m>S_N(\Omega) = \mathbb{N}^*</m> et, pour tout <m>n \in \mathbb{N}^*</m> :
+                    <me>
+                        \mathbb{P}(S_N = k \mid N = n) = \mathbb{P}(S_n = k \mid N = n) = \mathbb{P}(S_n = k).
+                    </me>
+                    Comme les variables <m>X_k</m> sont à valeurs dans <m>\mathbb{N}^*</m>, il est clair que <m>\mathbb{P}(S_n = k) = 0</m> si <m>k \lt  n</m>. Supposons <m>k \geq n</m>. On peut alors écrire :
+                    <me>
+                        \{S_n = k\} = \bigcup_{(i_1, i_2, \ldots, i_n) \in J_k} \{X_1 = i_1\} \cap \{X_2 = i_2\} \cap \ldots \cap \{X_n = i_n\},
+                    </me>
+                    où <m>J_k</m> est l'ensemble des <m>n</m>-listes d'entiers strictement positifs <m>(i_1, i_2, \ldots, i_n)</m> tels que <m>i_1 + i_2 + \cdots + i_n = k</m>. Le cardinal de <m>J_k</m> est égal au nombre de <m>(n-1)</m>-listes <m>(j_1, j_2, \ldots, j_{n-1})</m> d'entiers tels que <m>1 \leq j_1 \lt  j_2 \lt  \ldots \lt  j_{n-1} \leq k - 1</m>, car à <m>(i_1, i_2, \ldots, i_n)</m>, on peut associer bijectivement :
+                    <me>
+                        (j_1, j_2, \ldots, j_{n-1}) = (i_1, i_1 + i_2, \ldots, i_1 + i_2 + \cdots + i_{n-1}).
+                    </me>
+                    On a donc <m>\text{card}(J_k) = \binom{k-1}{n-1}</m>.
+                    D'autre part, pour <m>(i_1, i_2, \ldots, i_n) \in J_k</m>, on a, par indépendance des variables aléatoires <m>X_i</m> :
+                    <me>
+                        \mathbb{P}(\{X_1 = i_1\} \cap \{X_2 = i_2\} \cap \ldots \cap \{X_n = i_n\}) = \prod_{j=1}^n \mathbb{P}(X_j = i_j) = \prod_{j=1}^n p(1 - p)^{i_j - 1} = p^n (1 - p)^{k - n}.
+                    </me>
+                    On obtient ainsi <m>\mathbb{P}(S_n = k) = \binom{k-1}{n-1} p^n (1 - p)^{k - n}</m>. On en déduit, pour <m>k \in \mathbb{N}^*</m> :
+                    <me>
+                        \mathbb{P}(S_N = k) = \sum_{n=1}^{+\infty} \mathbb{P}(S_N = k \mid N = n) \mathbb{P}(N = n) = \sum_{n=1}^k \binom{k-1}{n-1} p^n (1 - p)^{k - n} p' (1 - p')^{n - 1}.
+                    </me>
+                    En simplifiant, on obtient :
+                    <me>
+                        \mathbb{P}(S_N = k) = p p' (1 - p p')^{k - 1}.
+                    </me>
+                    La variable <m>S_N</m> suit donc la loi géométrique de paramètre <m>p p'</m>.
+                </p>
+            </solution>
+        </task>
+    </exercise>
+
+    <exercise><title>Somme aléatoire de variables aléatoires (II)</title>
+        <introduction>
+            <p>
+                Soit <m>(X_n)_{n \geq 1}</m> une suite de variables aléatoires réelles discrètes, toutes de même loi, et <m>N</m> une variable aléatoire à valeurs dans <m>\mathbb{N}</m>. On suppose que <m>N</m> et les variables <m>X_n</m>, pour <m>n \in \mathbb{N}^*</m>, forment une suite de variables aléatoires indépendantes. On pose :
+                <me>
+                    \forall n \in \mathbb{N}^*, \quad S_n = \sum_{k=1}^n X_k \quad \text{et} \quad S_0 = 0.
+                </me>
+            </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>
+                    Montrer que <m>S_N</m> est une variable aléatoire.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    On a <m>S_N(\Omega) \subset \{0\} \cup \bigcup_{n \in \mathbb{N}^*} S_n(\Omega)</m>. Les ensembles <m>S_n(\Omega)</m> sont au plus dénombrables, donc leur union est également au plus dénombrable. Ainsi, <m>S_N(\Omega)</m> est au plus dénombrable. De plus, pour tout <m>x \in S_N(\Omega)</m>, on a :
+                    <me>
+                        \{S_N = x\} = \bigcup_{n \in \mathbb{N}} \{S_n = x\} \cap \{N = n\},
+                    </me>
+                    qui est une union dénombrable d'événements. Par conséquent, <m>S_N</m> est une variable aléatoire.
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    Déterminer la loi de <m>S_N</m> dans les cas suivants :
+                    <ol>
+                        <li>
+                            Les <m>X_k</m> suivent la loi de Bernoulli de paramètre <m>p</m> et <m>N</m> suit la loi de Poisson de paramètre <m>\lambda</m>.
+                        </li>
+                        <li>
+                            Les <m>X_k</m> suivent la loi géométrique de paramètre <m>p</m> et <m>N</m> suit la loi géométrique de paramètre <m>p'</m>.
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    <ol>
+                        <li>
+                            Si les <m>X_k</m> suivent la loi de Bernoulli de paramètre <m>p</m> et <m>N</m> suit la loi de Poisson de paramètre <m>\lambda</m>, alors <m>S_N</m> suit la loi de Poisson de paramètre <m>\lambda p</m>. En effet, pour tout <m>k \in \mathbb{N}</m>, on a :
+                            <me>
+                                \mathbb{P}(S_N = k) = \sum_{n=0}^{+\infty} \mathbb{P}(S_n = k) \mathbb{P}(N = n) = \sum_{n=k}^{+\infty} \binom{n}{k} p^k (1-p)^{n-k} e^{-\lambda} \frac{\lambda^n}{n!}.
+                            </me>
+                            En simplifiant, on obtient :
+                            <me>
+                                \mathbb{P}(S_N = k) = e^{-\lambda p} \frac{(\lambda p)^k}{k!}.
+                            </me>
+                        </li>
+                        <li>
+                            Si les <m>X_k</m> suivent la loi géométrique de paramètre <m>p</m> et <m>N</m> suit la loi géométrique de paramètre <m>p'</m>, alors <m>S_N</m> suit la loi géométrique de paramètre <m>p p'</m>. En effet, pour tout <m>k \in \mathbb{N}^*</m>, on a :
+                            <me>
+                                \mathbb{P}(S_N = k) = \sum_{n=1}^{+\infty} \mathbb{P}(S_n = k) \mathbb{P}(N = n) = \sum_{n=1}^k \binom{k-1}{n-1} p^n (1-p)^{k-n} p' (1-p')^{n-1}.
+                            </me>
+                            En simplifiant, on obtient :
+                            <me>
+                                \mathbb{P}(S_N = k) = p p' (1 - p p')^{k-1}.
+                            </me>
+                        </li>
+                    </ol>
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    On suppose que les variables aléatoires <m>X_n</m> sont à valeurs dans <m>\mathbb{N}</m>.
+                    <ol>
+                        <li>
+                            Montrer que <m>G_{S_N} = G_N \circ G_{X_1}</m> sur <m>[0, 1]</m>.
+                        </li>
+                        <li>
+                            Montrer que, si <m>X_1</m> et <m>N</m> sont d'espérance finie, alors <m>S_N</m> est d'espérance finie et vérifie la première <em>formule de Wald</em> :
+                            <me>
+                                \mathbb{E}(S_N) = \mathbb{E}(X_1) \mathbb{E}(N).
+                            </me>
+                        </li>
+                        <li>
+                            Montrer que, si <m>X_1</m> et <m>N</m> possèdent un moment d'ordre 2, alors <m>S_N</m> possède aussi un moment d'ordre 2 et vérifie la seconde <em>formule de Wald</em> :
+                            <me>
+                                \mathbb{V}(S_N) = \mathbb{V}(X_1) \mathbb{E}(N) + (\mathbb{E}(X_1))^2 \mathbb{V}(N).
+                            </me>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    <ol>
+                        <li>
+                        <p>
+        Pour tout <m>t \in [0, 1]</m>,
+        <me>
+            G_{S_N}(t) = \sum_{k \in \mathbb{N}} t^k \mathbb{P}(S_N = k) = \sum_{k \in \mathbb{N}} \sum_{n \in \mathbb{N}} t^k \mathbb{P}(\{S_N = k\} \cap \{N = n\}).
+        </me>
+        La famille de réels positifs <m>\big(t^k \mathbb{P}(\{S_N = k\} \cap \{N = n\})\big)_{(k, n) \in \mathbb{N}^2}</m> est donc sommable. On peut donc échanger l'ordre des sommations. Pour <m>n \in \mathbb{N}</m>, on a :
+        <me>
+            \sum_{k \in \mathbb{N}} t^k \mathbb{P}(\{S_N = k\} \cap \{N = n\}) = \sum_{k \in \mathbb{N}} t^k \mathbb{P}(\{S_n = k\} \cap \{N = n\})
+        </me>
+        <me>
+            = \sum_{k \in \mathbb{N}} t^k \mathbb{P}(S_n = k) \mathbb{P}(N = n),
+        </me>
+        car <m>S_n</m> et <m>N</m> sont indépendantes. On en déduit :
+        <me>
+            \sum_{k \in \mathbb{N}} t^k \mathbb{P}(\{S_N = k\} \cap \{N = n\}) = G_{S_n}(t) \mathbb{P}(N = n)
+        </me>
+        <me>
+            = G_{X_1}(t)^n \mathbb{P}(N = n),
+        </me>
+        car <m>G_{S_n}(t) = G_{X_1 + \cdots + X_n}(t) = \prod_{i=1}^n G_{X_i}(t) = G_{X_1}(t)^n</m>, par indépendance des variables <m>X_i</m>. On obtient finalement :
+        <me>
+            \forall t \in [0, 1], \quad G_{S_N}(t) = \sum_{n \in \mathbb{N}} (G_{X_1}(t))^n \mathbb{P}(N = n) = G_N\big(G_{X_1}(t)\big).
+        </me>
+    </p>
+                        </li>
+                        <li>
+                            Si <m>X_1</m> et <m>N</m> sont d'espérance finie, alors :
+                            <me>
+                                \mathbb{E}(S_N) = G_{S_N}'(1) = G_N'(G_{X_1}(1)) G_{X_1}'(1) = G_N'(1) G_{X_1}'(1) = \mathbb{E}(N) \mathbb{E}(X_1).
+                            </me>
+                        </li>
+                        <li>
+                            Si <m>X_1</m> et <m>N</m> possèdent un moment d'ordre 2, alors :
+                            <me>
+                                \mathbb{V}(S_N) = G_{S_N}''(1) + G_{S_N}'(1) - (G_{S_N}'(1))^2.
+                            </me>
+                            En utilisant la formule de dérivation composée, on obtient :
+                            <me>
+                                \mathbb{V}(S_N) = \mathbb{V}(X_1) \mathbb{E}(N) + (\mathbb{E}(X_1))^2 \mathbb{V}(N).
+                            </me>
+                        </li>
+                    </ol>
+                </p>
+            </solution>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    On revient au cas général. On suppose que <m>X_1</m> et <m>N</m> sont d'espérance finie.
+                    <ol>
+                        <li>
+                            Démontrer que la famille <m>(x \mathbb{P}(S_n = x) \mathbb{P}(N = n))_{(x, n) \in S_N(\Omega) \times N(\Omega)}</m> est sommable.
+                        </li>
+                        <li>
+                            En déduire que <m>S_N</m> est d'espérance finie et :
+                            <me>
+                                \mathbb{E}(S_N) = \mathbb{E}(X_1) \mathbb{E}(N).
+                            </me>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    <ol>
+                        <li>
+                            La famille est sommable car :
+                            <me>
+                                \sum_{(x, n)} |x| \mathbb{P}(S_n = x) \mathbb{P}(N = n) \leq \mathbb{E}(|X_1|) \mathbb{E}(N)\lt +\infty.
+                            </me>
+                        </li>
+                        <li>
+                            En sommant la famille, on obtient :
+                            <me>
+                                \mathbb{E}(S_N) = \sum_{(x, n)} x \mathbb{P}(S_n = x) \mathbb{P}(N = n) = \mathbb{E}(X_1) \mathbb{E}(N).
+                            </me>
+                        </li>
+                    </ol>
+                </p>
+            </solution>
+        </task>
+    </exercise>
+
+    <exercise><title>Convergence presque sûre</title>
+    <introduction>
+        <p>
+            Soit <m>(X_n)_{n \in \mathbb{N}}</m> une suite de variables aléatoires réelles et <m>X</m> une variable aléatoire réelle définies sur <m>(\Omega, \mathcal{A}, \mathbb{P})</m>. On pose :
+            <me>
+                B = \left\{ \omega \in \Omega \mid \lim_{n \to +\infty} X_n(\omega) = X(\omega) \right\}.
+            </me>
+            On dit que la suite <m>(X_n)_{n \in \mathbb{N}}</m> converge presque sûrement vers <m>X</m> si <m>\mathbb{P}(B) = 1</m>.
+        </p>
+    </introduction>
+
+    <task>
+        <statement>
+            <p>
+                Montrer que l'on a <m>\mathbb{P}(B) = \lim_{k \to +\infty} \mathbb{P}(C_k)</m>, où :
+                <me>
+                    C_k = \bigcap_{n \in \mathbb{N}} \bigcup_{p \geq n} \left\{ |X_p - X| \leq \frac{1}{k} \right\}.
+                </me>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                On a :
+                <me>
+                    B = \left\{ \omega \in \Omega \mid \forall k \in \mathbb{N}^*, \exists n \in \mathbb{N}, \forall p \geq n, |X_p(\omega) - X(\omega)| \leq \frac{1}{k} \right\}.
+                </me>
+                En d'autres termes, <m>B</m> est l'ensemble des <m>\omega \in \Omega</m> pour lesquels la suite <m>(X_n(\omega))</m> converge vers <m>X(\omega)</m>. On peut réécrire <m>B</m> comme :
+                <me>
+                    B = \bigcap_{k \in \mathbb{N}^*} \bigcup_{n \in \mathbb{N}} \bigcap_{p \geq n} \left\{ |X_p - X| \leq \frac{1}{k} \right\}.
+                </me>
+                Par continuité décroissante de la probabilité, on a :
+                <me>
+                    \mathbb{P}(B) = \lim_{k \to +\infty} \mathbb{P}\left( \bigcup_{n \in \mathbb{N}} \bigcap_{p \geq n} \left\{ |X_p - X| \leq \frac{1}{k} \right\} \right) = \lim_{k \to +\infty} \mathbb{P}(C_k).
+                </me>
+            </p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>
+                On suppose que :
+                <me>
+                    \forall \varepsilon \gt 0, \quad \mathbb{P}\left( \bigcup_{n \in \mathbb{N}} \bigcap_{p \geq n} \left\{ |X_p - X| \gt \varepsilon \right\} \right) = 0.
+                </me>
+                Montrer que la suite <m>(X_n)_{n \in \mathbb{N}}</m> converge presque sûrement vers <m>X</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Par hypothèse, pour tout <m>\varepsilon \gt 0</m>, on a :
+                <me>
+                    \mathbb{P}\left( \bigcup_{n \in \mathbb{N}} \bigcap_{p \geq n} \left\{ |X_p - X| \gt \varepsilon \right\} \right) = 0.
+                </me>
+                Cela signifie que, pour tout <m>\varepsilon \gt 0</m>, l'ensemble des <m>\omega \in \Omega</m> pour lesquels <m>|X_p(\omega) - X(\omega)| \gt \varepsilon</m> pour une infinité de <m>p</m> est de probabilité nulle. Par conséquent, pour presque tout <m>\omega \in \Omega</m>, la suite <m>(X_n(\omega))</m> converge vers <m>X(\omega)</m>, c'est-à-dire que <m>\mathbb{P}(B) = 1</m>.
+            </p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>
+                Montrer que si la série de terme général <m>\mathbb{P}(|X_n - X| \gt \varepsilon)</m> converge pour tout <m>\varepsilon \gt 0</m>, alors la suite <m>(X_n)_{n \in \mathbb{N}}</m> converge presque sûrement vers <m>X</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Si la série de terme général <m>\mathbb{P}(|X_n - X| \gt \varepsilon)</m> converge pour tout <m>\varepsilon \gt 0</m>, alors, d'après le lemme de Borel-Cantelli (<xref ref="borel-cantelli"/>), on a :
+                <me>
+                    \mathbb{P}\left( \bigcup_{n \in \mathbb{N}} \bigcap_{p \geq n} \left\{ |X_p - X| \gt \varepsilon \right\} \right) = 0.
+                </me>
+                En effet, le lemme de Borel-Cantelli affirme que si <m>\sum_{n=1}^{+\infty} \mathbb{P}(A_n) \lt +\infty</m>, alors <m>\mathbb{P}\left( \limsup_{n \to +\infty} A_n \right) = 0</m>. Appliqué à <m>A_n = \{ |X_n - X| \gt \varepsilon \}</m>, cela donne :
+                <me>
+                    \mathbb{P}\left( \bigcup_{n \in \mathbb{N}} \bigcap_{p \geq n} \left\{ |X_p - X| \gt \varepsilon \right\} \right) = 0.
+                </me>
+                Par conséquent, la suite <m>(X_n)_{n \in \mathbb{N}}</m> converge presque sûrement vers <m>X</m>.
+            </p>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise><title>Loi forte des grands nombres dans <m>L^2</m></title>
+    <introduction><p>
+        Soit <m>(X_n)_{n \geq 1}</m> une suite de variables aléatoires réelles indépendantes de même loi. On suppose que <m>\mathbb{E} (X_1^2) \lt +\infty</m> (a fortiori <m>\mathbb{E} (X_1) \lt +\infty</m>). On pose <m>\mu = \mathbb{E} (X_1)</m> et 
+        <me>
+        S_n = \sum_{k=1}^n X_k.
+        </me>
+        Nous savons d’après le cours que pour tout <m>\varepsilon \gt 0</m>,
+        <me>
+        \lim_{n \to +\infty} \mathbb{P} \left( \left| \frac{S_n}{n} - \mu \right| \gt \varepsilon \right) = 0 \quad (\text{loi faible des grands nombres}).
+        </me>
+        Nous nous proposons d’établir une résultat un peu plus fort.
+    </p></introduction>
+
+    <task>
+        <statement>
+            <p> Soit <m>\varepsilon \gt 0</m>, majorer <m>\mathbb{P} \left[ \left| \frac{S_n}{n} - \mu \right| \gt \varepsilon \right]</m> en fonction de la variance de la variable aléatoire <m>X_1</m>.</p>
+        </statement>
+        <solution>
+            <p>Rappelons que <m>\frac{S_n}{n} - \mu = \frac{1}{n} \sum_{k=1}^n (X_k - \mu)</m> admet une variance et du fait de l’indépendance puis de la loi commune,
+            <me>
+            \text{var} \left( \frac{S_n}{n} - \mu \right) = \frac{1}{n^2} \sum_{k=1}^n \text{var} (X_k - \mu) = \frac{1}{n^2} \sum_{k=1}^n \text{var} (X_k) = \frac{\text{var} (X_1)}{n}.
+            </me>
+            Utilisons l’inégalité de Bienaymé-Tchebychev,
+            <me>
+            \mathbb{P} \left[ \left| \frac{S_n}{n} - \mu \right| \gt \varepsilon \right] \leq \frac{\text{var} \left( \frac{S_n}{n} - \mu \right)}{\varepsilon^2} = \frac{\text{var} (X_1)}{n \varepsilon^2}.
+            </me>
+            C’est cette inégalité qui permet de montrer la loi faible des grands nombres.</p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>Montrer que la série <m>\sum_{m \geq 1} \mathbb{P} \left[ \left| \frac{S_{m^2}}{m^2} - \mu \right| \gt \varepsilon \right]</m> converge.</p>
+        </statement>
+        <solution>
+            <p>On a <m>\mathbb{P} \left[ \left| \frac{S_{m^2}}{m^2} - \mu \right| \gt \varepsilon \right] \leq \frac{\text{var} (X_1)}{m^2 \varepsilon^2}</m>, terme général en <m>m \geq 1</m> d’une série positive convergente donc la série <m>\sum_{m \geq 1} \mathbb{P} \left[ \left| \frac{S_{m^2}}{m^2} - \mu \right| \gt \varepsilon \right]</m> converge.</p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p> En déduire que presque sûrement, <m>\lim_{m \to +\infty} \frac{S_{m^2}}{m^2} = \mu</m>. 
+            Indication : on pourra utiliser le lemme de Borel-Cantelli (<xref ref="borel-cantelli"/>).</p>
+        </statement>
+        <solution>
+            <p>Utilisons le lemme de Borel-Cantelli (<xref ref="borel-cantelli"/>), il existe un événement <m>\mathcal{A}</m> tel que  
+            <me>
+            \mathbb{P} (\mathcal{A}) = 1 \text{ et pour tout } \omega \in \mathcal{A}, \lim_{m \to +\infty} \frac{S_{m^2}(\omega)}{m^2} = \mu.
+            </me>
+            </p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>On suppose dans cette question que les <m>X_n</m> sont positifs.
+            Montrer que presque sûrement, <m>\lim_{n \to +\infty} \frac{S_n}{n} = \mu</m>.</p>
+        </statement>
+        <solution>
+            <p>Comme les <m>X_n</m> sont positifs, pour tout <m>\omega \in \Omega</m>, la suite <m>(S_n(\omega))_{n \geq 1}</m> est croissante.  
+            Pour un <m>n \geq 1</m> quelconque, il existe <m>m_n (= |\sqrt{n}|)</m> tel que <m>m_n^2 \leq n \lt (m_n + 1)^2</m> et on a <m>S_{m_n^2}(\omega) \leq S_n(\omega) \leq S_{(m_n + 1)^2}(\omega)</m>, d'où  
+            <me>
+            \frac{S_{m_n^2}(\omega)}{m_n^2} \times \frac{m_n^2}{n} \leq \frac{S_n(\omega)}{n} \leq \frac{S_{(m_n + 1)^2}(\omega)}{(m_n + 1)^2} \times \frac{(m_n + 1)^2}{n}.
+            </me>
+            Or  
+            <me>
+            \lim_{n \to +\infty} \frac{m_n^2}{n} = \lim_{n \to +\infty} \frac{(m_n + 1)^2}{n} = 1 \text{ car } m_n^2 \sim n \sim (m_n + 1)^2
+            </me>
+            (en effet <m>\frac{(m_n + 1)^2}{m_n^2} = 1 + \frac{2}{m_n} + \frac{1}{m_n^2} \to 0</m>) donc,  
+            par encadrement, pour <m>\omega \in \mathcal{A}</m>,  
+            <me>
+            \lim_{n \to +\infty} \frac{S_n(\omega)}{n} = \mu.
+            </me>.</p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p> On pose <m>X_n^+ = \max(X_n, 0)</m> et <m>X_n^- = \max(-X_n, 0)</m>. 
+            On a <m>X_n = X_n^+ - X_n^-</m> et <m>|X_n| = X_n^+ + X_n^-</m>.
+            Montrer que l’on a toujours presque sûrement, <m>\lim_{n \to +\infty} \frac{S_n}{n} = \mu</m>.
+            Ce résultat est appelé loi forte des grands nombres, on peut le démontrer avec l’hypothèse <m>\mathbb{E} |X_1| \lt +\infty</m> mais la démonstration est plus difficile.</p>
+        </statement>
+        <solution>
+            <p>Posons <m>S_n^{\pm} = \sum_{k=1}^n X_k^{\pm}</m>. On a <m>S_n = S_n^{+} - S_n^{-}</m>. <m>(X_n^{+})_{n \geq 1}</m> et <m>(X_n^{-})_{n \geq 1}</m> restent des familles de variables aléatoires indépendantes de même loi et d'espérance au carré fini,  
+            de plus <m>\mu = [X_1] = [X_1^{+}] - [X_1^{-}] = \mu^{+} - \mu^{-}</m>.  
+            On dispose des événements <m>\mathcal{A}^{+}</m> et <m>\mathcal{A}^{-}</m> de probabilité 1 tels que  
+            Pour <m>\omega \in \mathcal{A}^{+}</m>,  
+            <me>
+            \lim_{n \to +\infty} \frac{S_n^{\pm}(\omega)}{n} = \mu \text{ et pour } \omega \in \mathcal{A}^{-}, \lim_{n \to +\infty} \frac{S_n(\omega)}{n} = \mu,
+            </me>
+            donc pour <m>\omega \in \mathcal{A}^{+} \cap \mathcal{A}^{-}</m>,  
+            <me>
+            \lim_{n \to +\infty} \frac{S_n(\omega)}{n} = \lim_{n \to +\infty} \frac{S_n(\omega)}{n} - \lim_{n \to +\infty} \frac{S_n(\omega)}{n} = \mu^{+} - \mu^{-} = \mu
+            </me>
+            et on a bien <m>\mathbb{P} (\mathcal{A}^{+} \cap \mathcal{A}^{-}) = 1</m>.</p>
+        </solution>
+    </task>
+    </exercise>
+
+
+</subsection> 
+
+<subsection xml:id="sec-exos-application">
+    <title>Exercices d'application</title>
+
+    <exercise><title>Lancer de pièce jusqu'au premier pile</title>
+
+            <introduction>
+                <p>
+                    On lance une pièce de monnaie jusqu'à l'obtention du premier pile, la probabilité d'obtenir pile étant <m>p \in] 0,1[</m>.
+                    Soit <m>N</m> la variable aléatoire représentant le nombre de lancers nécessaires.
+                    Si <m>N=n</m>, on relance ensuite <m>n</m> fois la pièce et on appelle <m>X</m> la variable aléatoire représentant le nombre de piles obtenu.
+                </p>
+            </introduction>
+
+
+            <task>
+                <p>
+                    Déterminer la loi de <m>N</m>, celle du couple <m>(N, X)</m>, puis la loi de <m>X</m>.
+                </p>
+            </task>
+
+
+            <task>
+                <p>
+                    Montrer que <m>X</m> a même loi que le produit de deux variables indépendantes <m>Y</m> et <m>Z</m> telles que <m>Y</m> suive une loi de Bernoulli et <m>Z</m> une loi géométrique de même paramètre.
+                </p>
+            </task>
+
+
+            <task>
+                <p>
+                    En déduire l'espérance et la variance de <m>X</m>.
+                </p>
+            </task>
+    </exercise>
+
+    <exercise xml:id="ex-16-18"><title>Temps d'attente de <m> r </m> succès consécutifs</title>
+    <introduction>
+        <p>
+            On considère une suite d'épreuves de Bernoulli indépendantes. À chaque épreuve, la probabilité de succès est <m> p \in ]0, 1[ </m>. On se donne un entier <m> r </m> strictement positif. Pour <m> n \in \mathbb{N}^* </m>, on note <m> \Pi_n </m> la probabilité qu'au cours des <m> n </m> premières épreuves, on ait obtenu <m> r </m> succès consécutifs (au moins une fois).
+        </p>
+    </introduction>
+
+    <task>
+        <statement>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            Calculer <m> \Pi_0 </m>, <m> \Pi_1 </m>, ..., <m> \Pi_r </m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Montrer que, pour <m> n \geq r </m>, on a :
+                            <me>
+                                \Pi_{n+1} = \Pi_n + (1 - \Pi_{n-r}) p^r (1 - p).
+                            </me>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Montrer que la suite <m> (\Pi_n)_{n \in \mathbb{N}} </m> est convergente. Calculer sa limite.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    <p>
+                        On a <m> \Pi_0 = \Pi_1 = \ldots = \Pi_{r-1} = 0 </m>, car il faut au moins <m> r </m> épreuves pour obtenir <m> r </m> succès consécutifs. Pour <m> n = r </m>, la probabilité d'obtenir <m> r </m> succès consécutifs est <m> \Pi_r = p^r </m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Pour <m> n \geq 1 </m>, on note <m> S_n </m> l'événement « la <m> n </m>-ième épreuve est un succès » et <m> A_n </m> l'événement « au cours des <m> n </m> premiers tirages, on a obtenu <m> r </m> succès consécutifs ». On a clairement <m> A_n \subset A_{n+1} </m>, donc <m> \Pi_{n+1} - \Pi_n = \mathbb{P}(A_{n+1} \setminus A_n) </m>. L'événement <m> A_{n+1} \setminus A_n </m> est réalisé si on obtient <m> r </m> succès consécutifs pour la première fois entre le <m> (n - r + 2) </m>-ième et le <m> (n + 1) </m>-ième tirage, ce qui impose que la <m> (n - r + 1) </m>-ième épreuve soit un échec et qu'on n'ait pas obtenu <m> r </m> succès consécutifs avant. On a donc :
+                        <me>
+                            A_{n+1} \setminus A_n = A_{n-r} \cap S_{n-r+1} \cap S_{n-r+2} \cap \cdots \cap S_{n+1}.
+                        </me>
+                        Par indépendance des épreuves, on obtient :
+                        <me>
+                            \Pi_{n+1} - \Pi_n = (1 - \Pi_{n-r}) (1 - p) p^r.
+                        </me>
+                        D'où la relation :
+                        <me>
+                            \Pi_{n+1} = \Pi_n + (1 - \Pi_{n-r}) p^r (1 - p).
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        La suite <m> (\Pi_n)_{n \in \mathbb{N}} </m> est croissante et majorée par 1, donc elle converge. On note <m> L </m> sa limite. Par passage à la limite dans la relation précédente, on obtient :
+                        <me>
+                            L = L + (1 - L) p^r (1 - p).
+                        </me>
+                        En simplifiant, on trouve :
+                        <me>
+                            (1 - L) p^r (1 - p) = 0.
+                        </me>
+                        Comme <m> p \in ]0, 1[ </m>, on a <m> p^r (1 - p) \neq 0 </m>, donc <m> 1 - L = 0 </m>, c'est-à-dire <m> L = 1 </m>. Ainsi, la suite <m> (\Pi_n)_{n \in \mathbb{N}} </m> converge vers 1.
+                    </p>
+                </li>
+            </ol>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            Déduire de la question 1 que l'on peut définir une variable aléatoire <m> T </m> égale au temps d'attente de <m> r </m> succès consécutifs. On définira <m> \{T = k\} </m> comme l'événement « on a obtenu des succès aux épreuves de rang <m> k - r + 1 </m>, <m> k - r + 2 </m>, ..., <m> k </m> sans jamais avoir obtenu <m> r </m> succès consécutifs auparavant ».
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Montrer en utilisant le résultat de <xref ref="act-essomme"/>  que<nbsp/>:
+                            <me>
+                                \mathbb{E}(T) = \frac{1 - p^r}{(1 - p) p^r}.
+                            </me>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    <p>
+                        Comme la suite <m> (A_n) </m> est croissante, on a :
+                        <me>
+                            \mathbb{P}\left( \bigcup_{n \in \mathbb{N}^*} A_n \right) = \lim_{n \to +\infty} \Pi_n = 1.
+                        </me>
+                        On obtient de manière presque sûre une suite de <m> r </m> succès consécutifs au bout d'un nombre fini d'épreuves. Sur un ensemble de probabilité 1, on peut définir l'application <m> T </m>. On a, par définition <m> \{T = k\} = A_{k+1} \setminus A_k </m>, donc <m> \{T = k\} </m> est un événement et <m> T </m> une variable aléatoire à valeurs dans <m> \mathbb{N}^* </m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Pour tout <m> k \in \mathbb{N} </m>, on a <m> \{T\gt k\} = A_k </m> et donc <m> \mathbb{P}(T\gt k) = 1 - \Pi_k </m>. D'après la question 1, on a pour tout <m> k \geq 0 </m> :
+                        <me>
+                            1 - \Pi_k = \frac{\Pi_{k+r+1} - \Pi_{k+r}}{(1 - p) p^r}.
+                        </me>
+                        D'après <xref ref="act-essomme"/> , on en déduit :
+                        <me>
+                            \mathbb{E}(T) = \sum_{k=0}^{+\infty} \frac{\Pi_{k+r+1} - \Pi_{k+r}}{(1 - p) p^r} = \frac{\lim_{n \to +\infty} \Pi_n - \Pi_r}{(1 - p) p^r} = \frac{1 - p^r}{(1 - p) p^r}.
+                        </me>
+                    </p>
+                </li>
+            </ol>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise xml:id="ex-16-28"><title>File d'attente avec un guichet</title>
+        <introduction>
+            <p>
+                On considère une file d'attente avec un guichet et <m> n </m> clients qui attendent. Chaque minute, un guichet se libère. le client suivant est alors choisi le processus aléatoire suivant :
+            </p>
+            <ul>
+                <li>Avec probabilité <m>\frac{1}{2}</m>, il appelle le client en première position dans la file,</li>
+                <li>Sinon, il choisit de manière équiprobable parmi les <m> n-1 </m> autres clients.</li>
+            </ul>
+            <p>
+                Enfin, un nouveau client arrive dans la file et se place en dernière position (de telle sorte qu'il y a toujours exactement <m> n </m> clients qui attendent). Pour tout <m> k \in [1, n] </m>, on note <m> T_k </m> le temps d'attente du client qui occupe la <m>k^{\mathrm{e}}</m> position dans la file.
+            </p>
+        </introduction>
+
+        <task>
+            <p>Quelle est la loi de <m> T_1 </m> ? Donner son espérance et sa variance.</p>
+            <solution>
+                <p>
+                    À chaque instant, le client en première position peut être choisi avec une probabilité <m>\frac{1}{2}</m>. Dans le cas contraire, il reste en première position. L'ensemble des valeurs prises par <m> T_1 </m> est donc <m> \mathbb{N}^* </m> et pour <m> k \in \mathbb{N}^* </m>, on a <m> \mathbb{P}(T_1 = k) = \left(\frac{1}{2}\right)^{k-1} \frac{1}{2} </m>. En effet, cela signifie que <m> k-1 </m> fois, a pas été choisi, avant qu'il soit choisi la <m> k </m>-ième fois. Ainsi, <m> T_1 </m> suit la loi géométrique de paramètre <m> \frac{1}{2} </m> et l'on a :
+                    <me>
+                    \mathbb{E}(T_1) = \mathbb{V}(T_1) = 2.
+                    </me>
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <p>Montrer que, pour tout <m> k \in [1, n] </m>, la variable <m> T_k </m> est d'espérance finie.</p>
+            <solution>
+                <p>
+                    Pour un client quelconque de la file d'attente, la probabilité d'être servi à un moment donné est supérieure ou égale à <m> \frac{1}{2(n-1)} </m>, et donc la probabilité de ne pas être servi est inférieure ou égale à <m> \left(1 - \frac{1}{2(n-1)}\right) </m>. On en déduit que, pour tout <m> \ell \in \mathbb{N}^* </m>, on a <m> \mathbb{P}(T_k = \ell) \leq \left(1 - \frac{1}{2(n-1)}\right)^{\ell-1} </m>, car il faut pour que <m> \{T_k = \ell\} </m> soit réalisé que le client initialement à la <m> k </m>-ième place n'ait pas été choisi <m> \ell-1 </m> fois. Ainsi, <m> \mathbb{P}(T_k = \ell) </m> est majorée par une suite géométrique convergente. On en déduit que la série de terme général <m> \ell \mathbb{P}(T_k = \ell) </m> converge. Ainsi, <m> T_k </m> est d'espérance finie.
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <p>
+                Écrire une relation entre <m> \mathbb{E}(T_k) </m> et <m> \mathbb{E}(T_{k-1}) </m> pour tout <m> k \geq 2 </m>. En déduire une expression de <m> \mathbb{E}(T_k) </m> en fonction de <m> k </m> et <m> n </m>. On pourra considérer la suite <m> ((n + k - 2)\mathbb{E}(T_k))_{1 \leq k \leq n} </m>.
+            </p>
+            <solution>
+                <p>
+                    Soit <m> k \geq 2 </m>. On note <m> X_1 </m> la variable représentant le premier choix du client à servir. Après ce choix, le client qui est à la <m> k </m>-ième place avance d'une place si <m> 1 \leq X_1 \leq k-1 </m>, ne bouge pas si <m> X_1 \geq k+1 </m>, et quitte la file si <m> X_1 = k </m>. On a donc, pour <m> \ell \geq 2 </m> :
+                    <me>
+                    \mathbb{P}(T_k = \ell \mid X_1 \leq k-1) = \mathbb{P}(T_{k-1} = \ell - 1),
+                    </me>
+                    <me>
+                    \mathbb{P}(T_k = \ell \mid X_1 \geq k+1) = \mathbb{P}(T_k = \ell - 1),
+                    </me>
+                    <me>
+                    \mathbb{P}(T_k = \ell \mid X_1 = k) = 0.
+                    </me>
+                    Sachant que :
+                    <me>
+                    \mathbb{P}(1 \leq X_1 \leq k-1) = \frac{1}{2} + \frac{k-2}{2(n-1)} \quad \text{et} \quad \mathbb{P}(X_1 \geq k+1) = \frac{n - k}{2(n - 1)},
+                    </me>
+                    on obtient, en appliquant la formule des probabilités totales :
+                    <me>
+                    \mathbb{P}(T_k = \ell) = \left(\frac{1}{2} + \frac{k-2}{2(n-1)}\right) \mathbb{P}(T_{k-1} = \ell - 1) + \frac{n - k}{2(n - 1)} \mathbb{P}(T_k = \ell - 1).
+                    </me>
+                    Comme <m> \mathbb{P}(T_k = 1) = \frac{1}{2(n - 1)} </m>, on a :
+                    <me>
+                    \mathbb{E}(T_k) = \frac{1}{2(n - 1)} + \left(\frac{1}{2} + \frac{k - 2}{2(n - 1)}\right) (\mathbb{E}(T_{k - 1}) + 1) + \frac{n - k}{2(n - 1)} (\mathbb{E}(T_k) + 1).
+                    </me>
+                    On en déduit :
+                    <me>
+                    (n - 2 + k) \mathbb{E}(T_k) = (2n - 2) + (n - 3 + k) \mathbb{E}(T_{k - 1}).
+                    </me>
+                    La suite <m> ((n - 2 + k) \mathbb{E}(T_k)) </m> est arithmétique de raison <m> 2n - 2 </m> et de premier terme <m> (n - 1) \mathbb{E}(T_1) = 2n - 2 </m>. On obtient, pour <m> 1 \leq k \leq n </m> :
+                    <me>
+                    (n - 2 + k) \mathbb{E}(T_k) = (2n - 2) k,
+                    </me>
+                    et donc :
+                    <me>
+                    \mathbb{E}(T_k) = \frac{(2n - 2) k}{n - 2 + k}.
+                    </me>
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <p>Comparer les caractéristiques de cette file d'attente et d'une file d'attente « classique » (premier arrivé, premier servi).</p>
+            <solution>
+                <p>
+                    Dans une file d'attente classique, le temps d'attente du <m> k </m>-ième client serait <m> k </m>. On observe que, pour <m> k \in [1, n] </m>, on a <m> \mathbb{E}(T_k) \geq k </m>, l'inégalité étant stricte pour <m> k\lt n </m>. Cela montre que le temps d'attente moyen dans cette file d'attente est plus long que dans une file d'attente classique, sauf pour le dernier client.
+                </p>
+            </solution>
+        </task>
+    </exercise>
+
+    <exercise><title>Loi Zeta</title>
+        <introduction>
+            <p>
+                Soit <m>P</m> l'ensemble des nombres premiers. Pour <m>s \gt 1</m>, on note <m>\zeta(s) = \sum_{n \geq 1} n^{-s}</m> et <m>X</m> une variable aléatoire à valeurs dans <m>\mathbb{N}^*</m> dont la loi est définie par :
+                <me>
+                    \forall n \in \mathbb{N}^* \quad \mathbb{P}(X = n) = \frac{n^{-s}}{\zeta(s)}.
+                </me>
+            </p>
+        </introduction>
+
+            <task>
+                <statement>
+                    <p>
+                        Justifier qu'on définit bien ainsi la loi d'une variable aléatoire.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                         Les réels <m>\frac{n^{-s}}{\zeta(s)}</m>, pour <m>n \in \mathbb{N}^*</m>, sont positifs et <m>\sum_{n=1}^{+\infty} \frac{n^{-s}}{\zeta(s)} = 1</m> par définition, donc on définit bien la loi d'une variable aléatoire.
+                    </p>
+                </solution>
+            </task>
+
+            <task>
+                <statement>
+                    <p>
+                        Pour tout <m>n \in \mathbb{N}^*</m>, on considère <m>A_n : « n \text{ divise } X »</m>. Montrer que <m>(A_p)_{p \in P}</m> est une famille d'événements indépendants. En déduire une preuve probabiliste de :
+                    <me>
+                        \prod_{p \in P} \left( 1 - \frac{1}{p^s} \right) = \frac{1}{\zeta(s)}.
+                    </me>
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Pour tout <m>n \in \mathbb{N}^*</m>, <m>A_n = \bigcup_{j \in \mathbb{N}^*} \{X = nj\}</m> est un événement et :
+                        <me>
+                            \mathbb{P}(A_n) = \sum_{j=1}^{+\infty} \mathbb{P}(X = jn) = \frac{1}{\zeta(s)} \sum_{j=1}^{+\infty} (jn)^{-s} = \frac{n^{-s}}{\zeta(s)} \sum_{j=1}^{+\infty} j^{-s} = n^{-s}.
+                        </me>
+                        Soit <m>p_1, p_2, \ldots, p_k</m> des nombres premiers distincts. Ces nombres sont premiers entre eux donc, d'après le théorème de Gauss :
+                        <me>
+                            A_{p_1} \cap A_{p_2} \cap \ldots \cap A_{p_k} = A_{p_1 p_2 \ldots p_k}.
+                        </me>
+                        On en déduit :
+                        <me>
+                            \mathbb{P}\left(A_{p_1} \cap A_{p_2} \cap \ldots \cap A_{p_k}\right) = \mathbb{P}\left(A_{p_1 p_2 \ldots p_k}\right) = (p_1 p_2 \ldots p_k)^{-s} = \prod_{i=1}^k p_i^{-s} = \prod_{i=1}^k \mathbb{P}(A_{p_i}).
+                        </me>
+                        Les événements de la famille <m>(A_p)_{p \in P}</m> sont donc indépendants.
+
+                        On en déduit que <m>{(A_p^c)}_{p \in P}</m> est aussi une famille d'événements indépendants. Notons <m>(p_n)_{n \geq 1}</m> la suite des entiers premiers rangés par ordre croissant. On a :
+                        <me>
+                            \prod_{p \in P} \left( 1 - \frac{1}{p^s} \right) = \prod_{n \in \mathbb{N}^*} \left( 1 - \frac{1}{p_n^s} \right) = \lim_{N \to +\infty} \prod_{n=1}^N \left( 1 - \frac{1}{p_n^s} \right).
+                        </me>
+                        Par indépendance des événements, on a :
+                        <me>
+                            \lim_{N \to +\infty} \prod_{n=1}^N \mathbb{P}\left({A_{p_n}}^c\right) = \lim_{N \to +\infty} \mathbb{P}\left(\bigcap_{n=1}^N {A_{p_n}}^c\right).
+                        </me>
+                        Par continuité décroissante, on a :
+                        <me>
+                            \lim_{N \to +\infty} \mathbb{P}\left(\bigcap_{n=1}^N {A_{p_n}}^c\right) = \mathbb{P}\left(\bigcap_{n=1}^{+\infty} {A_{p_n}}^c\right).
+                        </me>
+                        Mais <m>\bigcap_{n=1}^{+\infty} {A_{p_n}}^c = \{1\}</m>, car 1 est le seul entier qui n'ait pas de diviseur premier. Comme <m>\mathbb{P}(\{1\}) = \frac{1}{\zeta(s)}</m>, on en déduit :
+                        <me>
+                            \prod_{p \in P} \left( 1 - \frac{1}{p^s} \right) = \frac{1}{\zeta(s)}.
+                        </me>
+                    </p>
+                </solution>
+            </task>
+            <task>
+                <statement>
+                    <p>
+                        Montrer que la probabilité qu'aucun carré différent de 1 ne divise <m>X</m> vaut <m>\frac{1}{\zeta(2s)}</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Notons <m>E</m> l'événement « aucun carré différent de 1 ne divise <m>X</m> ». L'événement <m>E</m> est réalisé si, et seulement si, le carré d'aucun nombre premier ne divise <m>X</m>. On a donc <m>E = \bigcap_{p \in P} A_{p^2}</m> et toujours par indépendance des événements <m>A_p</m> :
+                        <me>
+                            \mathbb{P}(E) = \mathbb{P}\left(\bigcap_{p \in P} A_{p^2}\right) = \lim_{N \to +\infty} \mathbb{P}\left(\bigcap_{n=1}^N A_{p_n^2}\right) = \lim_{N \to +\infty} \prod_{n=1}^N \mathbb{P}(A_{p_n^2}).
+                        </me>
+                        On a :
+                        <me>
+                            \mathbb{P}(A_{p_n^2}) = 1 - \frac{1}{p_n^{2s}}.
+                        </me>
+                        Ainsi :
+                        <me>
+                            \mathbb{P}(E) = \lim_{N \to +\infty} \prod_{n=1}^N \left( 1 - \frac{1}{p_n^{2s}} \right) = \prod_{p \in P} \left( 1 - \frac{1}{p^{2s}} \right) = \frac{1}{\zeta(2s)}.
+                        </me>
+                    </p>
+                </solution>
+            </task>
+
+            <task><title>Densité naturelle d'une partie de <m>\N</m>    </title>
+                <statement>
+                    <p>
+                        Soit <m>A</m> une partie de <m>\N</m> telle que la suite <m>\Bigl(\frac1n\card\bigl(A\cap\iic{1,n}\bigr)\Bigr)_n</m> converge. On note <m>d(A)</m> sa limite et on l'appelle densité naturelle de <m>A</m>.
+                    </p>
+                    <p>
+                        Montrer que <m>\Pr{X\in A}\underset{s\to 1}\longrightarrow d(A)</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Traitons d'abords le cas où <m>A</m> est infini. 
+                    </p><p>
+                Soit <m>\epsilon\gt  0</m>, posons pour tout <m>n \in \mathbb{N}</m>, <m>c_n = \operatorname{Card}(A \cap \{1, \dots, n\})</m>. On a par hypothèse :
+                <me>
+                    \lim_{n \to \infty} \frac{c_n}{n} = d(A),
+                </me>
+                donc il existe <m>n_0 \in \mathbb{N}</m> tel que :
+                <me>
+                    \forall n \in \mathbb{N}, \quad n \geq n_0 \Rightarrow \left| \frac{c_n}{n} - d(A) \right| \leq \epsilon.
+                </me>
+            </p>
+            <p>
+                On écrit alors :
+                <me>
+                    \mathbb{P}_s(X \in A) = \frac{\sum_{a \in A} \frac{1}{a^s}}{\zeta(s)} = \frac{\sum_{\substack{a \in A \\ a\lt n_0}} \frac{1}{a^s} + \sum_{\substack{a \in A \\ a \geq n_0}} \frac{1}{a^s}}{\zeta(s)}.
+                </me>
+            </p>
+            <p>
+                On s'intéresse au terme <m>\sum_{\substack{a \in A \\ a \geq n_0}} \frac{1}{a^s}</m>. On a :
+                <me>
+                    \sum_{\substack{a \in A \\ a \geq n_0}} \frac{1}{a^s} = \sum_{\substack{a \in A \\ a \geq n_0}} \frac{c_a^s}{c_a^s a^s} \leq \sum_{\substack{a \in A \\ a \geq n_0}} \frac{(d(A) + \epsilon)^s}{c_a^s},
+                </me>
+            </p>
+            <p>
+                Puisque <m>A</m> est infini, soit <m>(a_n)_n</m> la suite strictement croissante de ses éléments. Il s'ensuit alors que pour <m>m \in \mathbb{N}</m>, <m>c_{a_m} = m</m>. Posons alors :
+                <me>
+                    n_1 = \min(\{m \in \mathbb{N}, a_m \geq n_0\}).
+                </me>
+            </p>
+            <p>
+                On a donc :
+                <md>
+                    <mrow> \frac1{\zeta(s)}{\sum_{\substack{a \in A \\ a \geq n_0}} \frac{1}{c_a^s}}\amp= \frac1{\zeta(s)}\biggl(\sum_{m=1}^\infty \frac{1}{m^s} - \sum_{m=1}^{n_1 - 1} \frac{1}{m^s}\biggr)
+                     </mrow>
+                     <mrow> \amp= \frac1{\zeta(s)}\biggl(\zeta(s) - \sum_{m=1}^{n_1 - 1} \frac{1}{m^s}\biggr)  </mrow>
+                     <mrow> \amp= 1 - \frac1{\zeta(s)}\biggl(\sum_{m=1}^{n_1 - 1} \frac{1}{m^s}\biggr) \underset{s \to 1^+}{\longrightarrow} 1. </mrow>
+                </md>
+                car <m>\zeta(s)\underset1\sim\frac1{s-1}</m> et donc <m>\zeta(s)\underset{s\to 1}\longrightarrow 0</m>.
+                D'où :
+                <me>
+                    \mathbb{P}_s(X \in A) \leq \frac{\sum_{\substack{a \in A \\ a\lt n_0}} \frac{1}{a^s}}{\zeta(s)} + (d(A) + \epsilon)^s \left(1 - \frac{\sum_{m=1}^{n_1 - 1} \frac{1}{m^s}}{\zeta(s)}\right) \underset{s \to 1^+}{\longrightarrow} d(A) + \epsilon.
+                </me>
+            </p>
+            <p>
+                On fait alors de même à gauche et on trouve pour <m>s</m> assez proche de 1 que :
+                <me>
+                    d(A) - 2\epsilon \leq \mathbb{P}_s(X \in A) \leq d(A) + 2\epsilon,
+                </me>
+                ainsi :
+                <me>
+                    \mathbb{P}_s(X \in A) \underset{s \to 1^+}{\longrightarrow} d(A).
+                </me>
+
+                    </p>
+
+                    <p>
+                        Si maintenant <m>A</m> est fini et <m>N</m> est un entier majorant de <m>A</m> alors d'un côte <m>\card A\leq N+1</m> et donc <m>c_n\leq\frac{N+1}n</m> et par suite <m>c_n\rightarrow0</m>. De l'autre 
+                        <me>
+                            \Pr{X\in A}\leq \Pr{X\leq N}=\frac1{\zeta(x)}\sum_{k=1}^N\frac1{k^s}\leq \frac{N}{\zeta(s)}
+                        </me>
+                        et donc <m>\Pr{X\in A}\underset{s\to 1}\longrightarrow0</m>.
+                        
+                    </p>
+                </solution>
+            </task>
+
+    </exercise>
+
+    <exercise>
+    <introduction><p>
+        Le but de cet exercice est de montrer qu'il n'existe pas de probabilité <m>\mathbb{P}</m> sur <m>(\mathbf{N}^*, \mathcal{P} (\mathbf{N}^*))</m> telle que pour tout <m>n \in \mathbf{N}^*</m>, <m>\mathbb{P} \{ \text{multiples de } n \} = \frac{1}{n}</m>. On note <m>(p_k)_{k \geq 1}</m> la suite croissante des nombres premiers. On raisonne par l'absurde en supposant que cette probabilité existe.
+    </p></introduction>
+
+    <task>
+        <statement>
+            <p> Montrer que les événements <m>\mathcal{A}_{p_k} = \{ \text{multiples de } p_k \}</m> pour <m>k \geq 1</m> sont indépendants.</p>
+        </statement>
+        <solution>
+            <p>Soit <m>\mathcal{P}</m> une partie finie de <m>\{p_k, k \geq 1\}</m>. On a  
+            <me>
+            \mathbb{P} \left( \bigcap_{p \in \mathcal{P}} \mathcal{A}_p \right) = \mathbb{P} \left\{ \text{multiples de } \prod_{p \in \mathcal{P}} p \right\} = \frac{1}{\prod_{p \in \mathcal{P}} p} = \prod_{p \in \mathcal{P}} \frac{1}{p} = \prod_{p \in \mathcal{P}} \mathbb{P} (\mathcal{A}_p).
+            </me>
+            Ainsi, les événements <m>\mathcal{A}_{p_k}</m> sont indépendants.</p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>Que penser de la nature de la série <m>\sum_{k \geq 1} \mathbb{P} (\mathcal{A}_{p_k})</m> ?</p>
+        </statement>
+        <solution>
+            <p>On sait que la série <m>\sum_{k \geq 1} \frac{1}{p_k}</m> diverge (voir exercice 1.17 p. 39). Puisque <m>\mathbb{P} (\mathcal{A}_{p_k}) = \frac{1}{p_k}</m>, la série <m>\sum_{k \geq 1} \mathbb{P} (\mathcal{A}_{p_k})</m> diverge également.</p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p> Conclure.</p>
+        </statement>
+        <solution>
+            <p>On applique le lemme de Borel-Cantelli puisque les événements <m>\mathcal{A}_{p_k}</m> sont indépendants,  
+            <me>
+            \mathbb{P} \left( \bigcap_{n \geq 0} \left( \bigcup_{k \geq n} \mathcal{A}_{p_k} \right) \right) = 1.
+            </me>
+            Ainsi, pour presque tout entier <m>n \geq 1</m>, il existe une infinité de nombres premiers le divisant... ce qui est évidemment absurde. Par conséquent, une telle probabilité <m>\mathbb{P}</m> ne peut pas exister.</p>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise><title>Théorème de Weierstrass</title>
+        <introduction>
+            <p>
+                Soit <m>f</m> une fonction continue de <m>[0, 1]</m> dans <m>\R</m>. Soit <m>x \in [0, 1]</m>. On considère une suite <m>(X_{n})_{n \geqslant 1}</m> de variables de Bernoulli de paramètre <m>x</m>, indépendantes, sur le même espace probabilisé. Pour <m>n \geqslant 1</m>, on pose <m>Y_{n} = \frac1n(X_{1} + \cdots + X_{n})</m>.
+            </p>
+            </introduction>
+            <!-- <task>
+                <p>
+                    Soit <m>\varepsilon\gt0</m>. Par uniforme continuité de <m>f</m> sur <m>[0, 1]</m>, il existe <m>\eta\gt0</m> tel que :
+                    <me>
+                        \forall(t, u) \in [0, 1]^{2} \quad |t - u| \leqslant \eta \Longrightarrow |f(t) - f(u)| \leqslant \varepsilon.
+                    </me>
+                </p>
+            </task> -->
+            <task>
+                <p>
+                    Montrer que :
+                    <me>
+                        \forall(t, u) \in [0, 1]^{2} \quad |f(t) - f(u)| \leqslant \frac{2 \Vert f \Vert _{\infty} (t - u)^{2}}{\eta^{2}} + \varepsilon.
+                    </me>
+                </p>
+            </task>
+            <task>
+                <p>
+                    Montrer que :
+                    <me>
+                        \left|\EE(f(Y_{n})) - f(x)\right| \leqslant \frac{2 \Vert f \Vert _{\infty} \VV(Y_{n})}{\eta^{2}} + \varepsilon \leqslant \frac{2 \Vert f \Vert _{\infty}}{n \eta^{2}} + \varepsilon.
+                    </me>
+                </p>
+            </task>
+            <task >
+                <statement>
+                    <p>
+                    En déduire que la suite de fonctions polynomiales <m>(B_n(f))_n</m> définie par 
+                    <me>
+                        \forall t\in[0,1],\;
+                        B_n(f)(t)\sum_{k=0}^nf(k/n)\binom{n}{k}t^k(1-t)^{n-k}
+                    </me>
+                    converge uniformément vers <m>f</m> sur <m>[0,1]</m>.
+                    </p>
+                </statement>
+            </task>
+    </exercise>
+
+    <exercise><title>Une série à termes aléatoires</title>
+    
+    
+    <introduction><p>
+        Soit <m>(X_n)_{n \geq 1}</m> une suite de variables aléatoires indépendantes de même loi géométrique de paramètre <m>p</m> avec <m>p \in ]0, 1[</m>,
+
+        <me>
+        \mathbb{P}(X_n = k) = (1 - p)^{k-1} p \quad\forall k \geq 1.
+        </me>
+
+        On se propose d’étudier la convergence de la série 
+        <me>
+        \sum_{n \geq 1} \frac{1}{n^{\alpha} X_n} \text{ pour } \alpha\gt 0.
+        </me>
+        Posons
+        <me>
+        A_{\alpha} = \left\{ \omega \in \Omega \giv[\Big] \sum_{n \geq 1} \frac{1}{n^{\alpha} X_n (\omega)} \text{ converge} \right\}.
+        </me>
+    </p></introduction>
+
+    <task>
+        <statement>
+            Déterminer <m>\mathbb{P}(A_{\alpha})</m> pour <m>\alpha\gt 1</m>.
+        </statement>
+        <solution><p>
+            Puisque <m>0 \leq \frac{1}{n^{\alpha} X_n} \leq \frac{1}{n^{\alpha}}</m>, la convergence de la série de Riemann 
+            <me>
+            \sum_{n \geq 1} \frac{1}{n^{\alpha}} \text{ prouve que } \mathbb{P}(A_{\alpha})=1.
+            </me>
+        </p></solution>
+    </task>
+
+    <task>
+        <statement>
+            On suppose dans cette question que <m>\alpha \in [0, 1]</m>.
+            <ol>
+                <li>Montrer que pour <m>n \geq 1</m>, <m>\mathbb{P}\left\{X_n\gt n^{1-\alpha}\right\} \leq (1 - p)^{n^{1-\alpha}-1}</m>.</li>
+                <li>En utilisant le lemme de Borel-Cantelli (<xref ref="borel-cantelli"/>), montrer que
+                    <me>
+                    \mathbb{P}\left[\bigcap_{n \geq 1}\left(\bigcup_{k \geq n}\{X_k\gt k^{1-\alpha}\}\right)\right]=0.
+                    </me>
+                </li>
+                <li>En déduire la nature presque sûre de la série 
+                    <me>
+                    \sum_{n \geq 1} \frac{1}{n^{\alpha} X_n}.
+                    </me>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    Pour <m>n \geq 1</m>, on a
+                    <me>
+                    \mathbb{P} \{ X_n\gt n^{1-\alpha} \} = \mathbb{P} \{ X_n \geq [n^{1-\alpha}] \} = \sum_{k=[n^{1-\alpha}]}^{+\infty} (1-p)^{k-1} p
+                    </me>
+                    <me>
+                    = (1-p)^{[n^{1-\alpha}] - 1} \leq (1-p)^{n^{1-\alpha}-1}.
+                    </me>
+                </li>
+                <li>
+                    Soit <m>q = 1 - p \in ]0, 1[</m>. Remarquons que 
+                    <me>
+                    n^2 q^{n^{1-\alpha}-1} = \frac{1}{q} \exp \left( n^{1-\alpha} \left( \ln q + \frac{2 \ln n}{n^{1-\alpha}} \right) \right) \to 0
+                    </me>
+                    donc la série de terme général <m>q^{n^{1-\alpha}-1}</m> avec <m>q = 1 - p \in ]0, 1[</m> converge et on conclut par le lemme de Borel-Cantelli (<xref ref="borel-cantelli"/>).
+                </li>
+                <li>
+                    Considérons 
+                    <me>\mathcal{B} = \Omega \setminus \bigcap_{n \geq 1} \left( \bigcup_{k \geq n} \{ X_k\gt k^{1-\alpha} \} \right) = \bigcup_{n \geq 1} \left( \bigcap_{k \geq n} \{ X_k \leq k^{1-\alpha} \} \right)</me>.
+
+                    On a <m>P(\mathcal{B}) = 1</m> et pour <m>\omega \in \mathcal{B}</m>, il existe <m>n \geq 1</m> tel que pour tout <m>k \geq n</m>,
+                    <me>
+                    \frac{1}{k^{\alpha} X_k (\omega)} \geq \frac{1}{k^{\alpha}} \times \frac{1}{k^{1-\alpha}} = \frac{1}{k} \text{ donc la série } \sum_{k \geq 1} \frac{1}{k^{\alpha} X_k (\omega)} \text{ diverge.}
+                    </me>
+                    Puisque <m>A_{\alpha} \cap \mathcal{B} = \emptyset</m>, <m>\mathbb{P} \{ A_{\alpha} \} = 0</m>. La série <m>\sum_{n \geq 1} \frac{1}{n^{\alpha} X_n}</m> diverge presque sûrement.
+                </li>
+            </ol>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            Traiter le cas <m>\alpha = 1</m> en étudiant la probabilité <m>\mathbb{P}\left(\bigcup_{n \geq k}\{X_n \geq \lambda \ln n\}\right)</m> pour un <m>\lambda\gt 0</m> bien choisi.
+        </statement>
+        <solution>
+            <p> 
+            On procède de même pour <m>n \geq 2</m>,
+            <me>
+            \mathbb{P} \{ X_n\gt \lambda \ln n \} \leq \mathbb{P} \{ X_n \geq [\lambda \ln n] \} = \sum_{k=[\lambda \ln n]} (1-p)^{k-1} p
+            </me>
+            <me>
+            = (1-p)^{[\lambda \ln n] - 1} \leq (1-p)^{\lambda \ln n - 1} = q^{\lambda \ln n - 1} = \frac{1}{q} \cdot \frac{1}{n^{-\lambda \ln q}}.
+            </me>
+            On choisit <m>\lambda\gt 0</m> tel que <m>-\lambda \ln q \gt  1 \Leftrightarrow \lambda\gt -\frac{1}{\ln q}</m>, ainsi la série <m>\sum_{n \geq 2} \mathbb{P} \{ X_n\gt \lambda \ln n \}</m> converge. On peut appliquer le lemme de Borel-Cantelli (<xref ref="borel-cantelli"/>), il vient que
+            <me>
+            \mathcal{B}_0 = \Omega \setminus \bigcap_{n \geq 2} \left( \bigcup_{k \geq n} \{ X_k\gt \lambda \ln k \} \right) = \bigcup_{n \geq 2} \left( \bigcap_{k \geq n} \{ X_k \leq \lambda \ln k \} \right)
+            </me> 
+             a pour probabilité 1 et que pour  <m>\omega \in \mathcal{B}_0</m>,  il existe <m> n \geq 2 </m> tel que pour tout <m> k \geq n </m>, 
+             <me> \frac{1}{kX_k (\omega)} \geq \frac{1}{\lambda k \ln k}
+             </me> 
+            donc la série <m>\sum_{k \geq 1} \frac{1}{kX_k (\omega)}</m> diverge (par comparaison avec une intégrale, on sait que l’intégrale de Bertrand <m> \sum_{k \geq 2} \frac{1}{k \ln k} </m> diverge). La série <m>\sum_{n \geq 1} \frac{1}{nX_n}</m> diverge presque sûrement.
+            </p>
+        </solution>
+    </task>
+    </exercise>
+
+    
+
+</subsection>
+
+<subsection xml:id="sec-exos-thematique">
+    <title> Exerices thématiques</title>
+    
+    <exercise><title>Taux de panne</title>
+
+        <introduction>
+            <p>
+                Soit <m>X</m> une variable aléatoire discrète à valeurs dans <m>\N^{*}</m> vérifiant :
+                <me>
+                    \forall n \in \N^{*} \quad \Pr{X \geqslant n}>0
+                </me>
+                <m>X</m> représente le moment où un mécanisme tombe en panne. C'est à dire le numéro de l'instance de son cycle de fonctionnement où il tombe en panne. En principe, sous l'effet de l'usure, plus la durée de son fonctionnement est grande plus la probabilité que le mécanisme tombe en panne augmente. 
+                </p> 
+                <p>que On appelle taux de panne associé à <m>X</m> la suite réelle <m>\left(x_{n}\right)_{n \in \N^{*}}</m> définie par :
+                <me>
+                    \forall n \in \N^{*} \quad x_{n}=\Pr{X=n  \giv  X \geqslant n}
+                </me>
+                <m>x_n</m> est la probabilité pour que le mécanisme tombe en panne à l'instant <m>n</m> sachant qu'il a fonctionné jusqu'à cet instant. 
+            </p>
+            </introduction>
+
+
+            <task>
+                
+                <statement>
+                    <p>
+                        Exprimer <m>p_{n}=\Pr{X=n}</m> en fonction des <m>x_{k}</m>.
+                    </p>
+                </statement>
+                <hint>
+                    <p>
+                        Éviter de diviser par <m>x_n</m>. Exprimer <m>\Pr{X\geq n}</m> comme un produit de facteurs <m>(1-x_k)</m>.
+                    </p>
+                </hint>
+                <answer>
+                    <p>
+                        <me>
+                            \forall n \in \N^{*} \quad p_{n}=x_{n}\prod_{k=1}^{n-1}(1-x_{k})
+                        </me> 
+                    </p>
+                </answer>
+
+                <solution>
+                    <p>
+                        On a <m>(X=n)\subset (X\geqslant n)</m> donc <m>\Pr{X=n}=\Pr{X=n,X\geq n}</m>.
+                        Ce qui donne
+                        <men xml:id="eq-tauxpanne">
+                            x_n=\Pr{X=n \giv  X\geq n}=\frac{\Pr{X=n}}{\Pr{X\geq n}}
+                        </men>
+                        On en déduit que 
+                        <me>
+                            1-x_n=\frac{\Pr{X\geq n}-\Pr{X=n}}{\Pr{X\geq n}}=\frac{\Pr{X\geq n+1}}{\Pr{X\geq n}}
+                        </me>
+                        Ce qui donne par télescopage 
+                        <me>
+                            \prod_{k=1}^{n-1}(1-x_k)=\frac{\Pr{X\geq n}}{\Pr{X\geq 1}}=\Pr{X\geq n}
+                        </me>
+                        La relation <xref ref="eq-tauxpanne"/> signifie que <m>p_n=x_n\Pr{X\geq n}</m> donc finalement 
+                        <men xml:id="eqn-pnexpr">
+                            p_n=x_n\prod_{k=1}^{n-1}(1-x_k)
+                        </men>
+                        
+                        
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+                        
+                    </p>
+                </solution>
+            </task>
+
+
+            <task><title>Caractérisation du taux de panne</title>
+                <statement>
+                    <p>
+                        <ol marker="1.">
+                            <li>
+                                <p>
+                                    Montrer que <m>0 \leqslant x_{n} \lt 1</m> pour tout <m>n \in \N^{*}</m> et que la série de terme général <m>x_{n}</m> diverge.
+                                </p>
+                            </li>
+
+                            <li>
+                                <p>
+                                    Réciproquement, soit <m>\left(x_{n}\right)_{n \in \N^{*}}</m> une suite à valeur dans <m>[0,1[</m> telle que la série de terme général <m>x_{n}</m> diverge.
+                                    Montrer qu'il existe une variable aléatoire dont le taux de panne est la suite <m>\left(x_{n}\right)</m>.
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+                <hint>
+                    <p>
+                        On rappelle que pour une suite <m>(p_n)_n</m> de réels positifs sommable et de somme <m>1</m>, il existe une variable aléatoire <m>X</m> telle que <m>\Pr{X=n}=p_n</m> pour tout <m>n</m>.   
+                    </p>
+                </hint>
+
+                <solution>
+                    <ol marker="1.">
+                        <li>
+                            <p>
+                                Soit <m>n\in\N^*</m> et supposons que <m>x_n=1</m>.
+                                Alors <m>p_n=\Pr{X\geq n}</m>, ou encore <m>\Pr{X=n}=\Pr{X\geq n}</m>.
+                                Ce qui implique que <m>\Pr{X\geq n+1}=0</m> contredisant l'hypothèse faite dans l'énoncé.
+                                Alors <m>x_n\lt1</m>.
+                            </p>
+
+                            <p>
+                                Ensuite <m>\PP(X\geq n+1)</m> est le reste de la série convergente <m>\sum p_k</m> donc il converge vers <m>0</m>. Ce qui implique que 
+                                <me>
+                                \sum_{k=1}^{n}\ln(1-x_n)=\ln\bigl(\Pr{X\geq n}\bigr)\longrightarrow -\infty
+                                </me>
+                                La série <m>\sum x_n</m> est nécessairement divergente car dans le cas contraire <m>(x_n)_n</m> convergerait vers <m>0</m> et on aurait donc <m>-\ln(1-x_n)\sim x_n</m> ce qui impliquerait que la série <m>\sum \ln(1-x_n)</m> est convergente.  
+                            </p>
+                        </li>
+
+                        <li>
+                            <p> Soit <m>\sum x_n</m> une série divergente à termes dans <m>[0,1[</m> et posons <m>v_1=1</m> pour tout <m>n\geq 2</m>
+                                <me>
+                                    v_n=\prod_{k=1}^{n-1}(1-x_k) \qtext{et} p_n=x_nv_n
+                                </me>
+                            Avec ces relations on a 
+                                <me>
+                                    v_n-v_{n+1}=v_nx_n=p_n
+                                </me>
+                            On peut ensuite écrire 
+                            <me>
+                                \ln v_n=\sum_{k=1}^{n-1}\ln(1-x_n)\leqslant -\sum_{k=1}^{n-1} x_k
+                            </me>
+                            Puisque la série de réels positif<m>\sum x_n</m> est divergente positive sa suite des sommes partielles tend vers <m>+\infty</m> et on a donc 
+                            <m>\ln v_n\longrightarrow-\infty</m>. Par suite <m>v_n\longrightarrow 0</m>. Puisque <m>p_n=v_n-v_{n+1}</m> alors la série <m>\sum p_n</m> est convergente de somme <m>v_1=1</m>.
+                            </p>
+                            <p>
+                                Il existe donc une <acro>VADR</acro> <m>X</m> tel que <m>\PP(X=n)=p_n</m> pour tout <m>n\in\N^*</m>. 
+                            </p>
+                        </li>
+                    </ol>
+                </solution>
+            </task>
+
+
+            <task>
+            <statement>
+                <p>
+                    Montrer que la variable <m>X</m> suit une loi géométrique si, et seulement si, son taux de panne est constant.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    On suppose que <m>X</m> suit une loi géométrique de paramètre <m>p</m>. Alors pour tout <m>n\in\N^*</m> on a
+                    <m>\PP(X=n)=p(1-p)^{n-1}</m>. Donc 
+                    <me>\PP(X=n+1)=\sum_{k=n+1}p(1-p)^{k-1}=(1-p)^n</me>
+                    Par suite 
+                    <me>\Pr{X=n \giv  X\geq n}=\frac{\Pr{X=n}}{\Pr{X\geq n}}=\frac{p(1-p)^{n-1}}{(1-p)^{n-1}}=p</me>. 
+                    Donc le taux de panne est constant.
+
+                    Réciproquement, on suppose que le taux de panne est constant de valeur <m>p</m>. Alors pour tout <m>n\in\N^*</m> on a
+                    <me>\PP(X=n)=x_n\prod_{k=1}^{n-1}(1-x_k)=p(1-p)^{n-1}</me>. 
+                    
+                    Donc <m>X</m> suit une loi géométrique de paramètre <m>p</m>.
+                </p>
+                <p> Noter que cela signifie que le taux de panne est constant si et seulement si les événements «le mécanisme tombe en panne à l'instant <m>n</m>» sont mutuellement indépendants et ont tous la même probabilité. Il n'y a aucun effet d'usure.
+                </p>
+            </solution>
+            </task>
+    </exercise>
+
+    <exercise><title>Maximums et minimums provisoires</title>
+    <introduction>
+        <p>
+            Soit <m>n \in \mathbb{N}^*</m>. On désigne par <m>\Omega</m> l'ensemble des permutations de <m>[1, n]</m>. On munit <m>\Omega</m> de la probabilité uniforme. Pour <m>\sigma \in \Omega</m> et <m>i \in [1, n]</m>, on dit que <m>\sigma(i)</m> est un <em>maximum provisoire</em> (resp. <em>minimum provisoire</em>) de <m>\sigma</m> si :
+            <me>
+                \sigma(i) = \max(\sigma(1), \sigma(2), \ldots, \sigma(i)) \quad \text{(resp. } \sigma(i) = \min(\sigma(1), \sigma(2), \ldots, \sigma(i))\text{)}.
+            </me>
+            On désigne par <m>X_n</m> (resp. <m>Y_n</m>) les variables aléatoires représentant le nombre de maximums (resp. minimums) provisoires des permutations de <m>[1, n]</m>.
+        </p>
+    </introduction>
+
+    <task>
+        <statement>
+            <p>
+                Montrer que les variables <m>X_n</m> et <m>Y_n</m> ont même loi.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                On observe qu'en <m>1</m>, il y a toujours un maximum et un minimum provisoire, et donc que <m>X_n</m> et <m>Y_n</m> sont à valeurs dans <m>[1, n]</m>.
+                L'application <m>f : \Omega \to \Omega</m> qui à la permutation <m>\sigma</m> associe la permutation <m>\sigma' : k \mapsto n + 1 - \sigma(k)</m> est clairement bijective. Pour <m>i \in [1, n]</m>, <m>\sigma(i)</m> est un maximum provisoire de <m>\sigma</m> si, et seulement si, <m>\sigma'(i)</m> est un minimum provisoire de <m>\sigma</m>. En effet :
+                <me>
+                    \sigma(i) = \max(\sigma(1), \ldots, \sigma(i)) \quad \text{équivaut à} \quad n + 1 - \sigma'(i) = \max(n + 1 - \sigma'(1), \ldots, n + 1 - \sigma'(i)),
+                </me>
+                ce qui équivaut à :
+                <me>
+                    \sigma'(i) = \min(\sigma'(1), \ldots, \sigma'(i)).
+                </me>
+                On en déduit que, pour tout <m>k \in [1, n]</m>,
+                <me>
+                    \sigma \in \{X_n = k\} \quad \text{si et seulement si} \quad \sigma' \in \{Y_n = k\}.
+                </me>
+                Comme <m>f</m> est bijective, on a <m>\text{card}(\{X_n = k\}) = \text{card}(\{Y_n = k\})</m>, et donc <m>\mathbb{P}(X_n = k) = \mathbb{P}(Y_n = k)</m>, car <m>\Omega</m> est muni de la probabilité uniforme.
+            </p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>
+                Déterminer la loi de <m>X_3</m>, son espérance et sa variance.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                <ul>
+                    <li>
+                        La permutation <m>\sigma</m> est dans <m>\{X_3 = 1\}</m> si, et seulement si, <m>\sigma(1) = 3</m>. On en déduit <m>\mathbb{P}(X_3 = 1) = \frac{1}{3}</m>.
+                    </li>
+                    <li>
+                        On a <m>\{X_3 = 3\} = \{\text{Id}_{[1,3]}\}</m>. On en déduit <m>\mathbb{P}(X_3 = 3) = \frac{1}{6}</m>.
+                    </li>
+                    <li>
+                        Enfin, <m>\mathbb{P}(X_3 = 2) = 1 - \frac{1}{3} - \frac{1}{6} = \frac{1}{2}</m>.
+                    </li>
+                </ul>
+                On obtient :
+                <me>
+                    \mathbb{E}(X_3) = \frac{11}{6} \quad \text{et} \quad \mathbb{V}(X_3) = \frac{17}{36}.
+                </me>
+            </p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>
+                Déterminer la loi du couple <m>(X_3, Y_3)</m> et sa covariance.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Pour <m>(k, \ell) \in [1, 3]^2</m>, on a <m>\mathbb{P}(X_3 = k, Y_3 = \ell) = 0</m> si <m>k + \ell \geq 4</m>. En effet, sauf pour <m>i = 1</m>, <m>\sigma(i)</m> ne peut pas être à la fois un maximum provisoire et un minimum provisoire. On obtient :
+                <me>
+                    \begin{array}{|c|c|c|c|}
+                        \hline
+                        X  \amp   Y  \amp   1  \amp   2  \amp   3 \\
+                        \hline
+                        1  \amp   0  \amp   \frac{1}{6}  \amp   \frac{1}{6} \\
+                        \hline
+                        2  \amp   \frac{1}{6}  \amp   \frac{1}{3}  \amp   0 \\
+                        \hline
+                        3  \amp   \frac{1}{6}  \amp   0  \amp   0 \\
+                        \hline
+                    \end{array}
+                </me>
+                On trouve :
+                <me>
+                    \mathbb{E}(X_3 Y_3) = 3 \quad \text{et} \quad \text{Cov}(X_3, Y_3) = -\frac{13}{36}.
+                </me>
+            </p>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise><title>Modèle de Galton-Watson</title>
+    <introduction>
+        
+            <p>
+                On observe des virus qui se reproduisent tous selon la même loi avant de mourir : un virus donne naissance en une journée à <m>X</m> virus, où <m>X</m> est une variable aléatoire à valeurs dans <m>\mathbb{N}</m>. Pour tout <m>k \in \mathbb{N}</m>, on note <m>\PP(X = k) = p_k</m>. On suppose <m>p_1\gt 0</m> et <m>p_0 + p_1\lt 1</m>. On note <m>f</m> la fonction génératrice de <m>X</m>.
+            </p>
+            <p>
+                On part au jour zéro de <m>X_0 = 1</m> virus. Au premier jour, on a donc <m>X_1</m> virus, où <m>X_1</m> suit la loi de <m>X</m> ; chacun de ces <m>X_1</m> virus évolue alors indépendamment des autres virus et se reproduit selon la même loi avant de mourir : cela conduit à avoir <m>X_2</m> virus au deuxième jour ; et le processus continue de la sorte. On note <m>u_n = \PP(X_n = 0)</m>.
+            </p>
+        </introduction>
+    <task>
+        <statement>
+            <p>
+                Calculer <m>u_0</m> et <m>u_1</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Par définition, <m>u_0 = \PP(X_0 = 0)</m>. Comme <m>X_0 = 1</m>, on a :
+                <me>
+                    u_0 = 0.
+                </me>
+                Pour <m>u_1</m>, on a <m>u_1 = \PP(X_1 = 0)</m>. Comme <m>X_1</m> suit la loi de <m>X</m>, on a :
+                <me>
+                    u_1 = \PP(X = 0) = p_0.
+                </me>
+            </p>
+        </solution>
+    </task>
+    <task>
+        <statement>
+            <p>
+                Montrer que la suite <m>(u_n)_{n \in \mathbb{N}}</m> est convergente.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                La suite <m>(u_n)</m> est croissante car si <m>X_n = 0</m>, alors <m>X_{n+1} = 0</m>. Ainsi, <m>u_n \leq u_{n+1}</m>. De plus, la suite est majorée par 1, car <m>u_n = \PP(X_n = 0) \leq 1</m>. Par le théorème de la convergence monotone, la suite <m>(u_n)</m> est convergente.
+            </p>
+        </solution>
+    </task>
+    <task>
+        <statement>
+            <p>
+                Montrer que pour tout entier <m>n \geq 0</m>, on a <m>u_{n+1} = f(u_n)</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                On écrit, avec la formule des probabilités totales :
+                <me>
+                    u_{n+1} = \PP(X_{n+1} = 0) = \sum_{k=0}^{+\infty} \Pr{X_{n+1} = 0 \giv X_1 = k} \P\PP(X_1 = k).
+                </me>
+                Si <m>X_1 = k</m>, alors <m>X_{n+1}</m> est la somme de <m>k</m> variables indépendantes de même loi que <m>X_n</m>. Ainsi :
+                <me>
+                    \PP(X_{n+1} = 0 \mid X_1 = k) = \PP(X_n = 0)^k = u_n^k.
+                </me>
+                On obtient donc :
+                <me>
+                    u_{n+1} = \sum_{k=0}^{+\infty} u_n^k p_k = f(u_n),
+                </me>
+                où <m>f</m> est la fonction génératrice de <m>X</m>.
+            </p>
+        </solution>
+    </task>
+    <task>
+        <statement>
+            <p>
+                Que peut-on dire de la limite de <m>(u_n)_{n \in \mathbb{N}}</m> ? Discuter selon la valeur de <m>E(X)</m>. Interpréter le résultat.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                La limite <m>u</m> de la suite <m>(u_n)</m> vérifie <m>u = f(u)</m>, car <m>u_{n+1} = f(u_n)</m> et <m>f</m> est continue. On a donc :
+                <me>
+                    u = f(u).
+                </me>
+                La fonction <m>f</m> est convexe et croissante sur <m>[0, 1]</m>, avec <m>f(0) = p_0</m> et <m>f(1) = 1</m>. On distingue deux cas :
+                <ul>
+                    <li>
+                        Si <m>E(X) \leq 1</m>, alors <m>f(u) = u</m> a une unique solution <m>u = 1</m>. Ainsi, la probabilité que la population s'éteigne est 1.
+                    </li>
+                    <li>
+                        Si <m>E(X)\gt 1</m>, alors <m>f(u) = u</m> a deux solutions : <m>u = 1</m> et une autre solution <m>u = \ell \in (0, 1)</m>. La probabilité que la population s'éteigne est <m>\ell</m>.
+                    </li>
+                </ul>
+                Interprétation : Si l'espérance de reproduction est faible (<m>E(X) \leq 1</m>), la population s'éteint presque sûrement. Si elle est forte (<m>E(X)\gt 1</m>), il y a une probabilité non nulle que la population survive indéfiniment.
+            </p>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise><title>Variables aléatoires symétriques et inégalité de Paul Lévy</title>
+    <introduction>
+    <p>
+        Toutes les variables considérées dans cet exercice sont à valeurs dans <m>\mathbb{Z}</m>. Une variable aléatoire à valeurs dans <m>\mathbb{Z}</m> est dite symétrique si :
+        <me>
+            \forall n \in \mathbb{Z}, \quad \mathbb{P}(X = n) = \mathbb{P}(X = -n).
+        </me>
+        </p>
+    </introduction>
+
+    <task>
+        <statement>
+            <ol>
+                <li>
+                    Montrer que si <m>X</m> est symétrique, alors <m>0</m> est une médiane de <m>X</m>, c'est-à-dire :
+                    <me>
+                        \mathbb{P}(X\gt 0) \leq \frac{1}{2} \leq \mathbb{P}(X \geq 0).
+                    </me>
+                </li>
+                <li>
+                    Montrer que si <m>X</m> et <m>Y</m> sont deux variables aléatoires indépendantes de même loi, alors <m>X - Y</m> est symétrique.
+                </li>
+                <li>
+                    Montrer que si <m>X</m> et <m>Y</m> sont deux variables aléatoires symétriques indépendantes, alors <m>X + Y</m> est symétrique.
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    On a :
+                    <me>
+                        \mathbb{P}(X\gt 0) = \sum_{n \in \mathbb{N}^*} \mathbb{P}(X = n) = \sum_{n \in \mathbb{N}^*} \mathbb{P}(X = -n) = \mathbb{P}(X\lt 0).
+                    </me>
+                    Comme <m>\mathbb{P}(X\gt 0) + \mathbb{P}(X\lt 0) + \mathbb{P}(X = 0) = 1</m>, on en déduit :
+                    <me>
+                        \mathbb{P}(X\gt 0) = \frac{1 - \mathbb{P}(X = 0)}{2} \leq \frac{1}{2}.
+                    </me>
+                    De même, on a :
+                    <me>
+                        \mathbb{P}(X \geq 0) = \mathbb{P}(X\gt 0) + \mathbb{P}(X = 0) = \frac{1 + \mathbb{P}(X = 0)}{2} \geq \frac{1}{2}.
+                    </me>
+                    Ainsi, <m>0</m> est une médiane de <m>X</m>.
+                </li>
+                <li>
+                    Soit <m>X</m> et <m>Y</m> deux variables aléatoires indépendantes de même loi. Pour tout <m>n \in \mathbb{Z}</m>, on a :
+                    <me>
+                        \mathbb{P}(X - Y = n) = \sum_{j \in \mathbb{Z}} \mathbb{P}(X = j + n) \mathbb{P}(Y = j).
+                    </me>
+                    En utilisant le fait que <m>X</m> et <m>Y</m> ont même loi, on obtient :
+                    <me>
+                        \mathbb{P}(X - Y = -n) = \sum_{j \in \mathbb{Z}} \mathbb{P}(X = j - n) \mathbb{P}(Y = j) = \sum_{j \in \mathbb{Z}} \mathbb{P}(X = j + n) \mathbb{P}(Y = j) = \mathbb{P}(X - Y = n).
+                    </me>
+                    Ainsi, <m>X - Y</m> est symétrique.
+                </li>
+                <li>
+                    Soit <m>X</m> et <m>Y</m> deux variables aléatoires symétriques indépendantes. Pour tout <m>n \in \mathbb{Z}</m>, on a :
+                    <me>
+                        \mathbb{P}(X + Y = n) = \sum_{j \in \mathbb{Z}} \mathbb{P}(X = j) \mathbb{P}(Y = n - j).
+                    </me>
+                    En utilisant la symétrie de <m>X</m> et <m>Y</m>, on obtient :
+                    <me>
+                        \mathbb{P}(X + Y = -n) = \sum_{j \in \mathbb{Z}} \mathbb{P}(X = -j) \mathbb{P}(Y = -n + j) = \sum_{j \in \mathbb{Z}} \mathbb{P}(X = j) \mathbb{P}(Y = n - j) = \mathbb{P}(X + Y = n).
+                    </me>
+                    Ainsi, <m>X + Y</m> est symétrique.
+                </li>
+            </ol>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            On considère des variables aléatoires symétriques <m>X_1, X_2, \ldots, X_n</m>, indépendantes. On se donne <m>x \geq 0</m>. Pour <m>k \in [1, n]</m>, on pose <m>S_k = \sum_{j=1}^k X_j</m> et, de plus, on note <m>\Omega_k</m> l'événement :
+            <me>
+                \left\{ \max_{1 \leq j \leq k-1} S_j \leq x \right\} \cap \{ S_k\gt x \} \quad \text{si} \quad k \geq 2,
+            </me>
+            et <m>\Omega_1 = \{ S_1\gt x \}</m>.
+            <ol>
+                <li>
+                    Montrer que <m>X_1 + \cdots + X_n</m> est symétrique.
+                </li>
+                <li>
+                    Montrer que, pour <m>k \in [1, n]</m>, on a :
+                    <me>
+                        \{ S_n - S_k \geq 0 \} \cap \Omega_k \subset \{ S_n\gt x \} \cap \Omega_k
+                    </me>
+                    et
+                    <me>
+                        \mathbb{P} \left( \{ S_n - S_k \geq 0 \} \cap \Omega_k \right) \geq \frac{1}{2} \mathbb{P}(\Omega_k).
+                    </me>
+                </li>
+                <li>
+                    Prouver que <m>\bigcup_{k=1}^n \Omega_k = \left\{ \max_{1 \leq j \leq n} S_j\gt x \right\}</m>.
+                </li>
+                <li>
+                    En déduire l'inégalité de Paul Lévy :
+                    <me>
+                        \mathbb{P} \left( \max_{1 \leq j \leq n} S_j\gt x \right) \leq 2 \mathbb{P}(S_n\gt x).
+                    </me>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    Par récurrence sur <m>n</m>, en utilisant le résultat de la question 1.(c), on montre que <m>X_1 + \cdots + X_n</m> est symétrique.
+                </li>
+                <li>
+                    <ul>
+                        <li>
+                            On a <m>\{ S_n - S_k \geq 0 \} \cap \Omega_k \subset \{ S_n \geq S_k \} \cap \{ S_k\gt x \} \subset \{ S_n\gt x \}</m>, d'où l'inclusion.
+                        </li>
+                        <li>
+                            Les événements <m>\{ S_n - S_k \geq 0 \}</m> et <m>\Omega_k</m> sont indépendants car <m>S_n - S_k</m> est une fonction de <m>X_{k+1}, \ldots, X_n</m>, tandis que <m>\Omega_k</m> est une fonction de <m>X_1, \ldots, X_k</m>. Ainsi :
+                            <me>
+                                \mathbb{P} \left( \{ S_n - S_k \geq 0 \} \cap \Omega_k \right) = \mathbb{P}(S_n - S_k \geq 0) \mathbb{P}(\Omega_k).
+                            </me>
+                            Comme <m>S_n - S_k</m> est symétrique, on a <m>\mathbb{P}(S_n - S_k \geq 0) \geq \frac{1}{2}</m>, d'où le résultat.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    L'événement <m>\left\{ \max_{1 \leq j \leq n} S_j\gt x \right\}</m> est réalisé si, et seulement s'il existe un indice <m>k \in [1, n]</m> tel que <m>S_k\gt x</m> et <m>S_j \leq x</m> pour tout <m>j\lt k</m>. Cela correspond exactement à la définition de <m>\Omega_k</m>.
+                </li>
+                <li>
+                    En utilisant les résultats précédents, on a :
+                    <me>
+                        \mathbb{P} \left( \max_{1 \leq j \leq n} S_j\gt x \right) = \sum_{k=1}^n \mathbb{P}(\Omega_k) \leq 2 \sum_{k=1}^n \mathbb{P} \left( \{ S_n\gt x \} \cap \Omega_k \right) = 2 \mathbb{P}(S_n\gt x).
+                    </me>
+                </li>
+            </ol>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise><title>Marche aléatoire dans <m>\mathbb{Z}</m> : premier retour à l'origine</title>
+    <introduction>
+        <p>
+            Soit <m>(X_{n})_{n \in \N^{*}}</m> une suite de variables aléatoires, sur le même espace probabilisé <m>(\Omega, \mathcal{A}, \PP</m>, indépendantes et de même loi définie par :
+            <me>
+                \Pr{X_{n} = 1} = p \quad \text{et} \quad \Pr{X_{n} = -1} = 1 - p,
+            </me>
+            où <m>p \in [0, 1]</m>. On pose <m>S_{0} = 0</m> et, pour tout <m>n \in \N^{*}</m>, <m>S_{n} = \sum_{k=1}^{n} X_{k}</m>. La suite <m>(S_{n})</m> est appelée marche aléatoire dans <m>\mathbb{Z}</m>.
+        </p>
+    </introduction>
+        <task>
+            <p>
+                Déterminer <m>u_{n} = \Pr{S_{n} = 0}</m> pour tout <m>n \in \N</m>.
+            </p>
+        </task>
+        <task>
+            <p>
+                On note <m>f(x)</m> la somme de la série entière <m>\sum u_{n} x^{n}</m>. Montrer que :
+                <me>
+                    \forall x \in ]-1, 1[ \quad f(x) = \frac{1}{\sqrt{1 - 4 p (1 - p) x^{2}}}.
+                </me>
+            </p>
+        </task>
+        <task>
+            <p>
+                Pour tout entier naturel non nul <m>k</m>, on note <m>A_{k}</m> l'événement « le mobile retourne pour la première fois à l'origine au bout de <m>k</m> déplacements », c'est-à-dire :
+                <me>
+                    A_{k} = (S_{k} = 0) \cap \left(\bigcap_{i=1}^{k-1} (S_{i} \neq 0)\right).
+                </me>
+                On pose <m>v_{k} = \Pr{A_{k}}</m> pour tout <m>k \geqslant 1</m> et <m>v_{0} = 0</m>.
+            </p>
+            <ol marker="1.">
+                <li>
+                    <p>
+                        Montrer que, pour tout entier naturel <m>n</m> non nul, on a :
+                        <me>
+                            (S_{n} = 0) = \sum_{k=1}^{n} \Pr{(S_{n} = 0) \cap A_{k}}.
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        En déduire que, pour tout entier naturel non nul <m>n</m>, on a :
+                        <me>
+                            u_{n} = \sum_{k=0}^{n} u_{n - k} v_{k}.
+                        </me>
+                    </p>
+                </li>
+            </ol>
+        </task>
+    </exercise>
+
+    <exercise xml:id="ex-16-23"><title>Inégalité de Kolmogorov</title>
+    <introduction>
+        <p>
+            Soit <m>X_1, \ldots, X_n</m> des variables aléatoires réelles discrètes de l'espace probabilisé <m>(\Omega, \mathcal{A}, \mathbb{P})</m>, indépendantes, ayant un moment d'ordre 2, centrées, ainsi que <m>a \in \mathbb{R}_+^*</m>. On pose, pour tout <m>i \in [1, n]</m> :
+            <me>
+            S_i = X_1 + \cdots + X_i, \quad B_i = \{|S_1|\lt a\} \cap \ldots \cap \{|S_{i-1}|\lt a\} \cap \{|S_i| \geq a\}.
+            </me>
+        </p>
+    </introduction>
+
+    <task>
+        <statement>
+            <p>
+                Montrer que, pour <m>i \in [1, n]</m>, les variables <m>S_i \mathbf{1}_{B_i}</m> et <m>S_n - S_i</m> sont indépendantes. En déduire que :
+                <me>
+                \mathbb{E}\left(S_n^2 \mathbf{1}_{B_i}\right) = \mathbb{E}\left(S_i^2 \mathbf{1}_{B_i}\right) + \mathbb{E}\left((S_n - S_i)^2 \mathbf{1}_{B_i}\right) \geq a^2 \mathbb{P}(B_i).
+                </me>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Si <m>i = n</m>, on a <m>S_n - S_i = 0</m> et cette variable aléatoire est indépendante de toute autre variable aléatoire. Supposons donc <m>i\lt n</m>. On a :
+                <me>
+                B_i = \{|S_1|\lt a\} \cap \ldots \cap \{|S_{i-1}|\lt a\} \cap \{|S_i| \geq a\},
+                </me>
+                donc <m>S_i \mathbf{1}_{B_i}</m> est une fonction des variables aléatoires <m>X_1, \ldots, X_i</m>. D'autre part, on a <m>S_n - S_i = \sum_{k=i+1}^n X_k</m>, donc <m>S_n - S_i</m> est une fonction des variables aléatoires <m>X_{i+1}, \ldots, X_n</m>. Les variables aléatoires <m>X_1, \ldots, X_n</m> étant indépendantes, il en est de même de <m>S_i \mathbf{1}_{B_i}</m> et <m>S_n - S_i</m>.
+            </p>
+            <p>
+                Les variables aléatoires <m>X_i</m> sont dans <m>L_2(\Omega, \mathcal{A}, \mathbb{P})</m>, donc il en est de même des variables aléatoires <m>S_i</m>. Les variables aléatoires <m>S_n^2 \mathbf{1}_{B_i}</m>, <m>S_i^2 \mathbf{1}_{B_i}</m> et <m>(S_n - S_i)^2 \mathbf{1}_{B_i}</m> ont une espérance finie, car elles sont positives et inférieures respectivement à <m>S_n^2</m>, <m>S_i^2</m> et <m>(S_n - S_i)^2</m>, qui ont une espérance finie. On a, par linéarité de l'espérance :
+                <me>
+                \mathbb{E}\left(S_n^2 \mathbf{1}_{B_i}\right) - \mathbb{E}\left(S_i^2 \mathbf{1}_{B_i}\right) = \mathbb{E}\left((S_n - S_i)(S_n + S_i) \mathbf{1}_{B_i}\right).
+                </me>
+                Les variables aléatoires <m>S_i \mathbf{1}_{B_i}</m> et <m>S_n - S_i</m> sont indépendantes, donc :
+                <me>
+                \mathbb{E}\left((S_n - S_i) S_i \mathbf{1}_{B_i}\right) = \mathbb{E}\left(S_i \mathbf{1}_{B_i}\right) \mathbb{E}(S_n - S_i) = 0,
+                </me>
+                car <m>\mathbb{E}(S_n - S_i) = \sum_{k=i+1}^n \mathbb{E}(X_k) = 0</m>. On a donc l'égalité voulue.
+            </p>
+            <p>
+                Soit <m>\omega \in \Omega</m> :
+                <ul>
+                    <li>Si <m>\omega \in B_i</m>, alors <m>S_i^2(\omega) \mathbf{1}_{B_i}(\omega) = S_i^2(\omega) \geq a^2 = a^2 \mathbf{1}_{B_i}(\omega)</m>.</li>
+                    <li>Si <m>\omega \notin B_i</m>, alors <m>S_i^2(\omega) \mathbf{1}_{B_i}(\omega) = a^2 \mathbf{1}_{B_i}(\omega) = 0</m>.</li>
+                </ul>
+                On a donc <m>S_i^2 \mathbf{1}_{B_i} \geq a^2 \mathbf{1}_{B_i}</m>, d'où l'on déduit :
+                <me>
+                \mathbb{E}\left(S_i^2 \mathbf{1}_{B_i}\right) \geq a^2 \mathbb{E}\left(\mathbf{1}_{B_i}\right) = a^2 \mathbb{P}(B_i).
+                </me>
+                Comme <m>\mathbb{E}\left((S_n - S_i)^2 \mathbf{1}_{B_i}\right) \geq 0</m>, on a a fortiori :
+                <me>
+                \mathbb{E}\left(S_n^2 \mathbf{1}_{B_i}\right) \geq a^2 \mathbb{P}(B_i).
+                </me>
+            </p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>
+                On pose <m>C = \left\{\sup(|S_1|, |S_2|, \ldots, |S_n|) \geq a\right\}</m>. Montrer que <m>\mathbb{P}(C) = \sum_{i=1}^n \mathbb{P}(B_i)</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Soit <m>\omega \in \Omega</m>. Alors <m>\omega \in C</m> si, et seulement s'il existe <m>k \in [1, n]</m> tel que <m>\omega \in \{|S_k| \geq a\}</m>. Alors <m>i</m> est le plus petit tel entier <m>k</m> si, et seulement si, <m>\omega \in B_i</m>. On en déduit que <m>C = B_1 \cup B_2 \ldots \cup B_n</m>. Les événements <m>B_1, B_2, \ldots, B_n</m> sont incompatibles, donc :
+                <me>
+                \mathbb{P}(C) = \sum_{i=1}^n \mathbb{P}(B_i).
+                </me>
+            </p>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>
+                En déduire l'inégalité de Kolmogorov :
+                <me>
+                \mathbb{P}\left(\sup(|S_1|, |S_2|, \ldots, |S_n|) \geq a\right) \leq \frac{\mathbb{V}(S_n)}{a^2}.
+                </me>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                De la question 1, on déduit :
+                <me>
+                \mathbb{P}(C) \leq \frac{1}{a^2} \sum_{i=1}^n \mathbb{E}\left(S_n^2 \mathbf{1}_{B_i}\right) \leq \frac{1}{a^2} \mathbb{E}\left(S_n^2 \sum_{i=1}^n \mathbf{1}_{B_i}\right).
+                </me>
+                Mais <m>\sum_{i=1}^n \mathbf{1}_{B_i} = \mathbf{1}_C \leq 1</m>, donc :
+                <me>
+                \mathbb{E}\left(S_n^2 \sum_{i=1}^n \mathbf{1}_{B_i}\right) \leq \mathbb{E}\left(S_n^2\right) = \mathbb{V}(S_n),
+                </me>
+                car <m>\mathbb{E}(S_n) = 0</m>. On obtient :
+                <me>
+                \mathbb{P}\left(\sup(|S_1|, |S_2|, \ldots, |S_n|) \geq a\right) = \mathbb{P}(C) \leq \frac{\mathbb{V}(S_n)}{a^2}.
+                </me>
+            </p>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise xml:id="ex-16-24"><title>Inégalité de Le Cam</title>
+    <introduction>
+        <p>
+            L'objet de cet exercice est d'étudier l'approximation de la loi binomiale par la loi de Poisson. Toutes les variables aléatoires considérées sont définies sur le même espace probabilisé <m>(\Omega, \mathcal{A}, \mathbb{P})</m> et sont à valeurs dans <m>\mathbb{N}</m>.
+        </p>
+    </introduction>
+
+    <task>
+        <statement>
+            <p>
+                Soit <m>X</m> et <m>Y</m> deux variables aléatoires. Pour tout <m>k \in \mathbb{N}</m>, on pose <m>p_k = \mathbb{P}(X = k)</m> et <m>q_k = \mathbb{P}(Y = k)</m>. On définit la distance entre <m>X</m> et <m>Y</m> par :
+                <me>
+                d(X, Y) = \frac{1}{2} \sum_{k=0}^{+\infty} |p_k - q_k|.
+                </me>
+            </p>
+            <ol>
+                <li>
+                    <p>
+                        Montrer que pour toute partie <m>A</m> de <m>\mathbb{N}</m>, on a :
+                        <me>
+                        |\mathbb{P}(X \in A) - \mathbb{P}(Y \in A)| \leq d(X, Y).
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Démontrer la formule :
+                        <me>
+                        d(X, Y) = 1 - \sum_{k=0}^{+\infty} \min(p_k, q_k).
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        En déduire que :
+                        <me>
+                        d(X, Y) \leq \mathbb{P}(X \neq Y).
+                        </me>
+                    </p>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    <p>
+                        Pour toute partie <m>A</m> de <m>\mathbb{N}</m>, on a :
+                        <me>
+                        |\mathbb{P}(X \in A) - \mathbb{P}(Y \in A)| = \left| \sum_{k \in A} p_k - \sum_{k \in A} q_k \right| \leq \sum_{k \in A} |p_k - q_k| \leq d(X, Y).
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        On a :
+                        <me>
+                        2 \sum_{k=0}^{+\infty} \min(p_k, q_k) = \sum_{k=0}^{+\infty} p_k + \sum_{k=0}^{+\infty} q_k - \sum_{k=0}^{+\infty} |p_k - q_k| = 2 - 2d(X, Y).
+                        </me>
+                        Donc :
+                        <me>
+                        d(X, Y) = 1 - \sum_{k=0}^{+\infty} \min(p_k, q_k).
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        L'événement contraire de <m>\{X \neq Y\}</m> est <m>\{X = Y\} = \bigcup_{k=0}^{+\infty} \{X = k\} \cap \{Y = k\}</m>. On a donc :
+                        <me>
+                        \mathbb{P}(X = Y) = \sum_{k=0}^{+\infty} \mathbb{P}(\{X = k\} \cap \{Y = k\}) \leq \sum_{k=0}^{+\infty} \min(p_k, q_k).
+                        </me>
+                        Ainsi :
+                        <me>
+                        d(X, Y) = 1 - \sum_{k=0}^{+\infty} \min(p_k, q_k) \leq 1 - \mathbb{P}(X = Y) = \mathbb{P}(X \neq Y).
+                        </me>
+                    </p>
+                </li>
+            </ol>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            <p>
+                Soit <m>U_1, \ldots, U_n, Y_1, \ldots, Y_n</m> des variables aléatoires mutuellement indépendantes. On suppose que, pour <m>1 \leq i \leq n</m>, <m>U_i</m> suit la loi de Bernoulli de paramètre <m>f\left(\frac{\lambda}{n}\right)</m> et <m>Y_i</m> suit la loi de Poisson de paramètre <m>\frac{\lambda}{n}</m>. On pose <m>Y = \sum_{i=1}^n Y_i</m>. Enfin, pour <m>i \in [1, n]</m>, on considère la variable de Bernoulli <m>X_i</m> telle que <m>X_i = 0</m> si <m>U_i = Y_i = 0</m> et <m>X_i = 1</m> sinon.
+            </p>
+            <ol>
+                <li>
+                    <p>
+                        Déterminer pour tout <m>i \in [1, n]</m>, la loi de <m>X_i</m>. En déduire la loi de <m>X = \sum_{i=1}^n X_i</m>. Quelle est la loi de <m>Y</m> ?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Montrer que pour tout <m>i \in [1, n]</m> :
+                        <me>
+                        \mathbb{P}(X_i \neq Y_i) \leq \frac{\lambda^2}{n^2}.
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        En déduire l'inégalité de Le Cam :
+                        <me>
+                        d(X, Y) \leq \frac{\lambda^2}{n}.
+                        </me>
+                    </p>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    <p>
+                        Pour tout <m>i \in [1, n]</m>, la variable <m>X_i</m> est à valeur dans <m>\{0, 1\}</m>. On a :
+                        <me>
+                        \mathbb{P}(X_i = 0) = \mathbb{P}(\{Y_i = 0\} \cap \{U_i = 0\}) = \exp\left(-\frac{\lambda}{n}\right) \left(1 - f\left(\frac{\lambda}{n}\right)\right) = 1 - \frac{\lambda}{n}.
+                        </me>
+                        Donc <m>X_i</m> suit la loi de Bernoulli de paramètre <m>\frac{\lambda}{n}</m>. La variable <m>X = \sum_{i=1}^n X_i</m> suit donc la loi binomiale de paramètre <m>\left(n, \frac{\lambda}{n}\right)</m>. La variable <m>Y</m>, somme de variables de Poisson indépendantes de paramètre <m>\frac{\lambda}{n}</m>, suit la loi de Poisson de paramètre <m>\lambda</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        On a :
+                        <me>
+                        \mathbb{P}(X_i \neq Y_i) = 1 - \mathbb{P}(X_i = Y_i) = 1 - \left(1 - \frac{\lambda}{n} + \exp\left(-\frac{\lambda}{n}\right) \frac{\lambda}{n}\right) = \frac{\lambda}{n} \left(1 - \exp\left(-\frac{\lambda}{n}\right)\right).
+                        </me>
+                        Or, pour tout <m>t \geq 0</m>, <m>1 - e^{-t} \leq t</m>, donc :
+                        <me>
+                        \mathbb{P}(X_i \neq Y_i) \leq \frac{\lambda}{n} \cdot \frac{\lambda}{n} = \frac{\lambda^2}{n^2}.
+                        </me>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        On a montré que <m>d(X, Y) \leq \mathbb{P}(X \neq Y)</m>. Or :
+                        <me>
+                        \mathbb{P}(X \neq Y) \leq \sum_{i=1}^n \mathbb{P}(X_i \neq Y_i) \leq n \cdot \frac{\lambda^2}{n^2} = \frac{\lambda^2}{n}.
+                        </me>
+                        Donc :
+                        <me>
+                        d(X, Y) \leq \frac{\lambda^2}{n}.
+                        </me>
+                    </p>
+                </li>
+            </ol>
+        </solution>
+    </task>
+    </exercise>
+
+    <exercise><title>Fonction génératrice des moments</title>
+        <introduction>
+        <p>
+            Soit <m>X</m> une variable aléatoire discrète, pas presque sûrement constante, sur l'espace probabilisé <m>(\Omega, \mathcal{A}, \mathbb{P})</m>. On pose, pour <m>t \in \mathbb{R}</m>, 
+            <me>
+                L_X(t) = \mathbb{E}\left(e^{tX}\right),
+            </me>
+            <m>L_X</m> est appelée la <em>fonction génératrice des moments</em> de la variable aléatoire <m>X</m>. On suppose qu'il existe un intervalle <m>]\alpha,\beta[</m> contenant <m>0</m> tel que <m>L_X(t)\lt +\infty</m> pour tout <m>t \in ]\alpha,\beta[</m>.
+            </p>
+        </introduction>
+
+        <!-- Première tâche -->
+        <task>
+            <statement>
+                <ol>
+                    <li>
+                        Soit <m>a\lt b</m> deux réels tels que <m>[a, b] \subset ]\alpha,\beta[</m>. On considère <m>\delta\gt 0</m> tel que <m>[a - \delta, b + \delta] \subset ]\alpha,\beta[</m>. Soit <m>k \in \mathbb{N}</m>. Montrer qu'il existe <m>C\gt 0</m> tel que :
+                        <me>
+                            \forall t \in [a, b], \quad \forall u \in \mathbb{R}, \quad |u|^k e^{tu} \leq C \left(e^{(a - \delta)u} + e^{(b + \delta)u}\right).
+                        </me>
+                        En déduire que <m>X^k e^{tX}</m> est d'espérance finie pour tout <m>t \in ]\alpha,\beta[</m>.
+                    </li>
+                    <li>
+                        Montrer que <m>L_X</m> est de classe <m>C^\infty</m> sur <m>]\alpha,\beta[</m> et vérifie :
+                        <me>
+                            \forall t \in ]\alpha,\beta[, \quad \forall k \in \mathbb{N}, \quad L_X^{(k)}(t) = \mathbb{E}\left(X^k e^{tX}\right).
+                        </me>
+                        En déduire, pour tout <m>k \in \mathbb{N}</m>, une expression du moment d'ordre <m>k</m> de <m>X</m>. On note <m>m</m> l'espérance de <m>X</m>.
+                    </li>
+                </ol>
+            </statement>
+            <solution>
+                <ol>
+                    <li>
+                        Pour <m>t \in [a, b]</m> et <m>u \in \mathbb{R}</m>, on a :
+                        <me>
+                            |u|^k e^{tu} \leq |u|^k e^{b|u|} \leq C \left(e^{(a - \delta)u} + e^{(b + \delta)u}\right),
+                        </me>
+                        où <m>C</m> est une constante positive. Comme <m>e^{(a - \delta)X}</m> et <m>e^{(b + \delta)X}</m> ont une espérance finie, il en est de même pour <m>X^k e^{tX}</m>.
+                    </li>
+                    <li>
+                        La fonction <m>L_X</m> est dérivable sur <m>]\alpha,\beta[</m> et sa dérivée est donnée par :
+                        <me>
+                            L_X'(t) = \mathbb{E}\left(X e^{tX}\right).
+                        </me>
+                        Par récurrence, on montre que <m>L_X</m> est de classe <m>C^\infty</m> et que :
+                        <me>
+                            L_X^{(k)}(t) = \mathbb{E}\left(X^k e^{tX}\right).
+                        </me>
+                        En particulier, pour <m>t = 0</m>, on a :
+                        <me>
+                            L_X^{(k)}(0) = \mathbb{E}(X^k).
+                        </me>
+                    </li>
+                </ol>
+            </solution>
+        </task>
+
+        <!-- Deuxième tâche -->
+        <task>
+            <statement>
+                <ol>
+                    <li>
+                        On pose, pour tout <m>t \in ]\alpha,\beta[</m>, <m>\Psi_X(t) = \ln L_X(t)</m>. Montrer que <m>\Psi_X</m> est strictement convexe.
+                    </li>
+                    <li>
+                        On note <m>I = \Psi_X'\left(]\alpha,\beta[\right)</m> et on pose <m>g(c) = \max_{t \in ]\alpha,\beta[} \left(ct - \Psi_X(t)\right)</m>, pour tout <m>c \in I</m>. Montrer que <m>m \in I</m>. Calculer <m>g(m)</m> ; montrer que <m>g(c)\gt 0</m> si <m>c \neq m</m>.
+                    </li>
+                    <li>
+                        Montrer que :
+                        <me>
+                            g(c) = \begin{cases}
+                                \max_{t \in (\alpha, 0)} \left(ct - \Psi_X(t)\right) \amp\text{si } c\lt m, \\
+                                \max_{t \in (0, \beta)} \left(ct - \Psi_X(t)\right) \amp\text{si } c\gt m.
+                            \end{cases}
+                        </me>
+                    </li>
+                    <li>
+                        En déduire les inégalités de Chernov :
+                        <me>
+                            \mathbb{P}(X \leq c) \leq e^{-g(c)} \quad \text{si } c\lt m,
+                        </me>
+                        <me>
+                            \mathbb{P}(X \geq c) \leq e^{-g(c)} \quad \text{si } c\gt m.
+                        </me>
+                    </li>
+                </ol>
+            </statement>
+            <solution>
+                <ol>
+                    <li>
+                        La fonction <m>\Psi_X</m> est strictement convexe car sa dérivée seconde est strictement positive :
+                        <me>
+                            \Psi_X''(t) = \frac{L_X''(t) L_X(t) - (L_X'(t))^2}{L_X(t)^2}\gt 0.
+                        </me>
+                    </li>
+                    <li>
+                        On a <m>m = \mathbb{E}(X) = L_X'(0) = \Psi_X'(0)</m>, donc <m>m \in I</m>. De plus, <m>g(m) = 0</m> car <m>\Psi_X(0) = 0</m>. Si <m>c \neq m</m>, alors <m>g(c)\gt 0</m> par convexité de <m>\Psi_X</m>.
+                    </li>
+                    <li>
+                        La fonction <m>t \mapsto ct - \Psi_X(t)</m> atteint son maximum en un point <m>t_c</m> tel que <m>\Psi_X'(t_c) = c</m>. Si <m>c\lt m</m>, alors <m>t_c \in (\alpha, 0)</m> ; si <m>c\gt m</m>, alors <m>t_c \in (0, \beta)</m>.
+                    </li>
+                    <li>
+                        En utilisant l'inégalité de Markov, on a :
+                        <me>
+                            \mathbb{P}(X \leq c) = \mathbb{P}\left(e^{t_c X} \geq e^{t_c c}\right) \leq \frac{\mathbb{E}\left(e^{t_c X}\right)}{e^{t_c c}} = e^{-g(c)}.
+                        </me>
+                        De même, pour <m>c\gt m</m>, on a :
+                        <me>
+                            \mathbb{P}(X \geq c) \leq e^{-g(c)}.
+                        </me>
+                    </li>
+                </ol>
+            </solution>
+        </task>
+    </exercise>
+
+    <exercise xml:id="ex-16-21"><title>Chaînes de Markov</title>
+        <introduction>
+            <p>
+                Soit <m> N \in \mathbb{N}^* </m> et <m> (X_n) </m> une suite de variables aléatoires sur un espace probabilisé <m> (\Omega, \mathcal{A}, \mathbb{P}) </m>, à valeurs dans <m>[1, N]</m>. On dit que <m> (X_n) </m> est une chaîne de Markov homogène s'il existe une matrice <m> P = (p_{i,j})_{1 \leq i,j \leq N} \in M_N(\mathbb{R}) </m> telle que, pour tout entier <m> n </m> et tous éléments <m> x_0, x_1, \ldots, x_{n+1} </m> de <m>[1, N]</m>, on ait :
+                <me>
+                    \mathbb{P}(X_{n+1} = x_{n+1} \mid X_0 = x_0, \ldots, X_{n-1} = x_{n-1}, X_n = x_n) = \mathbb{P}(X_{n+1} = x_{n+1} \mid X_n = x_n) = p_{x_n, x_{n+1}}.
+                </me>
+                La matrice <m> P </m> est appelée matrice de transition de la chaîne. Dans la suite, on considère une telle chaîne de Markov.
+            </p>
+        </introduction>
+
+        <task>
+            <statement>
+                <p>
+                    Montrer que <m> P </m> est une matrice à coefficients positifs dont la somme des coefficients de chaque ligne est égale à 1 (on dit que <m> P </m> est une matrice stochastique). Montrer que 1 est valeur propre de <m> P </m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Les coefficients de <m> P </m> sont positifs car ce sont des probabilités. Pour tout <m> i \in [1, N] </m>, on a :
+                    <me>
+                        \sum_{j=1}^N p_{i,j} = \sum_{j=1}^N \mathbb{P}(X_{n+1} = j \mid X_n = i) = \mathbb{P}(X_{n+1} \in [1, N] \mid X_n = i) = 1.
+                    </me>
+                    Ainsi, <m> P </m> est une matrice stochastique. Soit <m> U </m> le vecteur colonne à <m> N </m> lignes, dont tous les coefficients sont égaux à 1. On a <m> PU = U </m>, donc 1 est valeur propre de <m> P </m>.
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <statement>
+                <p>
+                    <ol>
+                        <li>
+                            <p>
+                                Soit <m> x_0 \in [1, N] </m> tel que <m> \mathbb{P}(X = x_0) \neq 0 </m>. Montrer que, pour <m> n \in \mathbb{N}^* </m> et <m> x_1, \ldots, x_n </m> dans <m>[1, N]</m>, on a :
+                                <me>
+                                    \mathbb{P}(X_1 = x_1, \ldots, X_n = x_n \mid X_0 = x_0) = p_{x_0, x_1} p_{x_1, x_2} \cdots p_{x_{n-1}, x_n}.
+                                </me>
+                                En déduire que :
+                                <me>
+                                    \mathbb{P}(X_n = x_n \mid X_0 = x_0) = p^{(n)}_{x_0, x_n},
+                                </me>
+                                où <m> p^{(n)}_{x_0, x_n} </m> est le coefficient d'indice <m> (x_0, x_n) </m> de la matrice <m> P^n </m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Montrer que, pour <m> n \in \mathbb{N}, k \in \mathbb{N}^* </m> et <m> x_0, x_1, \ldots, x_{n+k} </m> dans <m>[1, N]</m>, tels que <m> \mathbb{P}(X_0 = x_0, \ldots, X_n = x_n) \neq 0 </m>, on a :
+                                <me>
+                                    \mathbb{P}(X_{n+1} = x_{n+1}, \ldots, X_{n+k} = x_{n+k} \mid X_0 = x_0, \ldots, X_n = x_n) = \mathbb{P}(X_1 = x_{n+1}, \ldots, X_k = x_{n+k} \mid X_0 = x_n).
+                                </me>
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+            <solution>
+                <ol>
+                    <li>
+                        <p>
+                            On démontre la propriété par récurrence sur <m> n </m>. Pour <m> n = 1 </m>, on a :
+                            <me>
+                                \mathbb{P}(X_1 = x_1 \mid X_0 = x_0) = p_{x_0, x_1}.
+                            </me>
+                            Supposons la propriété vraie au rang <m> n - 1 </m> (<m> n \geq 2 </m>) et montrons-la au rang <m> n </m>. Si <m> \mathbb{P}(X_0 = x_0, \ldots, X_{n-1} = x_{n-1}) \neq 0 </m>, on peut écrire :
+                            <me>
+                                \mathbb{P}(X_1 = x_1, \ldots, X_n = x_n \mid X_0 = x_0) = \mathbb{P}(X_n = x_n \mid X_0 = x_0, \ldots, X_{n-1} = x_{n-1}) \cdot \mathbb{P}(X_1 = x_1, \ldots, X_{n-1} = x_{n-1} \mid X_0 = x_0).
+                            </me>
+                            Par hypothèse de récurrence, on a :
+                            <me>
+                                \mathbb{P}(X_1 = x_1, \ldots, X_{n-1} = x_{n-1} \mid X_0 = x_0) = p_{x_0, x_1} p_{x_1, x_2} \cdots p_{x_{n-2}, x_{n-1}}.
+                            </me>
+                            De plus, par définition de la chaîne de Markov, on a :
+                            <me>
+                                \mathbb{P}(X_n = x_n \mid X_0 = x_0, \ldots, X_{n-1} = x_{n-1}) = p_{x_{n-1}, x_n}.
+                            </me>
+                            On en déduit :
+                            <me>
+                                \mathbb{P}(X_1 = x_1, \ldots, X_n = x_n \mid X_0 = x_0) = p_{x_0, x_1} p_{x_1, x_2} \cdots p_{x_{n-1}, x_n}.
+                            </me>
+                            Pour obtenir la loi conditionnelle de <m> X_n </m> sachant <m> X_0 = x_0 </m>, il faut sommer l'égalité précédente par rapport à <m> x_1, \ldots, x_{n-1} </m>. On obtient :
+                            <me>
+                                \mathbb{P}(X_n = x_n \mid X_0 = x_0) = \sum_{(x_1, \ldots, x_{n-1}) \in [1, N]^{n-1}} p_{x_0, x_1} p_{x_1, x_2} \cdots p_{x_{n-1}, x_n} = p^{(n)}_{x_0, x_n},
+                            </me>
+                            où <m> p^{(n)}_{x_0, x_n} </m> est le coefficient d'indice <m> (x_0, x_n) </m> de la matrice <m> P^n </m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            L'événement <m> X_0 = x_0 </m> qui contient <m> X_0 = x_0, \ldots, X_n = x_n </m> est a fortiori de probabilité non nulle. On a donc :
+                            <me>
+                                \mathbb{P}(X_{n+1} = x_{n+1}, \ldots, X_{n+k} = x_{n+k} \mid X_0 = x_0, \ldots, X_n = x_n) = \frac{\mathbb{P}(X_0 = x_0, \ldots, X_{n+k} = x_{n+k})}{\mathbb{P}(X_0 = x_0, \ldots, X_n = x_n)}.
+                            </me>
+                            En utilisant la propriété de Markov, on obtient :
+                            <me>
+                                \mathbb{P}(X_0 = x_0, \ldots, X_{n+k} = x_{n+k}) = \mathbb{P}(X_0 = x_0, \ldots, X_n = x_n) \cdot \mathbb{P}(X_{n+1} = x_{n+1}, \ldots, X_{n+k} = x_{n+k} \mid X_0 = x_0, \ldots, X_n = x_n).
+                            </me>
+                            Par ailleurs, on a :
+                            <me>
+                                \mathbb{P}(X_1 = x_{n+1}, \ldots, X_k = x_{n+k} \mid X_0 = x_n) = p_{x_n, x_{n+1}} p_{x_{n+1}, x_{n+2}} \cdots p_{x_{n+k-1}, x_{n+k}}.
+                            </me>
+                            On en déduit que :
+                            <me>
+                                \mathbb{P}(X_{n+1} = x_{n+1}, \ldots, X_{n+k} = x_{n+k} \mid X_0 = x_0, \ldots, X_n = x_n) = \mathbb{P}(X_1 = x_{n+1}, \ldots, X_k = x_{n+k} \mid X_0 = x_n).
+                            </me>
+                        </p>
+                    </li>
+                </ol>
+            </solution>
+        </task>
+
+        <task>
+            <statement>
+                <p>
+                    On suppose désormais que tous les coefficients de <m> P </m> sont strictement positifs. On pose <m> \varepsilon = \min_{(i,j) \in [1,N]^2} p_{i,j}\gt 0 </m>. On fixe un élément <m> j </m>, et l'on considère les suites :
+                    <me>
+                        u_n = \max_{i \in [1,N]} p^{(n)}_{i,j} \quad \text{et} \quad v_n = \min_{i \in [1,N]} p^{(n)}_{i,j}.
+                    </me>
+                    <ol>
+                        <li>
+                            <p>
+                                Montrer que pour tout entier naturel <m> n </m> :
+                                <me>
+                                    u_{n+1} \leq (1 - \varepsilon) u_n + \varepsilon v_n \quad \text{et} \quad v_{n+1} \geq (1 - \varepsilon) v_n + \varepsilon u_n.
+                                </me>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Montrer que les suites <m> (u_n) </m> et <m> (v_n) </m> convergent vers la même limite.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                En déduire qu'il existe une probabilité <m> Q </m> sur <m>[1, N]</m>, c'est-à-dire une famille <m> Q = (q_j)_{j \in [1,N]} </m> d'entiers positifs, de somme 1, telle que :
+                                <me>
+                                    \forall(i,j) \in [1,N]^2 \quad \lim_{n \to +\infty} \mathbb{P}(X_n = j \mid X_0 = i) = q_j.
+                                </me>
+                                Montrer que <m> Q </m> est la seule probabilité invariante par <m> P </m>, c'est-à-dire vérifiant <m> QP = Q </m>.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </statement>
+            <solution>
+                <ol>
+                    <li>
+                        <p>
+                            Pour tout entier naturel <m> n </m>, on a :
+                            <me>
+                                u_{n+1} = \max_{i \in [1,N]} p^{(n+1)}_{i,j} = \max_{i \in [1,N]} \sum_{k=1}^N p_{i,k} p^{(n)}_{k,j}.
+                            </me>
+                            Comme <m> p_{i,k} \geq \varepsilon </m> pour tout <m> k </m>, on a :
+                            <me>
+                                u_{n+1} \leq \max_{i \in [1,N]} \left( \sum_{k=1}^N (1 - \varepsilon) p^{(n)}_{k,j} + \varepsilon v_n \right) = (1 - \varepsilon) u_n + \varepsilon v_n.
+                            </me>
+                            De même, on a :
+                            <me>
+                                v_{n+1} = \min_{i \in [1,N]} p^{(n+1)}_{i,j} = \min_{i \in [1,N]} \sum_{k=1}^N p_{i,k} p^{(n)}_{k,j} \geq \min_{i \in [1,N]} \left( \sum_{k=1}^N (1 - \varepsilon) p^{(n)}_{k,j} + \varepsilon u_n \right) = (1 - \varepsilon) v_n + \varepsilon u_n.
+                            </me>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Les suites <m> (u_n) </m> et <m> (v_n) </m> sont adjacentes. En effet, on a :
+                            <me>
+                                u_{n+1} - v_{n+1} \leq (1 - 2\varepsilon) (u_n - v_n).
+                            </me>
+                            Comme <m> 0\lt  \varepsilon \leq 1 </m>, la suite <m> (u_n - v_n) </m> converge vers 0. Ainsi, les suites <m> (u_n) </m> et <m> (v_n) </m> convergent vers la même limite.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            On note <m> q_j </m> la limite commune de <m> (u_n) </m> et <m> (v_n) </m>. Pour tout <m> i \in [1, N] </m>, on a :
+                            <me>
+                                \lim_{n \to +\infty} p^{(n)}_{i,j} = q_j.
+                            </me>
+                            Ainsi, la probabilité <m> Q = (q_j)_{j \in [1,N]} </m> est invariante par <m> P </m>, c'est-à-dire <m> QP = Q </m>. De plus, <m> Q </m> est la seule probabilité invariante par <m> P </m>, car si <m> R </m> est une autre probabilité invariante, on a <m> R = RP^n </m> pour tout <m> n </m>, et donc <m> R = Q </m> par passage à la limite.
+                        </p>
+                    </li>
+                </ol>
+            </solution>
+        </task>
+    </exercise>
+
+</subsection> 
+
+<subsection xml:id="sec-exos-recherche">
+    <title>Exercices de recherche</title>
+    
+    <exercise xml:id="ex-16-29"><title>Sur l'espérance d'un produit</title>
+        <introduction>
+            <p>
+                Soit <m> X </m> et <m> Y </m> deux variables aléatoires réelles d'espérance finie sur le même espace probabilisé. On considère les trois propriétés suivantes :
+            </p>
+            <ol marker="i.">
+                <li><m> X </m> et <m> Y </m> sont presque sûrement constantes ;</li>
+                <li><m> X </m> et <m> Y </m> sont indépendantes ;</li>
+                <li><m> XY </m> est d'espérance finie et <m> \mathbb{E}(XY) = \mathbb{E}(X)\mathbb{E}(Y) </m>.</li>
+            </ol>
+        </introduction>
+
+        <task>
+        <statement>
+            <p>
+                Montrer que (i) <m>\Rightarrow</m> (ii) et que (ii) <m>\Rightarrow</m> (iii), mais qu'aucune réciproque n'est vraie.
+            </p>
+        </statement>
+            <solution>
+                <p>
+                    <ul>
+                        <li>
+                            <strong>(i) <m>\Rightarrow</m> (ii) :</strong> Si <m> X </m> est presque sûrement constante, alors l'événement <m> \{X = x\} </m> est de probabilité 0 ou 1, pour tout réel <m> x </m>, donc est indépendant de l'événement <m> \{Y = y\} </m>, pour tout <m> y </m> réel. Les variables <m> X </m> et <m> Y </m> sont donc indépendantes. On remarque qu'il suffit qu'une des deux variables aléatoires soit presque sûrement constante pour que (ii) soit vérifiée. La réciproque est fausse. Si <m> (X, Y) </m> est un couple de variables aléatoires suivant la loi uniforme sur <m> \{0, 1\}^2 </m>, les variables <m> X </m> et <m> Y </m> suivent une loi de Bernoulli de paramètre <m> \frac{1}{2} </m> et sont indépendantes, sans être presque sûrement constantes.
+                        </li>
+                        <li>
+                            <strong>(ii) <m>\Rightarrow</m> (iii) :</strong> L'implication (ii) <m>\Rightarrow</m> (iii) est un théorème du cours. La réciproque est fausse. Si <m> X </m> est une variable réelle suivant la loi uniforme sur <m> \{-1, 0, 1\} </m> et <m> Y = |X| </m>, on a <m> \mathbb{E}(X) = 0 </m> et <m> XY = X </m>, donc <m> \mathbb{E}(XY) = 0 = \mathbb{E}(X)\mathbb{E}(Y) </m>. Mais <m> X </m> et <m> Y </m> ne sont pas indépendantes, car :
+                            <me>
+                            \mathbb{P}\bigl(\{X = 0\} \cap \{Y = 1\}\bigr) = 0 \quad \text{et} \quad \mathbb{P}(X = 0) \mathbb{P}(Y = 1) = \frac{1}{3} \times \frac{2}{3} = \frac{2}{9}.
+                            </me>
+                        </li>
+                    </ul>
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <p>
+                Montrer que (iii) <m>\Rightarrow</m> (i) est vrai s'il existe <m> f : \mathbb{R} \rightarrow \mathbb{R} </m> et <m> g : \mathbb{R} \rightarrow \mathbb{R} </m> strictement croissantes ainsi qu'une variable aléatoire réelle <m> Z </m> telle que <m> X = f(Z) </m> et <m> Y = g(Z) </m>. On admettra qu'aucune généralité n'est perdue à supposer qu'il existe une seconde variable aléatoire <m> Z' </m> indépendante de <m> Z </m> et suivant la même loi que <m> Z </m>. On introduira la fonction :
+                <me>
+                \theta : (a, b) \in \mathbb{R}^2 \mapsto (f(a) - f(b))(g(a) - g(b))
+                </me>
+                et on s'intéressera à la variable <m> \theta(Z, Z') </m>.
+            </p>
+            <solution>
+                <p>
+                    On suppose que (iii) est vérifiée et qu'il existe <m> f : \mathbb{R} \rightarrow \mathbb{R} </m> et <m> g : \mathbb{R} \rightarrow \mathbb{R} </m> strictement croissantes ainsi qu'une variable aléatoire réelle <m> Z </m> telle que <m> X = f(Z) </m> et <m> Y = g(Z) </m>. Comme <m> f </m> et <m> g </m> sont croissantes, <m> f(a) - f(b) </m> et <m> g(b) - g(a) </m> ont le signe de <m> a - b </m>, donc <m> \theta(a, b) \geq 0 </m>, pour tout <m> (a, b) \in \mathbb{R}^2 </m>. On en déduit que la variable <m> \theta(Z, Z') </m> est à valeurs positives. On écrit :
+                    <me>
+                    \theta(Z, Z') = f(Z)g(Z) + f(Z')g(Z') - f(Z)g(Z') - f(Z')g(Z).
+                    </me>
+                    La variable aléatoire <m> f(Z)g(Z) = XY </m> est d'espérance finie. La variable aléatoire <m> f(Z')g(Z') </m> a même loi que <m> f(Z)g(Z) </m> et donc même espérance. On a <m> f(Z) = X </m> et <m> g(Z') </m> a même loi que <m> Y </m>. Les variables <m> f(Z) </m> et <m> g(Z') </m> sont indépendantes car <m> Z </m> et <m> Z' </m> le sont, et d'espérance finie. On en déduit que <m> f(Z)g(Z') </m> est d'espérance finie et :
+                    <me>
+                    \mathbb{E}(f(Z)g(Z')) = \mathbb{E}(X) \mathbb{E}(Y).
+                    </me>
+                    On démontre de même que <m> \mathbb{E}(f(Z')g(Z)) = \mathbb{E}(X) \mathbb{E}(Y) </m>. Ainsi, <m> \theta(Z, Z') </m> est une somme de variables aléatoires d'espérance finie. Elle est donc d'espérance finie et, par linéarité de l'espérance :
+                    <me>
+                    \mathbb{E}\bigl(\theta(Z, Z')\bigr) = 2\mathbb{E}(XY) - 2\mathbb{E}(X)\mathbb{E}(Y) = 0.
+                    </me>
+                    Comme <m> \theta(Z, Z') </m> est une variable aléatoire positive, on en déduit qu'elle est presque sûrement nulle. Il existe un événement <m> A </m> de probabilité égale à 1 tel que l'on ait <m> \theta(Z(\omega), Z'(\omega)) = 0 </m>, pour tout <m> \omega \in A </m>. Si <m> \omega \in A </m>, on a <m> f(Z(\omega)) = f(Z'(\omega)) </m> ou <m> g(Z(\omega)) = g(Z'(\omega)) </m>, et comme <m> f </m> et <m> g </m> sont strictement croissantes, on a <m> Z(\omega) = Z'(\omega) </m>.
+
+                    Si <m> a </m> et <m> b </m> sont deux réels distincts, l'événement <m> \{Z = a\} \cap \{Z' = b\} </m> est inclus dans <m> \{Z \neq Z'\} </m> et donc dans <m> \Omega \setminus A </m>. Il est donc de probabilité nulle. Les variables aléatoires <m> Z </m> et <m> Z' </m> sont indépendantes et <m> Z' </m> a même loi que <m> Z </m> donc :
+                    <me>
+                    \mathbb{P}(Z = a) \mathbb{P}(Z = b) = \mathbb{P}(Z = a) \mathbb{P}(Z' = b) = \mathbb{P}(\{Z = a\} \cap \{Z' = b\}) = 0.
+                    </me>
+                    Soit <m> a </m> tel que <m> \mathbb{P}(Z = a) \neq 0 </m> (un tel <m> a </m> existe car <m> \sum_{a \in Z(\Omega)} \mathbb{P}(Z = a) = 1 </m>). On a alors <m> \mathbb{P}(Z = b) = 0 </m> pour tout <m> b \neq a </m> et donc <m> \mathbb{P}(Z = a) = 1 </m>. La variable <m> Z </m> est donc presque sûrement constante. On en déduit qu'il en est de même des variables aléatoires <m> X = f(Z) </m> et <m> Y = g(Z) </m>.
+                </p>
+            </solution>
+        </task>
+    </exercise>
+
+    <exercise xml:id="ex-16-30"><title>Espérance conditionnelle</title>
+        <introduction>
+            <p>
+                Soit <m> X_1 </m> et <m> X_2 </m> deux variables aléatoires sur le même espace probabilisé, à valeurs dans <m> \mathbb{Z} </m>, telles que <m> \mathbb{E}(|X_2|) \lt +\infty </m>.
+            </p>
+        </introduction>
+
+        <task>
+            <p>
+                Montrer qu'il existe une variable aléatoire <m> Y_1 </m> d'espérance finie, qui s'écrit <m> Y_1 = h(X_1) </m>, où <m> h </m> est une fonction de <m> \mathbb{Z} </m> dans <m> \mathbb{R} </m>, et telle que, pour toute application bornée <m> f </m> de <m> \mathbb{Z} </m> dans <m> \mathbb{R} </m>, on ait :
+                <me>
+                \mathbb{E}(X_2 f(X_1)) = \mathbb{E}(Y_1 f(X_1)).
+                </me>
+            </p>
+            <solution>
+                <p>
+                    Si <m> f </m> est bornée, il en est de même de la variable aléatoire <m> f(X_1) </m>. En notant <m> K </m> un majorant de <m> |f(X_1)| </m>, on a <m> |X_2 f(X_1)| \leq K |X_2| </m>, et comme <m> |X_2| </m> est d'espérance finie, il en est de même de <m> X_2 f(X_1) </m>. Le théorème de transfert appliqué à la variable <m> (X_1, X_2) </m> à valeurs dans <m> \mathbb{Z}^2 </m> et à la fonction <m> (x, y) \mapsto y f(x) </m> donne :
+                    <me>
+                    \mathbb{E}(X_2 f(X_1)) = \sum_{(m, n) \in \mathbb{Z}^2} n f(m) \mathbb{P}(\{X_1 = m\} \cap \{X_2 = n\}).
+                    </me>
+                    La famille <m> (n f(m) \mathbb{P}(\{X_1 = m\} \cap \{X_2 = n\}))_{(m, n) \in \mathbb{Z}^2} </m> est sommable, donc on a :
+                    <me>
+                    \mathbb{E}(X_2 f(X_1)) = \sum_{m \in \mathbb{Z}} f(m) \sum_{n \in \mathbb{Z}} n \mathbb{P}(\{X_1 = m\} \cap \{X_2 = n\}).
+                    </me>
+                    Si <m> \mathbb{P}(X_1 = m) \neq 0 </m>, alors on peut écrire :
+                    <me>
+                    \mathbb{P}(\{X_1 = m\} \cap \{X_2 = n\}) = \mathbb{P}(X_1 = m) \mathbb{P}(X_2 = n \mid X_1 = m),
+                    </me>
+                    et on a alors :
+                    <me>
+                    \sum_{n \in \mathbb{Z}} n \mathbb{P}(\{X_1 = m\} \cap \{X_2 = n\}) = \mathbb{P}(X_1 = m) \sum_{n \in \mathbb{Z}} n \mathbb{P}(X_2 = n \mid X_1 = m).
+                    </me>
+                    La dernière somme est l'espérance de <m> X_2 </m> pour la probabilité conditionnelle <m> \mathbb{P}(X_1 = m) </m>, que l'on note <m> \mathbb{E}(X_2 \mid X_1 = m) </m>.
+
+                    Par ailleurs, <m> \sum_{n \in \mathbb{Z}} n \mathbb{P}(\{X_1 = m\} \cap \{X_2 = n\}) = 0 </m> si <m> \mathbb{P}(X_1 = m) = 0 </m>, car <m> \mathbb{P}(\{X_1 = m\} \cap \{X_2 = n\}) = 0 </m> pour tout <m> n \in \mathbb{Z} </m>. En posant :
+                    <me>
+                    \forall m \in \mathbb{Z}, \quad h(m) = 
+                    \begin{cases}
+                        \mathbb{E}(X_2 \mid X_1 = m)\amp \text{si } \mathbb{P}(X_1 = m) \neq 0, \\
+                        0\amp \text{sinon},
+                    \end{cases}
+                    </me>
+                    on obtient :
+                    <me>
+                    \mathbb{E}(X_2 f(X_1)) = \sum_{m \in \mathbb{Z}} \mathbb{P}(X_1 = m) f(m) h(m).
+                    </me>
+                    D'après le théorème de transfert, on a :
+                    <me>
+                    \mathbb{E}(X_2 f(X_1)) = \mathbb{E}(h(X_1) f(X_1)).
+                    </me>
+                    Cela est valable pour toute fonction bornée <m> f </m>. En prenant pour <m> f </m> la fonction constante égale à 1, on obtient que <m> h(X_1) </m> possède une espérance égale à <m> \mathbb{E}(X_2) </m>. La variable aléatoire <m> Y_1 = h(X_1) </m> a les propriétés voulues.
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <p>
+                Montrer que si une autre variable aléatoire a les mêmes propriétés que <m> Y_1 </m>, elle est égale à <m> Y_1 </m> presque sûrement.
+            </p>
+            <solution>
+                <p>
+                    Soit <m> h'(X_1) </m> une autre variable aléatoire ayant les propriétés requises. Considérons <m> m \in \mathbb{Z} </m> tel que <m> \mathbb{P}(X_1 = m) \neq 0 </m>. En prenant <m> f = 1_{\{m\}} </m>, on obtient <m> f(X_1) = 1_{\{X_1 = m\}} </m> et l'égalité :
+                    <me>
+                    \mathbb{E}(X_2 1_{\{X_1 = m\}}) = \mathbb{E}(h'(X_1) 1_{\{X_1 = m\}}).
+                    </me>
+                    Le théorème de transfert donne :
+                    <me>
+                    \mathbb{E}(X_2 1_{\{X_1 = m\}}) = \sum_{(k, n) \in \mathbb{Z}^2} 1_{\{m\}}(k) n \mathbb{P}(\{X_1 = k\} \cap \{X_2 = n\}) = \sum_{n \in \mathbb{Z}} n \mathbb{P}(\{X_1 = m\} \cap \{X_2 = n\}).
+                    </me>
+                    On a donc :
+                    <me>
+                    \mathbb{E}(X_2 1_{\{X_1 = m\}}) = \mathbb{P}(X_1 = m) \sum_{n \in \mathbb{Z}} n \mathbb{P}(X_2 = n \mid X_1 = m) = \mathbb{P}(X_1 = m) \mathbb{E}(X_2 \mid X_1 = m).
+                    </me>
+                    Par ailleurs, on a :
+                    <me>
+                    \mathbb{E}(h'(X_1) 1_{\{X_1 = m\}}) = h'(m) \mathbb{P}(X_1 = m).
+                    </me>
+                    On obtient donc :
+                    <me>
+                    h'(m) = \mathbb{E}(X_2 \mid X_1 = m) = h(m).
+                    </me>
+                    Posons <m> C = \{m \in \mathbb{Z} \mid \mathbb{P}(X_1 = m) = 0\} </m> et <m> A = \bigcup_{m \in C} \{X_1 = m\} </m>. Alors <m> A </m> est un événement négligeable, car réunion au plus dénombrable d'ensembles négligeables. Les variables aléatoires <m> h(X_1) </m> et <m> h'(X_1) </m> coïncident sur le complémentaire de <m> A </m>, donc sont presque sûrement égales.
+                </p>
+            </solution>
+        </task>
+
+        <task>
+            <p>
+                La variable aléatoire <m> Y_1 </m> étant définie et unique, on la note <m> \mathbb{E}(X_2 \mid X_1) </m> : c'est l'espérance conditionnelle de <m> X_2 </m> par rapport à <m> X_1 </m>. Soit <m> g </m> une application bornée de <m> \mathbb{Z} </m> vers <m> \mathbb{R} </m>. Montrer que :
+                <me>
+                \mathbb{E}(X_2 g(X_1) \mid X_1) = g(X_1) \mathbb{E}(X_2 \mid X_1).
+                </me>
+            </p>
+            <solution>
+                <p>
+                    Par définition de l'espérance conditionnelle, il existe une fonction <m> k </m> définie sur <m> \mathbb{Z} </m> telle que :
+                    <me>
+                    \mathbb{E}(X_2 g(X_1) \mid X_1) = k(X_1).
+                    </me>
+                    D'après les deux premières questions, on a <m> k(m) = \mathbb{E}(X_2 g(X_1) \mid X_1 = m) </m> pour tout <m> m \in \mathbb{Z} </m> tel que <m> \mathbb{P}(X_1 = m) \neq 0 </m>. Le théorème de transfert, appliqué à <m> (X_1, X_2) </m> et à la fonction <m> (x, y) \mapsto y g(x) </m>, donne :
+                    <me>
+                    \mathbb{E}(X_2 g(X_1) \mid X_1 = m) = \sum_{(k, n) \in \mathbb{Z}^2} n g(k) \mathbb{P}(\{X_1 = k\} \cap \{X_2 = n\} \mid X_1 = m).
+                    </me>
+                    On a donc :
+                    <me>
+                    \mathbb{E}(X_2 g(X_1) \mid X_1 = m) = \sum_{n \in \mathbb{Z}} n g(m) \mathbb{P}(\{X_1 = m\} \cap \{X_2 = n\} \mid X_1 = m) = g(m) \mathbb{E}(X_2 \mid X_1 = m).
+                    </me>
+                    On a donc <m> \mathbb{E}(X_2 g(X_1) \mid X_1) = g(X_1) \mathbb{E}(X_2 \mid X_1) </m> sur le complémentaire de <m> A </m>.
+                </p>
+            </solution>
+        </task>
+    </exercise>
+
+    <exercise><title>Théorème de Perron-Frobenius</title>
+    
+    <introduction>
+        Soit <m>P = (p_{i,j}) \in \mathcal{M}_r(\mathbb{R})</m> une matrice stochastique (<m>r \geq 2</m>).
+    </introduction>
+
+    <task>
+        <statement>
+            1) On suppose dans cette question que pour <m>(i,j) \in [1,r]^2, p_{i,j} \gt 0</m> c’est-à-dire qu’on passe de l’état <m>i</m> à n’importe quel état <m>j</m> avec une probabilité non nulle.
+            On note <m>p = \min_{(i,j) \in [1,r]^2} p_{i,j} \gt 0</m>.
+            <ol>
+                <li>Montrer que <m>p \leq \frac{1}{2}</m>.</li>
+                <li>Pour <m>X = t(x_1, \cdots, x_r) \in \mathcal{M}_{r,1}(\mathbb{R})</m> un vecteur colonne.
+                    On note <m>x_- = \min(x_1, \cdots, x_r)</m>, <m>x_+ = \max(x_1, \cdots, x_r)</m> et <m>M(X) = x_+ - x_-</m>.
+                    On suppose que le vecteur <m>X</m> est à coordonnées <m>\geq 0</m>, montrer que
+                    <me>
+                    M(PX) \leq (1 - 2p)M(X).
+                    </me>
+                </li>
+                <li>En déduire que <m>\lim_{n \to +\infty} M(P^nX) = 0</m>.
+                    Montrer que la suite <m>(P^nX)_n</m> converge vers un vecteur de la forme
+                    <me>
+                    \ell^t(1, 1, \cdots, 1).
+                    </me>
+                </li>
+                <li>Théorème de Perron-Frobenius.
+                    Montrer que
+                    <me>
+                    \lim_{n \to +\infty} P^n =
+                    \begin{pmatrix}
+                    q_1 \amp q_2 \amp \cdots \amp q_r \\
+                    q_1 \amp q_2 \amp \cdots \amp q_r \\
+                    \vdots \amp \vdots \amp \ddots \amp \vdots \\
+                    q_1 \amp q_2 \amp \cdots \amp q_r
+                    \end{pmatrix}
+                    = P_\infty \text{ avec } \sum_{k=1}^r q_k = 1 \text{ et pour tout } k \in [1,r], q_k \gt 0.
+                    </me>
+                    Que peut-on dire de la matrice <m>P_\infty</m> ? De ses éléments propres ?
+                </li>
+                <li>Soit <m>L_\infty = (q_1 \quad q_2 \quad \cdots \quad q_r)</m>.
+                    Montrer que <m>L_\infty P = L_\infty</m> et qu’il n’existe qu’un seul vecteur ligne <m>L</m> tel que <m>LP = L</m> à un scalaire multiplicatif près.
+                    Donner une interprétation probabiliste.
+                    Décrire <m>\ker(P - I_r)</m>.
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    On sait que la somme des coefficients sur chaque ligne de la matrice <m>P</m> vaut 1 donc en raisonnant sur une ligne où figure le minimum <m>p</m>, on a <m>r \cdot p \leq 1</m>, donc <m>p \leq \frac{1}{r} \leq \frac{1}{2}</m> puisque <m>r \geq 2</m>.
+                </li>
+                <li>
+                    Soit <m>(i,j) \in [1,n]^2</m>. Le coefficient <m>(PX)_i = \sum_{k=1}^r p_i x_k</m> est une moyenne pondérée des coefficients <m>x_k</m> donc <m>x_- \leq (PX)_i \leq x_+</m> d'où
+                    <me>
+                    x_- \leq \min_{i \in [1,r]} (PX)_i, \max_{i \in [1,r]} (PX)_i \leq x_+ \text{ et } M(PX) \leq M(X).
+                    </me>
+                    Mais on peut faire mieux. À chaque ligne <m>i \in [1,r]</m>, <m>(PX)_i \leq \hat{p}_i x_- + (1 - \hat{p}_i)x_+</m> où <m>\hat{p}_i = p_{i,j_0}</m> avec <m>x_{j_0} = x_-</m>. Puisque <m>\hat{p}_i \geq p</m>, la moyenne pondérée <m>px_- + (1 - p)x_+</m> est plus grande que <m>\hat{p}_i x_- + (1 - \hat{p}_i)x_+</m>, ainsi
+                    <me>
+                    (PX)_i \leq px_- + (1 - p)x_+.
+                    </me>
+                    De même, en raisonnant sur le coefficient associé à <m>x_+ (\hat{p}_i = p_{i,k_0}</m> avec <m>x_{k_0} = x_+)</m>,
+                    <me>
+                    (PX)_i \geq (1 - \hat{p}_i)x_- + \hat{p}_i x_+ \geq (1 - p)x_- + px_+.
+                    </me>
+                    Pour tout <m>i \in [1,r]</m>, <m>(1 - p)x_- + px_+ \leq (PX)_i \leq px_- + (1 - p)x_+</m>.
+                    Conclusion : <m>M(PX) \leq (px_- + (1 - p)x_+) - ((1 - p)x_- + px_+) = (1 - 2p)(x_+ - x_-) = (1 - 2p)M(X)</m>.
+                </li>
+                <li>
+                    Par récurrence immédiate, <m>M(P^nX) \leq (1 - 2p)^n M(X)</m> ; comme <m>0 \leq 1 - 2p \lt 1</m>,
+                    <me>
+                    \lim_{n \to +\infty} (1 - 2p)^n = 0 \text{ donc } \lim_{n \to +\infty} M(P^nX) = 0.
+                    </me>
+                    Ainsi, toutes les suites coordonnées de <m>(P^nX)</m> convergent vers une même limite <m>\ell \geq 0</m>.
+                    Donc <m>\lim_{n \to +\infty} P^nX = \ell^t(1, 1, \cdots, 1)</m>.
+                </li>
+                <li>
+                    On considère les vecteurs colonnes de la base canonique <m>(E_k)_k \in [1,r]</m>. On a
+                    <me>
+                    \lim_{n \to +\infty} P^n E_k = q_k^t(1, \cdots, 1) \text{ d'où le résultat.}
+                    </me>
+                    La matrice <m>P_\infty</m> est de rang 1, on peut l'écrire sous la forme <m>P_\infty = t(1, \cdots, 1) \cdot L_\infty</m> avec <m>L_\infty = (q_1 \quad q_2 \quad \cdots \quad q_r)</m>.
+                    On a <m>P_\infty^2 = P_\infty</m> (car <m>\sum_{k=1}^r q_k = 1</m>, ou encore <m>L_\infty \cdot t(1, \cdots, 1) = 1</m>).
+                    C'est la matrice d'un projecteur sur la droite <m>\text{Vect}(t(1, \cdots, 1))</m>. Elle admet pour valeurs propres 1 (de multiplicité 1) et 0 (de multiplicité <m>n-1</m>).
+                </li>
+                <li>
+                    Par passage à la limite dans <m>P^n \cdot P = P^{n+1}</m>, on a <m>P_\infty \cdot P = P_\infty</m>, donc en regardant par exemple la première ligne, <m>L_\infty P = L_\infty</m>.
+                    Supposons que <m>LP = L</m> alors pour tout <m>n \in \mathbb{N}</m>, <m>LP^n = L</m> donc par passage à la limite <m>LP_\infty = L</m>.
+                    En particulier <m>L_\infty P_\infty = L_\infty</m> (ce qui se voit aussi immédiatement).
+                    Ainsi, en supposant <m>L \neq 0</m>, <m>tL</m> et <m>tL_\infty</m> sont deux vecteurs (colonnes) propres de <m>tP_\infty</m> de valeur propre 1. Or cette valeur propre est simple (comme pour <m>P_\infty</m>) donc il existe <m>\alpha \in \mathbb{R}</m> tel que <m>L = \alpha L_\infty</m> (et cela reste vrai si <m>L = 0</m>).
+                    Ainsi, il n’existe qu’une seule loi de probabilité pour <m>X_0</m> qui stabilise les lois des variables aléatoires <m>X_n, n \geq 0</m>. De plus, remarquons que si <m>L</m> est un vecteur ligne de somme 1, c’est-à-dire une loi de probabilité sur <m>[1, r]</m>, alors <m>\lim_{n \to +\infty} LP^n = LP_\infty = L_\infty</m>. La loi de <m>X_n</m> pour <m>n</m> très grand « tend vers » <m>L_\infty</m>.
+                    Enfin, <m>\ker(P - I_r) = \text{Vect}(t(1, 1, \cdots, 1))</m> (la matrice étant stochastique).
+                </li>
+            </ol>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            2) On reprend la notation <m>P^n = \left( p_{i,j}^{(n)} \right)</m>.
+            On suppose dans cette question qu’il existe un <m>n_0 \geq 1</m> tel que pour <m>(i,j) \in [1,r]^2, p_{i,j}^{(n_0)} \gt 0</m> c’est-à-dire qu’on passe de l’état <m>i</m> à n’importe quel état <m>j</m> en <m>n_0</m> étapes (<m>n_0</m> indépendant de <m>i</m> et <m>j</m>) avec une probabilité non nulle.
+            <ol>
+                <li>Soit <m>X \in \mathcal{M}_{r,1}(\mathbb{R})</m> à coordonnées <m>> 0</m>, montrer que <m>(M(P^nX))_{n \in \mathbb{N}}</m> est décroissante.</li>
+                <li>Montrer que <m>\lim_{n \to +\infty} M(P^nX) = 0</m> et que l'on a les mêmes résultats qu'aux questions 1)d) et 1)e).</li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    Cela a déjà été vu à la question 1)b), l’hypothèse <m>p = \min_{(i,j) \in [1,r]^2} p_{i,j} \gt 0</m> n’étant pas utilisée.
+                </li>
+                <li>
+                    La matrice stochastique <m>P^{n_0}</m> vérifie les hypothèses de la première question donc <m>\lim_{n \to +\infty} M((P^{n_0})^n X) = 0</m>. Or <m>(M(P^{n_0 n}X))_{n \in \mathbb{N}}</m> est une suite extraite de la suite décroissante <m>(M(P^nX))_{n \in \mathbb{N}}</m> donc cette dernière converge également vers 0.
+                    On peut alors reprendre les raisonnements de la question précédente.
+                </li>
+            </ol>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            3) On suppose dans cette question pour tout <m>(i,j) \in [1,r]^2</m>, il existe <m>n \geq 1</m> tel que <m>p_{i,j}^{(n)} \gt 0</m> c’est-à-dire qu’on passe de l’état <m>i</m> à n’importe quel état <m>j</m> en <m>n</m> étapes (<m>n</m> dépendant de <m>i</m> et <m>j</m>) avec une probabilité non nulle. On suppose de plus que pour tout <m>i \in [1,r]</m>, <m>p_{i,i} \gt 0</m>. (si on représente la matrice <m>P</m> avec un graphe probabiliste, chaque état <m>i</m> possède une boucle de probabilité <m>> 0</m>)
+            <ol>
+                <li>Soit <m>(i,j) \in [1,r]^2</m> et <m>n \geq 1</m> tel que <m>p_{i,j}^{(n)} \gt 0</m>. Montrer que pour tout <m>n' \geq n</m>, <m>p_{i,j}^{(n')} \gt 0</m>.</li>
+                <li>Montrer qu'il existe <m>n_0 \geq 1</m> tel que pour tout <m>(i,j) \in [1,r]^2</m>, <m>p_{i,j}^{(n_0)} \gt 0</m>.</li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    On peut rédiger un raisonnement par récurrence.
+                    <me>
+                    p_{i,j}^{(n+1)} = \sum_{k=1}^r p_{i,k}^{(n)} p_{k,j} \geq p_{i,j}^{(n)} p_{j,j} \gt 0.
+                    </me>
+                    En termes probabilistes, cela se comprend bien : si l’on peut avec une probabilité non nulle passer de l’état <m>i</m> à l’état <m>j</m> en <m>n</m> étapes, on le peut également en <m>n' \gt n</m> étapes quitte (par exemple) à stationner <m>n' - n</m> fois en <m>j</m> à la fin.
+                </li>
+                <li>
+                    Notons pour tout <m>(i,j) \in [1,r]^2</m>, <m>n_{i,j}</m> un entier tel que <m>p_{i,j}^{(n_{i,j})} \gt 0</m>.
+                    Posons <m>n_0 = \max(n_{i,j}, (i,j) \in [1,r]^2)</m>, il est clair que pour tout <m>(i,j) \in [1,r]^2</m>, <m>p_{i,j}^{(n_0)} \gt 0</m>.
+                </li>
+            </ol>
+        </solution>
+    </task>
+
+    <task>
+        <statement>
+            4) On reprend les hypothèses de la question 3) précédente sauf <m>\forall i \in [1,r]</m>, <m>p_{i,i} \gt 0</m>.
+            <ol>
+                <li>On pose <m>P' = \frac{1}{2} (I_r + P)</m>. Montrer que <m>P'</m> est une matrice stochastique vérifiant les hypothèses de la question 3).</li>
+                <li>Montrer que <m>\lim_{n \to +\infty} P^n = P'_\infty</m> existe et que l'on a les mêmes résultats qu'aux questions 1)d) et 1de la matric e) pour la matrice <m>P'</m>.</li>
+                <li>On note <m>L_\infty</m> une ligne de la matrice <m>P'_\infty = {}^t\!\begin{pmatrix} L_\infty \amp  L_\infty \amp \cdots \amp L_\infty \end{pmatrix}</m>. Montrer que <m>L_\infty P = L_\infty</m> et qu’il n’existe qu’un seul vecteur ligne <m>L</m> tel que <m>LP = L</m> à un scalaire multiplicatif près.</li>
+                <li>Montrer que la matrice <m>I - P + P'_\infty</m> est inversible. Indication : calculer <m>L_\infty (I - P + P'_\infty)</m>.</li>
+                <li>Montrer que <m>PP'_\infty = P'_\infty P = P'_\infty</m>.</li>
+                <li>Simplifier <m>(I - P + P'_\infty) (I_r + P + \cdots + P^n)</m>.</li>
+                <li>En déduire que <m>P'_\infty = \lim_{n \to +\infty} \frac{1}{n+1} (I_r + P + \cdots + P^n)</m>.</li>
+                <li>Étudier les cas particuliers suivants :
+                    <figure xml:id="fig-perron-frobenius">
+                        <caption>Graphes</caption>
+                        <image width="80%">
+                        <latex-image>
+    \begin{tikzpicture}
+    % Premier graphe (à gauche)
+    \node[state] (A0) {0};
+    \node[state, above right=of A0] (A1) {1};
+    \node[state, below right=of A0] (A2) {2};
+
+    \path[-&gt;] 
+    (A0) edge[bend left] node[above] {1} (A1)
+    (A1) edge[bend left] node[right] {1} (A2)
+    (A2) edge[bend left] node[below] {1} (A0);
+    
+    % Deuxième graphe (positionné dynamiquement à droite du premier)
+    \node[state, right=4cm of A0] (B0) {0};
+    \node[state, right=of B0] (B1) {1};
+    \node[state, right=of B1] (B2) {2};
+
+    \path[-&gt;] 
+    (B0) edge[bend left] node[above] {1} (B1)
+    (B1) edge[bend left] node[above] {p} (B2)
+    (B2) edge[bend left] node[below] {1} (B1)
+    (B1) edge[bend left] node[below] {1-p} (B0);
+
+\end{tikzpicture}
+                        </latex-image>
+                        </image>
+                    </figure>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                    C’est immédiat, plus généralement il est facile de voir que l’ensemble des matrices stochastiques forme un convexe de <m>\mathcal{M}_r(\mathbb{R})</m>.
+                </li>
+                <li>
+                    On applique les résultats de la question 3) à la matrice <m>P'</m>.
+                </li>
+                <li>
+                    On a le résultat pour la matrice <m>P'</m>. Or <m>LP' = L \Leftrightarrow LP = L</m>.
+                </li>
+                <li>
+                    Soit <m>X</m> un vecteur colonne tel que <m>(I - P + P'_\infty)X = 0</m>. Montrons que <m>X = 0</m>.
+                    On a <m>L_\infty(I - P + P'_\infty) = 0 + L_\infty P'_\infty = L_\infty</m> donc
+                    <m>L_\infty X = 0</m>. Cela entraîne vu la forme de <m>P'_\infty</m> que <m>P'_\infty X = 0</m>.
+                    On en déduit que <m>(I - P)X = 0</m> donc, d’après la question 1)e),
+                    il existe <m>\lambda \in \mathbb{R}</m> tel que <m>X = \lambda^t(1, \cdots, 1)</m>.
+                    Mais <m>L_\infty X = 0 = \lambda</m> donc <m>X = 0</m>.
+                </li>
+                <li>
+                    On sait que <m>P'P'_\infty = P'_\infty P' = P'_\infty</m> car <m>P'_\infty = \lim_{n \to +\infty} P'^n = \lim_{n \to +\infty} P^{n+1}</m>.
+                    Or <m>P' = \frac{1}{2}(I_r + P)</m> donc <m>P'P'_\infty = P'_\infty P = P'_\infty</m> par combinaison.
+                </li>
+                <li>
+                    On en déduit que <m>P'_\infty P^k = P'_\infty</m> pour <m>k \in \mathbb{N}</m> donc
+                    <me>
+                    (I - P + P'_\infty)(I_r + P + \cdots + P^n) = (I - P)(I_r + P + \cdots + P^n) + P'_\infty(I_r + P + \cdots + P^n)
+                    </me>
+                    <me>
+                    = I - P^{n+1} + (n + 1)P'_\infty.
+                    </me>
+                </li>
+                <li>
+                    Il vient
+                    <me>
+                    \frac{1}{n + 1}(I_r + P + \cdots + P^n) = (I - P + P'_\infty)^{-1}\left(\frac{1}{n + 1}(I - P^{n+1}) + P'_\infty\right).
+                    </me>
+                    Comme <m>(I - P^{n+1})</m> est bornée (<m>P^{n+1}</m> est stochastique), <m>\frac{1}{n + 1}(I - P^{n+1}) + P'_\infty \rightarrow P'_\infty</m>.
+                    Ainsi
+                    <me>
+                    \frac{1}{n + 1}(I_r + P + \cdots + P^n) \rightarrow (I - P + P'_\infty)^{-1}P'_\infty.
+                    </me>
+                    Mais <m>(I - P + P'_\infty)P'_\infty = P'_\infty - P'_\infty + P'_\infty = P'_\infty</m>
+                    donc on a bien <m>P'_\infty = \lim_{n \to +\infty} \frac{1}{n + 1}(I_r + P + \cdots + P^n)</m>.
+                </li>
+                <li>
+                    <ol>
+                        <li>
+                            Ces exemples sont triviaux mais permettent de bien comprendre que l’on ne peut espérer avoir toujours convergence de la suite <m>(P^n)</m>.
+                            Le premier graphe correspond à la matrice stochastique
+                            <me>
+                            P = \begin{pmatrix}
+                            0 \amp 1 \amp 0 \\
+                            0 \amp 0 \amp 1 \\
+                            1 \amp 0 \amp 0
+                            \end{pmatrix}.
+                            </me>
+                            C’est une matrice circulante, on voit bien que la suite <m>(P^n)</m> n’a pas de limite (on voit d’ailleurs que l’on ne peut trouver un <m>n_0</m> commun à tous les couples <m>(i, j)</m>),
+                            en revanche <m>\frac{1}{n + 1}(I_r + P + \cdots + P^n)</m> tend vers
+                            <me>
+                            \begin{pmatrix}
+                            \frac{1}{3} \amp \frac{1}{3} \amp \frac{1}{3} \\
+                            \frac{1}{3} \amp \frac{1}{3} \amp \frac{1}{3} \\
+                            \frac{1}{3} \amp \frac{1}{3} \amp \frac{1}{3}
+                            \end{pmatrix},
+                            </me>
+                            les trois états sont autant occupés en moyenne.
+                        </li>
+                        <li>
+                            Le deuxième graphe correspond à la matrice
+                            <me>
+                            P = \begin{pmatrix}
+                            0 \amp 1 \amp 0 \\
+                            1 - p \amp 0 \amp p \\
+                            0 \amp 1 \amp 0
+                            \end{pmatrix}.
+                            </me>
+                            On a
+                            <me>
+                            P^{2n} = \begin{pmatrix}
+                            0 \amp 1 \amp 0 \\
+                            1 - p \amp 0 \amp p \\
+                            0 \amp 1 \amp 0
+                            \end{pmatrix} \text{ et } P^{2n+1} = \begin{pmatrix}
+                            1 - p \amp 0 \amp p \\
+                            0 \amp 1 \amp 0 \\
+                            1 - p \amp 0 \amp p
+                            \end{pmatrix}.
+                            </me>
+                            La suite <m>(P^n)</m> n’a pas de limite,
+                            en revanche <m>\frac{1}{n + 1}(I_r + P + \cdots + P^n)</m> tend vers
+                            <me>
+                            \begin{pmatrix}
+                            \frac{(1 - p)}{2} \amp \frac{1}{2} \amp \frac{p}{2} \\
+                            \frac{(1 - p)}{2} \amp \frac{1}{2} \amp \frac{p}{2} \\
+                            \frac{(1 - p)}{2} \amp \frac{1}{2} \amp \frac{p}{2}
+                            \end{pmatrix},
+                            </me>
+                            dont une ligne représente l’occupation moyenne de chaque état.
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </solution>
+    </task>
+</exercise>
+
+</subsection>
+</exercises>

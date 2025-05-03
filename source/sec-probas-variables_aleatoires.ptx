@@ -1,0 +1,1773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-varalea" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Variables aléatoires</title>
+
+  <subsection xml:id="subsec-varalea">
+    <title>Variables aléatoires</title>
+
+    <p>
+      On se donne dans ce chapitre un espace probabilisé <m>(\Omega,\mathscr T,\PP</m> et un espace probabilisable <m>(\Omega',\mathscr T')</m>
+    </p>
+
+    <definition xml:id="def-varalea">
+      <notation>
+        <usage><m>\text{VAD}</m></usage>
+        <description>variable aléatoire discrète</description>
+      </notation>
+      <notation>
+        <usage><m>\text{VAR}</m></usage>
+        <description>variable aléatoire réelle</description>
+      </notation>
+      <notation>
+        <usage><m>\text{VADR}</m></usage>
+        <description>variable aléatoire discrète réelle</description>
+      </notation>
+      <statement>
+        <p>
+          On appelle <term>variable aléatoire</term> de <m>(\Omega,\mathscr T)</m> dans <m>(\Omega',\mathscr T')</m> toute application <m>X:\Omega\longrightarrow \Omega'</m> telle que
+          <me>
+            \forall A'\in\mathscr T',\; X^{-1}(A')\in\mathscr T
+          </me>
+          c'est à dire que l'image réciproque par <m>X</m> de tout événement est un événement. <m>(\Omega,\mathscr T)</m> est dit espace de travail de <m>X</m> et <m>(\Omega',\mathscr T')</m> son espace des résultats (ou espace des états).
+        </p>
+
+        <p>
+          Soit  <m>X</m> une variable aléatoire de <m>(\Omega,\mathscr T)</m> dans <m>(\Omega',\mathscr T')</m>.
+          <ul>
+            <li>
+              <p>
+                 <m>X</m> est dite <term>variable aléatoire discrète (VAD)</term> si l'ensemble <m>X(\Omega)</m> est au plus dénombrable et <m>\mathscr P\bigl(X(\Omega)\bigr)\subset \mathcal T'</m>. Ce qui équivaut à
+          <me>
+            \forall x\in X(\Omega),\; \{x\}\in \mathscr T'
+          </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                 <m>X</m> est dite <term> une variable aléatoire réelle (VAR)</term>  si <m>\Omega'\subset \R</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>X</m> est dite une <term>variable aléatoire discrète réelle (<acro>VADR</acro>)</term> si elle est discrète et réelle.
+              </p>
+            </li>
+          </ul>
+        </p>
+
+      </statement>
+    </definition>
+    <explanation>
+    <p>
+      Dans la pratique une variable aléatoire est utilisée pour représenter le résultat d'une expérience aléatoire.
+      Souvent l'univers <m>\Omega</m> et la tribu <m>\mathscr T</m> ne sont pas précisés.
+      </p><p>
+      Les résultats et les événements de l'expérience sont  dans <m>\Omega'</m> et dans <m>\mathscr T'</m>. Comme quand on lance un dé, <m>X</m> désiggnera le numéro obtenu. Il sera considéré comme une application définie sur un ensemble non déterminé et ce qui nous interesse c'est l'ensemble des résultats possible de l'expérience, ici <m>\iic{1,6}</m>. 
+      </p><p>
+      Cette approche procure l'avantage de pouvoir combiner entre les résultats de plusieurs expériences aléatoires. Ils seront tous des applications définies sur un même ensemble et on peut ainsi les additionner, les comparer...
+    </p>
+
+    <p>
+      La question est comment choisir l'espace des états <m>(\Omega',\mathscr T')</m> et de quelle tribu munir <m>\Omega</m> pour que le résultat de l'expérience soit une variable aléatoire ? Les remarques suivantes donnent des éléments de réponse.
+    </p>
+    </explanation>
+
+    <remark><p>
+      <ol>
+        <li>
+          <p>
+            Sauf précision du contraire, un univers <m>\Omega</m> au plus dénombrable sera systématiquement muni de la tribu <m>\mathscr P(\Omega)</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Si <m>\Omega</m> est au plus dénombrable ( et muni de la tribu <m>\mathscr P(\Omega)</m> ) alors toute application définie sur <m>\Omega</m> est une variable aléatoire quelque soit la tribu considérée dans l'espace d'arrivée.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Soit <m>f</m> une application quelconque définie de <m>\Omega</m> dans <m>\Omega'</m>.
+            L'ensemble
+            <me>
+              \mathscr T_f=\bigl\{ f^{-1}(A')\mid A'\in\mathscr T'\}
+            </me>
+            est une tribu de <m>\Omega</m> et <m>f</m> est une variable aléatoire de <m>(\Omega,\mathscr T_f)</m> dans <m>(\Omega,\mathscr T)</m>.
+          </p>
+
+          <p>
+            Si <m>\Omega'</m> est au plus dénombrable et <m>\mathscr T'=\mathscr P(\Omega')</m>, on voit qu'une application quelconque de <m>\Omega</m> dans <m>\Omega'</m> peut être considérée comme une variable aléatoire avec très peu de contraintes.
+            Il suffit de se placer du côté de <m>\Omega</m> dans une tribu qui contient <m>\mathscr T_f</m>.
+          </p>
+
+          <p>
+            Si <m>f_1,f_2,\ldots,f_p</m> sont des applications définies sur <m>\Omega</m> telles que <m>f_k(\Omega)</m> soit au plus dénombrable pour tout <m>k\in[\![1,n]\!]</m> alors on peut poser :
+            <ul>
+              <li>
+                <m>\Omega'=\bigcup_{k=1}^p f_k(\Omega) \text{ et } \mathscr T'=\mathscr P(\Omega');</m>
+              </li>
+
+              <li>
+                <m>\mathscr T=\sigma\biggl(\bigcup_{k=1}^p\mathscr T_{f_k}\biggr)</m>
+              </li>
+            </ul>
+            de telle sorte que les applications <m>f_1,f_2,\ldots,f_p</m> soient toutes des variables aléatoires discrètes de  <m>(\Omega,\mathscr T)</m> dans <m>(\Omega',\mathscr T')</m>.
+          </p>
+
+          <p>
+            Ses observations restent valides pour une famille dénombrable d'applications <m>(f_i)_{i\in I}</m> définies sur <m>\Omega</m> telle que <m>f_i(\Omega)</m> soit au plus dénombrable pour tout <m>i\in I</m>.
+            Notamment pour une suite de telles applications.
+          </p>
+
+          <p>
+            C'est ainsi qu'il est toujours possible de considérer un modèle dans lequel on peut combiner entre les résultats d'un nombre fini ou dénombrable d'expériences aléatoires si chacune a au plus un ensemble au plus dénombrable de résultats.
+          </p>
+        </li>
+      </ol></p>
+    </remark>
+
+
+    <proposition xml:id="prop-compvar">
+      <statement>
+        <ol>
+          <li>
+            <p>
+              La composée <m>Y\circ X</m> de deux variables aléatoires <m>X</m> et <m>Y</m> est une variable aléatoire.
+              De plus si <m>Y</m> est discrète alors <m>Y\circ X</m> est discrète.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Si pour tout <m>k\in[\![1,p]\!]</m>, <m>X_k</m> est une variable aléatoire de <m>(\Omega,\mathscr T)</m> dans un espace probabilisable <m>(\Omega_k,\mathscr T_k)</m> alors l'application <m>(X_1,X_2,\ldots,X_p)</m> définie par
+              <me>
+                \forall \omega\in\Omega, (X_1,X_2,\ldots,X_p)(\omega)=(X_1(\omega),X_2(\omega),\ldots,X_p(\omega))
+              </me>
+              est une variable aléatoire de <m>(\Omega,\mathscr T)</m> dans <m>(\Omega_1\times\cdots\times\Omega_p,\mathscr T_1\times\cdots\times\mathscr T_p)</m>.
+              De plus si <m>X_1,X_2,\ldots,X_p</m> sont discrètes alors <m>(X_1,X_2,\ldots,X_p)</m> est discrète.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Soit maintenant une variable aléatoire discrète <m>X</m> de <m>(\Omega,\mathscr T)</m> dans <m>(\Omega',\mathscr T')</m>.
+              Alors pour toute application <m>f</m> définie sur <m>X(\Omega)</m> l'application <m>f\circ X</m> est une VAD.
+              On la note <m>f(X)</m>
+              <me>
+                \forall \omega\in\Omega,\; f(X)(\omega):=f(X(\omega))
+              </me>
+            </p>
+
+            <p>
+              On généralise de la façon suivante : si <m>X_1,X_2,\ldots,X_p</m> sont des VAD definies sur <m>(\Omega,\mathscr T)</m>  alors pour toute application <m>g</m> définie sur <m>X_1(\Omega)\times X_2(\Omega)\times\cdots\times X_p(\Omega)</m> on définit la variable aléatoire discrète <m>g(X_1,X_2,\ldots,X_p)</m> par
+              <me>
+                \forall \omega\in\Omega,\; g(X_1,X_2,\ldots,X_p)(\omega):=g(X_1(\omega),X_2(\omega),\ldots,X_p(\omega))
+              </me>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </proposition>
+
+    <definition>
+    <notation>
+      <usage><m>(X=x)</m></usage>
+      <description>l'événement <m>X^{-1}(\{x\})</m></description>
+    </notation>
+      <ol>
+        <li>
+          <p>
+            étant donné des variables aléatoires discrètes <m>X, X_1,\ldots,X_n</m> de <m>(\Omega, \mathscr T)</m> dans <m>(\Omega', \mathscr T')</m>, on note
+            <ul>
+              <li>
+                pour tout <m>x\in \mathscr T'</m>
+                <me>
+                  (X=x)=X^{-1}(\{x\})=\{\omega\in\Omega\mid X(\omega)=x\}
+                </me>
+              </li>
+
+              <li>
+                pour tous <m>x_1,x_2,\ldots,x_n\in \mathscr T'</m>
+                <me>
+                  (X_1=x_1,X_2=x_2,\ldots,X_n=x_n)=\bigcap_{k=1}^n(X_k=x_k)
+                </me>
+              </li>
+
+              <li>
+                pour tout  <m>A'\in \mathscr T'</m>,
+                <me>
+                  (X\in A')=X^{-1}(A')=\{\omega\in\Omega\mid X(\omega)\in A'\}
+                </me>
+              </li>
+
+              <li>
+                pour tous <m> A_1',A_2',\ldots,A_n'\in \mathscr T'</m>
+                <me>
+                  (X_1\in A'_1,X_2\in A_2',\ldots,X_n\in A'_n)=\bigcap_{k=1}^n(X_k\in A_k')
+                </me>
+              </li>
+            </ul>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Une variable aléatoire discrète <m>X</m> est dite <term>presque partout constante</term> s'il existe <m>c\in X(\Omega)</m> tel que <m>\Pr{X=c}=1</m>.
+            Elle est en particulier dite presque partout nulle si <m>\Pr{X=0}=1</m>.
+          </p>
+        </li>
+      </ol>
+    </definition>
+
+    <remark>
+    <ol>
+      <li>
+        <p>
+        Vu la tolérance de l'image réciproque par une application envers les opérations sur les ensembles, les notations précédentes donnent
+        <ul>
+          <li>
+            <p>
+              <m>(X\in A')=\bigcup_{x\in A'}(X=x)</m>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>(X\in\bigcup_{i\in I}A_i')=\bigcup_{i\in I}(X\in A_i')</m>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>(X\in\bigcap_{i\in I}A_i')=\bigcap_{i\in I}(X\in A_i')</m>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>(X\in A')^c=(X\in (A')^c)=(X\notin A')</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+      </li>
+      <li>
+        <p>
+          Une variable aléatoire <m>X</m> est non presque partout constante si et seulement s'il existe <m>x\in X(\Omega)</m> tels que <m>0\lt \PP(X=x)\lt 1</m>. C'est aussi équivalent à l'existence d'au moins deux éléments distincts <m>x_1</m> et <m>x_2</m> de <m>X(\Omega)</m> tels que <m>\PP(X=x_1)\ne0</m> et <m>\PP(X=x_2)\ne0</m>.
+         </p>
+      </li>
+    </ol>
+      
+    </remark>
+
+    <example>
+      <title>d'utilisation de ces notations</title>
+
+      <ul>
+        <li>
+          <p>
+            Si <m>X</m> et <m>Y</m> sont des VAD à valeurs dans <m>\N</m> alors pour tout <m>n\in N</m>,
+            <me>
+              (X+Y=n)=\bigcup_{k=0}^n(X=k,Y=n-k)
+            </me>
+            et puisque ces événements sont deux à deux disjoints alors
+            <me>
+              \Pr{X+Y=n}=\sum_{k=0}^n\Pr{X=k,Y=n-k}
+            </me>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Si <m>N</m> est une VAD à valeurs dans <m>\N\cup\{\infty\}</m> alors
+            <me>
+              (N=\infty)=(N\in\N)^c=\left(\bigcup_{n=0}^{+\infty}(N=n)\right)^c=\bigcap_{n=0}^{\infty}(N\ne n)
+            </me>
+            et particulier
+            <me>
+              \Pr{N=\infty}=1-\sum_{n=0}^{+\infty}\Pr{N=n}=\lim_{n\to+\infty}\Pr{\bigcap_{k=0}^n(N\ne k)}
+            </me>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>(f(X)=y)=\bigcup\limits_{x\in f^{-1}(y)}(X=x)</m>. Par exemple, si <m>y\in[-1,1]</m> alors <m>(\sin(X)=y)=\bigcup\limits_{k\in\Z}(X=\arcsin(y)+2k\pi)</m>
+          </p>
+        </li>
+      </ul>
+    </example>
+
+    <proposition xml:id="prop-loivaralea">
+      <title>Loi d'une variable aléatoire</title>
+      <notation>
+        <usage><m>\PP_X</m></usage>
+        <description>loi de la variable aléatoire <m>X</m></description>
+      </notation>
+      <statement>
+        <p>
+          Soit <m>X</m> une variable aléatoire de <m>(\Omega,\mathscr T)</m> dans <m>(\Omega',\mathscr T') </m>. Alors l'application 
+        <me>
+          \PP_X:\;\begin{array}[t]{rcl} 
+          \mathscr T' \amp \longrightarrow \amp [0,1] \\
+          A' \amp \longmapsto \amp \Pr{X\in A'}
+          \end{array}
+        </me>
+        est une probabilité de <m>(\Omega',\mathscr T')</m>. On l'appelle loi de <m>X</m>. 
+        </p>
+      </statement>
+    </proposition>
+    <insight>
+      <p>
+        Si <m>X</m> et <m>Y</m> sont des variables aléatoires telle que <m>\PP_X=\PP_Y</m> alors on dit que <m>X</m> et <m>Y</m> suivent la même loi et on écrit  <m>X\sim Y</m>.
+      </p>
+    </insight>
+    <remark>
+      <p>
+        Noter que deux variables aléatoires <m>X</m> et <m>Y</m> peuvent suivre une même loi sans qu'elles soient définies sur un même espace <m>(\Omega,\mathscr T)</m>. Ce qui importe c'est l'espace des résultats.   
+      </p>
+      <p>
+        Précisons : si <m>X_1</m> et <m>X_2</m> sont des variables aléatoires définies respectivement sur des espaces <m>(\Omega_1,\mathscr T_1,\PP_1)</m> et <m>(\Omega_2,\mathscr T_2,\PP_2)</m> à valeurs dans un même espace <m>(\Omega',\mathscr T')</m> alors elles suivent la même loi si et seulement si 
+        <me>
+          \forall A'\in\mathscr T',\; \PP_1(X_1\in A')=\PP_2(X_2\in A')
+        </me>
+      </p>
+    </remark>
+
+    </subsection> 
+
+  <subsection xml:id="subsec-indvar">
+    <title>Indépendance des variables aléatoires discrètes</title>
+
+    <definition xml:id="def-varind">
+      <statement>
+        <p>
+          Une famille <m>(X_i)_{i\in I}</m> de VAD définies sur <m>(\Omega,\mathscr T)</m> (pas nécessairement à valeurs dans le même espace) est dite <term>mutuellement indépendante</term>  (MI) si
+          <me>
+            \forall J\in \mathscr F(I),\; \forall (x_j)_{i\in J}\in\prod_{j\in J}X_j(\Omega),\; \Pr{\bigcap_{j\in J}(X_j=x_j)}=\prod_{j\in J}\Pr{X_j=x_j}
+          </me>
+        </p>
+      </statement>
+    </definition>
+
+    <remark>
+      <p>
+        Si <m>(X_i)_{i\in I}</m> est une famille MI de VAD alors pour toute partie <m>I'</m> de <m>I</m> la famille <m>(X_i)_{i\in I'}</m> est MI.
+      </p>
+    </remark>
+
+
+    <proposition xml:id="prop-varind">
+      <statement>
+        <p>
+          Des variables aléatoires discrètes <m>X_1,X_2,\ldots,X_p</m> définies sur <m>\Omega</m> sont mutuellement indépendantes si et seulement si
+          <me>
+            \begin{split} \forall (x_1,x_2,\ldots,x_p)\in X_1(\Omega)\times X_2(\Omega)\times\cdots\times X_p(\Omega),\;\\ \Pr{X_1=x_1,X_2=x_2,\ldots,X_p=x_p}=\prod_{k=1}^p\Pr{X_k=x_k} \end{split}
+          </me>
+        </p>
+      </statement>
+    </proposition>
+
+    <remark>
+      <ol>
+        <li>
+          <p>
+            Cette dernière proposition simplifie considérablement la définition de l'indépendance mutuelle d'un <em>nombre fini</em> de VAD.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Elle implique aussi qu'une famille infinie de VAD est MI si et seulement si toutes ses sous-familles finies sont MI.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Une suite <m>(X_n)_{n\in \N}</m> de VAD est MI si et seulement pour tout <m>n\in\N</m> les variables <m>X_0,X_1,\ldots,X_n</m> sont MI.
+          </p>
+        </li>
+      </ol>
+    </remark>
+
+
+    <proposition xml:id="prop-partind">
+      <statement>
+        <p>
+          Soit <m>(X_i)_{i\in I}</m> une famille de VAD mutuellement indépendantes et toutes définies sur <m>(\Omega,\mathscr T)</m>.
+        </p>
+
+        <p>
+          Soit pour tout <m>i\in I</m>, une partie <m>A_i'</m> de <m>X_i(\Omega)</m>.
+          Alors les événements <m>(X_i\in A_i'), i\in I</m> sont mutuellement indépendants.
+        </p>
+      </statement>
+    </proposition>
+
+    <theorem xml:id="thm-coalition">
+      <statement>
+        <p>
+          Soit <m>(X_i)_{i\in I}</m> une famille de VAD mutuellement indépendantes et toutes définies sur <m>(\Omega,\mathscr T)</m>.
+        </p>
+
+        <ol>
+          <li>
+            <p>
+              Si pour tout <m>i\in I</m>, <m>f_i</m> est une application définie sur <m>X_i(\Omega)</m> alors les variables <m>f_i(X_i),\; i\in I</m> sont mutuellement indépendantes.
+            </p>
+          </li>
+
+          <li>
+            <title>Lemme des coalitions</title>
+
+            <p>
+              Soit <m>(J_k)_{k\in K}</m> une famille de parties finies deux à deux disjointes de <m>I</m>.
+              Si pour tout <m>k\in K</m>, <m>g_k</m> est une application définie sur <m>\prod_{i\in J_k}X_i(\Omega)</m> alors les variables <m>g_k\bigl((X_i)_{i\in J_k}\bigr),\;k\in K</m> sont mutuellement indépendantes.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+
+    <remark>
+      <ol>
+        <li>
+          <p>
+            Si <m>X</m> est une VAD presque partout constante de <m>(\Omega ,\mathscr T)</m> alors toute autre VAD définie sur <m>(\Omega ,\mathscr T)</m> est indépendante de <m>X</m>.
+          </p>
+          <explanation>
+          <p>
+            car pour tout <m>x\in X(\Omega)</m>, on a soit <m>\Pr{X=x}=0</m> soit <m>\Pr{X=x}=1</m>.
+            Donc l'événement <m>(X=x)</m>  est indépendant de tou autre  événement de <m>(\Omega ,\mathscr T)</m>.
+          </p>
+          </explanation>
+        </li>
+
+        <li>
+          <p>
+            Soient <m>X</m> une VAD et <m>f</m> une fonction définie sur <m>X(\Omega)</m>.
+            À moins que  <m>X</m> ou <m>f(X)</m> ne soit presque partout constante, les variables <m>X</m> et <m>f(X)</m> ne peuvent être indépendantes.
+          </p>
+          <explanation>
+          <p>
+            On suppose que <m>X</m> et <m>f(X)</m> ne sont pas presque partout constantes.
+            Il existe alors <m>x_1\in X(\Omega)</m> tel que <m>0\lt \Pr{X=x_1}\lt 1</m>.
+            Comme <m>(X=x_1)\subset (f(X)=f(x_1))</m>  alors <m>\Pr{f(X)=f(x_1)}\gt 0</m>.
+            Ensuite puisque <m>f(X)</m> est non presque partout constante alors <m>\Pr{f(X)=f(x_1)}\lt 1</m> et il existe donc <m>x_2\in X(\Omega)</m> tel que <m>f(x_2)\ne f(x_1)</m> et <m>\Pr{f(X)=f(x_2)}\gt0</m>.
+            Ainsi
+            <me>
+              \bigl(X=x_1,f(X)=f(x_2)\bigr)=\emptyset \text{ et } \Pr{X=x_1}\Pr{f(X)=f(x_2)}\ne0
+            </me>
+            <m>f</m> et <m>f(X)</m> ne sont donc pas indépendantes.
+          </p>
+          </explanation>
+        </li>
+        <!--
+        <li>
+          <p>
+            Soient <m>X</m> et <m>Y</m> deux VAD de <m>(\Omega,\mathscr T)</m> non presque partout constantes.
+            S'il existe une fonction <m>g</m> définie sur <m>X(\Omega)\times Y(\Omega)</m> telle que <m>g(X,Y)</m> soit presque partout constante alors <m>X</m> et <m>Y</m> ne sont pas indépendantes.
+          </p>
+          <explanation>
+          <p>
+            Soit <m>c\in g(X(\Omega)\times Y(\Omega))</m> tel que <m>\Pr{g(X,Y)=c}=1</m>.
+            Pour tout <m>(x,y)\in X(\Omega)\times Y(\Omega)</m>, si <m>g(x,y)\ne c</m> alors <m>(X=x,Y=y)\subset (g(X,Y)\ne c)</m> et donc <m>\Pr{X=x,Y=y}=0</m>.
+            On en déduit l'implication
+            <me>
+              g(x,y)\ne c\implies \Pr{X=x}\Pr{Y=y}=0
+            </me>
+          </p><
+          /explanation>
+        </li>
+        -->
+        <li>
+          <title>Exemples d'utilisations du lemme des coalitions</title>
+
+          <p>
+            Soient <m>X_1,\ldots,X_p,Y</m> des VAD définies sur <m>(\Omega,\mathscr T)</m>.
+            <ul>
+              <li>
+                <p>
+                  Si <m>X_1,\ldots,X_p,Y</m> sont MI alors <m>X=(X_1,X_2,\ldots,X_p)</m> et <m>Y</m> sont MI.
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  Réciproquement si <m>X=(X_1,X_2,\ldots,X_p)</m> et <m>Y</m> sont MI alors tout ce qu'on peut dire c'est que <m>Y</m> est indépendante de <m>X_i</m> pour tout <m>i</m>.
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  Si la variable <m>Y</m> est elle même un vecteur de la forme <m>Y=(Y_1,Y_2,\ldots,Y_q)</m> et <m>X</m> et <m>Y</m> sont indépndantes alors <m>X_i</m> et <m>Y_j</m> sont indépendantes pour tous <m>i,j</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+          <explanation>
+          <p>
+            Ce sont des conséquences du lemme des coalitions en utilisant respectivement les applications :
+            <ul>
+              <li>
+                <p>
+                  <m>g(x_1,x_2,\ldots,x_p)=(x_1,x_2,\ldots,x_p)</m>;
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  <m>g_i(x_1,x_2,\ldots,x_p)=x_i</m> ;
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  <m>g_i(x_1,x_2,\ldots,x_p)=x_i</m> et <m>h_j(y_1,y_2,\ldots,y_q)=y_j</m>
+                </p>
+              </li>
+            </ul>
+          </p>
+          </explanation>
+        </li>
+      </ol>
+    </remark>
+  </subsection>
+    
+    <subsection xml:id="subsec-loivaralea">
+      <title>Loi d'une variable aléatoire discrète</title>
+
+    <theorem xml:id="thm-loivaraleadisc">
+      <statement>
+        <p>
+          Soit <m>X</m> une variables aléatoire discrète de <m>(\Omega,\mathscr T)</m> dans <m>(\Omega',\mathscr T')</m>.
+          <ol>
+            <li>
+              <p>
+                <m>\bigl((X=x)\bigr)_{x\in X(\Omega)}</m> est un système complet d'événements de <m>(\Omega,\mathscr T)</m>;
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Pour tout <m>A'\in\mathscr T'</m>, <m>\displaystyle \Pr{X\in A'}=\sum_{x\in A'}\Pr{X=x}</m>
+              </p>
+            </li>
+          </ol>
+          Pour une variable aléatoire <em>discrète</em> <m>X</m>, déterminer la loi de <m>X</m> revient ainsi à déterminer  le couple <m>\bigl(X(\Omega),(\Pr{X=x})_{x\in X(\Omega)}\bigr)</m>.
+          L'application <m>x\longmapsto \Pr{X=x}</m> est dite fonction des masses de la variable <m>X</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    
+
+    <!-- <proposition xml:id="prop-loipredef">
+      <statement>
+        <p>
+          Soit <m>(p_i)_{i\in I}</m> une famille de nombres réels positifs dont la somme vaut <m>1</m>. Il existe au moins un espace <m>(\Omega,\mathscr T,\PP</m> et une <acro>VADR</acro> <m>X</m> définie sur cet espace dont la loi est déterminée par <m>(p_i)_{i\in I}</m>. 
+          <fn>voir la section «Activités numériques», <xref ref="cor-prininv"/> pour une méthode numérique qui permet de simuler une telle variable aléatoire.</fn> C'est à dire une <acro>VADR</acro> <m>X</m> telle que <m>X(\Omega)=\{x_i\mid i\in I\}</m> et 
+          <me>
+            \forall i\in I,\; \Pr{X=x_i}=p_i 
+          </me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Si <m>I</m> est fini il suffit de poser <m>\Omega=\iic{1,\Card I}</m> 
+        </p>
+      </proof>
+    </proposition> -->
+
+
+    
+      
+
+    <definition xml:id="def-loicouple">
+      <statement>
+        <p>
+          Soient deux VAD <m>X</m> et <m>Y</m> définies sur <m>(\Omega,\mathscr T)</m>.
+          La loi du couple <m>(X,Y)</m> est par définition la loi de la variable <m>Z=(X,Y)</m>.
+          Elle est entièrement déterminée par le couple <m>\Bigl(X(\Omega)\times Y(\Omega),\bigl(\Pr{X=x,Y=y}\bigr)_{x\in X(\Omega),y\in Y(\Omega)}\Bigr)</m>.
+        </p>
+
+        <p>
+          En outre les lois des variables <m>X</m> et <m>Y</m> sont appelées les lois marginales du couple <m>(X,Y)</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <remark>
+      <p>
+        Avec <m>Z=(X,Y)</m> on a
+        <me>
+          Z(\Omega)=\bigl\{(x,y)\in X(\Omega)\times Y(\Omega)\mid \exists \omega\in\Omega\;;\; x=X(\omega)\text{ et }y=Y(\omega)\bigr\}
+        </me>
+        on n'a donc pas nécessairement <m>Z(\Omega)=X(\Omega)\times Y(\Omega)</m> mais si <m>(x,y)\in X(\Omega)\times Y(\Omega)</m> alors
+        <ul>
+          <li>
+            <p>
+              si <m>(x,y)\in Z(\Omega)</m> alors <m>(Z=(x,y))=(X=x,Y=y)</m> et en particulier <m>\Pr{Z=(x,y)} =\Pr{X=x,Y=y}</m>;
+            </p>
+          </li>
+
+          <li>
+            <p>
+              si <m>(x,y)\notin Z(\Omega)</m> alors <m>(Z=(x,y))=\emptyset</m> et donc <m>\Pr{X=x,Y=y}=0</m>.
+            </p>
+          </li>
+        </ul>
+        C'est pour des raisons de simplification que la loi de couple est donc définie à travers <m>X(\Omega)\times Y(\Omega)</m> et non à tavers <m>(X,Y)(\Omega)</m>.
+      </p>
+    </remark>
+
+
+    <proposition xml:id="prop-loicouple">
+      <statement>
+        <p>
+          Soient deux VAD <m>X</m> et <m>Y</m> définies sur <m>(\Omega,\mathscr T)</m>.
+          <ol>
+            <li>
+              <p>
+                <m>\forall y\in Y(\Omega),\; \Pr{Y=y}=\sum_{x\in X(\Omega)}\Pr{X=x,Y=y}</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\forall x\in X(\Omega),\; \Pr{X=x}=\sum_{y\in Y(\Omega)}\Pr{X=x,Y=y}</m>
+              </p>
+            </li>
+          </ol>
+          Ce qui signifie que les lois marginales du couple <m>(X,Y)</m> sont données par sa loi de couple.
+        </p>
+      </statement>
+    </proposition>
+
+    <remark><title>Généralisation</title>
+      <p>
+        Soient <m>X_1,X_2,\ldots,X_n</m> des variables aléatoires réelles. La variable <m>X=(X_1,X_2,\ldots,X_n)</m> est dite un vecteur aléatoire. Sa loi est entièrement déterminée par le couple formé de <m>E=X_1(\Omega)\times X_2(\Omega)\times\cdots\times X_n(\Omega)</m> et de la famille <m>(\Pr{X_1=x_1,\ldots,X_n=x_n})_{(x_1,\cdots,x_n)\in E}</m>.
+      </p>
+    </remark>
+
+    <corollary xml:id="cor-memeloi">
+      <statement>
+        <ol>
+          <li>
+            <p>
+              Soient <m>X</m> et <m>Y</m> deux VAD. Si <m>X\sim Y</m>  alors pour toute fonction <m>f</m> définie sur <m>X(\Omega)</m>, <m>f(X)\sim f(Y)</m>.
+            </p>
+          </li>
+          <li xml:id="cor-indsim">
+            <p>
+              Soient <m>X_1,X_2,\ldots,X_n</m> et <m>Y_1,Y_2,\ldots,Y_n</m> des VAD. Si <m>X_k\sim Y_k</m> pour tout <m>k\in\iic{1,n}</m>, <m>X_1,X_2,\ldots,X_n</m> sont mutuellement indépendantes et <m>Y_1,Y_2,\ldots,Y_n</m> sont mutuellement indépendantes  alors pour toute fonction <m>g</m> définie sur <m>X_1(\Omega)\times X_2(\Omega)\times\cdots\times X_n(\Omega)</m> 
+              <me>
+                g(X_1,X_2,\ldots,X_n)\sim g(Y_1,Y_2,\ldots,Y_n)
+              </me>
+              
+            </p>
+          </li>
+        </ol>
+      </statement>
+      <proof>
+        <ol>
+          <li>
+            <p>
+               Si <m>X\sim Y</m> alors <m>X(\Omega)=Y(\Omega)</m> et donc <m>f(X)(\Omega)=f(Y)(\Omega)</m>. Soit ensuite <m>z\in f(X)(\Omega)</m>, alors
+          <md>
+            <mrow>\Pr{f(X)=z} \amp=\Pr{\bigcup_{x\in f^{-1}(\{z\})} (X=x)} </mrow>
+            <mrow> \amp=
+            \sum_{x\in f^{-1}(\{z\})} \Pr{X=x} </mrow>
+            <mrow> \amp=
+             \sum_{x\in f^{-1}(\{z\})} \Pr{Y=x} </mrow>
+             <mrow> \amp=
+             \Pr{f(Y)=z} </mrow>
+          </md>
+          Ainsi <m>f(X)\sim f(Y)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Les variables <m>X=(X_1,X_2,\ldots,X_n)</m> et <m>Y=(Y_1,Y_2,\ldots,Y_n)</m> suivent la même loi car 
+              <md>
+                <mrow>\Pr{X=(x_1,x_2,\ldots,x_n)} \amp=
+                \prod_{k=1}^n\Pr{X_k=x_k} </mrow>
+                <mrow> \amp=
+                \prod_{k=1}^n\Pr{Y_k=y_k}
+                 </mrow>
+                 <mrow> \amp=\Pr{Y=(x_1,x_2,\ldots,x_n)} </mrow>
+              </md>
+              Il suffit d'appliquer ensuite la propriété précédente à <m>X</m> et <m>Y</m>. 
+            </p>
+          </li>
+        </ol>
+      </proof>
+    </corollary>
+    <warning>
+      <p>
+        Sans la condition d'indépendance mutuelle des variables <m>X_1,X_2,\ldots,X_n</m> et des variables <m>Y_1,Y_2,\ldots, Y_n</m> la propriété <xref ref="cor-indsim"/> n'est plus valide.
+      </p>
+      <p> Par exemple : </p> 
+        <p>
+          Si <m>X</m> et <m>Y</m> sont des variables aléatoires non presque partout constantes suivant la même loi alors les couples <m>(X,Y)</m> et <m>(X,X)</m> ne suivent pas la même loi puisque si <m>x,y</m> sont des éléments distincts de <m>X(\Omega)</m> tels que <m>\PP(X=x)\gt0</m> et <m>\PP(X=y)\gt0</m> alors 
+          <me>\begin{cases}
+            \Pr{X=x,Y=y}=\Pr{X=x}\Pr{Y=y}\ne0\\
+            \Pr{X=x,X=y}=0
+            \end{cases}
+          </me>
+          
+        </p>
+    </warning>
+  </subsection>
+
+
+  
+
+
+  <subsection xml:id="subsec-loiusuelles">
+    <title>Lois discrètes usuelles</title>
+  <list><title> Les lois discrètes usuelles</title>
+    <introduction><p>
+      <m>X</m> désignera une VAD définie sur <m>(\Omega,\mathscr T)</m>
+    </p></introduction>
+
+    <ol>
+      <li><title><term>Loi uniforme finie</term></title>
+        <notation>
+          <usage><m>\mathscr U(E)</m></usage>
+          <description>loi uniforme sur l'ensemble fini <m>E</m></description>
+        </notation>
+      
+      
+        <p>
+           On dit que <m>X</m> suit une loi uniforme sur un ensemble fini <m>\{x_1,x_2,\ldots,x_n\}</m> et on écrit <m>X\sim\mathscr U(\{x_1,x_2,\ldots,x_n\})</m> si 
+           <me>\begin{cases}
+            X(\Omega)=\{x_1,x_2,\ldots,x_n\} \\ 
+            \forall k\in\iic{1,n},\;\Pr{X=x_k}=1/n 
+            \end{cases}
+           </me>
+           Une telle variable est utilisée pour modéliser les expériences aléatoires qui possèdent un nombre fini de résultats possibles tous équiprobables. On notera que dans ce cas pour toute partie <m>A</m> de <m>X(\Omega)</m> 
+           <me>
+            \Pr{X\in A}=\frac{\card A}n
+           </me>
+           qu'on exprime en disant que la probabilité qu'un événement se réalise est égale au rapport entre le nombre de résultats favorables à l'événement et celui de tous les résultats possibles. 
+            
+        </p>
+      </li>
+      <li>
+        <title><term>Loi de Bernouilli</term></title>
+        <notation>
+          <usage><m>\mathscr B(p)</m></usage>
+          <description>loi de Bernouilli de paramètre <m>p</m></description>
+        </notation>
+
+        <p>
+          Soit un réel <m>p\in[0,1]</m> On dit que <m>X</m> suit la loi de Bernouilli de paramètre <m>p</m> et on écrit <m>X\sim \mathscr B(p)</m> si <m>X</m> est le résultat d'une expérience aléatoire qui ne possède que deux issues : succès ou échec.
+          La probabilité du succès étant <m>p</m>.
+          <me>
+            \begin{cases} X(\Omega)=\{1,0\} \\ \Pr{X=1}=p\text{ et } \Pr{X=0}=1-p \end{cases}
+          </me>
+        </p>
+      </li>
+
+      <li>
+        <title><term>Loi binomiale</term></title>
+        <notation>
+          <usage><m>\mathscr B(n,p)</m></usage>
+          <description>loi binomiale de paramètres <m>n</m> et <m>p</m> </description>
+        </notation>
+
+        <p>
+          Soit un réel <m>p\in[0,1]</m> et un entier <m>n\in\N^*</m>.
+          On dit que <m>X</m> suit la loi de binomiale de paramètres <m>n</m> et <m>p</m> et on écrit <m>X\sim \mathscr B(n,p)</m> si <m>X</m> est le nombre de succès obtenus lorsque on répète <m>n</m> fois de façon indépendante une expérience de Bernouilli de paramètre <m>p</m>.
+          <me>
+            \begin{cases} X(\Omega)=\{0,1,\ldots,n\} \\ \forall k\in X(\Omega),\; \Pr{X=k}=\binom nk p^k(1-p)^{n-k} \end{cases}
+          </me>
+          <m>X</m> suit aussi la loi <m>\mathscr B(n,p)</m> si elle represente le nombre de succès obtenu lorsque on effectue simultanénement et de façon indépendante <m>n</m> test de Bernouilli de paramètre <m>p</m>.
+        </p>
+
+        <p>
+          Si <m>X_k</m> est le résultat du <m>k^\text{e}</m> test de Bernouilli alors
+          <md>
+            <mrow> X\amp =X_1+X_2+\ldots+X_n </mrow>
+            <mrow> \forall k\in[\![0,n]\!],\; (X=k)\amp=\!\!\!\!\!\bigcap_{\substack{(k_1,k_2,\ldots,k_n)\in\{0,1\}^n \\ k_1+k_2+\ldots+k_n=k}}\!\!\!\!\!(X_1=k_1,X_2=k_2,\ldots,X_n=k_n) </mrow>
+          </md>
+          sachant que les variables <m>X_1,X_2,\ldots,X_n</m> sont mutuellement indépendantes et suivent toute la loi <m>\mathscr B(p)</m>
+        </p>
+      </li>
+
+      <li>
+        <title><term>Loi géometrique</term></title>
+        <notation>
+          <usage><m>\mathscr G(p)</m></usage>
+          <description>loi géométrique de paramètre <m>p</m></description>
+        </notation>
+
+        <p>
+          Soit un réel <m>p\in]0,1[</m> On dit que <m>X</m> suit la loi géométrique de paramètre <m>p</m> et on écrit <m>X\sim \mathscr G(p)</m> si <m>X</m> est le numéro du premier test qui donne un succès lorsque on répète indéfiniment et de façon indépendante une expérience de Bernouilli de paramètre <m>p</m>.
+          <me>
+            \begin{cases} X(\Omega)=\N^* \\ \forall n\in\N^*,\; \Pr{X=n}=p(1-p)^{n-1} \end{cases}
+          </me>
+          <m>X</m> est aussi dite temps d'attente du premier succès.
+        </p>
+
+        <p>
+          Si <m>X_n</m> est le résultat du <m>n^\text{e}</m> test de Bernouilli alors
+          <md>
+            <mrow> X \amp =\min\{n\in\N^*\mid X_n=1\} </mrow>
+            <mrow> \forall n\in\N^*,\; (X=n)\amp=(X_1=0,\ldots,X_{n-1}=0,X_n=1) </mrow>
+          </md>
+          Sachant que les variables <m>X_n,\; n\in\N^*</m> sont mutuellement indépendantes et suivent toute la loi <m>\mathscr B(p)</m>.
+        </p>
+      </li>
+
+      <li>
+        <title><term>Loi de Poisson</term></title>
+        <notation>
+          <usage><m>\mathscr P(\lambda)</m></usage>
+          <description>loi de Poisson de paramètre <m>\lambda</m></description>
+        </notation>
+
+        <p>
+          Soit un réel <m>\lambda\in\R_+</m>.
+          On dit que <m>X</m> suit la loi de Poisson de paramètre <m>\lambda</m> et on écrit <m>X\sim \mathscr P(\lambda)</m> si
+          <me>
+            \begin{cases} X(\Omega)=\N \\ \forall n\in\N,\; \Pr{X=n}=\displaystyle\frac{\lambda^n}{n!}e^{-\lambda} \end{cases}
+          </me>
+          <m>X</m> représente le nombre de clients servis pendant une unité de temps dans une file d'attente quand on sait que le nombre <em>moyen</em> de clients par unité de temps est <m>\lambda</m>. Pour cette raison la loi de Poisson est aussi appelé loi des files d'attente.
+        </p>
+      </li>
+    </ol>
+    </list>
+  </subsection>
+
+
+  <subsection xml:id="subsec-fonction-repartition">
+    <title>Loi d'une variable aléatoire réelle : fonction de répartition <fn>programme marocain</fn></title>
+
+    <introduction>
+        <p>
+          On suppose que <m>\R</m> est muni de sa tribu de Borel <m>\mathscr B(\R)</m>. Dans la suite toutes les variables alétoires réelles considérées sont supposées à valeurs dans l'espace probabilisable <m>(\R,\mathscr B(\R))</m>. L'espace de travail <m>(\Omega,\mathscr T)</m> est supposé muni d'une probabilité <m>\PP</m>. 
+        </p>
+        <p> Il s'agit dans cette section de fournir un moyen de caractériser la loi d'une variable aléatoire <em>réelle</em> non nécessairement discrète. Bien que les notions abordées ne soit pas citées dans le programme français des classes MP, elles peuvent s'avérer indispensables pour vos travaux de recherche (pour le TIPE par exemple) et elles sont utiles même dans le cas des variables aléatoire discrètes. Elles font en outre partie du programme marocain.
+        </p>
+      </introduction>
+
+      <insight>
+        <p>
+          Si <m>X</m> est une VAR on a vu que l'application <m>\PP_X</m> définie par 
+          <me>
+            \forall B\in\mathscr B(\R),\;
+            \PP_X(B)=\Pr{X\in B}
+          </me>
+          est une probabilité de l'espace <m>(\R,\mathscr B(\R))</m> appelée loi de <m>X</m> 
+        </p>
+      </insight>
+
+    <definition xml:id="def-fonction-repartition">
+      <statement>
+        <p>
+          Soit <m>X</m> une <term>variable aléatoire réelle</term> définie sur l'espace probabilisé <m>(\Omega, \mathscr T, \PP</m>.
+          La <em>fonction de répartition</em> de <m>X</m>, notée <m>F_X</m>, est la fonction réelle définie par :
+        </p>
+        <me>
+          F_X(x) = \Pr{X \leq x}, \quad \forall x \in \mathbb{R}.
+        </me>
+      </statement>
+    </definition>
+
+
+    <proposition>
+      <title> propriétés caractéristiques d'une fonction de répartition </title>
+      
+      <statement>
+        <p>
+          Soit <m>X</m> une VAR.
+          La fonction de répartition <m>F_X</m> possède les propriétés suivantes :
+        </p>
+
+        <ol>
+          <li>
+            <m>F_X</m> est <em>croissante</em> ;
+          </li>
+
+          <li>
+            <m>F_X</m> est <em>bornée</em> : <m>0 \leq F_X(x) \leq 1</m> pour tout <m>x \in \mathbb{R}</m>.
+          </li>
+
+          <li>
+            pour tout <m>x \in \mathbb{R}</m>, <m>F_X(x^+) = F_X(x)</m> ie <m>F_X</m> est continue à droite en tout point.
+          </li>
+
+          <li>
+            <m>\lim\limits_{x \to -\infty} F_X(x) = 0</m> et <m>\lim\limits_{x \to +\infty} F_X(x) = 1</m>.
+          </li>
+        </ol>
+      </statement>
+
+
+      <proof>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Découle de <m>(X\leq x)\subset (X\leq y)</m> si <m>x\leq y</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Conséquence de la définition <m>F_X(x)=\Pr{X\leq x}</m>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                La fonction <m>F_X</m> étant croissante elle admet une limite à droite (et à gauche) en <m>x </m>.
+                On peut écrire
+                <me>
+                  (X\gt x )=\bigcap_{n\in\N^*}\left(X\gt x +\frac1n\right)
+                </me>
+                La suite d'événements <m>(X\gt x +1/n)_n</m> est decroissante donc par continuité monotone
+                <me>
+                  \Pr{X\gt x}=\lim\Pr{X\gt x+\frac1n}
+                </me>
+                soit <m>1-F_X(x )=1-\lim F_X(x+1/n)</m> et donc <m>F_X(x )=F_X(x^+)</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>F_X</m> étant monotone bornée, elle admet des limites (finies) en <m>+\infty</m> et en <m>-\infty</m>. On peut donc écrire
+                <md>
+                  <mrow>\lim_{+\infty}F_X \amp= \lim F_X(n) </mrow>
+                  <mrow> \amp= \lim\Pr{X\in]-\infty,n]} </mrow>
+                  <mrow> \amp=\Pr{X\in\bigcup_{n\in\N}]-\infty,n]} </mrow>
+                  <mrow> \amp= \Pr{X\in\R}=1 </mrow>
+                </md>
+                et de même <m>\lim_{-\infty}F_X=\lim\Pr{X\leq -n}=\Pr{X\in\emptyset}=0</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </proof>
+    </proposition>
+
+    <corollary xml:id="cor-loidiscont">
+      <statement>
+        <p>
+          Soit <m>X</m> une VAR.
+          Alors pour tout <m>x\in\R</m>, 
+          <me> \Pr{X = x} = F_X(x) - F_X(x^-)</me>
+        </p>
+
+        <p>
+          En particulier <m>F_X</m> est continue en <m>x</m> si et seulement si <m>\Pr{X=x}=0</m>.
+        </p>
+      </statement>
+
+
+      <proof>
+        <p>
+          <m>\Pr{X=x}=\Pr{X\leq x}-\Pr{X\lt x}</m> et de la même façon que dans la propriété précédente <m>\Pr{X\lt x}=\lim\Pr{X\leq x-1/n}=F_X(x^-)</m>.
+        </p>
+      </proof>
+    </corollary>
+
+    <remark>
+      <ol>
+        <p>
+          Soit <m>X</m> une VAR.
+        </p>
+        <li>
+          <p>
+            L'ensemble <m>D_X</m> des points de discontinuité de <m>F_X</m> est au plus dénombrable.
+          </p>
+          <explanation><p>
+          Soient <m>x,y\in D_X</m>. Sans perdre en généralité supposons que <m>x\lt y</m>. Vu les propriétés des fonctions de répartition on a 
+          <me>F_X(x^-)\lt F_X(x)\leq F_X(y^-)\lt F_X(y)</me>
+          et donc les intervalles ouverts <m>]F_X(x^-),F_X(x)[</m> et <m>]F_X(y^-),F_X(y)[</m> sont non vides et disjoints. Or toute famille d'intervalles ouverts non vides deux à deux disjoints de <m>\R</m> est au plus dénombrable
+          <fn>chacun des intervalles contient un rationnel et donc il existe une bijection entre la famille des intervalles et une partie de <m>\Q</m> </fn>. Donc <m>D_X</m> est au plus dénombrable.
+          </p></explanation>
+        </li>
+
+        <li>
+          <p>
+            Si <m>X</m> est une <acro>VADR</acro> alors <m>D_X</m> est non vide et il est inclu dans <m>X(\Omega)</m>
+          </p>
+          <explanation><p>
+            Si <m>x\in D_X</m> alors <m>\Pr{X=x}=F_X(x)-F_X(x^-)\gt 0</m> et donc <m>x\in X(\Omega)</m>. En outre <m>D_X</m> ne peut être vide car il existe au moins un élément <m>x\in X(\Omega)</m> tel que <m>\Pr{X=x}\gt 0</m>.
+          </p></explanation>
+        </li>
+
+        
+      </ol>
+    </remark>
+
+    <proposition xml:id="prop-loirepart">
+      <statement>
+          <p>
+            Soit <m>X</m> une VAR. 
+            La fonction <m>F_X</m> permet d'exprimer la probabilité de tous les événements de la forme <m>(X\in I)</m> où <m>I</m> est un intervalle quelconque de <m>\R</m>. Pour deux réels <m>a,b\in\R</m> tels que <m>a\lt b</m> on a:
+            <md>
+              <mrow>\Pr{X\leq a} \amp:=F_X(a) </mrow>
+              <mrow>\Pr{X\lt a}\amp= F_X(a^-)</mrow>
+              <mrow>\Pr{X\gt a}\amp=1-F_X(a)</mrow>
+              <mrow>\Pr{X\geq a}\amp=1-F_X(a^-)</mrow>
+              <mrow>\Pr{a\leq X\leq b}\amp=F_X(b)-F_X(a^-)</mrow>
+              <mrow>\Pr{a\lt X\leq b}\amp=F_X(b)-F_X(a)</mrow>,
+              <mrow>\Pr{a\leq X\lt b}\amp=F_X(b^-)-F_X(a^-)</mrow>
+              <mrow>\Pr{a\lt X\lt b}\amp=F_X(b^-)-F_X(a)</mrow>
+            </md>
+          </p>
+      </statement>
+    </proposition>
+
+    <remark>
+      <p>
+        <m>\mathscr B(\R)</m> est la tribu de <m>\R</m> engendrée par tous les intervalles de <m>\R</m>. La proposition précédente suggère donc que la fonction de répartition  <m>F_X</m> caractérise de façon unique sa loi <m>\PP_X</m>. On admet le théorème suivant qui confirme cette idée. 
+      </p>
+    </remark>
+
+    <theorem xml:id="thm-caractloi">
+      <statement>
+        <p>
+          Deux VAR ont la même loi si et seulement si elles ont la même fonction de répartition.
+        </p>
+      </statement>
+    </theorem>
+    
+    
+
+    <example><title> cas d'une <acro>VADR</acro> </title>
+        
+        
+            <p>
+                Soit <m>X</m> est une <acro>VADR</acro> dont on connait la loi. On pose <m>X(\Omega)=\{x_n\mid n\in\N\}</m> et pour tout <m>n\in\N</m>, <m>p_n=\Pr{X=x_n}</m>. 
+            </p> 
+            <ul>  
+            <li><p>
+                La fonction de répartition de <m>X</m> est alors donnée par 
+                <me>
+                    F_X(t)=\sum_{\substack{n\in\N\\ x_n\leq t}} p_n=
+                    \sum_{n\in\N}p_n\bbone_{[x_n,+\infty[}(t)
+                </me>
+                Rappelons que réciproquemnt la loi de <m>X</m> peut être exprimée en fonction de <m>F_X</m> par 
+          <me>
+            \forall n\in\N^*,\; \Pr{X=x_n}=F_X(x_n)-F(x_n^-)=F_X(x_n)-F_X(x_{n-1})
+          </me>
+          Le <xref ref="thm-caractloi"/> est donc évident dans le cas d'une <acro>VADR</acro>.
+            </p></li>
+            <li><p>
+                Dans le cas où on peut organiser les valeurs possibles de <m>X</m> en une <em>suite strictement croissante</em>
+                <fn> ce n'est pas nécessairement le cas, penser au cas où <m>X(\Omega)=\Q</m> par exemple</fn>
+                 <m>(x_n)_n</m> alors pour tout <m>t\in]x_0,\lim x_n[</m>, il existe un unique entier <m>n(t)</m> tel que <m>x_{n(t)}\leq t\lt x_{n(t)+1}</m> et on a dans ce cas 
+                 <me>
+                    F_X(t)=\sum_{k=0}^{n(t)}p_k
+                 </me>
+                Par ailleurs, si <m>t\lt x_0</m> alors <m>F_X(t)=0</m> et si jamais <m>t\geq \lim x_n</m> alors <m>F_X(t)=1</m>. 
+                Résumons :
+                <men xml:id="eq-repdisc">
+                  F_X(t)=\begin{cases}
+                    0 \amp\text{si } t\lt x_0 \\
+                    \sum\limits_{k=0}^n p_k\amp\text{s'il existe } n\in\N\;;\; t\in[x_n,x_{n+1}[\\ 
+                    1 \amp \text{si } \lim x_n\lt+\infty \text{ et }t\geq \lim x_n
+                  \end{cases}
+                </men>
+                
+        </p></li>
+        <li><p>
+            Dans le cas où <m>X</m> prend un nombre fini de valeurs <m>x_0\lt x_1\lt\cdots\lt x_N</m> alors <m>F_X</m> est définie comme dans <xref ref="eq-repdisc"/> en remplaçant <m>\N</m> par <m>\iic{0,N-1}</m> et <m>\lim x_n</m> par <m>x_N</m>.
+            
+        </p></li> 
+        </ul>
+        </example>
+
+    <example xml:id="example-U">
+      <title>Loi uniforme sur un segment</title>
+      <notation>
+        <usage><m>\mathscr U([a,b])</m></usage>
+        <description>loi uniforme sur le segment <m>[a,b]</m></description>
+      </notation>
+
+      <statement>
+        <p>
+          On dit qu'une VAR <m>U</m> suit une loi uniforme sur un segment non trivial <m>[a,b]</m> de <m>\R</m> et on écrit <m>U\sim\mathscr U([a,b])</m> si
+          <me>
+            \text{pour tout intervall } I \text{ de } \R,\;\Pr{U\in I}=\ds\frac{\ell(I\cap[a,b])}{b-a}
+          </me>
+          où <m>\ell(I\cap[a,b])</m> est la longueur de l'intervalle <m>I\cap[a,b]</m>. La variable <m>U</m> est le résultat de l'expérience aléatoire qui consiste en le tirage d'un réel entre <m>a</m> et <m>b</m> de façon équiprobable. La probabilité de tirer un réel entre deux éléments <m>\alpha</m> et <m>\beta</m> de <m>[a,b]</m> vaut <m>|\beta-\alpha|/(b-a)</m>. 
+        </p>
+
+        <p>
+          La fonction de répartition de <m>U</m> est définie par
+          <me>
+            F_U(t)=\begin{cases} 0 \amp\text{si } t\lt a \\
+            \ds\frac{t-a}{b-a} \amp\text{si } a\leq t\leq b \\ 
+            1 \amp\text{si }t\gt b \end{cases}
+          </me>
+          Si <m>U\sim \mathscr U([0,1])</m> par exemple alors 
+          <me>
+            F_U(t)=\begin{cases} 0 \amp\text{si } t\lt 0 \\
+            \ds t \amp\text{si } 0\leq t\leq 1 \\ 
+            1 \amp\text{si }t\gt 1 \end{cases}
+          </me>
+          La fonction <m>F_U</m> est continue sur <m>\R</m> et en particulier <m>\Pr{U=t}=0</m> pour tout <m>t\in\R</m>. 
+        </p>
+      </statement>
+    
+      
+    </example>
+  </subsection>
+
+
+  <subsection xml:id="subsec-loi-activite">
+    <title>Activités</title>
+
+    <activity>
+      <title>Loi hypergéometrique</title>
+      <notation>
+        <usage><m>\mathscr H(N,n,p)</m></usage>
+        <description>loi hypergéométrique de paramètres <m>N,n,p</m> </description>
+      </notation>
+
+      <introduction>
+        <p>
+          Soient <m>p\in[0,1]</m> et <m>n,N\in\N^*</m> avec <m>n\leqslant N</m>.
+          On prélève de façon équiprobable un échantillon de <m>n</m> individus dans une population de <m>N</m> individus.
+          On effectue des tests de type Bernouilli sur les individus de l'échantillon sachant que la proportion d'individu positifs au test dans toute la population est <m>p</m>.
+          <m>X</m> est le nombre d'individus qui s'avèrent positifs au test dans l'échantillon.
+        </p>
+      </introduction>
+
+
+      <task>
+        <statement>
+          <p>
+            Quelle est la loi de <m>X</m> ?
+          </p>
+        </statement>
+
+        <answer>
+          <p>
+            <m>X(\Omega)\subset[\![0,n]\!]</m> et <m>\forall k\in X(\Omega),\; \displaystyle \Pr{X=k}=\frac{\binom{pN}k\binom{(1-p)N}{n-k}}{\binom Nn}</m>
+          </p>
+        </answer>
+
+        <solution>
+          <p>
+            Le nombre <m>k</m> de tests positifs dans l'échantiloon ne peut dépasser <m>n</m>, ni <m>pN</m> le nombre total d'individus positifs dans toute la population.
+            D'un autre côté si <m>N-pN\lt n</m> alors on est sûr d'avoir au moins <m>n-(N-pN)</m> tests positifs dans l'échantillon.
+            Ainsi
+            <me>
+              \max(0,n-(1-p)N)\leqslant k\leqslant \min(n,pN)
+            </me>
+            Ce qui suggère de prendre <m>X(\Omega)=[\![\max(0,n-(1-p)N),\min(n,pN)]\!]</m>.
+            Mais pour simplifier on prend plutôt <m>X(\Omega)=[\![0,n]\!]</m> quitte à considèrer que les résultats impossibles ont une probabilité nulle.
+          </p>
+
+          <p>
+            Ensuite, il y a <m>\binom Nn</m> façon de prélever équiprobablement <m>n</m> individus dans une population de <m>N</m> éléments.
+            Parmi ces prélévements, ceux qui contiendront exactement <m>k</m> individus positifs sont au nombre de <m>\binom{pN}{k}\binom{N-pN}{n-k}</m> car il s'agit de prélever <m>k</m> indivdus parmi <m>pN</m> qui sont positifs au test et <m>n-k</m> individus parmi <m>N-pN</m> qui ne le sont pas.
+            Vu l'équiprobabilité des prélèvements on a donc
+            <me>
+              \Pr{X=k}=\frac{\binom{pN}{k}\binom{(1-p)N}{n-k}}{\binom Nn}
+            </me>
+            On notera <m>\mathscr H(N,n,p)</m> la loi de la variable <m>X</m>.
+            Elle est dite loi hypergéomètrique de paramètres <m>N,n</m> et <m>p</m>.
+          </p>
+        </solution>
+      </task>
+
+
+      <task>
+        <statement>
+          <p>
+            On note <m>X_k</m> le résultat du test du <m>k^\text{e}</m> individu.
+            Quelle est la loi de <m>X_k</m> ?
+          </p>
+        </statement>
+
+        <answer>
+          <p>
+            <m>\Pr{X_k=1}=p</m>
+          </p>
+        </answer>
+
+        <solution>
+          <p>
+            Prélever un échantillon de <m>n</m> individus de façon équiprobable revient à prelever sans remise un à un et de façon équiporbable les <m>n</m> individus.
+            Notons <m>X_k</m> la variable de Bernouilli qui vaut <m>1</m> si le <m>k^\text{e}</m> individu prélevé de la population est positif au test.
+            Alors <m>X=X_1+X_2+\cdots+X_n</m>.
+            La question précédente montre ainsi que pour tout <m>k\in[\![1,N]\!]</m>
+            <me>
+              S_k=X_1+X_2+\cdots+X_k\sim\mathscr H(N,k,p)
+            </me>
+            Soit maintenant <m>k\in[\![1,N-1]\!]</m>.
+            Grâce à la formule des probabilités totales, on peut écrire
+            <me>
+              \Pr{X_{k+1}=1}=\sum_{i=0}^{k}\Pr{X_{k+1}=1\giv S_{k}=i}\Pr{S_{k}=i}
+            </me>
+            <m>\Pr{X_{k+1}=1\giv S_{k}=i}</m> est la probabilité que le <m>(k+1)^{\text{e}}</m> individu prélevé soit positif sachant que <m>i</m> individus ont été positifs pour les <m>k</m> prélévements précédents. Dans ces condition, il reste <m>N-k</m> individu dans la population dont <m>pN-i</m> sont positifs. Par équiprobabilité des prélévements on a donc
+            <me>
+              \Pr{X_k=1 \giv  S_{k-1}=i}=\frac{pN-i}{N-k}
+            </me>
+            Ainsi
+            <md>
+              <mrow> \Pr{X_{k+1}=1} \amp= \sum_{i=0}^{k}\frac{pN-i}{N-k}\cdot \frac{\binom{pN}{i}\binom{(1-p)N}{k-i}}{\binom{N}{k}} </mrow>
+              <mrow> \amp=\frac{1}{(N-k)\binom Nk}\textstyle\left(pN\sum\limits_{i=0}^k\binom{pN}{i}\binom{(1-p)N}{k-i}-\sum\limits_{i=0}^k i\binom{pN}{i}\binom{(1-p)N}{k-i}\right) </mrow>
+              <mrow> \amp= \frac{pN}{(N-k)\binom Nk}\left(\textstyle\sum\limits_{i=0}^k\binom{pN}{i}\binom{(1-p)N}{k-i}- \sum\limits_{i=1}^k \binom{pN-1}{i-1}\binom{(1-p)N}{k-i}\right) </mrow>
+              <mrow> \amp= \frac{pN}{(N-k)\binom Nk}\left(\binom Nk-\binom{N-1}{k-1}\right) </mrow>
+              <mrow> \amp= \frac{pN}{(N-k)\binom Nk}\binom{N-1}{k} </mrow>
+              <mrow> \amp= \frac{pN}{N-k}\frac{(N-1)!}{k!(N-1-k)!}\frac{k!(N-k)!}{N!} </mrow>
+              <mrow> \amp=p </mrow>
+            </md>
+            Il en ressort que malgré le changement de la répartition des cas positifs/cas négatifs après chaque prélévement, la probabulité de prélever un cas positif est toujours <m>p</m>.
+          </p>
+        </solution>
+      </task>
+    </activity>
+
+    <activity>
+      <title>Loi du temps d'attente du <m>k^\text{e}</m> succès </title>
+
+      <statement>
+        <p>
+          Soient <m>p\in]0,1[</m> et <m>k\in N^*</m>.
+          Quel est la loi du temps d'attente du <m>k^\text{e}</m> succés lorsque on répète indéfiniment et de façon indépendante une exprérience de Bernouilli de paramètre <m>p</m>
+        </p>
+      </statement>
+
+      <answer>
+        <p>
+          <m>X(\Omega)=\{n\in\N\mid n\geqslant k\}</m> et <m>\forall n\in X(\Omega),\; \Pr{X=n}=\displaystyle\binom{n-1}{k-1}p^k(1-p)^{n-k}</m>
+        </p>
+      </answer>
+    </activity>
+
+    <activity xml:id="act-binomial-poisson">
+      <title>Comportement asymptotique d'une loi binomiale</title>
+
+      <statement>
+        <p>
+          On considère une suite <m>(p_n)_{n\in\N^*}</m> de nombres réels de <m>[0,1]</m> et on suppose que <m>np_n\longrightarrow \lambda\in\R^*</m>.
+          Soit pour tout <m>n\in\N^*</m> une variable aléatoire <m>X_n</m> qui suit la loi <m>\mathscr B(n,p_n)</m>.
+          Déterminer pour tout entier <m>k</m> fixé, la limite de <m>\Pr{X_n=k}</m> et donner une interprétation du résultat obtenu.
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          Fixons <m>k\in\N</m> et considérons un entier <m>n\geqslant k</m>.
+          <me>
+            \Pr{X_n=k}=\binom nk p_n^k(1-p_n)^{n-k}= \frac1{k!}n(n-1)\cdots(n-k+1)p_n^k(1-p_n)^{n-k}
+          </me>
+          <m>p_n\sim\lambda/n</m> donc <m>(1-p_n)^k\longrightarrow 1</m> et donc <m>(1-p_n)^{n-k}\sim (1-p_n)^n</m>.
+          <md>
+            <mrow> (1-p_n)^n \amp= \exp\Bigl(n\ln(1-p_n)\Bigr) </mrow>
+            <mrow> \amp= \exp\Bigl(n\ln\bigl(1-\lambda/n+o(1/n)\bigl)\Bigr) </mrow>
+            <mrow> \amp= \exp\Bigl(n\bigl(-\lambda/n+o(1/n)\bigr)\Bigr) </mrow>
+            <mrow>(1-p_n)^n \amp\longrightarrow e^{-\lambda} </mrow>
+          </md>
+          D'un autre côté, puisque <m>k</m> est fixé alors
+          <me>
+            n(n-1)\cdots (n-k+1)p_n^k\sim (np_n)^k\longrightarrow \lambda^k
+          </me>
+          Ainsi <m> \Pr{X_n=k}\longrightarrow \frac{\lambda^k}{k!}e^{-\lambda} </m>, ou encore
+          <me>
+            \forall k\in\N^*,\; \Pr{X_n=k}\longrightarrow \Pr{X=k}
+          </me>
+          où <m>X</m> est une variable aléatoire qui suit la loi <m>\mathscr P(\lambda)</m>.
+          On dit que la suite <m>(X_n)_n</m> <term>converge en loi</term>  vers <m>X</m>.
+        </p>
+
+        <p>
+          Ainsi, une variable aléatoire binomiale de paramètres <m>n,p</m> se comporte lorsque <m>n</m> est grand comme une loi de Poisson de paramètre <m>\lambda\approx np</m>.
+        </p>
+      </solution>
+    </activity>
+
+    <activity>
+      <title>Variables aléatoires discrètes sans mémoire</title>
+
+      <introduction>
+        <p>
+          Dans cette activité, nous allons explorer la propriété d'absence de mémoire des variables aléatoires discrètes.
+          Une variable aléatoire discrète <m>T</m> à valeurs entières positives (<m>k = 1, 2, 3, \ldots</m>) est dite <em>sans mémoire</em> si elle satisfait la propriété suivante pour tous entiers <m>s, t \geq 0</m> :
+          <me>
+            \Pr{T \gt s + t  \giv  T \gt s} = \Pr{T \gt t}.
+          </me>
+          Nous allons montrer que la distribution géométrique est la seule distribution discrète sans mémoire.
+        </p>
+      </introduction>
+      <!-- Question 1 : Montrer qu'une variable géométrique est sans mémoire -->
+      <task>
+        <title>Question 1 : Une variable géométrique est sans mémoire</title>
+
+        <statement>
+          <p>
+            Soit <m>T</m> une variable aléatoire suivant une distribution géométrique de paramètre <m>p</m>.
+            Montrer que <m>T</m> est sans mémoire.
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            Pour montrer que <m>T</m> est sans mémoire, calculons <m>\Pr{T \gt s + t  \giv  T \gt s}</m>.
+          </p>
+
+          <p>
+            <ol>
+              <li>
+                <p>
+                  La fonction de survie de <m>T</m> est :
+                  <me>
+                    \Pr{T \gt k} = (1 - p)^k.
+                  </me>
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  Par définition de la probabilité conditionnelle, on a :
+                  <me>
+                    \Pr{T \gt s + t  \giv  T \gt s} = \frac{\Pr{T \gt s + t}}{\Pr{T \gt s}}.
+                  </me>
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  En utilisant la fonction de survie, cela devient :
+                  <me>
+                    \Pr{T \gt s + t  \giv  T \gt s} = \frac{(1 - p)^{s + t}}{(1 - p)^s} = (1 - p)^t.
+                  </me>
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  Or, <m>\Pr{T \gt t} = (1 - p)^t</m>.
+                  On a donc bien :
+                  <me>
+                    \Pr{T \gt s + t  \giv  T \gt s} = \Pr{T \gt t}.
+                  </me>
+                </p>
+              </li>
+            </ol>
+          </p>
+
+          <p>
+            Ainsi, une variable géométrique est sans mémoire.
+          </p>
+        </solution>
+      </task>
+      <!-- Question 2 : Montrer la réciproque -->
+      <task>
+        <title>Question 2 : Réciproque</title>
+
+        <statement>
+          <p>
+            Soit <m>T</m> une variable aléatoire discrète à valeurs entières positives (<m>k = 1, 2, 3, \ldots</m>) et sans mémoire.
+            Montrer que <m>T</m> suit nécessairement une distribution géométrique.
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            Pour montrer que <m>T</m> suit une distribution géométrique, nous allons analyser sa fonction de survie <m>q_k = \Pr{T \gt k}</m>.
+          </p>
+
+          <p>
+            <ol>
+              <li>
+                <p>
+                  <em>Propriété d'absence de mémoire :</em> La propriété d'absence de mémoire s'écrit :
+                  <me>
+                    \Pr{T \gt s + t  \giv  T \gt s} = \Pr{T \gt t}.
+                  </me>
+                  En utilisant la définition de la probabilité conditionnelle, cela devient :
+                  <me>
+                    \frac{\Pr{T \gt s + t}}{\Pr{T \gt s}} = \Pr{T \gt t}.
+                  </me>
+                  Notons <m>q_k = \Pr{T \gt k}</m>.
+                  Alors, la propriété devient :
+                  <me>
+                    q_{s + t} = q_s \cdot q_t.
+                  </me>
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  <em>Forme de la fonction de survie :</em> L'équation fonctionnelle <m>q_{s + t} = q_s \cdot q_t</m> implique que <m>q_k</m> est de la forme :
+                  <me>
+                    q_k = (q_1)^k.
+                  </me>
+                  En effet, en posant <m>s = 1</m> et <m>t = k - 1</m>, on obtient :
+                  <me>
+                    q_k = q_1 \cdot q_{k-1}.
+                  </me>
+                  Par récurrence, on montre que <m>q_k = (q_1)^k</m>.
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  <em>Paramètre de la distribution géométrique :</em> Posons <m>q_1 = 1 - p</m>, où <m>p</m> est un paramètre tel que <m>0 \lt p \leq 1</m>. Alors, la fonction de survie devient :
+                  <me>
+                    q_k = (1 - p)^k.
+                  </me>
+                  La fonction de masse de <m>T</m> est donnée par :
+                  <me>
+                    \Pr{T = k} = q_{k-1} - q_k = (1 - p)^{k-1} - (1 - p)^k = (1 - p)^{k-1} p.
+                  </me>
+                  Cela correspond exactement à la distribution géométrique de paramètre <m>p</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+
+          <p>
+            Ainsi, une variable aléatoire discrète sans mémoire suit nécessairement une distribution géométrique.
+          </p>
+        </solution>
+      </task>
+    </activity>
+
+    <activity>
+      <title>Une indépendance contre-intuitive</title>
+
+      <statement>
+        <p>
+          <m>N</m> suit une loi de Poisson de paramètre <m>\lambda</m>. <m>X</m> est le nombre de succès quand on répète de façon indépendante <m>N</m> test de Bernouilli de paramètre <m>p</m>.
+          <ol>
+            <li>
+              <p>
+                Déterminer la loi de <m>X</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Vérifier que <m>X</m> et <m>N-X</m> sont indépendantes.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+
+      <solution>
+        <ol>
+          <li>
+            <p>
+              <m>N</m> peut potentiellement prendre toutes les valeurs dans <m>\N</m>. Il en est de même pour <m>X</m>. Ensuite pour tout <m>k\in\N</m>
+              <md>
+                <mrow> \Pr{X=k} \amp =\sum_{n=k}^{+\infty}\Pr{X=k \giv  N=n}\Pr{N=n} </mrow>
+                <mrow> \amp=\sum_{k=n}^{+\infty}\binom nk p^k(1-p)^{n-k}\cdot \frac{\lambda^n}{n!}e^{-\lambda} </mrow>
+                <mrow> \amp=\lambda^ke^{-\lambda}\frac{p^k}{k!}\sum_{n=k}^{+\infty} \frac{((1-p)\lambda)^{n-k}}{(n-k)!} </mrow>
+                <mrow> \amp= \frac{(p\lambda)^k}{k!}e^{-p\lambda} </mrow>
+              </md>
+              Ainsi <m>X\sim\mathscr P(p\lambda)</m>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>N-X</m> est le nombre d'echecs pour <m>N</m> tests. Il suffit donc de remplacer <m>p</m> par <m>q=1-p</m> dans le calcul de la loi de <m>X</m> : <m>N-X\sim\mathscr P(q\lambda)</m>. Ensuite si <m>k,h\in\N</m> alors
+              <md>
+                <mrow>\Pr{X=k,N-X=h} \amp=\Pr{X=k,N=k+h} </mrow>
+                <mrow> \amp=\Pr{X=k \giv  N=k+h}\Pr{N=k+h} </mrow>
+                <mrow> \amp=\binom {k+h}kp^kq^h\cdot \frac{\lambda^{k+h}}{(k+h)!}e^{-\lambda} </mrow>
+                <mrow> \amp= \frac{(p\lambda)^k}{k!}e^{-p\lambda}\cdot \frac{(q\lambda)^h}{h!}e^{-q\lambda}</mrow>
+                <mrow> \amp=\Pr{X=k}\Pr{N-X=h} </mrow>
+              </md>
+              <m>X</m> et <m>N-X</m> sont donc bien indépendantes contrairement à «l'intuition». (<m>X</m> et le nombre de succés et <m>N-X</m> le nombre d'echecs pour <m>N</m> tests.)
+            </p>
+          </li>
+        </ol>
+      </solution>
+    </activity>
+
+    <activity xml:id="marche-aleatoire-deepseek">
+      <title>Marche aléatoire sur une droite</title>
+
+      <introduction>
+        <p>
+          Un objet se déplace sur une droite graduée.
+          À chaque instant, il ne peut qu'avancer d'un pas avec une probabilité <m>p</m> ou reculer d'un pas avec une probabilité <m>q = 1 - p</m>.
+          Les déplacements sont tous indépendants.
+        </p>
+      </introduction>
+      <!-- Question 1 -->
+      <task>
+        <title>Loi de <m>X_n</m></title>
+
+        <statement>
+          <p>
+            On note <m>X_n</m> la position de l'objet sur la droite au <m>n^\text{e}</m> pas, en supposant qu'il était sur la position d'indice <m>a \in \N</m> de la droite à l'instant <m>0</m>.
+            Quelle est la loi de <m>X_n</m> ?
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            On note <m>B_k</m> la variable de Bernoulli qui vaut <m>1</m> si l'objet avance d'un pas et <m>0</m> s'il recule d'un pas au <m>k^\text{e}</m> pas.
+            Alors :
+            <me>
+              X_n = a + \sum_{k=1}^n (2B_k - 1) = 2S_n + a - n,
+            </me>
+            où <m>S_n = B_1 + B_2 + \cdots + B_n</m> suit la loi binomiale <m>\mathscr{B}(n, p)</m>.
+          </p>
+
+          <p>
+            On en déduit que <m>X_n + n - a = 2S_n</m> est pair.
+            Ainsi, <m>X_n(\Omega)</m> est l'ensemble des entiers compris entre <m>a - n</m> et <m>a + n</m> qui ont la même parité que <m>n - a</m> (ou, de manière équivalente, la même parité que <m>a + n</m>).
+            Pour simplifier, on pose <m>X_n(\Omega) = [\![a - n, a + n]\!]</m>, sachant que les événements <m>(X_n = k)</m> sont impossibles lorsque <m>k + a + n</m> est impair.
+          </p>
+
+          <p>
+            Si <m>k \in X_n(\Omega)</m>, alors <m>\Pr{X_n=k}=\Pr{S_n=\frac{n+k-a}{2}}</m> et donc :
+            <me>
+              \Pr{X_n = k} = \begin{cases} \displaystyle \binom{n}{\frac{n + k - a}{2}} p^{\frac{n + k - a}{2}} q^{\frac{n - k + a}{2}} \amp \text{si } n + k - a \text{ est pair}, \\ 0 \amp \text{sinon}.
+              \end{cases}
+            </me>
+          </p>
+        </solution>
+      </task>
+      <!-- Question 2 -->
+      <task>
+        <title>Nombre de chemins et loi de <m>X_n</m></title>
+
+        <statement>
+          <p>
+            On représente chaque parcours de l'objet entre les instants <m>0</m> et <m>n</m> par la ligne brisée passant par les points <m>(k, X_k)</m> tel que illustré dans la <xref ref="chemin-marche"/> par la ligne tracée en continu.
+            On note <m>C_n(a, b)</m> le nombre de ces lignes qui vont du point <m>(0, a)</m> au point <m>(n, b)</m>.
+            Expliciter <m>C_n(a, b)</m> et exprimer la loi de <m>X_n</m> en fonction de ces nombres.
+            <figure xml:id="chemin-marche">
+              <image source="images/chemin-marche"/>
+              </figure>
+            </p>
+          </statement>
+
+          <solution>
+            <p>
+              Chaque chemin peut être représenté par un mot unique de longueur <m>n</m> formé des motifs <c>/</c> (avancer) et <c>\</c> (reculer).
+              Si <m>r</m> désigne le nombre de motifs <c>/</c> et <m>s</m> celui des motifs <c>\</c>, alors :
+              <me>
+                r + s = n \quad \text{et} \quad r - s = b - a.
+              </me>
+              On en déduit que <m>2r = n + b - a</m>, ce qui implique qu'un chemin entre <m>(0, a)</m> et <m>(n, b)</m> n'est possible que si <m>n</m> est de même parité que <m>b - a</m>.
+              Dans ce cas, <m>r = \frac{n + b - a}{2}</m>.
+            </p>
+
+            <p>
+              Le nombre de ces chemins est donc :
+              <me>
+                C_n(a, b) = \begin{cases} \displaystyle \binom{n}{\frac{n + b - a}{2}} \amp \text{si } n + b - a \text{ est pair}, \\ 0 \amp \text{sinon}.
+                \end{cases}
+              </me>
+              On notera que :
+              <ul>
+                <li>
+                  <p>
+                    puisque <m>\frac{n+b-a}2+\frac{n-b+a}2=n</m> alors  <m>C_n(a,b)=C_n(-a,-b)</m> signifiant que le nombre de parcours entre <m>(0,a)</m> et <m>(n,b)</m> est le même que celui entre <m>(0,-a)</m> et <m>(n,-b)</m>, chaque chemin de <m>(0,-a)</m> à <m>(n,-b)</m> étant le symétrique par rapport à l'axe <m>Ox</m> d'un chemin de <m>(0,a)</m> à <m>(n,b)</m>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    <m>C_n(a,b)=C_n(b,a)</m> signifiant que le nombre de parcours entre <m>(0,a)</m> et <m>(n,b)</m> est le même que celui entre <m>(0,b)</m> et <m>(n,a)</m> ou que chaque chemin de <m>(0,b)</m> à <m>(n,a)</m> revient à parcourir à l'envers un chemin de <m>(0,a)</m> à <m>(n,b)</m>.
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    pour tout <m>c\in\Z</m>, <m>C_n(a+c,b+c)=C_n(a,b)</m>, et en particulier <m>C_n(a,b)=C_n(0,b-a)</m>,  confirmant qu'un parcours entre <m>(0,a+c)</m> et <m>(n,b+c)</m> s'obtient par décalage du temps d'un chemin de <m>(0,a)</m> à <m>(n,b)</m>.
+                  </p>
+                </li>
+              </ul>
+            </p>
+
+            <p>
+              La loi de <m>X_n</m> peut alors s'exprimer comme :
+              <me>
+                \forall k \in X_n(\Omega), \; \Pr{X_n = k} = C_n(a, k) p^{\frac{n + k - a}{2}} q^{\frac{n - k + a}{2}}.
+              </me>
+            </p>
+          </solution>
+        </task>
+        <!-- Question 3 -->
+        <task>
+          <title>Principe de réflexion</title>
+
+          <statement>
+            <p>
+              On suppose que <m>a, b > 0</m> et on note <m>C_n^0(a, b)</m> le nombre de parcours entre <m>(0, a)</m> et <m>(n, b)</m> qui passent au moins une fois par un point de la forme <m>(k, 0)</m>.
+              Justifier que <m>C_n^0(a, b) = C_n(-a, b)</m>.
+            </p>
+          </statement>
+
+          <solution>
+            <p>
+              Pour chaque chemin <m>\mathcal{C}</m> allant de <m>(0, a)</m> vers <m>(n, b)</m> et touchant au moins une fois l'axe <m>Ox</m>, il existe un unique chemin <m>\mathcal{C}'</m> allant de <m>(0, -a)</m> vers <m>(n, b)</m> qui est symétrique par rapport à l'axe <m>Ox</m> entre les instants <m>0</m> et <m>k</m>, où <m>k</m> est le premier instant où <m>\mathcal{C}</m> touche l'axe <m>Ox</m>.
+              Réciproquement, chaque chemin <m>\mathcal{C}'</m> de <m>(0, -a)</m> vers <m>(n, b)</m> doit toucher l'axe <m>Ox</m> au moins une fois et est le symétrique d'un chemin <m>\mathcal{C}</m> de <m>(0, a)</m> vers <m>(n, b)</m>.
+              Voir la <xref ref="chemin-marche"/> pour une illustration des chemins <m>\mathcal C</m> et <m>\mathcal C'</m>.
+            </p>
+
+            <p>
+              Cette correspondance établit une bijection entre l'ensemble des chemins <m>\mathcal{C}</m> et celui des chemins <m>\mathcal{C}'</m>.
+              Ainsi :
+              <me>
+                C_n^0(a, b) = C_n(-a, b).
+              </me>
+            </p>
+          </solution>
+        </task>
+        <!-- Question 4 -->
+        <task>
+          <title>Théorème du scrutin</title>
+
+          <statement>
+            <p>
+              On suppose que <m>a=0</m> et <m>b\gt 0</m>.
+              Montrer que le nombre de parcours de <m>(0, 0)</m> vers <m>(n, b)</m> qui ne reviennent jamais sur l'origine est <m>\frac{b}{n} C_n(0, b)</m> et en déduire que lorsque <m>X_0=0</m> alors
+              <me>
+                \Pr{X_1X_2\cdots X_n\ne0, X_n=b}=\frac bn\Pr{X_n=b}
+              </me>
+            </p>
+          </statement>
+
+          <solution>
+            <p>
+              Un chemin partant de <m>(0, 0)</m> vers <m>(n, b)</m> sans revenir sur l'axe <m>Ox</m> est entièrement déterminé par sa portion allant de <m>(1, 1)</m> vers <m>(n, b)</m> et qui ne touche jamais l'axe <m>Ox</m>.
+              Si <m>n + b</m> est pair, en posant <m>r = \frac{n + b}{2}</m>, leur nombre est donné par :
+              <md>
+                <mrow>  U_n(b):=C_{n-1}(1,b)-C_{n-1}^0(1,b) \amp= C_{n-1}(1,b)-C_{n-1}(-1,b) </mrow>
+                <mrow> \amp=\binom{n-1}{\frac{n+b-2}2}-\binom{n-1}{\frac{n+b}2}  </mrow>
+                <mrow> \amp= \binom {n-1}{r-1}-\binom{n-1}{r} </mrow>
+                <mrow> \amp=\binom{n}{r}\left(\frac rn-\frac{n-r}{n}\right)  </mrow>
+                <mrow> \amp=\frac{2r-n}{n}\binom{n}{r} </mrow>
+              </md>
+              Soit au final :
+              <me>
+                U_n(b) = \frac{b}{n} C_n(0, b).
+              </me>
+              Si on note <m>u_n(b):=\Pr{X_1X_2\cdots X_n\ne0,X_n=b}</m>, la probabilité pour qu'en partant du point <m>(0,0)</m> on atteigne le point <m>(n,b)</m> sans jamais revenir à l'origine alors
+              <me>
+                u_n(b)=U_n(b)p^{\frac{n+b}2}q^{\frac{n-b}2}=\frac bn\Pr{X_n=b}
+              </me>
+              Noter que cela implique que :
+              <me>
+                \sum_{k=1}^nu_n(k)=\frac1n\sum_{k=0}^nk\Pr{X_n=k}=\frac1n\EE(X_n)
+              </me>
+              <m>\sum_{k=1}^nu_n(k)</m> est la probabilité de ne pas revenir à l'origine entre les instants <m>0</m> et <m>n</m>.
+            </p>
+          </solution>
+        </task>
+        <!-- Question 5 -->
+        <task>
+          <title>Parcours sans retour vers l'origine</title>
+
+          <statement>
+            <p>
+              En déduire la probabilité <m>f_n</m> pour qu'on retourne pour la première fois à l'origine à l'instant <m>2n</m> sachant qu'on était sur l'origine à l'instant <m>0</m>.
+            </p>
+          </statement>
+
+          <solution>
+            <p>
+              Notons <m>F_n</m> le nombre de ces chemins.
+              Ce nombre est celui des chemins qui vont de <m>(0, 0)</m> à <m>(2n - 1, 1)</m> ou de <m>(0, 0)</m> à <m>(2n - 1, -1)</m> sans revenir sur l'axe <m>Ox</m>.
+              Par symétrie, le nombre de parcours dans la deuxième catégorie est le même que celui dans la première.
+              Ainsi :
+              <me>
+                F_n = 2 U_{2n-1}(1) = \frac{2}{2n - 1} C_{2n-1}(0, 1) = \frac{2}{2n - 1} \binom{2n - 1}{n}.
+              </me>
+              En utilisant l'identité <m>\binom{2n - 1}{n} = \frac{1}{2} \binom{2n}{n}</m>, on obtient :
+              <me>
+                F_n = \frac{1}{2n - 1} \binom{2n}{n}.
+              </me>
+              Par suite :
+              <me>
+                f_n=F_n(pq)^n=\frac{1}{2n - 1} \binom{2n}{n}(pq)^n
+              </me>
+            </p>
+          </solution>
+        </task>
+        <!-- Question 6 -->
+        <task>
+          <title>Loi du premier retour à l'origine</title>
+
+          <statement>
+            <p>
+              On suppose que <m>a = 0</m> et on note <m>N</m> le numéro du premier pas pour lequel l'objet revient sur l'origine.
+              Quelle est la loi de <m>N</m> ?
+            </p>
+          </statement>
+
+          <solution>
+            <p>
+              <m>N</m> est le temps d'attente du premier retour à l'origine. Il peut être infini si l'objet ne revient jamais à l'origine. Ainsi, <m>N(\Omega) = \N^* \cup \{\infty\}</m>.
+            </p>
+
+            <p>
+              Pour <m>n \in \N</m>, l'événement <m>(N=2n+1)</m> est impossible.
+            </p>
+
+            <p>
+              Pour <m>n \in \N^*</m>, <m>\Pr{N=2n}=f_n</m> donc selon la question précédente
+              <me>
+                \Pr{N=2n}=\frac{1}{2n-1}\binom{2n}{n}p^nq^n
+              </me>.
+            </p>
+
+            <p>
+              La probabilité que <m>N = \infty</m> est donnée par :
+              <me>
+                \Pr{N = \infty} = 1 - \sum_{n=1}^\infty \Pr{N = 2n} = \sqrt{1 - 4pq}.
+              </me>
+              Cette probabilité est nulle si et seulement si <m>p = q = \frac{1}{2}</m>.
+              Elle vaut pratiquement <m>1</m> si <m>p</m> est voisin de <m>0</m> ou de <m>1</m>.
+              Ce qui signife qu'on est presque sûr de revenir à l'origine si les pas sont équiprobables, est presque sûr de ne jamais y revenir si la probabilité d'avancer ou de reculer est presque nulle.
+            </p>
+
+            <p>
+              Voici dans le détail le calcul de <m>\Pr{N=\infty}</m>:
+              <ul>
+                <li>
+                  <p>
+                    Rappelons le DSE suivant :
+                    <me>
+                      \forall t\in]-1,1[,\; \frac{1}{\sqrt{1-t^2}}=\sum_{n=0}^\infty \frac{\binom{2n}n}{2^{2n}} t^{2n}
+                    </me>
+                  </p>
+                </li>
+
+                <li>
+                  <p>
+                    Posons <m>x=2\sqrt{pq}</m>.
+                    On a <m>pq=p(1-p)\leqslant 1/4</m> avec égalité si et seulement si <m>p=q=1/2</m>.
+                    D'où <m>x\in[0,1]</m>.
+                    <md>
+                      <mrow>\Pr{N=\infty} \amp=1-\sum_{n=1}^\infty\binom{2n}n  \frac{(pq)^n}{2n-1}  </mrow>
+                      <mrow> \amp= 1-\sum_{n=1}^\infty\frac{\binom{2n}n}{2^{2n}} \frac{x^{2n}}{2n-1}   </mrow>
+                      <mrow> \amp= 1-x\int_0^x \sum_{n=1}^\infty \frac{\binom{2n}n}{2^{2n}} t^{2n-2} dt  </mrow>
+                      <mrow> \amp= 1-x\int_0^x \left(\frac1{\sqrt{1-t^2}}-1\right) \frac{dt}{t^2}  </mrow>
+                      <mrow> \amp \overset{t=x/u}= 1-\int_1^\infty \left(\frac{1}{\sqrt{1-x^2/u^2}}-1\right)du   </mrow>
+                      <mrow> \amp=1-\lim_{U\to+\infty}\int_1^U\left(\frac u{\sqrt{u^2-x^2}}-1\right)du </mrow>
+                      <mrow> \amp= 1-\lim_{U\to\infty}\left(\sqrt{U^2-x^2}-U\right)+\left(\sqrt{1-x^2}-1\right)   </mrow>
+                      <mrow> \amp= \sqrt{1-x^2}-\lim_{U\to\infty}U\left(\sqrt{1-x^2/U^2}-1\right) </mrow>
+                      <mrow> \amp= \sqrt{1-x^2}   </mrow>
+                    </md>
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </solution>
+        </task>
+      </activity>
+    </subsection>
+  </section>
