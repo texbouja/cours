@@ -11,8 +11,7 @@ published
 docs
 
 # Ne pas traquer les dev locaux
-script
-css  
+custom
 
 # don't track assets generated from source
 generated-assets
